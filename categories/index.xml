@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Blog</title><link>https://anaminus.github.io/blog/categories/</link><description>Recent content in Categories on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://anaminus.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>The episode in which I make a blog</title><link>https://anaminus.github.io/blog/the-episode-in-which-i-make-a-blog/</link><pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/the-episode-in-which-i-make-a-blog/</guid><description>&lt;p>Found a &lt;a href="https://gohugo.io/">nice tool&lt;/a>, found a good workflow. Instead of long
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Blog</title><link>https://anaminus.github.io/blog/categories/</link><description>Recent content in Categories on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://anaminus.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>Stop linking to issues/new</title><link>https://anaminus.github.io/blog/stop-linking-to-issues/new/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/stop-linking-to-issues/new/</guid><description>&lt;p>You have a neat software project. This project has a presence on GitHub. Maybe
+you host the source code there, maybe you&amp;rsquo;re just leveraging the issue tracker.&lt;/p>
+&lt;p>Your project also has a website. You know that your users will have problems
+with your software, so you want to direct them from your website to your issue
+tracker. You want them to have the most streamlined experience possible, so you
+get the bright idea of linking to &lt;a>issues/new&lt;/a>. How convenient! One click,
+and they&amp;rsquo;re able to start writing a report immediately! Except, that isn&amp;rsquo;t what
+happens.&lt;/p>
+&lt;figure>
+&lt;img src="login.png" style="box-shadow: 0 0 8px gray;" alt="An unsolicited GitHub login page.">
+&lt;figcaption>
+What actually happens when users click on your link.
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>Ugh. Don&amp;rsquo;t assume my intentions. All you had to do was link to the issue page.
+It&amp;rsquo;s not like opening a new issue from there is hard.&lt;/p>
+&lt;figure>
+&lt;img src="new-issue.png" style="box-shadow: 0 0 8px gray;" alt="New-issue button on GitHub's issue tracker page.">
+&lt;figcaption>
+Can't miss it.
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>Other reasons why you may not want to do this:&lt;/p>
+&lt;ul>
+&lt;li>Non-GitHub users are stonewalled from even viewing your tracker without
+backtracking to find an alternate route.&lt;/li>
+&lt;li>A user wants to check for an existing issue before submitting their own. Have
+you been noticing a lot of duplicates?&lt;/li>
+&lt;/ul>
+&lt;p>If you &lt;em>are&lt;/em> going to pull this stunt, maybe you could at least link to the
+issue tracker at the same time?&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>Have a problem with this blog? &lt;a
+href="https://www.youtube.com/watch?v=Jne9t8sHpUc">Submit a new issue&lt;/a>, or &lt;a
+href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">view all of them&lt;/a>. See?
+That wasn&amp;rsquo;t so hard.&lt;/em>&lt;/p></description></item><item><title>The episode in which I make a blog</title><link>https://anaminus.github.io/blog/the-episode-in-which-i-make-a-blog/</link><pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/the-episode-in-which-i-make-a-blog/</guid><description>&lt;p>Found a &lt;a href="https://gohugo.io/">nice tool&lt;/a>, found a good workflow. Instead of long
 chains of &lt;a href="https://twitter.com/Anaminus">tweets&lt;/a> and obscurely-located &lt;a href="https://devforum.roblox.com/u/anaminus">replies&lt;/a>, here we
 have a proper place to write things.&lt;/p>
 &lt;blockquote>
