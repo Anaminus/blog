@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Blog</title><link>https://anaminus.github.io/blog/posts/</link><description>Recent content in Posts on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 06 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Securing secret branches</title><link>https://anaminus.github.io/blog/securing-secret-branches/</link><pubDate>Sun, 06 Nov 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/securing-secret-branches/</guid><description>&lt;p>Most posts I write will never be published. But I still keep them around
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Blog</title><link>https://anaminus.github.io/blog/posts/</link><description>Recent content in Posts on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 06 Nov 2022 20:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Syncing things</title><link>https://anaminus.github.io/blog/syncing-things/</link><pubDate>Sun, 06 Nov 2022 20:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/syncing-things/</guid><description>&lt;p>On my desktop, writings have to be technical, detailed, and correct. It&amp;rsquo;s hard
+to write blog posts from there. I find it a lot easier to write casually if it&amp;rsquo;s
+somewhere else, such as my laptop while sitting in a cushy chair.&lt;/p>
+&lt;p>But the blog&amp;rsquo;s local repository is still on my desktop. How do I do things from
+my laptop, then? It&amp;rsquo;s just Git, so it should be possible.&lt;/p>
+&lt;p>Well, it is possible, but it&amp;rsquo;s a pain to get going, and there are two parts. The
+first part involves setting up the &amp;ldquo;remote&amp;rdquo; repository as a bare repo somewhere
+on the desktop. Then separate repositories are cloned from it, one on the
+laptop, and another also on the desktop. These are just regular local
+repositories, but instead of the remote being GitHub or something, it&amp;rsquo;s just
+somewhere else on the desktop. There are some extra considerations, such as what
+to do about syncing the &amp;ldquo;local remote&amp;rdquo; to the &amp;ldquo;remote remote&amp;rdquo; GitHub, but I
+haven&amp;rsquo;t gotten that far, and don&amp;rsquo;t really care to.&lt;/p>
+&lt;p>Anyway, the second part is that I need the laptop to be able to access the file
+system of the desktop, in order to push to and pull from the &amp;ldquo;remote&amp;rdquo; repo. The
+laptop is Linux, while the desktop is Windows, so there&amp;rsquo;s some finagling
+required. I use a combination of &lt;a href="https://www.msys2.org/wiki/Setting-up-SSHd/">MSYS2 and SSHd&lt;/a> to get this done.&lt;/p>
+&lt;p>I&amp;rsquo;ve used this setup for exactly one repository so far, and that was mainly to
+test whether it was even viable. I think I would only use it if I needed to do
+the usual deep-focus work. But I&amp;rsquo;ve found that it&amp;rsquo;s difficult to do that kind of
+work on my laptop, so I&amp;rsquo;m not exactly enthusiastic about this setup.&lt;/p>
+&lt;p>The alternative setup, and what I&amp;rsquo;m currently doing, is to use
+&lt;a href="https://syncthing.net/">Syncthing&lt;/a>. I have Syncthing on both the laptop and desktop, and I
+just configure the blog repository as a folder that syncs between them.&lt;/p>
+&lt;p>Now, I suspect that Syncthing and Git wont play nice together. Some rudimentary
+internet research says as much. To get around this, I just don&amp;rsquo;t sync the git
+parts. There&amp;rsquo;s some other stuff that gets ignored, too. The exact patterns look
+like this:&lt;/p>
+&lt;pre tabindex="0">&lt;code>.git* # No git files.
+.git/ # No git directory.
+*.sublime-workspace # Stop Sublime Text from getting weird.
+*.lock # Hugo just drops this and leaves it lyin&amp;#39; around.
+&lt;/code>&lt;/pre>&lt;p>On the desktop, the blog is a full repository, but from the perspective of the
+laptop, it&amp;rsquo;s just a regular folder. I can still run Hugo on it, so that&amp;rsquo;s
+nothing to worry about.&lt;/p>
+&lt;p>I don&amp;rsquo;t get to do Git things from the laptop, but that&amp;rsquo;s fine. On the laptop,
+the writing is the most important part. Proofreading and publishing can come
+later, on the desktop. If anything, this setup is better, because it prevents me
+from getting distracted.&lt;/p>
+&lt;p>It&amp;rsquo;s interesting how I find it hard to do focused programming on my laptop, but
+easy to do casual writing. While on the desktop, it&amp;rsquo;s the complete opposite. If
+there&amp;rsquo;s anything to take away from this post, it&amp;rsquo;s to use different devices for
+different contexts.&lt;/p></description></item><item><title>Securing secret branches</title><link>https://anaminus.github.io/blog/securing-secret-branches/</link><pubDate>Sun, 06 Nov 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/securing-secret-branches/</guid><description>&lt;p>Most posts I write will never be published. But I still keep them around
 locally, because they often contain useful bits that will likely find their way
 into another post.&lt;/p>
 &lt;p>The blog is managed by git. When I want to publish a new post, I just commit and
