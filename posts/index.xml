@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Blog</title><link>https://anaminus.github.io/blog/posts/</link><description>Recent content in Posts on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/tiny-uvs/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/tiny-uvs/</guid><description>&lt;p>&lt;em>on Roblox&lt;/em>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Blog</title><link>https://anaminus.github.io/blog/posts/</link><description>Recent content in Posts on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 06 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Securing secret branches</title><link>https://anaminus.github.io/blog/securing-secret-branches/</link><pubDate>Sun, 06 Nov 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/securing-secret-branches/</guid><description>&lt;p>Most posts I write will never be published. But I still keep them around
+locally, because they often contain useful bits that will likely find their way
+into another post.&lt;/p>
+&lt;p>The blog is managed by git. When I want to publish a new post, I just commit and
+push (&amp;ldquo;pushlish&amp;rdquo;?). I keep drafts on a separate branch that stays local.&lt;/p>
+&lt;p>But how do I make sure it stays local? I don&amp;rsquo;t want to accidentally push super
+secret drafts to GitHub! Fortunately, GitHub has what are called &amp;ldquo;Protection
+rules&amp;rdquo;.&lt;/p>
+&lt;p>To set it up, first the branch needs to be on GitHub. It&amp;rsquo;s easy enough to create
+a new branch on the website by going to the &lt;code>/branches&lt;/code> page.&lt;/p>
+&lt;p>&lt;img src="fig1.png" alt="">&lt;/p>
+&lt;p>The branch has to be based off of another one. I used the same branch as what my
+local &lt;code>drafts&lt;/code> branch is based off of. This will make accidental pulls safe,
+since git will just think the local branch is the latest.&lt;/p>
+&lt;p>Next, I went to Settings, then Branches, and added a new Branch protection rule,
+where the pattern matched the name of the branch:&lt;/p>
+&lt;p>&lt;img src="fig2.png" alt="">&lt;/p>
+&lt;p>Then I included the Lock branch rule. This will prevent me from pushing to it. I
+also included the &amp;ldquo;Do not allow bypassing above settings&amp;rdquo;. Seems like a safe
+thing to do.&lt;/p>
+&lt;p>&lt;img src="fig3.png" alt="">&lt;/p>
+&lt;p>Saved the rule, and that&amp;rsquo;s it.&lt;/p>
+&lt;p>&lt;img src="fig4.png" alt="">&lt;/p>
+&lt;p>Now when I try to push to the branch, GitHub will reject the attempt.&lt;/p>
+&lt;p>&lt;img src="fig5.png" alt="">&lt;/p>
+&lt;p>Notably, git still tries to upload everything, and the rejection comes
+afterwards. I could add a local pre-push hook to prevent the uploading, but I&amp;rsquo;m
+not worried about it. The point is to prevent the drafts from becoming public,
+which has already been accomplished.&lt;/p></description></item><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/tiny-uvs/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/tiny-uvs/</guid><description>&lt;p>&lt;em>on Roblox&lt;/em>&lt;/p>
 &lt;p>You want to produce meshes with simple, solid color textures. Because the colors
 are solid, you should be able to get away with using small textures. Tiny
 textures. Single-digit resolution textures. Possible, right?&lt;/p>
