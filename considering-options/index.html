@@ -1,0 +1,171 @@
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Blog posts from Anaminus"><link rel="shortcut icon" href=https://anaminus.github.io/blog/favicon.ico><link rel=stylesheet href=/blog/css/style.min.css><title>Considering options</title></head><body><header id=banner><h2><a href=https://anaminus.github.io/blog>Blog</a></h2><nav><ul><li><a href=/blog/ title=posts>posts</a></li><li><a href=/blog/about/ title=about>about</a></li></ul></nav></header><main id=content><article><header id=post-header><h1>Considering options</h1><div><time>Nov 10, 2022</time></div></header><p><em>or: How to implement an Option type in Go</em></p><p>I&rsquo;m in the middle of rewriting <a href=https://github.com/robloxapi/rbxfile>rbxfile</a>. A rewrite gives the
+opportunity to right any wrongs.</p><p>One of the wrongs was my approach to Optional types. That is not to say that it
+was incorrect, but it perhaps wasn&rsquo;t considered as carefully as it could have
+been. Moreover, Go didn&rsquo;t have generics at the time, so there were fewer good
+options available.</p><p>I currently have the Optional type implemented as a struct with a Type and a
+Value field.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span> <span class=nx>Optional</span> <span class=kd>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>typ</span>   <span class=nx>Type</span>
+</span></span><span class=line><span class=cl>	<span class=nx>value</span> <span class=nx>Value</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>A Type is an enum representing a limited set of data types. A Value is an
+interface containing a value of one of these types (a part of the contract is a
+<code>Type()</code> method that returns the Type).</p><p>The some-ness of the Optional is indicated by the Value being non-nil. When it
+is nil, the additional Type field is included so that a none-y Optional still
+has a type. These fields are encapsulated to prevent things from getting weird.</p><p>Overall, pretty clunky. This is what we must do when generics aren&rsquo;t a thing.</p><p>Once generics landed, more possibilities became available. I tried grappling
+with them a few months ago, but wasn&rsquo;t able to settle on anything. Not only was
+I still figuring out generics, but there were always questions of &ldquo;What if this
+implementation prevents me from using it in some necessary way? What if that
+other implementation does the same thing, but for different requirements?&rdquo; The
+real problem was that the requirements were poorly understood.</p><p>Now that I&rsquo;m rewriting the whole thing, I&rsquo;m able to take a step back and look at
+the full picture. With a better view, I was able to come up with the following
+requirement:</p><ul><li>I need to be able to type-switch over the inner type of an optional.</li></ul><p>That is, once a type has been determined to be <em>some kind</em> of Optional, I then
+need to be able to determine that inner type. For example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nf>InspectValue</span><span class=p>(</span><span class=nx>value</span> <span class=nx>Value</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>switch</span> <span class=nx>value</span> <span class=o>:=</span> <span class=nx>value</span><span class=p>.(</span><span class=kd>type</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>case</span> <span class=nx>String</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;it&#39;s a string!&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>case</span> <span class=nx>CFrame</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;it&#39;s a CFrame!&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>case</span> <span class=nx>Optional</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;it&#39;s optional!&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=nx>v</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>value</span><span class=p>.</span><span class=nf>Optional</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>ok</span> <span class=o>:=</span> <span class=nx>v</span><span class=p>.(</span><span class=nx>Optional</span><span class=p>);</span> <span class=p>!</span><span class=nx>ok</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nf>InspectValue</span><span class=p>(</span><span class=nx>v</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This would recursively cover the following types:</p><ul><li><code>String</code></li><li><code>CFrame</code></li><li><code>Optional&lt;String></code></li><li><code>Optional&lt;CFrame></code></li></ul><p>The keyword being &ldquo;recursive&rdquo;. It&rsquo;s a lot easier if I don&rsquo;t have to reimplement
+cases for each type of Optional that might crop up.</p><p>Once you have at least one requirement, it becomes infinitely easier to think
+about the implementation. Whether it is good or bad can actually be answered.</p><p>Additionally, the various possible implementations for Optional have had time to
+gestate in my mind. I was able to determine that there are two separated
+concerns: an interface for the optional, and the implementations of this
+interface.</p><h2 id=interfaces>Interfaces</h2><p>On the interface side, there are two possibilities:</p><ul><li>Typed interface</li><li>Untyped interface</li></ul><h3 id=typed-interface>Typed interface</h3><p>The typed interface has a method where the optional returns its inner type
+directly. It can be defined like so:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span> <span class=nx>TypedOptional</span><span class=p>[</span><span class=nx>T</span> <span class=nx>any</span><span class=p>]</span> <span class=kd>interface</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nf>TypedOptional</span><span class=p>()</span> <span class=p>(</span><span class=nx>value</span> <span class=nx>T</span><span class=p>,</span> <span class=nx>ok</span> <span class=kt>bool</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>That is, for an Optional with inner type T, the method returns a value of type
+T.</p><p>How does this fit into the requirements? Well, not very well. It isn&rsquo;t possible
+to have <em>any kind</em> of optional as a case. The inner type of the optional must be
+known beforehand. The inspector would have to look like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nf>InspectValue</span><span class=p>(</span><span class=nx>value</span> <span class=nx>Value</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>switch</span> <span class=nx>value</span> <span class=o>:=</span> <span class=nx>value</span><span class=p>.(</span><span class=kd>type</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>case</span> <span class=nx>String</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;it&#39;s a string!&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>case</span> <span class=nx>CFrame</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;it&#39;s a CFrame!&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>case</span> <span class=nx>Optional</span><span class=p>[</span><span class=nx>String</span><span class=p>]:</span>
+</span></span><span class=line><span class=cl>		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;it&#39;s a string?&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=nx>v</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>value</span><span class=p>.</span><span class=nf>Optional</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>		<span class=nf>InspectValue</span><span class=p>(</span><span class=nx>v</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>case</span> <span class=nx>Optional</span><span class=p>[</span><span class=nx>CFrame</span><span class=p>]:</span>
+</span></span><span class=line><span class=cl>		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;it&#39;s a CFrame?&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=nx>v</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>value</span><span class=p>.</span><span class=nf>Optional</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>		<span class=nf>InspectValue</span><span class=p>(</span><span class=nx>v</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Now, if I did need this kind of switching, then this interface would be great
+to have. For now, though, I&rsquo;ll keep it off to the side.</p><h3 id=untyped-interface>Untyped interface</h3><p>The untyped interface has a similar method, except that the value is returned
+through an empty interface:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span> <span class=nx>UntypedOptional</span> <span class=kd>interface</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nf>UntypedOptional</span><span class=p>()</span> <span class=p>(</span><span class=nx>value</span> <span class=nx>any</span><span class=p>,</span> <span class=nx>ok</span> <span class=kt>bool</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Unlike the typed variation, this meets the requirements quite nicely. The
+interface has no type parameters, and the method returns an interface that can
+be type-switched on.</p><h2 id=implementations>Implementations</h2><p>On the implementation side, there are also two possibilities:</p><ul><li>Unified</li><li>Separated</li></ul><p>Something to note is that both implementations can implement either kind of
+interface.</p><h3 id=unified-type>Unified type</h3><p>The unified implementation consists of one type that embeds the state of the
+Optional.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span> <span class=nx>UnifiedOptional</span><span class=p>[</span><span class=nx>T</span> <span class=nx>any</span><span class=p>]</span> <span class=kd>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>Value</span> <span class=nx>T</span>
+</span></span><span class=line><span class=cl>	<span class=nx>Ok</span>    <span class=kt>bool</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Implementing each interface is straightforward:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=nx>UnifiedOptional</span><span class=p>[</span><span class=nx>T</span><span class=p>])</span> <span class=nf>UntypedOptional</span><span class=p>()</span> <span class=p>(</span><span class=nx>value</span> <span class=nx>any</span><span class=p>,</span> <span class=nx>ok</span> <span class=kt>bool</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>o</span><span class=p>.</span><span class=nx>Value</span><span class=p>,</span> <span class=nx>o</span><span class=p>.</span><span class=nx>Ok</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=nx>UnifiedOptional</span><span class=p>[</span><span class=nx>T</span><span class=p>])</span> <span class=nf>TypedOptional</span><span class=p>()</span> <span class=p>(</span><span class=nx>value</span> <span class=nx>T</span><span class=p>,</span> <span class=nx>ok</span> <span class=kt>bool</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>o</span><span class=p>.</span><span class=nx>Value</span><span class=p>,</span> <span class=nx>o</span><span class=p>.</span><span class=nx>Ok</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Then I can create some constructors for each kind of optional. Two for Some and
+None directly, and then another for specifying indirectly via boolean:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nx>UnifiedSome</span><span class=p>[</span><span class=nx>T</span> <span class=nx>any</span><span class=p>](</span><span class=nx>value</span> <span class=nx>T</span><span class=p>)</span> <span class=nx>UnifiedOptional</span><span class=p>[</span><span class=nx>T</span><span class=p>]</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>UnifiedOptional</span><span class=p>[</span><span class=nx>T</span><span class=p>]{</span><span class=nx>Value</span><span class=p>:</span> <span class=nx>value</span><span class=p>,</span> <span class=nx>Ok</span><span class=p>:</span> <span class=kc>true</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nx>UnifiedNone</span><span class=p>[</span><span class=nx>T</span> <span class=nx>any</span><span class=p>]()</span> <span class=nx>UnifiedOptional</span><span class=p>[</span><span class=nx>T</span><span class=p>]</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>UnifiedOptional</span><span class=p>[</span><span class=nx>T</span><span class=p>]{</span><span class=nx>Ok</span><span class=p>:</span> <span class=kc>false</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nx>UnifiedNewOptional</span><span class=p>[</span><span class=nx>T</span> <span class=nx>any</span><span class=p>](</span><span class=nx>value</span> <span class=nx>T</span><span class=p>,</span> <span class=nx>ok</span> <span class=kt>bool</span><span class=p>)</span> <span class=nx>UnifiedOptional</span><span class=p>[</span><span class=nx>T</span><span class=p>]</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>UnifiedOptional</span><span class=p>[</span><span class=nx>T</span><span class=p>]{</span><span class=nx>Value</span><span class=p>:</span> <span class=nx>value</span><span class=p>,</span> <span class=nx>ok</span><span class=p>:</span> <span class=nx>ok</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=nx>UnifiedDirectSome</span>   <span class=p>=</span> <span class=nf>UnifiedSome</span><span class=p>(</span><span class=mi>42</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>UnifiedDirectNone</span>   <span class=p>=</span> <span class=nx>UnifiedNone</span><span class=p>[</span><span class=kt>int</span><span class=p>]()</span>
+</span></span><span class=line><span class=cl>	<span class=nx>UnifiedIndirectSome</span> <span class=p>=</span> <span class=nf>UnifiedNewOptional</span><span class=p>(</span><span class=mi>42</span><span class=p>,</span> <span class=kc>true</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>UnifiedIndirectNone</span> <span class=p>=</span> <span class=nf>UnifiedNewOptional</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=kc>false</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></div><h3 id=separated-types>Separated types</h3><p>The separated implementation consists of separate types for Some and None:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span> <span class=nx>SeparatedNone</span><span class=p>[</span><span class=nx>T</span> <span class=nx>any</span><span class=p>]</span> <span class=kd>struct</span><span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>type</span> <span class=nx>SeparatedSome</span><span class=p>[</span><span class=nx>T</span> <span class=nx>any</span><span class=p>]</span> <span class=kd>struct</span><span class=p>{</span> <span class=nx>Value</span> <span class=nx>T</span> <span class=p>}</span>
+</span></span></code></pre></div><p>Each type implements each interface:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=nx>SeparatedNone</span><span class=p>[</span><span class=nx>T</span><span class=p>])</span> <span class=nf>UntypedOptional</span><span class=p>()</span> <span class=p>(</span><span class=nx>value</span> <span class=nx>any</span><span class=p>,</span> <span class=nx>ok</span> <span class=kt>bool</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=kd>var</span> <span class=nx>v</span> <span class=nx>T</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>v</span><span class=p>,</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=nx>SeparatedNone</span><span class=p>[</span><span class=nx>T</span><span class=p>])</span> <span class=nf>TypedOptional</span><span class=p>()</span> <span class=p>(</span><span class=nx>value</span> <span class=nx>T</span><span class=p>,</span> <span class=nx>ok</span> <span class=kt>bool</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=kd>var</span> <span class=nx>v</span> <span class=nx>T</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>v</span><span class=p>,</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=nx>SeparatedSome</span><span class=p>[</span><span class=nx>T</span><span class=p>])</span> <span class=nf>UntypedOptional</span><span class=p>()</span> <span class=p>(</span><span class=nx>value</span> <span class=nx>any</span><span class=p>,</span> <span class=nx>ok</span> <span class=kt>bool</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>o</span><span class=p>.</span><span class=nx>Value</span><span class=p>,</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=nx>SeparatedSome</span><span class=p>[</span><span class=nx>T</span><span class=p>])</span> <span class=nf>TypedOptional</span><span class=p>()</span> <span class=p>(</span><span class=nx>value</span> <span class=nx>T</span><span class=p>,</span> <span class=nx>ok</span> <span class=kt>bool</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>o</span><span class=p>.</span><span class=nx>Value</span><span class=p>,</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Here, I only need one constructor, for specifying indirectly. Direct optionals
+can be created via their respective composite literal:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nx>SeparatedNewOptional</span><span class=p>[</span><span class=nx>T</span> <span class=nx>any</span><span class=p>](</span><span class=nx>value</span> <span class=nx>T</span><span class=p>,</span> <span class=nx>ok</span> <span class=kt>bool</span><span class=p>)</span> <span class=nx>TypedOptional</span><span class=p>[</span><span class=nx>T</span><span class=p>]</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>ok</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>SeparatedSome</span><span class=p>[</span><span class=nx>T</span><span class=p>]{</span><span class=nx>Value</span><span class=p>:</span> <span class=nx>value</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>SeparatedNone</span><span class=p>[</span><span class=nx>T</span><span class=p>]{}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=nx>SeparatedDirectSome</span>   <span class=p>=</span> <span class=nx>SeparatedSome</span><span class=p>{</span><span class=nx>Value</span><span class=p>:</span> <span class=mi>42</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=nx>SeparatedDirectNone</span>   <span class=p>=</span> <span class=nx>SeparatedNone</span><span class=p>[</span><span class=kt>int</span><span class=p>]{}</span>
+</span></span><span class=line><span class=cl>	<span class=nx>SeparatedIndirectSome</span> <span class=p>=</span> <span class=nf>SeparatedNewOptional</span><span class=p>(</span><span class=mi>42</span><span class=p>,</span> <span class=kc>true</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>SeparatedIndirectNone</span> <span class=p>=</span> <span class=nf>SeparatedNewOptional</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=kc>false</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></div><h2 id=pick-something>Pick something</h2><p>The separated implementation seems like the most elegant. It&rsquo;s nice that the
+state of the optional is stored in the type instead of as data.</p><p>The drawback is that it wouldn&rsquo;t work well with only the untyped interface. If I
+wanted the option to assert specific types of optionals, like <code>Optional[String]</code>
+or <code>Optional[CFrame]</code>, I wouldn&rsquo;t be able to, because those types don&rsquo;t exist. I
+would have to assume the state of the optional as well as the type, such as
+<code>Some[String]</code> or <code>None[CFrame]</code>.</p><p>However, if I elect to have both the typed and untyped interfaces at the same
+time, then this option remains open. Each interface requires a separate method,
+and each type implements both methods. To assert, I just have to use the typed
+interface instead of an implementation, such as <code>TypedOptional[CFrame]</code>.
+Interestingly, this still leaves the option of asserting specific states, too.</p><p>Can you get anymore flexible? Yes, actually. There&rsquo;s still the cases of
+optionals with a specific state, but any type. This can be done by extending the
+untyped interface with two more:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span> <span class=nx>SomeOptional</span> <span class=kd>interface</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>UntypedOptional</span>
+</span></span><span class=line><span class=cl>	<span class=nf>Some</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kd>type</span> <span class=nx>NoneOptional</span> <span class=kd>interface</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>UntypedOptional</span>
+</span></span><span class=line><span class=cl>	<span class=nf>None</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=nx>SeparatedNone</span><span class=p>[</span><span class=nx>T</span><span class=p>])</span> <span class=nf>None</span><span class=p>()</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>o</span> <span class=nx>SeparatedSome</span><span class=p>[</span><span class=nx>T</span><span class=p>])</span> <span class=nf>Some</span><span class=p>()</span> <span class=p>{}</span>
+</span></span></code></pre></div><p>With these final additions, cases for all possible combinations can be made:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=k>switch</span> <span class=nx>value</span><span class=p>.(</span><span class=kd>type</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>case</span> <span class=nx>T</span><span class=p>:</span>                <span class=c1>// T
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>case</span> <span class=nx>any</span><span class=p>:</span>              <span class=c1>// ?
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>case</span> <span class=nx>None</span><span class=p>[</span><span class=nx>T</span><span class=p>]:</span>          <span class=c1>// None&lt;T&gt;
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>case</span> <span class=nx>NoneOptional</span><span class=p>:</span>     <span class=c1>// None&lt;?&gt;
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>case</span> <span class=nx>Some</span><span class=p>[</span><span class=nx>T</span><span class=p>]:</span>          <span class=c1>// Some&lt;T&gt;
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>case</span> <span class=nx>SomeOptional</span><span class=p>:</span>     <span class=c1>// Some&lt;?&gt;
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>case</span> <span class=nx>TypedOptional</span><span class=p>[</span><span class=nx>T</span><span class=p>]:</span> <span class=c1>// Optional&lt;T&gt;
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>case</span> <span class=nx>UntypedOptional</span><span class=p>:</span>  <span class=c1>// Optional&lt;?&gt;
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
+</span></span></code></pre></div><p>Now the problem is simply deciding on actual names for all of thes-</p><p>Maybe I&rsquo;ll reconsider&mldr;</p></article></main><footer id=footer>Copyright © 2022 Anaminus</footer></body></html>
