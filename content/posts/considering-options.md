@@ -1,10 +1,10 @@
 +++
 title = "Considering options"
-description = "or: How to implement an Option type in Go"
+description = "or: How to implement an Optional type in Go"
 date = 2022-11-10 06:00:00
 +++
 
-*or: How to implement an Option type in Go*
+*or: How to implement an Optional type in Go*
 
 I'm in the middle of rewriting [rbxfile][rbxfile]. A rewrite gives the
 opportunity to right any wrongs.
@@ -15,7 +15,7 @@ been. Moreover, Go didn't have generics at the time, so there were fewer good
 options available.
 
 I currently have the Optional type implemented as a struct with a Type and a
-Value field.
+Value field:
 
 ```go
 type Optional struct {
