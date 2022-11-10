@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Blog</title><link>https://anaminus.github.io/blog/posts/</link><description>Recent content in Posts on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Thu, 10 Nov 2022 06:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Considering options</title><link>https://anaminus.github.io/blog/considering-options/</link><pubDate>Thu, 10 Nov 2022 06:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/considering-options/</guid><description>&lt;p>&lt;em>or: How to implement an Option type in Go&lt;/em>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Blog</title><link>https://anaminus.github.io/blog/posts/</link><description>Recent content in Posts on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Thu, 10 Nov 2022 06:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Considering options</title><link>https://anaminus.github.io/blog/considering-options/</link><pubDate>Thu, 10 Nov 2022 06:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/considering-options/</guid><description>&lt;p>&lt;em>or: How to implement an Optional type in Go&lt;/em>&lt;/p>
 &lt;p>I&amp;rsquo;m in the middle of rewriting &lt;a href="https://github.com/robloxapi/rbxfile">rbxfile&lt;/a>. A rewrite gives the
 opportunity to right any wrongs.&lt;/p>
 &lt;p>One of the wrongs was my approach to Optional types. That is not to say that it
@@ -6,7 +6,7 @@ was incorrect, but it perhaps wasn&amp;rsquo;t considered as carefully as it cou
 been. Moreover, Go didn&amp;rsquo;t have generics at the time, so there were fewer good
 options available.&lt;/p>
 &lt;p>I currently have the Optional type implemented as a struct with a Type and a
-Value field.&lt;/p>
+Value field:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">type&lt;/span> &lt;span class="nx">Optional&lt;/span> &lt;span class="kd">struct&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">typ&lt;/span> &lt;span class="nx">Type&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">value&lt;/span> &lt;span class="nx">Value&lt;/span>
