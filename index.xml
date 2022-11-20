@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog</title><link>https://anaminus.github.io/blog/</link><description>Recent content on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Thu, 10 Nov 2022 06:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Considering options</title><link>https://anaminus.github.io/blog/considering-options/</link><pubDate>Thu, 10 Nov 2022 06:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/considering-options/</guid><description>&lt;p>&lt;em>or: How to implement an Optional type in Go&lt;/em>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog</title><link>https://anaminus.github.io/blog/</link><description>Recent content on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 20 Nov 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Exclusive replication</title><link>https://anaminus.github.io/blog/exclusive-replication/</link><pubDate>Sun, 20 Nov 2022 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/exclusive-replication/</guid><description>&lt;p>Instances in Roblox &lt;strong>replicate&lt;/strong>. That is, a particular instance on the server
+will have a copy of itself on each client, and all aspects of this instance are
+kept synchronized, including what children it has. In almost all cases, this
+replication occurs in one direction only, from server to client.&lt;/p>
+&lt;p>Say the server has a red brick in the Workspace. This brick will be replicated
+to all clients. When the server changes the brick&amp;rsquo;s color to blue, this change
+will be replicated to each client, making their local copy of the brick also
+blue. However, when a client tries to change the color of its brick to green,
+this change is &lt;em>not&lt;/em> replicated back to the server or any other client. The
+change remains local to the client. Moreover, because only changes are
+replicated, the server wont constantly be trying to update the brick&amp;rsquo;s color
+back to red, so it will remain green, at least until the server changes the
+color again.&lt;/p>
+&lt;p>A problem with most instances is that they have only two replication behaviors:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>All&lt;/strong>: The instance is replicated to all clients.&lt;/li>
+&lt;li>&lt;strong>None&lt;/strong>: The instance is not replicated to any client.&lt;/li>
+&lt;/ul>
+&lt;p>This can be annoying if we have an instance that we want to show only to one
+client. Or if we want to keep network usage down, we want to replicate only
+relevant instances instead of absolutely everything.&lt;/p>
+&lt;p>Note that I said &amp;ldquo;most&amp;rdquo; instances. There is in fact exactly &lt;em>one&lt;/em> instance that
+has a different behavior. If you look at the &lt;a href="https://create.roblox.com/docs/reference/engine/classes/PlayerGui">documentation page for
+PlayerGui&lt;/a>, you will see that it has a curious tag called &lt;code>Player Replicated&lt;/code>. The tag&amp;rsquo;s tooltip says the following:&lt;/p>
+&lt;blockquote>
+&lt;p>This object’s replication behavior is dependent on the player who owns it.&lt;/p>
+&lt;/blockquote>
+&lt;p>What this means is that the PlayerGui replicates only to one client.
+Specifically, PlayerGui&amp;rsquo;s parent Player instance.&lt;/p>
+&lt;p>It makes sense in context. GUIs are rendered locally on the client only for the
+one player. It doesn&amp;rsquo;t make sense to render everyone else&amp;rsquo;s GUIs, so there&amp;rsquo;s no
+point in replicating them either.&lt;/p>
+&lt;p>We can use this as a solution to our problems. To replicate an instance
+exclusively to one client, we can copy the instance to the client&amp;rsquo;s PlayerGui.&lt;/p>
+&lt;figure>
+&lt;img src="fig1.png" style="box-shadow: 0 0 8px gray;">
+&lt;figcaption>
+You can put anything under the PlayerGui.
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>I use the term &amp;ldquo;exclusive&amp;rdquo; here rather than &amp;ldquo;selective&amp;rdquo;, because this technique
+doesn&amp;rsquo;t actually let us select which clients a specific instance is replicated
+to. Instead, we have to make a copy of the instance on the server for each
+client we want to replicate to. It&amp;rsquo;s possible to write a module that manages all
+of this for us, at which point the module could be called selective. But the
+underlying technique is exclusive.&lt;/p>
+&lt;p>Anyway, we can now choose which clients to replicate to, but there are some new
+problems to take care of. Because we are using the PlayerGui, we have to
+consider its other behaviors. Namely, that it renders ScreenGuis placed under
+it. We want to be able to exclusively replicate a ScreenGui without
+unintentionally rendering it. We could make an exception, such as forcing
+&lt;code>ScreenGui.Enabled&lt;/code> to false before replicating, but there&amp;rsquo;s a more general
+solution.&lt;/p>
+&lt;p>Remember how I said that changes on the client do not replicate back to the
+server? This includes moving the instance around. An instance on the server is
+matched to an instance on the client by the instance itself, rather than its
+location. So, on the client, as long as the instance stays under the DataModel,
+it will continue to receive changes from the server no matter where it is
+located.&lt;/p>
+&lt;figure>
+&lt;img src="fig2.png" style="box-shadow: 0 0 8px gray;">
+&lt;/figure>
+&lt;p>Instead of putting instances directly in the PlayerGui, let&amp;rsquo;s put them in a
+Folder that is located under the PlayerGui. On the server, the Folder must
+always stay here. On the client however, it can be moved to anywhere we want. By
+moving it outside of the PlayerGui, the replication behavior is retained, while
+the GUI-rendering behavior is dropped.&lt;/p>
+&lt;figure>
+&lt;img src="fig3.png" style="box-shadow: 0 0 8px gray;">
+&lt;figcaption>
+Changes to the Container on the server are still replicated to the Container on
+the client, no matter where it is located. ServerStorage is perfectly usable on
+the client, and makes for a good location to store the Container.
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>There is only one more problem now: by default, all instances under the
+PlayerGui will be removed before the player&amp;rsquo;s character respawns. For
+ScreenGuis, this can be prevented with the ResetOnSpawn property, but Folders do
+not have this. Fortunately, there is the
+&lt;a href="https://create.roblox.com/docs/reference/engine/classes/StarterGui#ResetPlayerGuiOnSpawn">StarterGui.ResetPlayerGuiOnSpawn&lt;/a> property. While this
+is listed as deprecated, it can still be used just fine. However, it is also
+hidden from the properties panel in Studio, so the command bar is needed in
+order to change it:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-lua" data-lang="lua">&lt;span class="line">&lt;span class="cl">&lt;span class="n">game.StarterGui&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ResetPlayerGuiOnSpawn&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">false&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setting this property to false will prevent any instance under the PlayerGui
+from being removed when the character respawns. Note that this does change
+StarterGui behavior, so we&amp;rsquo;ll have to adjust accordingly.&lt;/p>
+&lt;p>Overall, this is a very hacky workaround. But hopefully it justifies the
+addition of some kind of &amp;ldquo;PlayerStorage&amp;rdquo; container, whose only purposes is to
+replicate its descendants to one player at a time. There are other more
+complicated solutions to selective replication, but I feel like this would be a
+good and very simple intermediate step.&lt;/p>
+&lt;figure>
+&lt;img src="fig4.png" style="box-shadow: 0 0 8px gray;">
+&lt;figcaption>
+Get an icon ready!
+&lt;/figcaption>
+&lt;/figure></description></item><item><title>Considering options</title><link>https://anaminus.github.io/blog/considering-options/</link><pubDate>Thu, 10 Nov 2022 06:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/considering-options/</guid><description>&lt;p>&lt;em>or: How to implement an Optional type in Go&lt;/em>&lt;/p>
 &lt;p>I&amp;rsquo;m in the middle of rewriting &lt;a href="https://github.com/robloxapi/rbxfile">rbxfile&lt;/a>. A rewrite gives the
 opportunity to right any wrongs.&lt;/p>
 &lt;p>One of the wrongs was my approach to Optional types. That is not to say that it
