@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Blog posts from Anaminus"><link rel="shortcut icon" href=https://anaminus.github.io/blog/favicon.ico><link rel=stylesheet href=/blog/css/style.min.css><title>Exclusive replication</title></head><body><header id=banner><h2><a href=https://anaminus.github.io/blog>Blog</a></h2><nav><ul><li><a href=/blog/ title=posts>posts</a></li><li><a href=/blog/about/ title=about>about</a></li></ul></nav></header><main id=content><article><header id=post-header><h1>Exclusive replication</h1><div><time>Nov 20, 2022</time></div></header><p>Instances in Roblox <strong>replicate</strong>. That is, a particular instance on the server
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Blog posts from Anaminus"><link rel="shortcut icon" href=https://anaminus.github.io/blog/favicon.ico><link rel=stylesheet href=/blog/css/style.min.css><link rel=canonical href=https://anaminus.github.io/blog/exclusive-replication/><title>Exclusive replication</title></head><body><header id=banner><h2><a href=https://anaminus.github.io/blog>Blog</a></h2><nav><ul><li><a href=/blog/ title=posts>posts</a></li><li><a href=/blog/about/ title=about>about</a></li></ul></nav></header><main id=content><article><header id=post-header><h1>Exclusive replication</h1><div><time>Updated November 23, 2022</time></div></header><p>Instances in Roblox <strong>replicate</strong>. That is, a particular instance on the server
 will have a copy of itself on each client, and all aspects of this instance are
 kept synchronized, including what children it has. In almost all cases, this
 replication occurs in one direction only, from server to client.</p><p>Say the server has a red brick in the Workspace. This brick will be replicated
@@ -33,7 +33,11 @@ server? This includes moving the instance around. An instance on the server is
 matched to an instance on the client by the instance itself, rather than its
 location. So, on the client, as long as the instance stays under the DataModel,
 it will continue to receive changes from the server no matter where it is
-located.</p><figure><img src=fig2.png style="box-shadow:0 0 8px gray"></figure><p>Instead of putting instances directly in the PlayerGui, let&rsquo;s put them in a
+located.</p><figure><img src=fig2.png style="box-shadow:0 0 8px gray"><figcaption>Moving an instance is considered a distinct unit of change, like setting a
+property or adding a new child. That is, whenever some other change occurs,
+there isn't going to be an additional check to make sure the instance in
+question is in the right place. The Parent property of the instance will only be
+replicated when it actually changes on the server.</figcaption></figure><p>Instead of putting instances directly in the PlayerGui, let&rsquo;s put them in a
 Folder that is located under the PlayerGui. On the server, the Folder must
 always stay here. On the client however, it can be moved to anywhere we want. By
 moving it outside of the PlayerGui, the replication behavior is retained, while
@@ -53,4 +57,10 @@ StarterGui behavior, so we&rsquo;ll have to adjust accordingly.</p><p>Overall, t
 addition of some kind of &ldquo;PlayerStorage&rdquo; container, whose only purposes is to
 replicate its descendants to one player at a time. There are other more
 complicated solutions to selective replication, but I feel like this would be a
-good and very simple intermediate step.</p><figure><img src=fig4.png style="box-shadow:0 0 8px gray"><figcaption>Get an icon ready!</figcaption></figure></article></main><footer id=footer>Copyright © 2022 Anaminus</footer></body></html>
+good and very simple intermediate step.</p><figure><img src=fig4.png style="box-shadow:0 0 8px gray"><figcaption>Get an icon ready!</figcaption></figure><p>We might be tempted to do this right now; instead of putting the Container under
+ServerStorage, we could call it &ldquo;PlayerStorage&rdquo; and put it directly under the
+Player. However, if Roblox does add their own PlayerStorage container, then it
+will conflict with ours, and things will likely break. Personally, I really like
+the idea of PlayerStorage, and wouldn&rsquo;t want to do anything that would
+discourage Roblox from implementing it as-is. So, I would either put the
+container somewhere else, or at least give it a different name.</p></article></main><footer id=footer>Copyright © 2022 Anaminus</footer></body></html>
