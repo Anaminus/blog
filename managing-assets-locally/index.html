@@ -1,0 +1,42 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Blog posts from Anaminus"><link rel="shortcut icon" href=https://anaminus.github.io/blog/favicon.ico><link rel=stylesheet href=/blog/css/style.min.css><link rel=canonical href=https://anaminus.github.io/blog/managing-assets-locally/><title>Managing assets locally</title></head><body><header id=banner><h2><a href=https://anaminus.github.io/blog>Blog</a></h2><nav><ul><li><a href=/blog/ title=posts>posts</a></li><li><a href=/blog/about/ title=about>about</a></li></ul></nav></header><main id=content><article><header id=post-header><h1>Managing assets locally</h1><div><time>November 23, 2022</time></div></header><p>If you&rsquo;re not indoctrinated into the cult of The Cloud™, then managing assets on
+Roblox can be a pain. The assumption seems to be that you&rsquo;re meant to upload
+everything and subject it to moderation whether it&rsquo;s ready or not.</p><p>I prefer to keep assets local for as long as possible. Roblox Studio has an
+option to hot-reload assets that live on the local file system, which is
+absolutely invaluable for fast iteration. Uploading a million variations of
+textures that I&rsquo;ll never use ever again doesn&rsquo;t make any sense.</p><p>The problem with locally-sourced assets is that there aren&rsquo;t many locations that
+Studio will read assets from. One of them is Roblox&rsquo;s content folder, which is
+referred to using the <code>rbxasset://</code> scheme. This contains most of the assets
+Roblox uses for their user interfaces, plugins, and whatnot. Unfortunately, it&rsquo;s
+annoying for developers to use for their own assets, because the location
+changes every time Roblox updates.</p><p>This could be worked around with some tooling, but Studio does have an
+additional folder that is more persistent. It&rsquo;s located in the same place where
+settings are stored. On Windows, this is the following:</p><pre tabindex=0><code>%LocalAppData%\Roblox\LocalAssets
+</code></pre><p>This folder behaves like the content folder. Files in here can be referred to
+using the same <code>rbxasset://</code> scheme. Studio sort of merges this with the content
+folder, checking the other folder if a file was not found in the first.</p><p>Studio also has a hidden setting that controls the location of this folder. In
+the same place as LocalAssets (<code>%LocalAppData%\Roblox</code>), there is the
+<code>GlobalSettings_13.xml</code> file (the numeric suffix may vary). Within this file is
+the &ldquo;Studio&rdquo; class. Within the Studio class is a &ldquo;LocalAssetsFolder&rdquo; setting
+that doesn&rsquo;t appear in the normal settings list. This setting determines which
+folder local assets will be read from.</p><p>The problem with this folder is that it&rsquo;s only <em>one</em> folder. Us developers, we
+tend to make many projects. And having to keep project-specific assets outside
+of the project isn&rsquo;t fun to deal with.</p><p>My go-to solution is to use symbolic links, which is (very fortunately)
+supported by Studio. The idea is to have a folder in your project that is used
+for assets (e.g. <code>project/assets</code>). A link to this folder is then made in the
+LocalAssets folder, using the project&rsquo;s name as the name of the link.</p><p>Windows has the <code>mklink</code> command for making symbolic links:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-batch data-lang=batch><span class=line><span class=cl><span class=k>cd</span> <span class=nv>%LocalAppData%</span>\Roblox\LocalAssets
+</span></span><span class=line><span class=cl><span class=k>mklink</span> /D project path\to\project\assets
+</span></span></code></pre></div><p>This will make a directory link called &ldquo;project&rdquo; in the LocalAssets folder. Now
+if I have the texture <code>project/assets/foobar.png</code>, I can refer to it in Studio
+as <code>rbxasset://project/foobar.png</code>.</p><p>I&rsquo;ve simplified this process with a <code>.bat</code> script that makes it possible to drag
+a project&rsquo;s asset folder into the script file, and the symbolic link is created
+automatically:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-batch data-lang=batch><span class=line><span class=cl><span class=p>@</span><span class=k>echo</span> off
+</span></span><span class=line><span class=cl><span class=p>:</span><span class=c1>: Replace with location configured by LocalAssetsFolder.</span>
+</span></span><span class=line><span class=cl><span class=k>cd</span> <span class=nv>%LocalAppData%</span>\Roblox\LocalAssets
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=se>%%</span>a <span class=k>in</span> <span class=p>(</span><span class=s2>&#34;</span><span class=nv>%~p1</span><span class=s2>.&#34;</span><span class=p>)</span> <span class=k>do</span> <span class=k>set</span> <span class=s2>&#34;x=</span><span class=se>%%</span><span class=s2>~nxa&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>mklink</span> /D <span class=s2>&#34;</span><span class=nv>%x%</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=nv>%1</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>pause</span>
+</span></span></code></pre></div><p>Note that this assumes the asset folder is located in the root of the project.
+The script looks at the name of the parent directory of the given folder to get
+the project name, which is used to name the link.</p><p>As demonstrated, some tooling is required to manage assets locally, but at least
+it only needs to be run once, at the start of a new project.</p><p>I&rsquo;m still working out the best way to deal with turning local assets into The
+Cloud™ assets. I have some ideas, but I&rsquo;ll save it for another post.</p></article></main><footer id=footer>Copyright © 2022 Anaminus</footer></body></html>
