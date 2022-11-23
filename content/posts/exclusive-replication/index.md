@@ -1,6 +1,7 @@
 +++
 title = "Exclusive replication"
 date = 2022-11-20 12:00:00
+lastmod = 2022-11-23 06:00:00
 +++
 
 Instances in Roblox **replicate**. That is, a particular instance on the server
@@ -75,6 +76,13 @@ located.
 
 <figure>
 <img src="fig2.png" style="box-shadow: 0 0 8px gray;">
+<figcaption>
+Moving an instance is considered a distinct unit of change, like setting a
+property or adding a new child. That is, whenever some other change occurs,
+there isn't going to be an additional check to make sure the instance in
+question is in the right place. The Parent property of the instance will only be
+replicated when it actually changes on the server.
+</figcaption>
 </figure>
 
 Instead of putting instances directly in the PlayerGui, let's put them in a
@@ -121,6 +129,14 @@ good and very simple intermediate step.
 Get an icon ready!
 </figcaption>
 </figure>
+
+We might be tempted to do this right now; instead of putting the Container under
+ServerStorage, we could call it "PlayerStorage" and put it directly under the
+Player. However, if Roblox does add their own PlayerStorage container, then it
+will conflict with ours, and things will likely break. Personally, I really like
+the idea of PlayerStorage, and wouldn't want to do anything that would
+discourage Roblox from implementing it as-is. So, I would either put the
+container somewhere else, or at least give it a different name.
 
 [PlayerGui]: https://create.roblox.com/docs/reference/engine/classes/PlayerGui
 [ResetPlayerGuionSpawn]: https://create.roblox.com/docs/reference/engine/classes/StarterGui#ResetPlayerGuiOnSpawn
