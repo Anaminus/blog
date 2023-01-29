@@ -67,7 +67,7 @@ LookVector.
 
 ```lua
 local right = cframe.RightVector
-local up = cframe.RightVector
+local up = cframe.UpVector
 local lookaway = -cframe.LookVector
 
 local r00, r01, r02 = right.X, right.Y, right.Z
