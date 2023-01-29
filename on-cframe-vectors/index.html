@@ -38,7 +38,7 @@ face to be the <em>complement</em> of the Z direction.</p><p>Eventually, the oth
 added as counterparts to LookVector. However, to correctly derive the raw
 components from these vectors, one would have to remember to invert the
 LookVector.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=line><span class=cl><span class=kd>local</span> <span class=n>right</span> <span class=o>=</span> <span class=n>cframe.RightVector</span>
-</span></span><span class=line><span class=cl><span class=kd>local</span> <span class=n>up</span> <span class=o>=</span> <span class=n>cframe.RightVector</span>
+</span></span><span class=line><span class=cl><span class=kd>local</span> <span class=n>up</span> <span class=o>=</span> <span class=n>cframe.UpVector</span>
 </span></span><span class=line><span class=cl><span class=kd>local</span> <span class=n>lookaway</span> <span class=o>=</span> <span class=o>-</span><span class=n>cframe.LookVector</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>local</span> <span class=n>r00</span><span class=p>,</span> <span class=n>r01</span><span class=p>,</span> <span class=n>r02</span> <span class=o>=</span> <span class=n>right.X</span><span class=p>,</span> <span class=n>right.Y</span><span class=p>,</span> <span class=n>right.Z</span>

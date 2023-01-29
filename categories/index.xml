@@ -49,7 +49,7 @@ added as counterparts to LookVector. However, to correctly derive the raw
 components from these vectors, one would have to remember to invert the
 LookVector.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-lua" data-lang="lua">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">right&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">cframe.RightVector&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">up&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">cframe.RightVector&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">up&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">cframe.UpVector&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">lookaway&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">cframe.LookVector&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">r00&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r01&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r02&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">right.X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">right.Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">right.Z&lt;/span>
