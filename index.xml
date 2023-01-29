@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog</title><link>https://anaminus.github.io/blog/</link><description>Recent content on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Mon, 19 Dec 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Rojo wrangling</title><link>https://anaminus.github.io/blog/rojo-wrangling/</link><pubDate>Mon, 19 Dec 2022 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/rojo-wrangling/</guid><description>&lt;p>I have particular preferences about how I want my projects to be structured, and
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog</title><link>https://anaminus.github.io/blog/</link><description>Recent content on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 29 Jan 2023 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>On CFrame vectors</title><link>https://anaminus.github.io/blog/on-cframe-vectors/</link><pubDate>Sun, 29 Jan 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/on-cframe-vectors/</guid><description>&lt;p>In Roblox, the &lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame">CFrame&lt;/a> type has several &amp;ldquo;Vector&amp;rdquo; fields representing
+the directions of various axes of the CFrame. There are two sets of 3 vectors:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame#RightVector">RightVector&lt;/a>, &lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame#UpVector">UpVector&lt;/a>, &lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame#LookVector">LookVector&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame#XVector">XVector&lt;/a>, &lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame#YVector">YVector&lt;/a>, &lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame#ZVector">ZVector&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Roblox&amp;rsquo;s documentation claims that these fields represent the rows and columns
+of the CFrame&amp;rsquo;s rotation matrix. The X, Y, Z fields are the rows, and the Right,
+Up, Look fields are the columns. &lt;strong>This is very significantly incorrect&lt;/strong>.
+Inspecting the values of each component reveals it so:&lt;/p>
+&lt;pre>&lt;code>CFrame.identity:GetComponents()
+0 0 0 1 0 0 0 1 0 0 0 1
+CFrame.identity.Position
+0 0 0
+CFrame.identity.XVector
+1 0 0
+CFrame.identity.YVector
+0 1 0
+CFrame.identity.ZVector
+0 0 1
+CFrame.identity.RightVector
+1 0 0
+CFrame.identity.UpVector
+0 1 0
+CFrame.identity.LookVector
+-0 -0 -1
+&lt;/code>&lt;/pre>
+&lt;p>What we can see is that the X-, Y- and ZVector fields correspond directly to the
+components:&lt;/p>
+&lt;pre>&lt;code>Fields [Position][XVector][YVector][ZVector]
+Components 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1
+&lt;/code>&lt;/pre>
+&lt;p>We also notice some other things:&lt;/p>
+&lt;ul>
+&lt;li>RightVector and UpVector appear to be redundant with XVector and YVector.&lt;/li>
+&lt;li>LookVector always equal to -ZVector.&lt;/li>
+&lt;/ul>
+&lt;p>Why would it be like this? Is the implementation incorrect?&lt;/p>
+&lt;p>Nope. The explanation is that the X-, Y-, and ZVector fields represent the raw
+components of the CFrame matrix, while the Right-, Up- and LookVector fields
+represent more practical values.&lt;/p>
+&lt;p>Originally, CFrames had only the LookVector field (stylized as &lt;code>lookVector&lt;/code>). It
+represents the most interesting vector, being the &amp;ldquo;front&amp;rdquo; face of the CFrame, or
+the direction the CFrame was &amp;ldquo;looking&amp;rdquo;. Very useful for getting things to look
+at or move towards other things. For whatever reason, Roblox defined the front
+face to be the &lt;em>complement&lt;/em> of the Z direction.&lt;/p>
+&lt;p>Eventually, the other vector fields were added. RightVector and UpVector were
+added as counterparts to LookVector. However, to correctly derive the raw
+components from these vectors, one would have to remember to invert the
+LookVector.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-lua" data-lang="lua">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">right&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">cframe.RightVector&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">up&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">cframe.RightVector&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">lookaway&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">cframe.LookVector&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">r00&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r01&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r02&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">right.X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">right.Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">right.Z&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">r10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r11&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r12&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">up.X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">up.Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">up.Z&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">r20&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r21&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r22&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">lookaway.X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">lookaway.Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">lookaway.Z&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Because this would be confusing and easy to forget, the ZVector field was added
+to represent the raw Z direction, along with XVector and YVector as
+counterparts. This explains the redundancy of XVector/RightVector and
+YVector/UpVector.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-lua" data-lang="lua">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">cframe.XVector&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">cframe.YVector&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">z&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">cframe.ZVector&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">r00&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r01&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r02&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x.X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">x.Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">x.Z&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">r10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r11&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r12&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">y.X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">y.Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">y.Z&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">r20&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r21&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">r22&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">z.X&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">z.Y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">z.Z&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To summarize, RightVector is always equal to XVector, UpVector is always equal
+to YVector, and LookVector is always equal to the complement of ZVector. And
+don&amp;rsquo;t let the documentation let you think otherwise.&lt;/p>
+&lt;pre>&lt;code>RightVector == XVector
+UpVector == YVector
+LookVector == -ZVector
+&lt;/code>&lt;/pre></description></item><item><title>Rojo wrangling</title><link>https://anaminus.github.io/blog/rojo-wrangling/</link><pubDate>Mon, 19 Dec 2022 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/rojo-wrangling/</guid><description>&lt;p>I have particular preferences about how I want my projects to be structured, and
 I will bend my tools to make it work. This time, the tool being flexed is
 &lt;a href="https://rojo.space/">Rojo&lt;/a>.&lt;/p>
 &lt;p>I want related modules to be grouped together into one &amp;ldquo;package&amp;rdquo;. If a package
