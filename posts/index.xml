@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Blog</title><link>https://anaminus.github.io/blog/posts/</link><description>Recent content in Posts on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 29 Jan 2023 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>On CFrame vectors</title><link>https://anaminus.github.io/blog/on-cframe-vectors/</link><pubDate>Sun, 29 Jan 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/on-cframe-vectors/</guid><description>&lt;p>In Roblox, the &lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame">CFrame&lt;/a> type has several &amp;ldquo;Vector&amp;rdquo; fields representing
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Blog</title><link>https://anaminus.github.io/blog/posts/</link><description>Recent content in Posts on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Tue, 31 Jan 2023 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>CFrame mnemonics</title><link>https://anaminus.github.io/blog/cframe-mnemonics/</link><pubDate>Tue, 31 Jan 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/cframe-mnemonics/</guid><description>&lt;h2 id="methods">Methods&lt;/h2>
+&lt;p>Certain methods on CFrame have an equivalent operator-based expression, which
+can be useful for understanding how they work:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Method&lt;/th>
+&lt;th>Expression&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>A:ToWorldSpace(B)&lt;/code>&lt;/td>
+&lt;td>&lt;code>A * (B::CFrame)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>A:ToObjectSpace(B)&lt;/code>&lt;/td>
+&lt;td>&lt;code>A:Inverse() * (B::CFrame)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>A:PointToWorldSpace(B)&lt;/code>&lt;/td>
+&lt;td>&lt;code>A * (B::Vector3)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>A:PointToObjectSpace(B)&lt;/code>&lt;/td>
+&lt;td>&lt;code>A:Inverse() * (B::Vector3)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>A:VectorToWorldSpace(B)&lt;/code>&lt;/td>
+&lt;td>&lt;code>A.Rotation * (B::Vector3)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>A:VectorToObjectSpace(B)&lt;/code>&lt;/td>
+&lt;td>&lt;code>A:Inverse().Rotation * (B::Vector3)&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="space-conversion-analogy">Space-conversion analogy&lt;/h2>
+&lt;p>CFrame multiplication is not equivalent to addition. However, certain aspects
+can be reused in order to remember how it works.&lt;/p>
+&lt;p>Pretend that &lt;code>A * B&lt;/code> is analogous to &lt;code>B + A&lt;/code>. Also pretend that &lt;code>A:Inverse()&lt;/code> is
+analogous to &lt;code>-A&lt;/code>. There is no subtraction, but the formula &lt;code>B - A&lt;/code> can be
+rewritten as &lt;code>-A + B&lt;/code>. So, when we see the expression &lt;code>A:Inverse() * B&lt;/code>, it can
+be thought of as a sort of &lt;code>B - A&lt;/code>.&lt;/p>
+&lt;p>This explains ToObjectSpace. It &amp;ldquo;subtracts&amp;rdquo; the origin &lt;code>A&lt;/code> from the subject &lt;code>B&lt;/code>
+to get the location of &lt;code>B&lt;/code> relative to &lt;code>A&lt;/code>. ToWorldSpace is the reverse; the
+origin is added back to the subject to get the real world location.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Method&lt;/th>
+&lt;th style="text-align:right">Analogy&lt;/th>
+&lt;th style="text-align:right">Rewritten&lt;/th>
+&lt;th>Actual&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>A:ToWorldSpace(B)&lt;/code>&lt;/td>
+&lt;td style="text-align:right">&lt;code>B + A&lt;/code>&lt;/td>
+&lt;td style="text-align:right">&lt;code>A + B&lt;/code>&lt;/td>
+&lt;td>&lt;code>A * B&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>A:ToObjectSpace(B)&lt;/code>&lt;/td>
+&lt;td style="text-align:right">&lt;code>B - A&lt;/code>&lt;/td>
+&lt;td style="text-align:right">&lt;code>-A + B&lt;/code>&lt;/td>
+&lt;td>&lt;code>A:Inverse() * B&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>On CFrame vectors</title><link>https://anaminus.github.io/blog/on-cframe-vectors/</link><pubDate>Sun, 29 Jan 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/on-cframe-vectors/</guid><description>&lt;p>In Roblox, the &lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame">CFrame&lt;/a> type has several &amp;ldquo;Vector&amp;rdquo; fields representing
 the directions of various axes of the CFrame. There are two sets of 3 vectors:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame#RightVector">RightVector&lt;/a>, &lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame#UpVector">UpVector&lt;/a>, &lt;a href="https://create.roblox.com/docs/reference/engine/datatypes/CFrame#LookVector">LookVector&lt;/a>&lt;/li>
