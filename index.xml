@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog</title><link>https://anaminus.github.io/blog/</link><description>Recent content on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Tue, 31 Jan 2023 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>CFrame mnemonics</title><link>https://anaminus.github.io/blog/cframe-mnemonics/</link><pubDate>Tue, 31 Jan 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/cframe-mnemonics/</guid><description>&lt;h2 id="methods">Methods&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog</title><link>https://anaminus.github.io/blog/</link><description>Recent content on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Thu, 22 Jun 2023 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>How the Plugin Marketplace actually works</title><link>https://anaminus.github.io/blog/how-the-plugin-marketplace-actually-works/</link><pubDate>Thu, 22 Jun 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/how-the-plugin-marketplace-actually-works/</guid><description>&lt;h2 id="part-i---the-plugin-compensation-model">Part I - The Plugin Compensation Model&lt;/h2>
+&lt;p>You are &lt;strong>developing a game&lt;/strong> on Roblox. Some aspect of your workflow is
+lacking, so you write a Studio plugin. This plugin improves the workflow of the
+&lt;strong>development of your game&lt;/strong>. You rejoice, as you are able to &lt;strong>develop your
+game&lt;/strong> better. The hours put into the development of the plugin are compensated
+by the increase in revenue deriving from the plugin allowing you to push out
+updates and fixes to your game faster and more efficiently.&lt;/p>
+&lt;p>Compensation for hours worked are derived from &lt;strong>your game&lt;/strong>, so putting in work
+that doesn&amp;rsquo;t improve &lt;strong>your game&lt;/strong> is wasted work. If you are improving a plugin
+that does not result in an improvement to your game, then &lt;strong>you will not be
+compensated for your work&lt;/strong>. Thus, if there is no game, but you are still doing
+work on plugins, then you are not being compensated.&lt;/p>
+&lt;h2 id="part-ii---arent-developers-just-peachy">Part II - Aren&amp;rsquo;t developers just peachy?&lt;/h2>
+&lt;p>Out of the goodness of your heart, you release this plugin for use by other
+developers. You have no obligation to do this, nor are you beholden to any other
+users of your plugin. You&amp;rsquo;ve already been compensated (by your game), so this is
+entirely a charitable gesture. If you&amp;rsquo;re smart, you either maintain it as a
+hobby, or just let it sit there while you do more important things.&lt;/p>
+&lt;h2 id="part-iii---here-comes-the-money">Part III - Here comes the money&lt;/h2>
+&lt;p>&lt;a href="https://devforum.roblox.com/t/400582">Roblox decides&lt;/a> to implement the option to put plugins on sale.
+They do this either because they mistake how the Plugin Compensation Model
+works, or they think developers&amp;rsquo; charity should be rewarded with some petty
+cash.&lt;/p>
+&lt;p>Regardless, this attracts developers to do work purely on plugins. As we know,
+because they have no game backing their work, they are compensated only with
+enough to buy a nice virtual hat or something. That is, no money.&lt;/p>
+&lt;h2 id="conclusions---this-isnt-a-part">Conclusions - This isn&amp;rsquo;t a part&lt;/h2>
+&lt;p>To summarize, without a game backing your plugin:&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Make plugin -&amp;gt; ??? -&amp;gt; No money&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;p>With a game:&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Make plugin -&amp;gt; Improve game -&amp;gt; Yes money&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;p>This is how the Plugin Compensation Model has worked since the inception of
+plugins, and this is how it continues to work to this day, despite what everyone
+thinks, and despite Roblox&amp;rsquo;s apparent efforts to make it look like plugins can
+bring in yes money independently. Don&amp;rsquo;t be fooled.&lt;/p>
+&lt;p>Assuming that this model does not change:&lt;/p>
+&lt;ul>
+&lt;li>The &amp;ldquo;marketplace&amp;rdquo; should be abolished. That is, all plugins should be free.
+Allowing a price to be put on plugins tricks developers into believing that
+they are a possible source of yes money.&lt;/li>
+&lt;li>If you&amp;rsquo;re a plugin developer, make games instead. Make UGC. Make something
+that can be serviced by plugins. Or, secure patrons. Seek contracting or
+employment by one of the many studios sprouting up. Make plugins directly in
+service of &lt;em>their&lt;/em> content while making them pay you definite yes money.&lt;/li>
+&lt;li>Whatever it is you &lt;span title="oh baby a triple">&lt;em>do&lt;/em> do, do&lt;/span> not
+expect compensation for work done on a plugin that isn&amp;rsquo;t directly in service
+of a game or other UGC. At best, expect no money.&lt;/li>
+&lt;/ul></description></item><item><title>CFrame mnemonics</title><link>https://anaminus.github.io/blog/cframe-mnemonics/</link><pubDate>Tue, 31 Jan 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/cframe-mnemonics/</guid><description>&lt;h2 id="methods">Methods&lt;/h2>
 &lt;p>Certain methods on CFrame have an equivalent operator-based expression, which
 can be useful for understanding how they work:&lt;/p>
 &lt;table>
