@@ -1,4 +1,108 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Blog</title><link>https://anaminus.github.io/blog/categories/</link><description>Recent content in Categories on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://anaminus.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>How the Plugin Marketplace actually works</title><link>https://anaminus.github.io/blog/how-the-plugin-marketplace-actually-works/</link><pubDate>Thu, 22 Jun 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/how-the-plugin-marketplace-actually-works/</guid><description>&lt;h2 id="part-i---the-plugin-compensation-model">Part I - The Plugin Compensation Model&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Blog</title><link>https://anaminus.github.io/blog/categories/</link><description>Recent content in Categories on Blog</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://anaminus.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>Safe cron minutes</title><link>https://anaminus.github.io/blog/safe-cron-minutes/</link><pubDate>Thu, 07 Mar 2024 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/safe-cron-minutes/</guid><description>&lt;pre>&lt;code>06 07 08 09 11 12 13 17
+18 19 21 22 23 24 26 27
+33 34 36 37 38 39 41 42
+43 47 48 49 51 52 53 54
+&lt;/code>&lt;/pre>
+&lt;h2 id="theory">Theory&lt;/h2>
+&lt;p>Everyone runs their scheduled jobs at simple minute steps like 60, 30, 15, or 5.&lt;/p>
+&lt;pre>&lt;code> 0 * * * *
+*/30 * * * *
+*/15 * * * *
+*/ 5 * * * *
+&lt;/code>&lt;/pre>
+&lt;h2 id="problem">Problem&lt;/h2>
+&lt;p>Cron aligns minutes to the clock, leading to huge spikes of usage at those
+intervals, as the hourly jobs, half-hourly jobs, etc, all run at once.&lt;/p>
+&lt;pre>&lt;code>| | | |
+| | | | | | |
+| | | | | | | | | | | | |
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+&lt;/code>&lt;/pre>
+&lt;h2 id="solution">Solution&lt;/h2>
+&lt;p>Use random, unusual minutes to distribute the load. Exclude the most common
+minutes, and nearby minutes based on prevalence.&lt;/p>
+&lt;pre>&lt;code>7 * * * *
+26 */2 * * *
+34,53 * * * *
+&lt;/code>&lt;/pre>
+&lt;h2 id="rules">Rules&lt;/h2>
+&lt;p>Begin with the set of all minutes in the hour.&lt;/p>
+&lt;ol>
+&lt;li>Exclude 5 minute intervals.&lt;/li>
+&lt;li>Exclude 15 minute intervals and nearest 1 minutes.&lt;/li>
+&lt;li>Exclude 30 minute intervals and nearest 2 minutes.&lt;/li>
+&lt;li>Exclude 60 minute intervals and nearest 4 minutes.&lt;/li>
+&lt;li>Select minutes randomly from the remaining set.&lt;/li>
+&lt;/ol>
+&lt;!-- -->
+&lt;pre>&lt;code>1. 2. 3. 4. 5.
+00
+01
+02
+03
+04
+05
+06 &amp;lt;
+07 &amp;lt;
+08 &amp;lt;
+09 &amp;lt;
+10
+11 &amp;lt;
+12 &amp;lt;
+13 &amp;lt;
+14
+15
+16
+17 &amp;lt;
+18 &amp;lt;
+19 &amp;lt;
+20
+21 &amp;lt;
+22 &amp;lt;
+23 &amp;lt;
+24 &amp;lt;
+25
+26 &amp;lt;
+27 &amp;lt;
+28
+29
+30
+31
+32
+33 &amp;lt;
+34 &amp;lt;
+35
+36 &amp;lt;
+37 &amp;lt;
+38 &amp;lt;
+39 &amp;lt;
+40
+41 &amp;lt;
+42 &amp;lt;
+43 &amp;lt;
+44
+45
+46
+47 &amp;lt;
+48 &amp;lt;
+49 &amp;lt;
+50
+51 &amp;lt;
+52 &amp;lt;
+53 &amp;lt;
+54 &amp;lt;
+55
+56
+57
+58
+59
+00
+&lt;/code>&lt;/pre>
+&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>Is this really problem? Probably not; better solutions have likely taken care of
+it.&lt;/p>
+&lt;p>Don&amp;rsquo;t take &lt;code>19 * * * *&lt;/code>, though. I&amp;rsquo;m using it.&lt;/p></description></item><item><title>How the Plugin Marketplace actually works</title><link>https://anaminus.github.io/blog/how-the-plugin-marketplace-actually-works/</link><pubDate>Thu, 22 Jun 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/how-the-plugin-marketplace-actually-works/</guid><description>&lt;h2 id="part-i---the-plugin-compensation-model">Part I - The Plugin Compensation Model&lt;/h2>
 &lt;p>You are &lt;strong>developing a game&lt;/strong> on Roblox. Some aspect of your workflow is
 lacking, so you write a Studio plugin. This plugin improves the workflow of the
 &lt;strong>development of your game&lt;/strong>. You rejoice, as you are able to &lt;strong>develop your
