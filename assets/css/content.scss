@@ -71,9 +71,20 @@ ul, ol {
 ul {
 	list-style-type: square;
 }
-p, blockquote, figure {
+p, blockquote, figure, table {
 	margin-block-start: 1rem;
 	margin-block-end: 1rem;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	th {
+		font-weight: bold;
+	}
+	td,th {
+		padding-inline: 1ch;
+		border: 1px solid var(--theme-line);
+	}
 }
 blockquote {
 	margin-inline-start: 4ch;
