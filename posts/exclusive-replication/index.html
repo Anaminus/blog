@@ -1,0 +1,67 @@
+<!doctype html><html lang=en-US dir=ltr><head><meta charset=utf-8><meta name=viewport content="initial-scale=1,width=device-width"><link rel=icon type=image/png sizes=32x32 href=/blog/favicons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/blog/favicons/favicon-16x16.png><link rel="shortcut icon" href=/blog/favicons/favicon.ico><title>Exclusive replication | Anaminus.Blog</title><meta name=twitter:card content="summary"><meta name=twitter:title content="Exclusive replication | Anaminus.Blog"><meta name=twitter:description content="Getting Roblox to replicate things only to certain clients."><meta name=twitter:image content="https://anaminus.github.io/blog/favicons/favicon-512x512.png"><meta property="og:type" content="website"><meta property="og:title" content="Exclusive replication | Anaminus.Blog"><meta property="og:description" content="Getting Roblox to replicate things only to certain clients."><meta property="og:image" content="https://anaminus.github.io/blog/favicons/favicon-512x512.png"><link rel=stylesheet href=/blog/main.min.4be856b7437115b5208f1b55b5c3fe3430a21d22b5e8fc0bfed461c778941c02.css integrity="sha256-S+hWt0NxFbUgjxtVtcP+NDCiHSK16PwL/tRhx3iUHAI=" crossorigin=anonymous></head><body><header><a href=https://anaminus.github.io/blog/><svg class="header" width="43" height="9" viewBox="0 0 43 9"><title>Logo with title ".Blog"</title><path class="logo" d="m2 1v1H1v3h1v3h1V7h1v1h1V5h1V2H5V1H4v1H3V1zm0 2h1v1H2zm2 0h1v1H4z"/><path class="title" d="m13 1v7h4V7h-3V5h3V4h-3V2h3V1zm4 1v2h1V2zm0 3v2h1V5zm2-2v5h5V7h-4V3zm7 0v1h3V3zm3 1v3h1V4zm0 3h-3v1h3zm-3 0V4h-1v3zm6-4v1h4V3zm0 1h-1v3h1zm0 3v1h3V7zm3 0h1V5h-3v1h2zM9 7v1h1V7z"/><path class="cursor" d="m37 8h5v1h-5z"/></svg></a></header><main><nav><a href=https://anaminus.github.io/blog/posts/>Posts</a></nav><article><header><div class=title><h1>Exclusive replication</h1><span class=date>Modified on <time>2022-11-23</time></span></div><div class=subtitle><div class=description>Getting Roblox to replicate things only to certain clients.</div><span class=tags><a class=tag href=https://anaminus.github.io/blog/tags/roblox/>#roblox</a></span></div></header><p>Instances in Roblox <strong>replicate</strong>. That is, a particular instance on the server
+will have a copy of itself on each client, and all aspects of this instance are
+kept synchronized, including what children it has. In almost all cases, this
+replication occurs in one direction only, from server to client.</p><p>Say the server has a red brick in the Workspace. This brick will be replicated
+to all clients. When the server changes the brick&rsquo;s color to blue, this change
+will be replicated to each client, making their local copy of the brick also
+blue. However, when a client tries to change the color of its brick to green,
+this change is <em>not</em> replicated back to the server or any other client. The
+change remains local to the client. Moreover, because only changes are
+replicated, the server wont constantly be trying to update the brick&rsquo;s color
+back to red, so it will remain green, at least until the server changes the
+color again.</p><p>A problem with most instances is that they have only two replication behaviors:</p><ul><li><strong>All</strong>: The instance is replicated to all clients.</li><li><strong>None</strong>: The instance is not replicated to any client.</li></ul><p>This can be annoying if we have an instance that we want to show only to one
+client. Or if we want to keep network usage down, we want to replicate only
+relevant instances instead of absolutely everything.</p><p>Note that I said &ldquo;most&rdquo; instances. There is in fact exactly <em>one</em> instance that
+has a different behavior. If you look at the <a href=https://create.roblox.com/docs/reference/engine/classes/PlayerGui>documentation page for
+PlayerGui</a>, you will see that it has a curious tag called <code>Player Replicated</code>. The tag&rsquo;s tooltip says the following:</p><blockquote><p>This object’s replication behavior is dependent on the player who owns it.</p></blockquote><p>What this means is that the PlayerGui replicates only to one client.
+Specifically, PlayerGui&rsquo;s parent Player instance.</p><p>It makes sense in context. GUIs are rendered locally on the client only for the
+one player. It doesn&rsquo;t make sense to render everyone else&rsquo;s GUIs, so there&rsquo;s no
+point in replicating them either.</p><p>We can use this as a solution to our problems. To replicate an instance
+exclusively to one client, we can copy the instance to the client&rsquo;s PlayerGui.</p><figure><img src=fig1.png><figcaption>You can put anything under the PlayerGui.</figcaption></figure><p>I use the term &ldquo;exclusive&rdquo; here rather than &ldquo;selective&rdquo;, because this technique
+doesn&rsquo;t actually let us select which clients a specific instance is replicated
+to. Instead, we have to make a copy of the instance on the server for each
+client we want to replicate to. It&rsquo;s possible to write a module that manages all
+of this for us, at which point the module could be called selective. But the
+underlying technique is exclusive.</p><p>Anyway, we can now choose which clients to replicate to, but there are some new
+problems to take care of. Because we are using the PlayerGui, we have to
+consider its other behaviors. Namely, that it renders ScreenGuis placed under
+it. We want to be able to exclusively replicate a ScreenGui without
+unintentionally rendering it. We could make an exception, such as forcing
+<code>ScreenGui.Enabled</code> to false before replicating, but there&rsquo;s a more general
+solution.</p><p>Remember how I said that changes on the client do not replicate back to the
+server? This includes moving the instance around. An instance on the server is
+matched to an instance on the client by the instance itself, rather than its
+location. So, on the client, as long as the instance stays under the DataModel,
+it will continue to receive changes from the server no matter where it is
+located.</p><figure><img src=fig2.png><figcaption>Moving an instance is considered a distinct unit of change, like setting a
+property or adding a new child. That is, whenever some other change occurs,
+there isn't going to be an additional check to make sure the instance in
+question is in the right place. The Parent property of the instance will only be
+replicated when it actually changes on the server.</figcaption></figure><p>Instead of putting instances directly in the PlayerGui, let&rsquo;s put them in a
+Folder that is located under the PlayerGui. On the server, the Folder must
+always stay here. On the client however, it can be moved to anywhere we want. By
+moving it outside of the PlayerGui, the replication behavior is retained, while
+the GUI-rendering behavior is dropped.</p><figure><img src=fig3.png><figcaption>Changes to the Container on the server are still replicated to the Container on
+the client, no matter where it is located. ServerStorage is perfectly usable on
+the client, and makes for a good location to store the Container.</figcaption></figure><p>There is only one more problem now: by default, all instances under the
+PlayerGui will be removed before the player&rsquo;s character respawns. For
+ScreenGuis, this can be prevented with the ResetOnSpawn property, but Folders do
+not have this. Fortunately, there is the
+<a href=https://create.roblox.com/docs/reference/engine/classes/StarterGui#ResetPlayerGuiOnSpawn>StarterGui.ResetPlayerGuiOnSpawn</a> property. While this
+is listed as deprecated, it can still be used just fine. However, it is also
+hidden from the properties panel in Studio, so the command bar is needed in
+order to change it:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=line><span class=cl><span class=n>game.StarterGui</span><span class=p>.</span><span class=n>ResetPlayerGuiOnSpawn</span> <span class=o>=</span> <span class=kc>false</span>
+</span></span></code></pre></div><p>Setting this property to false will prevent any instance under the PlayerGui
+from being removed when the character respawns. Note that this does change
+StarterGui behavior, so we&rsquo;ll have to adjust accordingly.</p><p>Overall, this is a very hacky workaround. But hopefully it justifies the
+addition of some kind of &ldquo;PlayerStorage&rdquo; container, whose only purposes is to
+replicate its descendants to one player at a time. There are other more
+complicated solutions to selective replication, but I feel like this would be a
+good and very simple intermediate step.</p><figure><img src=fig4.png><figcaption>Get an icon ready!</figcaption></figure><p>We might be tempted to do this right now; instead of putting the Container under
+ServerStorage, we could call it &ldquo;PlayerStorage&rdquo; and put it directly under the
+Player. However, if Roblox does add their own PlayerStorage container, then it
+will conflict with ours, and things will likely break. Personally, I really like
+the idea of PlayerStorage, and wouldn&rsquo;t want to do anything that would
+discourage Roblox from implementing it as-is. So, I would either put the
+container somewhere else, or at least give it a different name.</p></article></main><footer><span class=license>Content is licensed under <a href=https://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA-4.0</a></span>
+<span class=publication><svg viewBox="0 0 7 7" width="7" height="7"><path d="m2 0v1H1v3h1v3h1V6h1v1h1V4h1V1H5V0H4v1H3V0zm0 2h1v1H2zm2 0h1v1H4z"/></svg> 2022–2025 <a href=https://anaminus.github.io/>Anaminus</a></span></footer></body></html>

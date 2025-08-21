@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rant on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/rant/</link><description>Recent content in Rant on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Thu, 22 Jun 2023 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/rant/index.xml" rel="self" type="application/rss+xml"/><item><title>How the Plugin Marketplace actually works</title><link>https://anaminus.github.io/blog/posts/plugin-marketplace/</link><pubDate>Thu, 22 Jun 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/plugin-marketplace/</guid><description>&lt;h2 id="part-i---the-plugin-compensation-model">Part I - The Plugin Compensation Model&lt;/h2>
+&lt;p>You are &lt;strong>developing a game&lt;/strong> on Roblox. Some aspect of your workflow is
+lacking, so you write a Studio plugin. This plugin improves the workflow of the
+&lt;strong>development of your game&lt;/strong>. You rejoice, as you are able to &lt;strong>develop your
+game&lt;/strong> better. The hours put into the development of the plugin are compensated
+by the increase in revenue deriving from the plugin allowing you to push out
+updates and fixes to your game faster and more efficiently.&lt;/p></description></item><item><title>Stop linking to issues/new</title><link>https://anaminus.github.io/blog/posts/new-issues/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/new-issues/</guid><description>&lt;p>You have a neat software project. This project has a presence on GitHub. Maybe
+you host the source code there, maybe you&amp;rsquo;re just leveraging the issue tracker.&lt;/p>
+&lt;p>Your project also has a website. You know that your users will have problems
+with your software, so you want to direct them from your website to your issue
+tracker. You want them to have the most streamlined experience possible, so you
+get the bright idea of linking to &lt;a>issues/new&lt;/a>. How convenient! One click,
+and they&amp;rsquo;re able to start writing a report immediately! Except, that isn&amp;rsquo;t what
+happens.&lt;/p></description></item></channel></rss>

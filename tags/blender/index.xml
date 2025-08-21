@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blender on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/blender/</link><description>Recent content in Blender on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/blender/index.xml" rel="self" type="application/rss+xml"/><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>&lt;p>You want to produce meshes with simple, solid color textures. Because the colors
+are solid, you should be able to get away with using small textures. Tiny
+textures. Single-digit resolution textures. Possible, right?&lt;/p>
+&lt;p>The problem: Roblox applies linear interpolation to its textures. Here is a
+2-by-1 Decal, where the left pixel is white, and the right pixel is black:&lt;/p>
+&lt;p>&lt;img src="fig1.png" alt="">&lt;/p>
+&lt;p>Indeed, the left side is white, and the right side is black, but in between,
+there is a smooth, linear interpolation from one pixel to the other.&lt;/p></description></item></channel></rss>

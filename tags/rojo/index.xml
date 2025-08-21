@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rojo on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/rojo/</link><description>Recent content in Rojo on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 19 Dec 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/rojo/index.xml" rel="self" type="application/rss+xml"/><item><title>Rojo wrangling</title><link>https://anaminus.github.io/blog/posts/rojo-wrangling/</link><pubDate>Mon, 19 Dec 2022 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/rojo-wrangling/</guid><description>&lt;p>I have particular preferences about how I want my projects to be structured, and
+I will bend my tools to make it work. This time, the tool being flexed is
+&lt;a href="https://rojo.space/">Rojo&lt;/a>.&lt;/p>
+&lt;p>I want related modules to be grouped together into one &amp;ldquo;package&amp;rdquo;. If a package
+has a server component and a client component, I want those two files to live
+next to each other under the same folder. However, there are two problems that
+make this structure difficult to have.&lt;/p></description></item></channel></rss>

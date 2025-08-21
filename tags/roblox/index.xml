@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Anaminus.Blog</title><link>https://anaminus.github.io/blog/</link><description>Recent content on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Thu, 07 Mar 2024 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Safe cron minutes</title><link>https://anaminus.github.io/blog/posts/safe-cron-minutes/</link><pubDate>Thu, 07 Mar 2024 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/safe-cron-minutes/</guid><description>&lt;pre>&lt;code>06 07 08 09 11 12 13 17
-18 19 21 22 23 24 26 27
-33 34 36 37 38 39 41 42
-43 47 48 49 51 52 53 54
-&lt;/code>&lt;/pre>
-&lt;h2 id="theory">Theory&lt;/h2>
-&lt;p>Everyone runs their scheduled jobs at simple minute steps like 60, 30, 15, or 5.&lt;/p>
-&lt;pre>&lt;code> 0 * * * *
-*/30 * * * *
-*/15 * * * *
-*/ 5 * * * *
-&lt;/code>&lt;/pre>
-&lt;h2 id="problem">Problem&lt;/h2>
-&lt;p>Cron aligns minutes to the clock, leading to huge spikes of usage at those
-intervals, as the hourly jobs, half-hourly jobs, etc, all run at once.&lt;/p></description></item><item><title>How the Plugin Marketplace actually works</title><link>https://anaminus.github.io/blog/posts/plugin-marketplace/</link><pubDate>Thu, 22 Jun 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/plugin-marketplace/</guid><description>&lt;h2 id="part-i---the-plugin-compensation-model">Part I - The Plugin Compensation Model&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Roblox on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/roblox/</link><description>Recent content in Roblox on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Thu, 22 Jun 2023 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/roblox/index.xml" rel="self" type="application/rss+xml"/><item><title>How the Plugin Marketplace actually works</title><link>https://anaminus.github.io/blog/posts/plugin-marketplace/</link><pubDate>Thu, 22 Jun 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/plugin-marketplace/</guid><description>&lt;h2 id="part-i---the-plugin-compensation-model">Part I - The Plugin Compensation Model&lt;/h2>
 &lt;p>You are &lt;strong>developing a game&lt;/strong> on Roblox. Some aspect of your workflow is
 lacking, so you write a Studio plugin. This plugin improves the workflow of the
 &lt;strong>development of your game&lt;/strong>. You rejoice, as you are able to &lt;strong>develop your
@@ -94,50 +80,11 @@ this change is &lt;em>not&lt;/em> replicated back to the server or any other cli
 change remains local to the client. Moreover, because only changes are
 replicated, the server wont constantly be trying to update the brick&amp;rsquo;s color
 back to red, so it will remain green, at least until the server changes the
-color again.&lt;/p></description></item><item><title>Considering options</title><link>https://anaminus.github.io/blog/posts/considering-options/</link><pubDate>Thu, 10 Nov 2022 06:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/considering-options/</guid><description>&lt;p>I&amp;rsquo;m in the middle of rewriting &lt;a href="https://github.com/robloxapi/rbxfile">rbxfile&lt;/a>. A rewrite gives the
-opportunity to right any wrongs.&lt;/p>
-&lt;p>One of the wrongs was my approach to Optional types. That is not to say that it
-was incorrect, but it perhaps wasn&amp;rsquo;t considered as carefully as it could have
-been. Moreover, Go didn&amp;rsquo;t have generics at the time, so there were fewer good
-options available.&lt;/p>
-&lt;p>I currently have the Optional type implemented as a struct with a Type and a
-Value field:&lt;/p></description></item><item><title>Syncing things</title><link>https://anaminus.github.io/blog/posts/syncing-things/</link><pubDate>Sun, 06 Nov 2022 20:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/syncing-things/</guid><description>&lt;p>On my desktop, writings have to be technical, detailed, and correct. It&amp;rsquo;s hard
-to write blog posts from there. I find it a lot easier to write casually if it&amp;rsquo;s
-somewhere else, such as my laptop while sitting in a cushy chair.&lt;/p>
-&lt;p>But the blog&amp;rsquo;s local repository is still on my desktop. How do I do things from
-my laptop, then? It&amp;rsquo;s just Git, so it should be possible.&lt;/p>
-&lt;p>Well, it is possible, but it&amp;rsquo;s a pain to get going, and there are two parts. The
-first part involves setting up the &amp;ldquo;remote&amp;rdquo; repository as a bare repo somewhere
-on the desktop. Then separate repositories are cloned from it, one on the
-laptop, and another also on the desktop. These are just regular local
-repositories, but instead of the remote being GitHub or something, it&amp;rsquo;s just
-somewhere else on the desktop. There are some extra considerations, such as what
-to do about syncing the &amp;ldquo;local remote&amp;rdquo; to the &amp;ldquo;remote remote&amp;rdquo; GitHub, but I
-haven&amp;rsquo;t gotten that far, and don&amp;rsquo;t really care to.&lt;/p></description></item><item><title>Securing secret branches</title><link>https://anaminus.github.io/blog/posts/secret-branch/</link><pubDate>Sun, 06 Nov 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/secret-branch/</guid><description>&lt;p>Most posts I write will never be published. But I still keep them around
-locally, because they often contain useful bits that will likely find their way
-into another post.&lt;/p>
-&lt;p>The blog is managed by git. When I want to publish a new post, I just commit and
-push (&amp;ldquo;pushlish&amp;rdquo;?). I keep drafts on a separate branch that stays local.&lt;/p>
-&lt;p>But how do I make sure it stays local? I don&amp;rsquo;t want to accidentally push super
-secret drafts to GitHub! Fortunately, GitHub has what are called &amp;ldquo;Protection
-rules&amp;rdquo;.&lt;/p></description></item><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>&lt;p>You want to produce meshes with simple, solid color textures. Because the colors
+color again.&lt;/p></description></item><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>&lt;p>You want to produce meshes with simple, solid color textures. Because the colors
 are solid, you should be able to get away with using small textures. Tiny
 textures. Single-digit resolution textures. Possible, right?&lt;/p>
 &lt;p>The problem: Roblox applies linear interpolation to its textures. Here is a
 2-by-1 Decal, where the left pixel is white, and the right pixel is black:&lt;/p>
 &lt;p>&lt;img src="fig1.png" alt="">&lt;/p>
 &lt;p>Indeed, the left side is white, and the right side is black, but in between,
-there is a smooth, linear interpolation from one pixel to the other.&lt;/p></description></item><item><title>Stop linking to issues/new</title><link>https://anaminus.github.io/blog/posts/new-issues/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/new-issues/</guid><description>&lt;p>You have a neat software project. This project has a presence on GitHub. Maybe
-you host the source code there, maybe you&amp;rsquo;re just leveraging the issue tracker.&lt;/p>
-&lt;p>Your project also has a website. You know that your users will have problems
-with your software, so you want to direct them from your website to your issue
-tracker. You want them to have the most streamlined experience possible, so you
-get the bright idea of linking to &lt;a>issues/new&lt;/a>. How convenient! One click,
-and they&amp;rsquo;re able to start writing a report immediately! Except, that isn&amp;rsquo;t what
-happens.&lt;/p></description></item><item><title>The episode in which I make a blog</title><link>https://anaminus.github.io/blog/posts/first/</link><pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/first/</guid><description>&lt;p>Found a &lt;a href="https://gohugo.io/">nice tool&lt;/a>, found a good workflow. Instead of long
-chains of &lt;a href="https://twitter.com/Anaminus">tweets&lt;/a> and obscurely-located &lt;a href="https://devforum.roblox.com/u/anaminus">replies&lt;/a>, here we
-have a proper place to write things.&lt;/p>
-&lt;blockquote>
-&lt;p>I would have written a shorter letter, but I did not have the time.
-&amp;mdash; &lt;a href="https://en.wikipedia.org/wiki/Blaise_Pascal">Markus Twainicus&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>This post was originally much longer, but I had the time.&lt;/p></description></item></channel></rss>
+there is a smooth, linear interpolation from one pixel to the other.&lt;/p></description></item></channel></rss>

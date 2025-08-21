@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/golang/</link><description>Recent content in Golang on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Thu, 10 Nov 2022 06:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Considering options</title><link>https://anaminus.github.io/blog/posts/considering-options/</link><pubDate>Thu, 10 Nov 2022 06:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/considering-options/</guid><description>&lt;p>I&amp;rsquo;m in the middle of rewriting &lt;a href="https://github.com/robloxapi/rbxfile">rbxfile&lt;/a>. A rewrite gives the
+opportunity to right any wrongs.&lt;/p>
+&lt;p>One of the wrongs was my approach to Optional types. That is not to say that it
+was incorrect, but it perhaps wasn&amp;rsquo;t considered as carefully as it could have
+been. Moreover, Go didn&amp;rsquo;t have generics at the time, so there were fewer good
+options available.&lt;/p>
+&lt;p>I currently have the Optional type implemented as a struct with a Type and a
+Value field:&lt;/p></description></item></channel></rss>

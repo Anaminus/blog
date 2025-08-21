@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/git/</link><description>Recent content in Git on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sun, 06 Nov 2022 20:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Syncing things</title><link>https://anaminus.github.io/blog/posts/syncing-things/</link><pubDate>Sun, 06 Nov 2022 20:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/syncing-things/</guid><description>&lt;p>On my desktop, writings have to be technical, detailed, and correct. It&amp;rsquo;s hard
+to write blog posts from there. I find it a lot easier to write casually if it&amp;rsquo;s
+somewhere else, such as my laptop while sitting in a cushy chair.&lt;/p>
+&lt;p>But the blog&amp;rsquo;s local repository is still on my desktop. How do I do things from
+my laptop, then? It&amp;rsquo;s just Git, so it should be possible.&lt;/p>
+&lt;p>Well, it is possible, but it&amp;rsquo;s a pain to get going, and there are two parts. The
+first part involves setting up the &amp;ldquo;remote&amp;rdquo; repository as a bare repo somewhere
+on the desktop. Then separate repositories are cloned from it, one on the
+laptop, and another also on the desktop. These are just regular local
+repositories, but instead of the remote being GitHub or something, it&amp;rsquo;s just
+somewhere else on the desktop. There are some extra considerations, such as what
+to do about syncing the &amp;ldquo;local remote&amp;rdquo; to the &amp;ldquo;remote remote&amp;rdquo; GitHub, but I
+haven&amp;rsquo;t gotten that far, and don&amp;rsquo;t really care to.&lt;/p></description></item><item><title>Securing secret branches</title><link>https://anaminus.github.io/blog/posts/secret-branch/</link><pubDate>Sun, 06 Nov 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/secret-branch/</guid><description>&lt;p>Most posts I write will never be published. But I still keep them around
+locally, because they often contain useful bits that will likely find their way
+into another post.&lt;/p>
+&lt;p>The blog is managed by git. When I want to publish a new post, I just commit and
+push (&amp;ldquo;pushlish&amp;rdquo;?). I keep drafts on a separate branch that stays local.&lt;/p>
+&lt;p>But how do I make sure it stays local? I don&amp;rsquo;t want to accidentally push super
+secret drafts to GitHub! Fortunately, GitHub has what are called &amp;ldquo;Protection
+rules&amp;rdquo;.&lt;/p></description></item></channel></rss>
