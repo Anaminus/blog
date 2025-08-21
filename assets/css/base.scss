@@ -16,23 +16,23 @@ body {
 	--main-block: 5rem;
 	display: grid;
 	flex: 1 0 auto;
-	grid-template-columns: minmax(0, 90ch);
+	width: 100%;
+	grid-template-columns: 1fr minmax(0, 90ch) 1fr;
 	grid-template-rows: max-content 1fr max-content;
 	grid-template-areas:
-		"header"
-		"main"
-		"footer"
+		"header header header"
+		".      main   ."
+		".      footer ."
 	;
-	margin: 1ch;
 }
 body > header {
 	grid-area: header;
-	max-width: 90ch;
 }
 body > main {
 	grid-area: main;
 	max-width: 90ch;
 	flex: 1 0 auto;
+	margin: 1ch;
 }
 body > footer {
 	grid-area: footer;

@@ -3,6 +3,7 @@ title = "Anaminus.Blog"
 languageCode = "en-US"
 
 markup.goldmark.renderer.unsafe = true
+markup.highlight.noClasses = false
 security.enableInlineShortcodes = true
 build.noJSConfigInAssets = true
 

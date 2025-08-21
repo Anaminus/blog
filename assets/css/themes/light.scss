@@ -1,10 +1,12 @@
 @mixin theme-light {
 	--theme-logo: #FFF;
-	--theme-head: #CCC;
-	--theme-fore: #AAA;
-	--theme-back: #000;
-	--theme-dim:  #777;
-	--theme-link: #8E8;
+	--theme-lgbg: #000;
+	--theme-head: #444;
+	--theme-fore: #444;
+	--theme-back: #EEE;
+	--theme-dim:  #666;
+	--theme-line: #AAA;
+	--theme-link: #070;
 	--theme-sfg:  var(--theme-back);
 	--theme-sbg:  var(--theme-fore);
 }

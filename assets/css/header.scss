@@ -1,6 +1,9 @@
 body > header {
+	padding-block-end: 1ch;
 	display: flex;
 	justify-content: center;
+	background-color: var(--theme-lgbg);
+	box-shadow: 0 0 1ch var(--theme-lgbg);
 	a {
 		display: flex;
 		justify-content: center;
