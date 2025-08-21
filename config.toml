@@ -19,6 +19,9 @@ term = ['html', 'rss']
 [params]
 description = "Blog from Anaminus."
 
+[params.formats]
+tags = "#%s"
+
 [params.license]
 name = "CC BY-SA-4.0"
 url = "https://creativecommons.org/licenses/by-sa/4.0/"

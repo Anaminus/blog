@@ -1,7 +1,8 @@
 {{- define "main" }}
 {{- partial "nav.html" . }}
 {{- $term := .Path | path.Base }}
-{{- partial "withfeed.html" (slice . (printf "#%s" $term)) }}
+{{- $name := partial "format-term.txt" (slice .Section $term) }}
+{{- partial "withfeed.html" (slice . $name) }}
 {{- $desc := partial "description.txt" . }}
 {{- if $desc }}<p>{{$desc}}</p>{{- end }}
 <ul>

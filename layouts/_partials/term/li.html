@@ -1,1 +1,1 @@
-<li><a href="{{.Page.Permalink}}">#{{.Name}}</a> ({{.Count}})</li>
+<li><a href="{{.Page.Permalink}}">{{partial "format-term.html" (slice .Page.Section .Term)}}</a> ({{.Count}})</li>

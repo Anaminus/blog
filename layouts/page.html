@@ -20,7 +20,7 @@
 			{{- end }}
 			<span class="tags">
 				{{- range .GetTerms "tags" }}
-					<a class="tag" href="{{.Permalink}}">#{{.Path | path.Base}}</a>
+					<a class="tag" href="{{.Permalink}}">{{partial "format-term.txt" (slice "tags" (.Path | path.Base))}}</a>
 				{{- end }}
 			</span>
 		</div>

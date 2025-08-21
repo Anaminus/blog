@@ -1,0 +1,8 @@
+{{$tax := index . 0}}
+{{$term := index . 1}}
+{{$name := $term}}
+{{$format := index site.Params.Formats ($tax | pluralize | lower)}}
+{{if $format}}
+	{{$name = printf $format $name}}
+{{end}}
+{{return $name}}
