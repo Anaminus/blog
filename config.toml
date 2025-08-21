@@ -17,7 +17,7 @@ taxonomy = ['html']
 term = ['html', 'rss']
 
 [params]
-description = "Blog posts from Anaminus"
+description = "Blog from Anaminus."
 
 [params.license]
 name = "CC BY-SA-4.0"

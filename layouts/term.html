@@ -2,10 +2,8 @@
 {{- partial "nav.html" . }}
 {{- $term := .Path | path.Base }}
 {{- partial "withfeed.html" (slice . (printf "#%s" $term)) }}
-{{- $desc := .RenderString (index site.Data.tags $term) }}
-{{- if $desc }}
-<p>{{$desc}}</p>
-{{- end }}
+{{- $desc := partial "description.txt" . }}
+{{- if $desc }}<p>{{$desc}}</p>{{- end }}
 <ul>
 	{{- range .Pages }}
 		<li><time>{{ .Date | time.Format "2006-01-02" }}</time> - <a href="{{.Permalink}}">{{.Title}}</a></li>

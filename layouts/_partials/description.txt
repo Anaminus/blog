@@ -1,0 +1,17 @@
+{{$desc := ""}}
+{{if eq .Kind "term"}}
+	{{$term := .Path | path.Base}}
+	{{$desc = .RenderString (index (index site.Data .Section) $term)}}
+	{{if not $desc }}
+		{{$desc = printf "Pages of %s %s." (singularize .Section) $term}}
+	{{end }}
+{{else if eq .Kind "taxonomy"}}
+	{{$desc = printf "Pages with %s from %s." .Title site.Params.Publication.Author}}
+{{else if .IsSection}}
+	{{$desc = printf "%s from %s." .Title site.Params.Publication.Author}}
+{{else if .IsPage}}
+	{{$desc = .Description}}
+{{else if .IsHome}}
+	{{$desc = site.Params.Description}}
+{{end}}
+{{return $desc}}
