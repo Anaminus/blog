@@ -15,7 +15,7 @@ and they're able to start writing a report immediately! Except, that isn't what
 happens.
 
 <figure>
-<img src="login.png" style="box-shadow: 0 0 8px gray;" alt="An unsolicited GitHub login page.">
+<img src="login.png" alt="An unsolicited GitHub login page.">
 <figcaption>
 What actually happens when users click on your link.
 </figcaption>
@@ -25,7 +25,7 @@ Ugh. Don't assume my intentions. All you had to do was link to the issue page.
 It's not like opening a new issue from there is hard.
 
 <figure>
-<img src="new-issue.png" style="box-shadow: 0 0 8px gray;" alt="New-issue button on GitHub's issue tracker page.">
+<img src="new-issue.png" alt="New-issue button on GitHub's issue tracker page.">
 <figcaption>
 Can't miss it.
 </figcaption>

@@ -48,7 +48,7 @@ We can use this as a solution to our problems. To replicate an instance
 exclusively to one client, we can copy the instance to the client's PlayerGui.
 
 <figure>
-<img src="fig1.png" style="box-shadow: 0 0 8px gray;">
+<img src="fig1.png">
 <figcaption>
 You can put anything under the PlayerGui.
 </figcaption>
@@ -77,7 +77,7 @@ it will continue to receive changes from the server no matter where it is
 located.
 
 <figure>
-<img src="fig2.png" style="box-shadow: 0 0 8px gray;">
+<img src="fig2.png">
 <figcaption>
 Moving an instance is considered a distinct unit of change, like setting a
 property or adding a new child. That is, whenever some other change occurs,
@@ -94,7 +94,7 @@ moving it outside of the PlayerGui, the replication behavior is retained, while
 the GUI-rendering behavior is dropped.
 
 <figure>
-<img src="fig3.png" style="box-shadow: 0 0 8px gray;">
+<img src="fig3.png">
 <figcaption>
 Changes to the Container on the server are still replicated to the Container on
 the client, no matter where it is located. ServerStorage is perfectly usable on
@@ -126,7 +126,7 @@ complicated solutions to selective replication, but I feel like this would be a
 good and very simple intermediate step.
 
 <figure>
-<img src="fig4.png" style="box-shadow: 0 0 8px gray;">
+<img src="fig4.png">
 <figcaption>
 Get an icon ready!
 </figcaption>
