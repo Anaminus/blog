@@ -1,6 +1,8 @@
 +++
 title = "On CFrame vectors"
+description = "Correcting documentation on CFrames."
 date = 2023-01-29 12:00:00
+tags = ["roblox"]
 +++
 
 In Roblox, the [CFrame][CFrame] type has several "Vector" fields representing

@@ -1,0 +1,13 @@
+@import "themes/light";
+@import "themes/dark";
+@import "highlight/light";
+@import "highlight/dark";
+
+:root {
+	@include theme-dark;
+	@include highlight-dark;
+	@media (prefers-color-scheme: light) {
+		@include theme-light;
+		@include highlight-light;
+	}
+}

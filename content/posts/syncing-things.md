@@ -1,6 +1,8 @@
 +++
 title = "Syncing things"
+description = "How to set up Git over Syncthing."
 date = 2022-11-06 20:00:00
+tags = ["git", "syncthing"]
 +++
 
 On my desktop, writings have to be technical, detailed, and correct. It's hard

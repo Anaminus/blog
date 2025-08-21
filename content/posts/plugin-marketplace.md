@@ -1,6 +1,7 @@
 +++
 title = "How the Plugin Marketplace actually works"
 date = 2023-06-22 12:00:00
+tags = ["roblox", "rant"]
 +++
 
 ## Part I - The Plugin Compensation Model

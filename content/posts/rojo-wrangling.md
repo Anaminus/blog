@@ -1,6 +1,8 @@
 +++
 title = "Rojo wrangling"
+description = "Getting Rojo to fit your project's structure."
 date = 2022-12-19 12:00:00
+tags = ["roblox", "rojo"]
 +++
 
 I have particular preferences about how I want my projects to be structured, and

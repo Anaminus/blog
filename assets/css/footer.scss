@@ -1,0 +1,26 @@
+body > footer {
+	display: flex;
+	align-items: center;
+	flex-flow: wrap row;
+	margin-block-start: var(--main-block);
+	padding-block-end: 1em;
+
+	color: var(--theme-dim);
+	a { color: var(--theme-dim) }
+	> * { font-size: smaller }
+
+	.license {
+		padding: 1ch;
+	}
+	.publication {
+		margin-left: auto;
+		padding: 1ch;
+		> svg {
+			width: 14px;
+			height: 14px;
+			path {
+				fill: var(--theme-logo);
+			}
+		}
+	}
+}

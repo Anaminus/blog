@@ -1,0 +1,30 @@
+{{- define "main" }}
+{{- partial "nav.html" . }}
+<article>
+	<header>
+		<div class="title">
+			<h1>{{.Title}}</h1>
+			{{- if isset .Params "date" }}
+				<span class="date">
+					{{- if le .Lastmod .Date }}
+						Published on <time>{{.Date | time.Format "2006-01-02"}}</time>
+					{{ else }}
+						Modified on <time>{{.Lastmod | time.Format "2006-01-02"}}</time>
+					{{ end }}
+				</span>
+			{{- end -}}
+		</div>
+		<div class="subtitle">
+			{{- if .Description }}
+				<div class="description">{{.Description}}</div>
+			{{- end }}
+			<span class="tags">
+				{{- range .GetTerms "tags" }}
+					<a class="tag" href="{{.Permalink}}">#{{.Path | path.Base}}</a>
+				{{- end }}
+			</span>
+		</div>
+	</header>
+	{{- .Content -}}
+</article>
+{{- end }}

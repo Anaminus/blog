@@ -1,7 +1,9 @@
 +++
 title = "Exclusive replication"
+description = "Getting Roblox to replicate things only to certain clients."
 date = 2022-11-20 12:00:00
-lastmod = 2022-11-23 06:00:00
+modified = 2022-11-23 06:00:00
+tags = ["roblox"]
 +++
 
 Instances in Roblox **replicate**. That is, a particular instance on the server

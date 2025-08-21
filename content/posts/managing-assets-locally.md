@@ -1,6 +1,8 @@
 +++
 title = "Managing assets locally"
+description = "Keeping your Roblox assets on your computer."
 date = 2022-11-23 12:00:00
+tags = ["roblox"]
 +++
 
 If you're not indoctrinated into the cult of The Cloud™, then managing assets on

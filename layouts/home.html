@@ -1,0 +1,19 @@
+{{- define "main" }}
+{{- partial "nav.html" . }}
+{{- range site.Sections.ByWeight }}
+	<h1>{{.Title}}</h1>
+	<ul>
+		{{- range .Pages }}
+			<li><time>{{ .Date | time.Format "2006-01-02" }}</time> . <a href="{{.Permalink}}">{{.Title}}</a></li>
+		{{- end }}
+	</ul>
+{{- end }}
+{{- range $name, $tax := site.Taxonomies }}
+	<h1>{{$tax.Page.Title}}</h1>
+	<ul>
+		{{- range $tax.Alphabetical }}
+			<li><a href="{{.Page.Permalink}}">#{{.Name}}</a> ({{.Count}})</li>
+		{{- end }}
+	</ul>
+{{- end }}
+{{- end }}

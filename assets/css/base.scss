@@ -1,0 +1,40 @@
+html, body {
+	background-color: var(--theme-back);
+	color: var(--theme-fore);
+}
+::selection {
+	background-color: var(--theme-sbg);
+	color: var(--theme-sfg);
+}
+html {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	align-items: center;
+}
+body {
+	--main-block: 5rem;
+	display: grid;
+	flex: 1 0 auto;
+	grid-template-columns: minmax(0, 90ch);
+	grid-template-rows: max-content 1fr max-content;
+	grid-template-areas:
+		"header"
+		"main"
+		"footer"
+	;
+	margin: 1ch;
+}
+body > header {
+	grid-area: header;
+	max-width: 90ch;
+}
+body > main {
+	grid-area: main;
+	max-width: 90ch;
+	flex: 1 0 auto;
+}
+body > footer {
+	grid-area: footer;
+	max-width: 90ch;
+}

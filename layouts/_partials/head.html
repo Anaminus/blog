@@ -1,0 +1,33 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, width=device-width">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="{{(resources.Get `favicons/favicon-32x32.png`).RelPermalink}}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{(resources.Get `favicons/favicon-16x16.png`).RelPermalink}}">
+	<link rel="shortcut icon" href="{{(resources.Get `favicons/favicon.ico`).RelPermalink}}">
+
+	{{- range .AlternativeOutputFormats }}
+		{{printf `<link rel=%q type=%q href=%q>` .Rel .MediaType.Type .Permalink | safeHTML}}
+	{{- end }}
+
+	{{- $title := site.Title }}
+	{{- if not .IsHome }}
+		{{- $title = printf "%s | %s" .Title site.Title }}
+	{{- end }}
+	<title>{{$title}}</title>
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="{{$title}}">
+	{{- if .Description }}
+		<meta name="twitter:description" content="{{.Description}}">
+	{{- end }}
+	<meta name="twitter:image" content="{{(resources.Get `favicons/favicon-512x512.png`).Permalink}}">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="{{$title}}">
+	{{- if .Description }}
+		<meta property="og:description" content="{{.Description}}">
+	{{- end }}
+	<meta property="og:image" content="{{(resources.Get `favicons/favicon-512x512.png`).Permalink}}">
+
+	{{- partial "css.html" }}
+</head>

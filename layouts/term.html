@@ -1,0 +1,14 @@
+{{- define "main" }}
+{{- partial "nav.html" . }}
+{{- $term := .Path | path.Base }}
+<h1>#{{$term}}</h1>
+{{- $desc := .RenderString (index site.Data.tags $term) }}
+{{- if $desc }}
+<p>{{$desc}}</p>
+{{- end }}
+<ul>
+	{{- range .Pages }}
+		<li><time>{{ .Date | time.Format "2006-01-02" }}</time> . <a href="{{.Permalink}}">{{.Title}}</a></li>
+	{{- end }}
+</ul>
+{{- end }}

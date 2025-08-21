@@ -1,6 +1,8 @@
 +++
 title = "Safe cron minutes"
+description = "When is the best time to run your workflow?"
 date = 2024-03-07 12:00:00
+tags = ["github"]
 +++
 
 	06 07 08 09 11 12 13 17

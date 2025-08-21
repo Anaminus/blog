@@ -1,6 +1,8 @@
 +++
 title = "CFrame mnemonics"
+description = "A way to remember how CFrames are used."
 date = 2023-01-31 12:00:00
+tags = ["roblox"]
 +++
 
 ## Methods

@@ -1,0 +1,35 @@
+body > header {
+	display: flex;
+	justify-content: center;
+	a {
+		display: flex;
+		justify-content: center;
+		flex: 1 0 0;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	svg {
+		flex: 1 0 0;
+		height: var(--main-block);
+		padding: 0;
+		margin: 0;
+		filter: drop-shadow(0 0 0.33ch var(--theme-logo));
+		path {
+			fill: var(--theme-logo);
+		}
+
+		// Blinking cursor.
+		.cursor {
+			animation-duration: 400ms;
+			animation-name: blink;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation-timing-function: ease;
+		}
+		@keyframes blink {
+			from { opacity: 0.5 }
+			to { opacity: 1 }
+		}
+	}
+}

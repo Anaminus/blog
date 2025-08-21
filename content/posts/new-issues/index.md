@@ -1,6 +1,7 @@
 +++
 title = "Stop linking to issues/new"
 date = 2022-03-04
+tags = ["github", "rant"]
 +++
 
 You have a neat software project. This project has a presence on GitHub. Maybe

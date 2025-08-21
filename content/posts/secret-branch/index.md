@@ -1,6 +1,8 @@
 +++
 title = "Securing secret branches"
+description = "How to make sure you don't git-push the wrong thing."
 date = 2022-11-06
+tags = ["github", "git"]
 +++
 
 Most posts I write will never be published. But I still keep them around

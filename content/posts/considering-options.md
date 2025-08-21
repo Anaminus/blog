@@ -1,10 +1,9 @@
 +++
 title = "Considering options"
-description = "or: How to implement an Optional type in Go"
+description = "How to implement an Optional type in Go."
 date = 2022-11-10 06:00:00
+tags = ["golang"]
 +++
-
-*or: How to implement an Optional type in Go*
 
 I'm in the middle of rewriting [rbxfile][rbxfile]. A rewrite gives the
 opportunity to right any wrongs.

@@ -1,35 +1,22 @@
 baseURL = "https://anaminus.github.io/blog"
-title = "Blog"
-theme = "etch"
+title = "Anaminus.Blog"
 languageCode = "en-US"
-enableInlineShortcodes = true
-pygmentsCodeFences = true
-pygmentsUseClasses = true
+
+markup.goldmark.renderer.unsafe = true
+security.enableInlineShortcodes = true
+build.noJSConfigInAssets = true
+
+[taxonomies]
+tag = 'tags'
 
 [params]
-	description = "Blog posts from Anaminus"
-	copyright = "Copyright © 2022 Anaminus"
-	dark = "auto"
-	highlight = true
+description = "Blog posts from Anaminus"
 
-[menu]
-	[[menu.main]]
-		identifier = "posts"
-		name = "posts"
-		title = "posts"
-		url = "/"
-		weight = 10
+[params.license]
+name = "CC BY-SA-4.0"
+url = "https://creativecommons.org/licenses/by-sa/4.0/"
 
-	[[menu.main]]
-		identifier = "about"
-		name = "about"
-		title = "about"
-		url = "/about/"
-		weight = 20
-
-[permalinks]
-	posts = "/:title/"
-
-[markup.goldmark.renderer]
-	# Allows HTML in Markdown
-	unsafe = true
+[params.publication]
+year = 2022
+author = "Anaminus"
+url = "https://anaminus.github.io/"

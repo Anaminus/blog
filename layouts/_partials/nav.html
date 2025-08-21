@@ -1,0 +1,8 @@
+{{- if not (eq .Kind "home") }}
+<nav>
+	{{- $up := (index .Ancestors 0) }}
+	{{- if $up }}
+		<a href="{{$up.Permalink}}">{{if eq $up.Kind "home"}}Front{{else}}{{$up.Title}}{{end}}</a>
+	{{- end }}
+</nav>
+{{- end }}
