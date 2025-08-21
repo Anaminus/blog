@@ -2,18 +2,28 @@
 {{- partial "nav.html" . }}
 {{- range site.Sections.ByWeight }}
 	{{- partial "withfeed.html" (slice . .Title) }}
+	{{- $max := or (int site.Params.pageListSize) (int math.MaxInt64) }}
+	{{- $pages := .Pages.ByDate.Reverse }}
 	<ul>
-		{{- range .Pages }}
+		{{- range $pages.Limit $max }}
 			{{- partial "page/li.html" . }}
 		{{- end }}
 	</ul>
+	{{- if gt (len $pages) $max }}
+		<p><a href="{{.Permalink}}">More →</a></p>
+	{{- end}}
 {{- end }}
 {{- range $name, $tax := site.Taxonomies }}
 	<h1>{{$tax.Page.Title}}</h1>
+	{{- $max := or (int site.Params.termListSize) (int math.MaxInt64) }}
+	{{- $terms := $tax.ByCount }}
 	<ul>
-		{{- range $tax.Alphabetical }}
+		{{- range $tax.ByCount | first $max }}
 			{{- partial "term/li.html" . }}
 		{{- end }}
 	</ul>
+	{{- if gt (len $terms) $max }}
+		<p><a href="{{$tax.Page.Permalink}}">More →</a></p>
+	{{- end}}
 {{- end }}
 {{- end }}
