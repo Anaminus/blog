@@ -1,0 +1,4 @@
+{{- $ctx := index . 0 -}}
+{{- $title := index . 1 -}}
+{{- $rss := $ctx.OutputFormats.Get "rss" -}}
+<h1 class="with-feed">{{or $title .Title}}{{partial "feed.html" $rss}}</h1>

@@ -10,6 +10,12 @@ build.noJSConfigInAssets = true
 [taxonomies]
 tag = 'tags'
 
+[outputs]
+home = ['html', 'rss']
+section = ['html', 'rss']
+taxonomy = ['html']
+term = ['html', 'rss']
+
 [params]
 description = "Blog posts from Anaminus"
 

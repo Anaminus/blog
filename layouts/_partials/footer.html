@@ -1,4 +1,4 @@
 <footer>
-	<span class="license">Content is licensed under <a href="{{site.Params.License.URL}}">{{site.Params.License.Name}}</a></span>
+	<span class="license">Content is licensed under <a href="{{site.Params.License.URL}}">{{site.Params.License.Name}}</a>{{partial "feed.html" (site.Home.OutputFormats.Get "rss")}}</span>
 	<span class="publication">{{partial "publication.svg" .}} {{site.Params.Publication.Year}}–{{now.Year}} <a href="{{site.Params.Publication.URL}}">{{site.Params.Publication.Author}}</a></span>
 </footer>

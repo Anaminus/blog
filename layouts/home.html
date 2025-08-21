@@ -1,7 +1,7 @@
 {{- define "main" }}
 {{- partial "nav.html" . }}
 {{- range site.Sections.ByWeight }}
-	<h1>{{.Title}}</h1>
+	{{- partial "withfeed.html" (slice . .Title) }}
 	<ul>
 		{{- range .Pages }}
 			<li><time>{{ .Date | time.Format "2006-01-02" }}</time> - <a href="{{.Permalink}}">{{.Title}}</a></li>

@@ -7,6 +7,29 @@ nav {
 		}
 	}
 }
+.with-feed {
+	display: flex;
+	flex-flow: wrap row;
+	align-items: baseline;
+}
+.feed-icon {
+	color: currentcolor;
+	align-self: center;
+	width: 1em;
+	height: 1em;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	margin-inline-start: 0.5ch;
+	svg {
+		width: 100%;
+		height: 100%;
+		path {
+			fill: currentcolor;
+		}
+	}
+}
 article > header {
 	display: flex;
 	flex-flow: nowrap column;
