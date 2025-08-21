@@ -98,6 +98,10 @@ pre {
 code {
 	font-family: var(--monospace);
 }
+hr {
+	border: 0;
+	border-block-start: 1px solid var(--theme-line);
+}
 p:has(>:is(img, video)) {
 	display: flex;
 	flex-direction: row;
