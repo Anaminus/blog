@@ -6,7 +6,7 @@
 {{- if $desc }}<p>{{$desc}}</p>{{- end }}
 <ul>
 	{{- range .Pages }}
-		<li><time>{{ .Date | time.Format "2006-01-02" }}</time> - <a href="{{.Permalink}}">{{.Title}}</a></li>
+		{{- partial "page/li.html" . }}
 	{{- end }}
 </ul>
 {{- end }}

@@ -3,7 +3,7 @@
 <h1>{{.Title}}</h1>
 <ul>
 	{{- range (index site.Taxonomies .Section).Alphabetical }}
-		<li><a href="{{.Page.Permalink}}">#{{.Name}}</a> ({{.Count}})</li>
+		{{- partial "term/li.html" . }}
 	{{- end }}
 </ul>
 {{- end }}
