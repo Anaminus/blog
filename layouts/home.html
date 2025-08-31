@@ -2,6 +2,7 @@
 {{- partial "nav.html" . }}
 {{- range site.Sections.ByWeight }}
 	{{- partial "withfeed.html" (slice . .Title) }}
+	<p>{{partial "description.txt" .}}</p>
 	{{- $max := or (int site.Params.pageListSize) (int math.MaxInt64) }}
 	{{- $pages := .Pages.ByDate.Reverse }}
 	<ul>

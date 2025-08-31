@@ -1,6 +1,7 @@
 {{- define "main" }}
 {{- partial "nav.html" . }}
 {{- partial "withfeed.html" (slice . .Title) }}
+<p>{{partial "description.txt" .}}</p>
 <ul>
 	{{- range .Pages }}
 		{{- partial "page/li.html" . }}
