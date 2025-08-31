@@ -1,41 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Gamedev on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/gamedev/</link><description>Recent content in Gamedev on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/gamedev/index.xml" rel="self" type="application/rss+xml"/><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>Making minimal and efficient UVs in Blender for Roblox.</description><content:encoded>&lt;p>You want to produce meshes with simple, solid color textures. Because the colors
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Gamedev on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/gamedev/</link><description>Recent content in Gamedev on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/gamedev/index.xml" rel="self" type="application/rss+xml"/><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>Making minimal and efficient UVs in Blender for Roblox.</description><content:encoded>&lt;p&gt;You want to produce meshes with simple, solid color textures. Because the colors
 are solid, you should be able to get away with using small textures. Tiny
-textures. Single-digit resolution textures. Possible, right?&lt;/p>
-&lt;p>The problem: Roblox applies linear interpolation to its textures. Here is a
-2-by-1 Decal, where the left pixel is white, and the right pixel is black:&lt;/p>
-&lt;p>&lt;img src="fig1.png" alt="">&lt;/p>
-&lt;p>Indeed, the left side is white, and the right side is black, but in between,
-there is a smooth, linear interpolation from one pixel to the other.&lt;/p>
-&lt;p>When constructing UVs for a mesh, we&amp;rsquo;ll have to find a way around this. Let&amp;rsquo;s
-head over to Blender, and work on a simple plane mesh:&lt;/p>
-&lt;p>&lt;img src="fig2.png" alt="">&lt;/p>
-&lt;p>The interpolation of the texture should be set to &lt;strong>Linear&lt;/strong>, and the extension
-should be set to &lt;strong>Repeat&lt;/strong>. This will match how Roblox renders textures on
-MeshParts. When we import it into Roblox, it looks mostly similar:&lt;/p>
-&lt;p>&lt;img src="fig3.png" alt="">&lt;/p>
-&lt;p>Notably, the left side begins to fade towards black, while the right side fades
+textures. Single-digit resolution textures. Possible, right?&lt;/p&gt;
+&lt;p&gt;The problem: Roblox applies linear interpolation to its textures. Here is a
+2-by-1 Decal, where the left pixel is white, and the right pixel is black:&lt;/p&gt;
+&lt;p&gt;&lt;img src="fig1.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;Indeed, the left side is white, and the right side is black, but in between,
+there is a smooth, linear interpolation from one pixel to the other.&lt;/p&gt;
+&lt;p&gt;When constructing UVs for a mesh, we&amp;rsquo;ll have to find a way around this. Let&amp;rsquo;s
+head over to Blender, and work on a simple plane mesh:&lt;/p&gt;
+&lt;p&gt;&lt;img src="fig2.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;The interpolation of the texture should be set to &lt;strong&gt;Linear&lt;/strong&gt;, and the extension
+should be set to &lt;strong&gt;Repeat&lt;/strong&gt;. This will match how Roblox renders textures on
+MeshParts. When we import it into Roblox, it looks mostly similar:&lt;/p&gt;
+&lt;p&gt;&lt;img src="fig3.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;Notably, the left side begins to fade towards black, while the right side fades
 towards white, which proves that the texture repeats. So we&amp;rsquo;ll be able to use
-Blender to get a rough idea of what Roblox will render.&lt;/p>
-&lt;p>So how do we produce solid colors? We can&amp;rsquo;t just cover the whole pixel with a
-face, because half of the pixel is always interpolating to its neighbor:&lt;/p>
-&lt;p>&lt;img src="fig4.png" alt="">&lt;/p>
-&lt;p>To get a solid color, the coordinates have to be in the exact center of the
-pixel:&lt;/p>
-&lt;p>&lt;img src="fig5.png" alt="">&lt;/p>
-&lt;p>Two faces, each using one color:&lt;/p>
-&lt;p>&lt;img src="fig6.png" alt="">&lt;/p>
-&lt;p>But does it work in Roblox?&lt;/p>
-&lt;p>&lt;img src="fig7.png" alt="">&lt;/p>
-&lt;p>Indeed! To compare the colors, the top squares are regular Parts, while the
-bottom squares are the mesh.&lt;/p>
-&lt;p>UV coordinates are reused for SurfaceAppearance textures, so this technique can
-be used to set the roughness and metalness of surfaces as well:&lt;/p>
-&lt;p>&lt;img src="fig8.png" alt="">&lt;/p>
-&lt;p>&lt;strong>Tip:&lt;/strong> To set the coordinates of many faces at once, select all the faces, use
+Blender to get a rough idea of what Roblox will render.&lt;/p&gt;
+&lt;p&gt;So how do we produce solid colors? We can&amp;rsquo;t just cover the whole pixel with a
+face, because half of the pixel is always interpolating to its neighbor:&lt;/p&gt;
+&lt;p&gt;&lt;img src="fig4.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;To get a solid color, the coordinates have to be in the exact center of the
+pixel:&lt;/p&gt;
+&lt;p&gt;&lt;img src="fig5.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;Two faces, each using one color:&lt;/p&gt;
+&lt;p&gt;&lt;img src="fig6.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;But does it work in Roblox?&lt;/p&gt;
+&lt;p&gt;&lt;img src="fig7.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;Indeed! To compare the colors, the top squares are regular Parts, while the
+bottom squares are the mesh.&lt;/p&gt;
+&lt;p&gt;UV coordinates are reused for SurfaceAppearance textures, so this technique can
+be used to set the roughness and metalness of surfaces as well:&lt;/p&gt;
+&lt;p&gt;&lt;img src="fig8.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
 the scale tool, and set the scale amounts to 0. This will move all vertices to a
-single location, which you can then move to the center of the desired pixel.&lt;/p>
-&lt;p>&lt;video src="fig9.webm" controls loop>&lt;/video>&lt;/p>
-&lt;p>Another interesting idea: Because colors are interpolated, we could set the
+single location, which you can then move to the center of the desired pixel.&lt;/p&gt;
+&lt;p&gt;&lt;video src="fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;Another interesting idea: Because colors are interpolated, we could set the
 coordinates to somewhere besides a pixel center, in order to get more colors.
 For example, the simple 2-by-1 white-to-black texture can also be used to get
-any shade of gray.&lt;/p></content:encoded></item></channel></rss>
+any shade of gray.&lt;/p&gt;</content:encoded></item></channel></rss>

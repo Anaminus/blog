@@ -1,121 +1,121 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Rojo on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/rojo/</link><description>Recent content in Rojo on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 19 Dec 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/rojo/index.xml" rel="self" type="application/rss+xml"/><item><title>Rojo wrangling</title><link>https://anaminus.github.io/blog/posts/rojo-wrangling/</link><pubDate>Mon, 19 Dec 2022 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/rojo-wrangling/</guid><description>Getting Rojo to fit your project's structure.</description><content:encoded>&lt;p>I have particular preferences about how I want my projects to be structured, and
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Rojo on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/rojo/</link><description>Recent content in Rojo on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 19 Dec 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/rojo/index.xml" rel="self" type="application/rss+xml"/><item><title>Rojo wrangling</title><link>https://anaminus.github.io/blog/posts/rojo-wrangling/</link><pubDate>Mon, 19 Dec 2022 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/rojo-wrangling/</guid><description>Getting Rojo to fit your project's structure.</description><content:encoded>&lt;p&gt;I have particular preferences about how I want my projects to be structured, and
 I will bend my tools to make it work. This time, the tool being flexed is
-&lt;a href="https://rojo.space/">Rojo&lt;/a>.&lt;/p>
-&lt;p>I want related modules to be grouped together into one &amp;ldquo;package&amp;rdquo;. If a package
+&lt;a href="https://rojo.space/"&gt;Rojo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I want related modules to be grouped together into one &amp;ldquo;package&amp;rdquo;. If a package
 has a server component and a client component, I want those two files to live
 next to each other under the same folder. However, there are two problems that
-make this structure difficult to have.&lt;/p>
-&lt;p>Problem #1 is how Roblox handles replication. The client component has to be in
+make this structure difficult to have.&lt;/p&gt;
+&lt;p&gt;Problem #1 is how Roblox handles replication. The client component has to be in
 one location in order to replicate to clients, while the server component has to
 be in a different location in order to be isolated from clients. They inherently
-cannot be together (how dramatic).&lt;/p>
-&lt;p>There &lt;em>is&lt;/em> the new &lt;a href="https://robloxapi.github.io/ref/enum/RunContext.html">RunContext&lt;/a> property that might solve this
+cannot be together (how dramatic).&lt;/p&gt;
+&lt;p&gt;There &lt;em&gt;is&lt;/em&gt; the new &lt;a href="https://robloxapi.github.io/ref/enum/RunContext.html"&gt;RunContext&lt;/a&gt; property that might solve this
 problem, but I haven&amp;rsquo;t explored its uses in full, and I&amp;rsquo;m somewhat skeptical of
 its utility. More importantly, it doesn&amp;rsquo;t have first-class support in Rojo, so
-it&amp;rsquo;s not terribly easy to use.&lt;/p>
-&lt;p>Problem #2 is that the default structure for Rojo projects is rather literal: a
+it&amp;rsquo;s not terribly easy to use.&lt;/p&gt;
+&lt;p&gt;Problem #2 is that the default structure for Rojo projects is rather literal: a
 file corresponds to an instance. With a simple tree definition, Rojo causes the
 file structure to correspond mostly to the DataModel structure, which means
-DataModel problems become file system problems.&lt;/p>
-&lt;p>There is an out, though. In Rojo, projects are recursive. While traversing the
-project tree, if a &lt;code>project.json&lt;/code> file is encountered, it will be turned into a
+DataModel problems become file system problems.&lt;/p&gt;
+&lt;p&gt;There is an out, though. In Rojo, projects are recursive. While traversing the
+project tree, if a &lt;code&gt;project.json&lt;/code&gt; file is encountered, it will be turned into a
 node by evaluating the content as a sort of sub-project. The rules for how this
 works turns out to be very relaxed. Enough so that it&amp;rsquo;s possible to get Rojo to
-build just about any project structure if you put in the effort.&lt;/p>
-&lt;p>To generalize this concept, I introduce what I call &amp;ldquo;pointer files&amp;rdquo;. These are
-just regular &lt;code>project.json&lt;/code> files, but they have barest minimum content:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>&lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="s2">&amp;#34;NAME&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="nt">&amp;#34;tree&amp;#34;&lt;/span>&lt;span class="p">:{&lt;/span>&lt;span class="nt">&amp;#34;$path&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="s2">&amp;#34;REFERENT&amp;#34;&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Where &lt;code>NAME&lt;/code> defines the name of the node, and &lt;code>REFERENT&lt;/code> defines a path to the
+build just about any project structure if you put in the effort.&lt;/p&gt;
+&lt;p&gt;To generalize this concept, I introduce what I call &amp;ldquo;pointer files&amp;rdquo;. These are
+just regular &lt;code&gt;project.json&lt;/code&gt; files, but they have barest minimum content:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;NAME&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;tree&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:{&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;$path&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;REFERENT&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Where &lt;code&gt;NAME&lt;/code&gt; defines the name of the node, and &lt;code&gt;REFERENT&lt;/code&gt; defines a path to the
 file to be used as the node, relative to the project file. If you give each
 pointer file a different name, then you can create any number of pointers in the
-same folder.&lt;/p>
-&lt;h2 id="packages-example">Packages example&lt;/h2>
-&lt;p>As an example, let&amp;rsquo;s say I have a &lt;code>pkg&lt;/code> folder that I use to contain packages.
+same folder.&lt;/p&gt;
+&lt;h2 id="packages-example"&gt;Packages example&lt;/h2&gt;
+&lt;p&gt;As an example, let&amp;rsquo;s say I have a &lt;code&gt;pkg&lt;/code&gt; folder that I use to contain packages.
 Each subfolder is one package, and &amp;ldquo;server&amp;rdquo; and &amp;ldquo;client&amp;rdquo; files within are the
-respective components:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>pkg/foo/server.lua&lt;/code>&lt;/li>
-&lt;li>&lt;code>pkg/foo/client.lua&lt;/code>&lt;/li>
-&lt;li>&lt;code>pkg/bar/server.lua&lt;/code>&lt;/li>
-&lt;li>&lt;code>pkg/bar/client.lua&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>Then I have a separate &lt;code>game&lt;/code> folder, which contains a literal representation of
-the DataModel:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>game/ServerScriptService&lt;/code>: Contains server components.&lt;/li>
-&lt;li>&lt;code>game/ReplicatedStorage&lt;/code>: Contains client components.&lt;/li>
-&lt;/ul>
-&lt;p>I can &amp;ldquo;unpack&amp;rdquo; my packages by creating a number of pointer files under the
-&lt;code>game&lt;/code> folder that point to files in the &lt;code>pkg&lt;/code> folder:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">game/ServerScriptService/foo.project.json
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {&amp;#34;name&amp;#34;:&amp;#34;foo&amp;#34;,&amp;#34;tree&amp;#34;:{&amp;#34;$path&amp;#34;:&amp;#34;../../pkg/foo/server.lua&amp;#34;}}
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">game/ServerScriptService/bar.project.json
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {&amp;#34;name&amp;#34;:&amp;#34;bar&amp;#34;,&amp;#34;tree&amp;#34;:{&amp;#34;$path&amp;#34;:&amp;#34;../../pkg/bar/server.lua&amp;#34;}}
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">game/ReplicatedStorage/foo.project.json
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {&amp;#34;name&amp;#34;:&amp;#34;foo&amp;#34;,&amp;#34;tree&amp;#34;:{&amp;#34;$path&amp;#34;:&amp;#34;../../pkg/foo/client.lua&amp;#34;}}
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">game/ReplicatedStorage/bar.project.json
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {&amp;#34;name&amp;#34;:&amp;#34;bar&amp;#34;,&amp;#34;tree&amp;#34;:{&amp;#34;$path&amp;#34;:&amp;#34;../../pkg/bar/client.lua&amp;#34;}}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Finally, the root &lt;code>default.project.json&lt;/code> points to the &lt;code>game&lt;/code> folder, so that
-building the project builds everything from there.&lt;/p>
-&lt;h2 id="cloning-example">Cloning example&lt;/h2>
-&lt;p>This technique is surprisingly versatile. Here&amp;rsquo;s another example: I have two
+respective components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pkg/foo/server.lua&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pkg/foo/client.lua&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pkg/bar/server.lua&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pkg/bar/client.lua&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then I have a separate &lt;code&gt;game&lt;/code&gt; folder, which contains a literal representation of
+the DataModel:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;game/ServerScriptService&lt;/code&gt;: Contains server components.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;game/ReplicatedStorage&lt;/code&gt;: Contains client components.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I can &amp;ldquo;unpack&amp;rdquo; my packages by creating a number of pointer files under the
+&lt;code&gt;game&lt;/code&gt; folder that point to files in the &lt;code&gt;pkg&lt;/code&gt; folder:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;game/ServerScriptService/foo.project.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; {&amp;#34;name&amp;#34;:&amp;#34;foo&amp;#34;,&amp;#34;tree&amp;#34;:{&amp;#34;$path&amp;#34;:&amp;#34;../../pkg/foo/server.lua&amp;#34;}}
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;game/ServerScriptService/bar.project.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; {&amp;#34;name&amp;#34;:&amp;#34;bar&amp;#34;,&amp;#34;tree&amp;#34;:{&amp;#34;$path&amp;#34;:&amp;#34;../../pkg/bar/server.lua&amp;#34;}}
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;game/ReplicatedStorage/foo.project.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; {&amp;#34;name&amp;#34;:&amp;#34;foo&amp;#34;,&amp;#34;tree&amp;#34;:{&amp;#34;$path&amp;#34;:&amp;#34;../../pkg/foo/client.lua&amp;#34;}}
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;game/ReplicatedStorage/bar.project.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; {&amp;#34;name&amp;#34;:&amp;#34;bar&amp;#34;,&amp;#34;tree&amp;#34;:{&amp;#34;$path&amp;#34;:&amp;#34;../../pkg/bar/client.lua&amp;#34;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, the root &lt;code&gt;default.project.json&lt;/code&gt; points to the &lt;code&gt;game&lt;/code&gt; folder, so that
+building the project builds everything from there.&lt;/p&gt;
+&lt;h2 id="cloning-example"&gt;Cloning example&lt;/h2&gt;
+&lt;p&gt;This technique is surprisingly versatile. Here&amp;rsquo;s another example: I have two
 scripts that are used as the entrypoints for the server and client,
 respectively. They both share a common &amp;ldquo;maid&amp;rdquo; module. The normal solution is to
 have common modules stored under ReplicatedStorage. But I want the client
 entrypoint to be snappy, so depending on modules outside of ReplicatedFirst is
-not allowed. Instead, I have the structure set up as the following:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>core/bootstrap.client/init.client.lua&lt;/code>&lt;/li>
-&lt;li>&lt;code>core/bootstrap.client/maid.project.json&lt;/code>&lt;/li>
-&lt;li>&lt;code>core/bootstrap.server/init.server.lua&lt;/code>&lt;/li>
-&lt;li>&lt;code>core/bootstrap.server/maid.project.json&lt;/code>&lt;/li>
-&lt;li>&lt;code>core/maid.lua&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>Both &lt;code>maid.project.json&lt;/code> files have the following content:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>&lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="s2">&amp;#34;maid&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="nt">&amp;#34;tree&amp;#34;&lt;/span>&lt;span class="p">:{&lt;/span>&lt;span class="nt">&amp;#34;$path&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="s2">&amp;#34;../maid.lua&amp;#34;&lt;/span>&lt;span class="p">}}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then I have the usual pointers under the game tree to move the scripts to their
-proper locations under ReplicatedFirst and ServerScriptService.&lt;/p>
-&lt;p>What&amp;rsquo;s interesting is that, when Rojo builds the project, it creates a copy of
-the &lt;code>maid.lua&lt;/code> module under each bootstrap script. This allows me to have just
+not allowed. Instead, I have the structure set up as the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;core/bootstrap.client/init.client.lua&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;core/bootstrap.client/maid.project.json&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;core/bootstrap.server/init.server.lua&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;core/bootstrap.server/maid.project.json&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;core/maid.lua&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Both &lt;code&gt;maid.project.json&lt;/code&gt; files have the following content:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;maid&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;tree&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:{&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;$path&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;../maid.lua&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then I have the usual pointers under the game tree to move the scripts to their
+proper locations under ReplicatedFirst and ServerScriptService.&lt;/p&gt;
+&lt;p&gt;What&amp;rsquo;s interesting is that, when Rojo builds the project, it creates a copy of
+the &lt;code&gt;maid.lua&lt;/code&gt; module under each bootstrap script. This allows me to have just
 one file as the source of two separate modules! I&amp;rsquo;m sure this definitely wont
-backfire in some subtle way!&lt;/p>
-&lt;h2 id="automation">Automation&lt;/h2>
-&lt;p>While my project is still in its infancy, I&amp;rsquo;m creating, removing, and renaming
+backfire in some subtle way!&lt;/p&gt;
+&lt;h2 id="automation"&gt;Automation&lt;/h2&gt;
+&lt;p&gt;While my project is still in its infancy, I&amp;rsquo;m creating, removing, and renaming
 files left and right. Manually keeping the pointer files up to date is an
-exercise in futility, so I automate the whole thing with an &lt;a href="https://github.com/anaminus/rbxmk">rbxmk&lt;/a>
+exercise in futility, so I automate the whole thing with an &lt;a href="https://github.com/anaminus/rbxmk"&gt;rbxmk&lt;/a&gt;
 script instead. This script defines how to map files around, while the
-&lt;a href="https://gist.github.com/Anaminus/135999033fa01a3b1491b0d0e54b6f68">Build.rbxmk.lua&lt;/a> library does the heavy lifting. An example
-script might look like this:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-lua" data-lang="lua">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">-- Require the Build library.&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">local&lt;/span> &lt;span class="n">Build&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">rbxmk.runFile&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">path.expand&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;$sd/lib/Build.rbxmk.lua&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">-- Map package components to their respective locations.&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Build.package&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;src/pkg&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">	&lt;span class="n">boot&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;game/ReplicatedFirst&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">	&lt;span class="n">server&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;game/ServerScriptService&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">	&lt;span class="n">client&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;game/ReplicatedStorage/client&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">	&lt;span class="n">shared&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;game/ReplicatedStorage/shared&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">	&lt;span class="n">internal&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;game/ReplicatedStorage/internal&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">})&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">-- Map bootstrap scripts.&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Build.ref&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;core/bootstrap.client&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;game/ReplicatedFirst/bootstrap&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Build.ref&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;core/bootstrap.server&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;game/ServerScriptService/bootstrap&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">-- Remove any files that haven&amp;#39;t been touched by this build script, which&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">-- accounts for renames/removals/etc.&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Build.clean&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;game&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Unfortunately, the script requires the latest unreleased version of rbxmk, so
+&lt;a href="https://gist.github.com/Anaminus/135999033fa01a3b1491b0d0e54b6f68"&gt;Build.rbxmk.lua&lt;/a&gt; library does the heavy lifting. An example
+script might look like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-lua" data-lang="lua"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;-- Require the Build library.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;Build&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rbxmk.runFile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;path.expand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;$sd/lib/Build.rbxmk.lua&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;-- Map package components to their respective locations.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Build.package&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;src/pkg&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;boot&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;game/ReplicatedFirst&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;game/ServerScriptService&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;client&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;game/ReplicatedStorage/client&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;shared&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;game/ReplicatedStorage/shared&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;internal&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;game/ReplicatedStorage/internal&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;-- Map bootstrap scripts.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Build.ref&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;core/bootstrap.client&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;game/ReplicatedFirst/bootstrap&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Build.ref&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;core/bootstrap.server&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;game/ServerScriptService/bootstrap&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;-- Remove any files that haven&amp;#39;t been touched by this build script, which&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;-- accounts for renames/removals/etc.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Build.clean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;game&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Unfortunately, the script requires the latest unreleased version of rbxmk, so
 you&amp;rsquo;ll have to build it yourself if you want to use this (sorry!). This post is
 more to showcase the technique of abusing Rojo&amp;rsquo;s project files to do crazy
-things anyway.&lt;/p>
-&lt;p>This technique is very general, so there&amp;rsquo;s nothing stopping you from
+things anyway.&lt;/p&gt;
+&lt;p&gt;This technique is very general, so there&amp;rsquo;s nothing stopping you from
 implementing it with your preferred method of automation. Come up with a
-structure that best suits your needs!&lt;/p></content:encoded></item></channel></rss>
+structure that best suits your needs!&lt;/p&gt;</content:encoded></item></channel></rss>
