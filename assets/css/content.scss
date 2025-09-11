@@ -125,6 +125,12 @@ code {
 	font-family: var(--monospace);
 	tab-size: 4;
 }
+strong {
+	font-weight: bold;
+}
+em {
+	font-style: italic;
+}
 hr {
 	border: 0;
 	border-block-start: 1px solid var(--theme-line);
