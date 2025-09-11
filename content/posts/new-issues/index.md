@@ -14,22 +14,12 @@ get the bright idea of linking to <a>issues/new</a>. How convenient! One click,
 and they're able to start writing a report immediately! Except, that isn't what
 happens.
 
-<figure>
-<img src="login.png" alt="An unsolicited GitHub login page.">
-<figcaption>
-What actually happens when users click on your link.
-</figcaption>
-</figure>
+![What actually happens when users click on your link.](login.png)
 
 Ugh. Don't assume my intentions. All you had to do was link to the issue page.
 It's not like opening a new issue from there is hard.
 
-<figure>
-<img src="new-issue.png" alt="New-issue button on GitHub's issue tracker page.">
-<figcaption>
-Can't miss it.
-</figcaption>
-</figure>
+![Can't miss it.](new-issue.png)
 
 Other reasons why you may not want to do this:
 - Non-GitHub users are stonewalled from even viewing your tracker without

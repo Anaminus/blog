@@ -47,12 +47,7 @@ point in replicating them either.
 We can use this as a solution to our problems. To replicate an instance
 exclusively to one client, we can copy the instance to the client's PlayerGui.
 
-<figure>
-<img src="fig1.png">
-<figcaption>
-You can put anything under the PlayerGui.
-</figcaption>
-</figure>
+![You can put anything under the PlayerGui.](fig1.png)
 
 I use the term "exclusive" here rather than "selective", because this technique
 doesn't actually let us select which clients a specific instance is replicated
@@ -76,16 +71,11 @@ location. So, on the client, as long as the instance stays under the DataModel,
 it will continue to receive changes from the server no matter where it is
 located.
 
-<figure>
-<img src="fig2.png">
-<figcaption>
-Moving an instance is considered a distinct unit of change, like setting a
+![Moving an instance is considered a distinct unit of change, like setting a
 property or adding a new child. That is, whenever some other change occurs,
 there isn't going to be an additional check to make sure the instance in
 question is in the right place. The Parent property of the instance will only be
-replicated when it actually changes on the server.
-</figcaption>
-</figure>
+replicated when it actually changes on the server.](fig2.png)
 
 Instead of putting instances directly in the PlayerGui, let's put them in a
 Folder that is located under the PlayerGui. On the server, the Folder must
@@ -93,14 +83,9 @@ always stay here. On the client however, it can be moved to anywhere we want. By
 moving it outside of the PlayerGui, the replication behavior is retained, while
 the GUI-rendering behavior is dropped.
 
-<figure>
-<img src="fig3.png">
-<figcaption>
-Changes to the Container on the server are still replicated to the Container on
-the client, no matter where it is located. ServerStorage is perfectly usable on
-the client, and makes for a good location to store the Container.
-</figcaption>
-</figure>
+![Changes to the Container on the server are still replicated to the Container
+on the client, no matter where it is located. ServerStorage is perfectly usable
+on the client, and makes for a good location to store the Container.](fig3.png)
 
 There is only one more problem now: by default, all instances under the
 PlayerGui will be removed before the player's character respawns. For
@@ -125,12 +110,7 @@ replicate its descendants to one player at a time. There are other more
 complicated solutions to selective replication, but I feel like this would be a
 good and very simple intermediate step.
 
-<figure>
-<img src="fig4.png">
-<figcaption>
-Get an icon ready!
-</figcaption>
-</figure>
+![Get an icon ready!](fig4.png)
 
 We might be tempted to do this right now; instead of putting the Container under
 ServerStorage, we could call it "PlayerStorage" and put it directly under the

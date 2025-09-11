@@ -2,6 +2,7 @@ baseURL = "https://anaminus.github.io/blog"
 title = "Anaminus.Blog"
 languageCode = "en-US"
 
+markup.goldmark.parser.wrapStandAloneImageWithinParagraph = false
 markup.goldmark.renderer.unsafe = true
 markup.highlight.noClasses = false
 security.enableInlineShortcodes = true

@@ -133,7 +133,7 @@ p:has(>:is(img, video)) {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	>:is(img, video,figure) {
+	>:is(img, video, figure) {
 		max-width: 100%;
 		flex: 0 1 0;
 		padding: 0;
