@@ -10,3 +10,10 @@
 {{- range page.Resources.Match "*.css" }}
 	<style>{{.Content | safeCSS}}</style>
 {{- end }}
+{{- if and (eq page.Kind "section") (eq page.Type "briefs") }}
+	{{- range page.Pages }}
+		{{- range .Resources.Match "*.css" }}
+			<style>{{.Content | safeCSS}}</style>
+		{{- end }}
+	{{- end }}
+{{- end }}

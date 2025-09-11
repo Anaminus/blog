@@ -1,0 +1,24 @@
+article.brief {
+	> header {
+		margin: 0;
+		h1 {
+			font-size: 1rem;
+			display: inline;
+			margin: 0;
+		}
+	}
+	border: 1px solid var(--theme-line);
+	padding: 1ch;
+	margin: 1ch;
+	.tags {
+		margin-block-start: 1rem;
+		margin-block-start: 1rem;
+		margin-inline-start: auto;
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-end;
+		.tag {
+			padding: 0 0.125em;
+		}
+	}
+}

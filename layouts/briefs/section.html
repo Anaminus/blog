@@ -1,0 +1,23 @@
+{{- define "main" }}
+{{- partial "nav.html" . }}
+{{- partial "withfeed.html" (slice . .Title) }}
+<p>{{partial "description.txt" .}}</p>
+<div class="briefs">
+	{{- range .Pages }}
+		<article class="brief">
+			<header>
+				<div class="title">
+					<h1><a href="{{.Permalink}}">{{.Title}}</a></h1>
+					<time class="date" title="{{.Date | time.Format "2006-01-02 15:04"}}">{{.Date | time.Format "2006-01-02"}}</time>
+				</div>
+			</header>
+			{{- .Content -}}
+			<div class="tags">
+				{{- range .GetTerms "tags" }}
+					<a class="tag" href="{{.Permalink}}">{{partial "format-term.txt" (slice "tags" (.Path | path.Base))}}</a>
+				{{- end }}
+			</div>
+		</article>
+	{{- end }}
+</div>
+{{- end }}
