@@ -1,4 +1,8 @@
 {{- $ctx := index . 0 -}}
 {{- $title := index . 1 -}}
 {{- $rss := $ctx.OutputFormats.Get "rss" -}}
+{{- if eq $ctx page }}
 <h1 class="with-feed">{{or $title .Title}}{{partial "feed.html" $rss}}</h1>
+{{- else }}
+<h1 class="with-feed"><a href="{{$ctx.Permalink}}">{{or $title .Title}}</a>{{partial "feed.html" $rss}}</h1>
+{{- end }}
