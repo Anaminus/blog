@@ -6,10 +6,14 @@
 			<h1>{{.Title}}</h1>
 			{{- if isset .Params "date" }}
 				<span class="date">
+					{{- $format := "2006-01-02" }}
+					{{- if eq .Type "briefs" }}
+						{{- $format = "2006-01-02 15:04" }}
+					{{- end }}
 					{{- if le .Lastmod .Date }}
-						Published on <time>{{.Date | time.Format "2006-01-02"}}</time>
+						Published on <time>{{.Date | time.Format $format}}</time>
 					{{ else }}
-						Modified on <time>{{.Lastmod | time.Format "2006-01-02"}}</time>
+						Modified on <time>{{.Lastmod | time.Format $format}}</time>
 					{{ end }}
 				</span>
 			{{- end -}}
