@@ -62,7 +62,7 @@ be used to set the roughness and metalness of surfaces as well:
 the scale tool, and set the scale amounts to 0. This will move all vertices to a
 single location, which you can then move to the center of the desired pixel.
 
-<video src="fig9.webm" controls loop></video>
+{{< video src="fig9.webm" >}}
 
 Another interesting idea: Because colors are interpolated, we could set the
 coordinates to somewhere besides a pixel center, in order to get more colors.
