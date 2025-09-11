@@ -1,0 +1,17 @@
+.pagination {
+	display: flex;
+	flex-flow: wrap row;
+	margin-block: 1rem;
+	justify-content: center;
+	.page-item {
+		display: inline;
+		margin-inline: 0.5rem;
+		padding-inline: 0.5rem;
+		a.page-link:not([href]) {
+			color: var(--theme-fg);
+		}
+	}
+	.active {
+		border-bottom: 2px solid var(--theme-line);
+	}
+}

@@ -2,8 +2,13 @@
 {{- partial "nav.html" . }}
 {{- partial "withfeed.html" (slice . .Title) }}
 <p>{{partial "description.txt" .}}</p>
+{{- $pages := .Pages }}
+{{- $size := int site.Params.briefTimeline }}
+{{- if gt $size 0 }}
+	{{- $pages = (.Paginate $pages $size).Pages }}
+{{- end }}
 <div class="briefs">
-	{{- range .Pages }}
+	{{- range $pages }}
 		<article class="brief">
 			<header>
 				<div class="title">
@@ -20,4 +25,7 @@
 		</article>
 	{{- end }}
 </div>
+{{- if gt $size 0 }}
+	{{ partial "pagination.html" (dict "page" . "format" "default") }}
+{{- end }}
 {{- end }}
