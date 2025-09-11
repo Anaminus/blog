@@ -30,6 +30,9 @@ nav {
 		}
 	}
 }
+a.feed-icon	svg path {
+	fill: var(--theme-link);
+}
 article > header {
 	display: flex;
 	flex-flow: nowrap column;
