@@ -16,7 +16,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; fidelity that you can rebuild the full thought when necessary
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;-&lt;/span&gt; you can always revisit thoughts and expand upon them later
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Paragraphs are avoided for this because they introduce the congitive effort of
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Paragraphs are avoided for this because they introduce the cognitive effort of
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;having format them. Should this thought be a part of the current paragraph, or
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;should a new one be started? Or maybe this paragraph is too long, and it&amp;#39;s hard
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;to pick out the important information.
@@ -60,7 +60,59 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="gh"&gt;&lt;/span&gt;&lt;span class="k"&gt;-&lt;/span&gt; notes don&amp;#39;t have conclusions
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;-&lt;/span&gt; they do not finish
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;-&lt;/span&gt; they do not end
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Safe cron minutes</title><link>https://anaminus.github.io/blog/posts/safe-cron-minutes/</link><pubDate>Thu, 07 Mar 2024 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/safe-cron-minutes/</guid><description>When is the best time to run your workflow?</description><content:encoded>&lt;pre&gt;&lt;code&gt;06 07 08 09 11 12 13 17
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>.nojekyll</title><link>https://anaminus.github.io/blog/briefs/202508211648/</link><pubDate>Thu, 21 Aug 2025 16:48:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202508211648/</guid><content:encoded>&lt;p&gt;If you don&amp;rsquo;t use Jekyll for GitHub Pages, be sure to disable it by adding a
+&lt;code&gt;.nojekyll&lt;/code&gt; file to the root of the deployed branch. Doing this cut my build
+time in half.&lt;/p&gt;</content:encoded></item><item><title>Contrast ratios</title><link>https://anaminus.github.io/blog/briefs/202508180236/</link><pubDate>Mon, 18 Aug 2025 02:36:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202508180236/</guid><content:encoded>&lt;p&gt;Minimally compliant contrast ratios. Good for preventing afterimages.&lt;/p&gt;
+&lt;div class="swatches"&gt;
+	&lt;div class="dark r456 small"&gt;Ratio: 4.56 (AA)&lt;br&gt;BG: #000000&lt;br&gt;FG: #757575&lt;/div&gt;
+	&lt;div class="dark r701 small"&gt;Ratio: 7.01 (AAA)&lt;br&gt;BG: #000000&lt;br&gt;FG: #959595&lt;/div&gt;
+	&lt;div class="dark r304 large"&gt;Ratio: 3.04 (AA)&lt;br&gt;BG: #000000&lt;br&gt;FG: #5A5A5A&lt;/div&gt;
+	&lt;div class="dark r456 large"&gt;Ratio: 4.56 (AAA)&lt;br&gt;BG: #000000&lt;br&gt;FG: #757575&lt;/div&gt;
+	&lt;div class="dark r701 large"&gt;Ratio: 7.01 (AAA+)&lt;br&gt;BG: #000000&lt;br&gt;FG: #959595&lt;/div&gt;
+	&lt;div class="dark r700 small"&gt;Ratio: 7.00 (AAA)&lt;br&gt;BG: #595959&lt;br&gt;FG: #FFFFFF&lt;/div&gt;
+	&lt;div class="dark r700 large"&gt;Ratio: 7.00 (AAA+)&lt;br&gt;BG: #595959&lt;br&gt;FG: #FFFFFF&lt;/div&gt;
+	&lt;div class="dark r454 small"&gt;Ratio: 4.54 (AA)&lt;br&gt;BG: #767676&lt;br&gt;FG: #FFFFFF&lt;/div&gt;
+	&lt;div class="dark r454 large"&gt;Ratio: 4.54 (AAA)&lt;br&gt;BG: #767676&lt;br&gt;FG: #FFFFFF&lt;/div&gt;
+	&lt;div class="dark r303 large"&gt;Ratio: 3.03 (AA)&lt;br&gt;BG: #949494&lt;br&gt;FG: #FFFFFF&lt;/div&gt;
+	&lt;div class="light r304 large"&gt;Ratio: 3.04 (AA)&lt;br&gt;BG: #5A5A5A&lt;br&gt;FG: #000000&lt;/div&gt;
+	&lt;div class="light r456 small"&gt;Ratio: 4.56 (AA)&lt;br&gt;BG: #757575&lt;br&gt;FG: #000000&lt;/div&gt;
+	&lt;div class="light r456 large"&gt;Ratio: 4.56 (AAA)&lt;br&gt;BG: #757575&lt;br&gt;FG: #000000&lt;/div&gt;
+	&lt;div class="light r701 small"&gt;Ratio: 7.01 (AAA)&lt;br&gt;BG: #959595&lt;br&gt;FG: #000000&lt;/div&gt;
+	&lt;div class="light r701 large"&gt;Ratio: 7.01 (AAA+)&lt;br&gt;BG: #959595&lt;br&gt;FG: #000000&lt;/div&gt;
+	&lt;div class="light r700 small"&gt;Ratio: 7.00 (AAA)&lt;br&gt;BG: #FFFFFF&lt;br&gt;FG: #595959&lt;/div&gt;
+	&lt;div class="light r700 large"&gt;Ratio: 7.00 (AAA+)&lt;br&gt;BG: #FFFFFF&lt;br&gt;FG: #595959&lt;/div&gt;
+	&lt;div class="light r454 small"&gt;Ratio: 4.54 (AA)&lt;br&gt;BG: #FFFFFF&lt;br&gt;FG: #767676&lt;/div&gt;
+	&lt;div class="light r454 large"&gt;Ratio: 4.54 (AAA)&lt;br&gt;BG: #FFFFFF&lt;br&gt;FG: #767676&lt;/div&gt;
+	&lt;div class="light r303 large"&gt;Ratio: 3.03 (AA)&lt;br&gt;BG: #FFFFFF&lt;br&gt;FG: #949494&lt;/div&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Slice swap</title><link>https://anaminus.github.io/blog/briefs/202508142233/</link><pubDate>Thu, 14 Aug 2025 22:33:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202508142233/</guid><content:encoded>&lt;p&gt;Swapping two parts of a slice in-place.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// ABCDE|FGH&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nx"&gt;slices&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;Reverse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;slice&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// EDCBA|FGH&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nx"&gt;slices&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;Reverse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;slice&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// EDCBA|HGF&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nx"&gt;slices&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;Reverse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;slice&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// FGH|ABCDE&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Proportional bitmap fonts</title><link>https://anaminus.github.io/blog/threads/202508121522/</link><pubDate>Tue, 12 Aug 2025 15:22:00 +0000</pubDate><guid>https://anaminus.github.io/blog/threads/202508121522/</guid><content:encoded>&lt;p&gt;A method for producing proportional bitmap fonts. The red component defines the
+drawable area for each glyph. Green defines the actual appearance. Blue defines
+the origin and spacing. Blank glyphs are skipped.&lt;/p&gt;
+&lt;p&gt;&lt;img src="00.png" alt=""&gt;&lt;/p&gt;
+&lt;p&gt;Layers are used to define groups of characters, allowing any part of the unicode
+codespace to be specified. A layer name with a single code point defines a
+sequential group. Ligatures are possible by defining a layer name with more than
+one code point.&lt;/p&gt;
+&lt;p&gt;Text is rendered by placing the left-most blue pixel of a glyph over the
+right-most blue pixel of the previous glyph. Using a baseline instead of
+boundaries for glyph placement allows glyphs to be spaced arbitrarily, and even
+drawn over each other.&lt;/p&gt;
+&lt;p&gt;&lt;img src="01.png" alt=""&gt;&lt;/p&gt;</content:encoded></item><item><title>Futuristic</title><link>https://anaminus.github.io/blog/briefs/202508071546/</link><pubDate>Thu, 07 Aug 2025 15:46:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202508071546/</guid><content:encoded>&lt;p&gt;There was a time when &amp;ldquo;The year is 2025&amp;rdquo; would have felt futuristic.&lt;/p&gt;</content:encoded></item><item><title>Terms of Service</title><link>https://anaminus.github.io/blog/briefs/202508071544/</link><pubDate>Thu, 07 Aug 2025 15:44:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202508071544/</guid><content:encoded>&lt;p&gt;The year is 2025. There is still no benchmark for displaying differences in
+Terms of Service. Users everywhere are still expected to memorize the whole
+thing and then comb through looking for changes.&lt;/p&gt;</content:encoded></item><item><title>Same length</title><link>https://anaminus.github.io/blog/briefs/202503042052/</link><pubDate>Tue, 04 Mar 2025 20:52:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202503042052/</guid><content:encoded>&lt;p&gt;Today I am thankful that&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;absolute&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;argument&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;constant&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;relative&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;register&lt;/code&gt;, and&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;variable&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;all have the same number of letters.&lt;/p&gt;</content:encoded></item><item><title>Banana stickers</title><link>https://anaminus.github.io/blog/briefs/202412071838/</link><pubDate>Sat, 07 Dec 2024 18:38:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202412071838/</guid><content:encoded>&lt;p&gt;You can just take the stickers off the bananas all at once.&lt;/p&gt;</content:encoded></item><item><title>Safe cron minutes</title><link>https://anaminus.github.io/blog/posts/safe-cron-minutes/</link><pubDate>Thu, 07 Mar 2024 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/safe-cron-minutes/</guid><description>When is the best time to run your workflow?</description><content:encoded>&lt;pre&gt;&lt;code&gt;06 07 08 09 11 12 13 17
 18 19 21 22 23 24 26 27
 33 34 36 37 38 39 41 42
 43 47 48 49 51 52 53 54

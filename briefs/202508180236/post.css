@@ -1,0 +1,31 @@
+.large { font-size: 135% }
+
+.swatches {
+	font-size: 18px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	grid-auto-rows: 180px;
+	> div {
+		overflow: hidden;
+		text-wrap: nowrap;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.dark.r304  { background-color: #000000; color: #5A5A5A }
+.dark.r456  { background-color: #000000; color: #757575 }
+.dark.r701  { background-color: #000000; color: #959595 }
+.dark.r700  { background-color: #595959; color: #FFFFFF }
+.dark.r454  { background-color: #767676; color: #FFFFFF }
+.dark.r303  { background-color: #949494; color: #FFFFFF }
+
+.light.r304 { background-color: #5A5A5A; color: #000000 }
+.light.r456 { background-color: #757575; color: #000000 }
+.light.r701 { background-color: #959595; color: #000000 }
+.light.r700 { background-color: #FFFFFF; color: #595959 }
+.light.r454 { background-color: #FFFFFF; color: #767676 }
+.light.r303 { background-color: #FFFFFF; color: #949494 }
