@@ -24,7 +24,7 @@ tags = ["notes"]
   fidelity that you can rebuild the full thought when necessary
 - you can always revisit thoughts and expand upon them later
 
-Paragraphs are avoided for this because they introduce the congitive effort of
+Paragraphs are avoided for this because they introduce the cognitive effort of
 having format them. Should this thought be a part of the current paragraph, or
 should a new one be started? Or maybe this paragraph is too long, and it's hard
 to pick out the important information.
