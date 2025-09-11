@@ -22,7 +22,9 @@
 		{{- end -}}
 	{{- end -}}
 >
+{{- if .Text }}
 <figcaption>{{.Text}}</figcaption>
+{{- end }}
 </figure>
 {{- else -}}
 <img src="{{$src}}" alt="{{.PlainText}}"
