@@ -1,0 +1,21 @@
+article {
+	.thread {
+		position: relative;
+		> .string {
+			position: absolute;
+			top: 0;
+			left: 2ch;
+			bottom: 0;
+			border-right: 2px solid var(--theme-line);
+			z-index: 1;
+		}
+		> div {
+			position: relative;
+			border: 1px solid var(--theme-line);
+			background-color: var(--theme-back);
+			padding: 1ch;
+			margin: 1ch;
+			z-index: 2;
+		}
+	}
+}

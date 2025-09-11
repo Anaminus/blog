@@ -29,6 +29,13 @@
 			</span>
 		</div>
 	</header>
-	{{- .Content -}}
+	{{- if eq .Type "threads" }}
+		<div class="thread">
+			<span class="string"></span>
+			{{- .Content -}}
+		</div>
+	{{- else }}
+		{{- .Content -}}
+	{{- end }}
 </article>
 {{- end }}
