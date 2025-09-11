@@ -115,22 +115,27 @@ secret drafts to GitHub! Fortunately, GitHub has what are called &amp;ldquo;Prot
 rules&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;To set it up, first the branch needs to be on GitHub. It&amp;rsquo;s easy enough to create
 a new branch on the website by going to the &lt;code&gt;/branches&lt;/code&gt; page.&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig1.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;The branch has to be based off of another one. I used the same branch as what my
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig1.png"&gt;
+&lt;/figure&gt;&lt;p&gt;The branch has to be based off of another one. I used the same branch as what my
 local &lt;code&gt;drafts&lt;/code&gt; branch is based off of. This will make accidental pulls safe,
 since git will just think the local branch is the latest.&lt;/p&gt;
 &lt;p&gt;Next, I went to Settings, then Branches, and added a new Branch protection rule,
 where the pattern matched the name of the branch:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig2.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Then I included the Lock branch rule. This will prevent me from pushing to it. I
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig2.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Then I included the Lock branch rule. This will prevent me from pushing to it. I
 also included the &amp;ldquo;Do not allow bypassing above settings&amp;rdquo;. Seems like a safe
 thing to do.&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig3.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Saved the rule, and that&amp;rsquo;s it.&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig4.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Now when I try to push to the branch, GitHub will reject the attempt.&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig5.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Notably, git still tries to upload everything, and the rejection comes
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig3.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Saved the rule, and that&amp;rsquo;s it.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig4.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Now when I try to push to the branch, GitHub will reject the attempt.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig5.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Notably, git still tries to upload everything, and the rejection comes
 afterwards. I could add a local pre-push hook to prevent the uploading, but I&amp;rsquo;m
 not worried about it. The point is to prevent the drafts from becoming public,
 which has already been accomplished.&lt;/p&gt;</content:encoded></item><item><title>Stop linking to issues/new</title><link>https://anaminus.github.io/blog/posts/new-issues/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/new-issues/</guid><content:encoded>&lt;p&gt;You have a neat software project. This project has a presence on GitHub. Maybe
@@ -142,20 +147,14 @@ get the bright idea of linking to &lt;a&gt;issues/new&lt;/a&gt;. How convenient!
 and they&amp;rsquo;re able to start writing a report immediately! Except, that isn&amp;rsquo;t what
 happens.&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src="login.png" alt="An unsolicited GitHub login page."&gt;
-&lt;figcaption&gt;
-What actually happens when users click on your link.
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;Ugh. Don&amp;rsquo;t assume my intentions. All you had to do was link to the issue page.
+&lt;img src="https://anaminus.github.io/blog/posts/new-issues/login.png"&gt;
+&lt;figcaption&gt;What actually happens when users click on your link.&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;Ugh. Don&amp;rsquo;t assume my intentions. All you had to do was link to the issue page.
 It&amp;rsquo;s not like opening a new issue from there is hard.&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src="new-issue.png" alt="New-issue button on GitHub's issue tracker page."&gt;
-&lt;figcaption&gt;
-Can't miss it.
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;Other reasons why you may not want to do this:&lt;/p&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/new-issues/new-issue.png"&gt;
+&lt;figcaption&gt;Can&amp;rsquo;t miss it.&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;Other reasons why you may not want to do this:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Non-GitHub users are stonewalled from even viewing your tracker without
 backtracking to find an alternate route.&lt;/li&gt;

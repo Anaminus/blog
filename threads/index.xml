@@ -1,13 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Threads on Anaminus.Blog</title><link>https://anaminus.github.io/blog/threads/</link><description>Recent content in Threads on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Tue, 12 Aug 2025 15:22:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/threads/index.xml" rel="self" type="application/rss+xml"/><item><title>Proportional bitmap fonts</title><link>https://anaminus.github.io/blog/threads/202508121522/</link><pubDate>Tue, 12 Aug 2025 15:22:00 +0000</pubDate><guid>https://anaminus.github.io/blog/threads/202508121522/</guid><content:encoded>&lt;p&gt;A method for producing proportional bitmap fonts. The red component defines the
-drawable area for each glyph. Green defines the actual appearance. Blue defines
-the origin and spacing. Blank glyphs are skipped.&lt;/p&gt;
-&lt;p&gt;&lt;img src="00.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Layers are used to define groups of characters, allowing any part of the unicode
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Threads on Anaminus.Blog</title><link>https://anaminus.github.io/blog/threads/</link><description>Recent content in Threads on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Tue, 12 Aug 2025 15:22:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/threads/index.xml" rel="self" type="application/rss+xml"/><item><title>Proportional bitmap fonts</title><link>https://anaminus.github.io/blog/threads/202508121522/</link><pubDate>Tue, 12 Aug 2025 15:22:00 +0000</pubDate><guid>https://anaminus.github.io/blog/threads/202508121522/</guid><content:encoded>&lt;div&gt;
+Here's a method for producing proportional bitmap fonts. The red component
+defines the drawable area for each glyph. Green defines the actual appearance.
+Blue defines the origin and spacing. Blank glyphs are skipped.
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/threads/202508121522/00.png"&gt;
+&lt;/figure&gt;&lt;/div&gt;
+&lt;div&gt;
+Layers are used to define groups of characters, allowing any part of the unicode
 codespace to be specified. A layer name with a single code point defines a
 sequential group. Ligatures are possible by defining a layer name with more than
-one code point.&lt;/p&gt;
-&lt;p&gt;Text is rendered by placing the left-most blue pixel of a glyph over the
+one code point.
+&lt;/div&gt;
+&lt;div&gt;
+Text is rendered by placing the left-most blue pixel of a glyph over the
 right-most blue pixel of the previous glyph. Using a baseline instead of
 boundaries for glyph placement allows glyphs to be spaced arbitrarily, and even
-drawn over each other.&lt;/p&gt;
-&lt;p&gt;&lt;img src="01.png" alt=""&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+drawn over each other.
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/threads/202508121522/01.png"&gt;
+&lt;/figure&gt;&lt;/div&gt;</content:encoded></item></channel></rss>

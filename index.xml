@@ -89,19 +89,27 @@ time in half.&lt;/p&gt;</content:encoded></item><item><title>Contrast ratios</ti
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nx"&gt;slices&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;Reverse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;slice&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// EDCBA|FGH&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nx"&gt;slices&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;Reverse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;slice&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// EDCBA|HGF&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nx"&gt;slices&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;Reverse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;slice&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// FGH|ABCDE&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Proportional bitmap fonts</title><link>https://anaminus.github.io/blog/threads/202508121522/</link><pubDate>Tue, 12 Aug 2025 15:22:00 +0000</pubDate><guid>https://anaminus.github.io/blog/threads/202508121522/</guid><content:encoded>&lt;p&gt;A method for producing proportional bitmap fonts. The red component defines the
-drawable area for each glyph. Green defines the actual appearance. Blue defines
-the origin and spacing. Blank glyphs are skipped.&lt;/p&gt;
-&lt;p&gt;&lt;img src="00.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Layers are used to define groups of characters, allowing any part of the unicode
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Proportional bitmap fonts</title><link>https://anaminus.github.io/blog/threads/202508121522/</link><pubDate>Tue, 12 Aug 2025 15:22:00 +0000</pubDate><guid>https://anaminus.github.io/blog/threads/202508121522/</guid><content:encoded>&lt;div&gt;
+Here's a method for producing proportional bitmap fonts. The red component
+defines the drawable area for each glyph. Green defines the actual appearance.
+Blue defines the origin and spacing. Blank glyphs are skipped.
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/threads/202508121522/00.png"&gt;
+&lt;/figure&gt;&lt;/div&gt;
+&lt;div&gt;
+Layers are used to define groups of characters, allowing any part of the unicode
 codespace to be specified. A layer name with a single code point defines a
 sequential group. Ligatures are possible by defining a layer name with more than
-one code point.&lt;/p&gt;
-&lt;p&gt;Text is rendered by placing the left-most blue pixel of a glyph over the
+one code point.
+&lt;/div&gt;
+&lt;div&gt;
+Text is rendered by placing the left-most blue pixel of a glyph over the
 right-most blue pixel of the previous glyph. Using a baseline instead of
 boundaries for glyph placement allows glyphs to be spaced arbitrarily, and even
-drawn over each other.&lt;/p&gt;
-&lt;p&gt;&lt;img src="01.png" alt=""&gt;&lt;/p&gt;</content:encoded></item><item><title>Futuristic</title><link>https://anaminus.github.io/blog/briefs/202508071546/</link><pubDate>Thu, 07 Aug 2025 15:46:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202508071546/</guid><content:encoded>&lt;p&gt;There was a time when &amp;ldquo;The year is 2025&amp;rdquo; would have felt futuristic.&lt;/p&gt;</content:encoded></item><item><title>Terms of Service</title><link>https://anaminus.github.io/blog/briefs/202508071544/</link><pubDate>Thu, 07 Aug 2025 15:44:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202508071544/</guid><content:encoded>&lt;p&gt;The year is 2025. There is still no benchmark for displaying differences in
+drawn over each other.
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/threads/202508121522/01.png"&gt;
+&lt;/figure&gt;&lt;/div&gt;</content:encoded></item><item><title>Futuristic</title><link>https://anaminus.github.io/blog/briefs/202508071546/</link><pubDate>Thu, 07 Aug 2025 15:46:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202508071546/</guid><content:encoded>&lt;p&gt;There was a time when &amp;ldquo;The year is 2025&amp;rdquo; would have felt futuristic.&lt;/p&gt;</content:encoded></item><item><title>Terms of Service</title><link>https://anaminus.github.io/blog/briefs/202508071544/</link><pubDate>Thu, 07 Aug 2025 15:44:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202508071544/</guid><content:encoded>&lt;p&gt;The year is 2025. There is still no benchmark for displaying differences in
 Terms of Service. Users everywhere are still expected to memorize the whole
 thing and then comb through looking for changes.&lt;/p&gt;</content:encoded></item><item><title>Same length</title><link>https://anaminus.github.io/blog/briefs/202503042052/</link><pubDate>Tue, 04 Mar 2025 20:52:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202503042052/</guid><content:encoded>&lt;p&gt;Today I am thankful that&lt;/p&gt;
 &lt;ul&gt;
@@ -625,12 +633,9 @@ point in replicating them either.&lt;/p&gt;
 &lt;p&gt;We can use this as a solution to our problems. To replicate an instance
 exclusively to one client, we can copy the instance to the client&amp;rsquo;s PlayerGui.&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src="fig1.png"&gt;
-&lt;figcaption&gt;
-You can put anything under the PlayerGui.
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;I use the term &amp;ldquo;exclusive&amp;rdquo; here rather than &amp;ldquo;selective&amp;rdquo;, because this technique
+&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig1.png"&gt;
+&lt;figcaption&gt;You can put anything under the PlayerGui.&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;I use the term &amp;ldquo;exclusive&amp;rdquo; here rather than &amp;ldquo;selective&amp;rdquo;, because this technique
 doesn&amp;rsquo;t actually let us select which clients a specific instance is replicated
 to. Instead, we have to make a copy of the instance on the server for each
 client we want to replicate to. It&amp;rsquo;s possible to write a module that manages all
@@ -650,29 +655,23 @@ location. So, on the client, as long as the instance stays under the DataModel,
 it will continue to receive changes from the server no matter where it is
 located.&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src="fig2.png"&gt;
-&lt;figcaption&gt;
-Moving an instance is considered a distinct unit of change, like setting a
+&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig2.png"&gt;
+&lt;figcaption&gt;Moving an instance is considered a distinct unit of change, like setting a
 property or adding a new child. That is, whenever some other change occurs,
-there isn't going to be an additional check to make sure the instance in
+there isn&amp;rsquo;t going to be an additional check to make sure the instance in
 question is in the right place. The Parent property of the instance will only be
-replicated when it actually changes on the server.
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;Instead of putting instances directly in the PlayerGui, let&amp;rsquo;s put them in a
+replicated when it actually changes on the server.&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;Instead of putting instances directly in the PlayerGui, let&amp;rsquo;s put them in a
 Folder that is located under the PlayerGui. On the server, the Folder must
 always stay here. On the client however, it can be moved to anywhere we want. By
 moving it outside of the PlayerGui, the replication behavior is retained, while
 the GUI-rendering behavior is dropped.&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src="fig3.png"&gt;
-&lt;figcaption&gt;
-Changes to the Container on the server are still replicated to the Container on
-the client, no matter where it is located. ServerStorage is perfectly usable on
-the client, and makes for a good location to store the Container.
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;There is only one more problem now: by default, all instances under the
+&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig3.png"&gt;
+&lt;figcaption&gt;Changes to the Container on the server are still replicated to the Container
+on the client, no matter where it is located. ServerStorage is perfectly usable
+on the client, and makes for a good location to store the Container.&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;There is only one more problem now: by default, all instances under the
 PlayerGui will be removed before the player&amp;rsquo;s character respawns. For
 ScreenGuis, this can be prevented with the ResetOnSpawn property, but Folders do
 not have this. Fortunately, there is the
@@ -690,12 +689,9 @@ replicate its descendants to one player at a time. There are other more
 complicated solutions to selective replication, but I feel like this would be a
 good and very simple intermediate step.&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src="fig4.png"&gt;
-&lt;figcaption&gt;
-Get an icon ready!
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;We might be tempted to do this right now; instead of putting the Container under
+&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig4.png"&gt;
+&lt;figcaption&gt;Get an icon ready!&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;We might be tempted to do this right now; instead of putting the Container under
 ServerStorage, we could call it &amp;ldquo;PlayerStorage&amp;rdquo; and put it directly under the
 Player. However, if Roblox does add their own PlayerStorage container, then it
 will conflict with ours, and things will likely break. Personally, I really like
@@ -981,22 +977,27 @@ secret drafts to GitHub! Fortunately, GitHub has what are called &amp;ldquo;Prot
 rules&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;To set it up, first the branch needs to be on GitHub. It&amp;rsquo;s easy enough to create
 a new branch on the website by going to the &lt;code&gt;/branches&lt;/code&gt; page.&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig1.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;The branch has to be based off of another one. I used the same branch as what my
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig1.png"&gt;
+&lt;/figure&gt;&lt;p&gt;The branch has to be based off of another one. I used the same branch as what my
 local &lt;code&gt;drafts&lt;/code&gt; branch is based off of. This will make accidental pulls safe,
 since git will just think the local branch is the latest.&lt;/p&gt;
 &lt;p&gt;Next, I went to Settings, then Branches, and added a new Branch protection rule,
 where the pattern matched the name of the branch:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig2.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Then I included the Lock branch rule. This will prevent me from pushing to it. I
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig2.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Then I included the Lock branch rule. This will prevent me from pushing to it. I
 also included the &amp;ldquo;Do not allow bypassing above settings&amp;rdquo;. Seems like a safe
 thing to do.&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig3.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Saved the rule, and that&amp;rsquo;s it.&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig4.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Now when I try to push to the branch, GitHub will reject the attempt.&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig5.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Notably, git still tries to upload everything, and the rejection comes
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig3.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Saved the rule, and that&amp;rsquo;s it.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig4.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Now when I try to push to the branch, GitHub will reject the attempt.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig5.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Notably, git still tries to upload everything, and the rejection comes
 afterwards. I could add a local pre-push hook to prevent the uploading, but I&amp;rsquo;m
 not worried about it. The point is to prevent the drafts from becoming public,
 which has already been accomplished.&lt;/p&gt;</content:encoded></item><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>Making minimal and efficient UVs in Blender for Roblox.</description><content:encoded>&lt;p&gt;You want to produce meshes with simple, solid color textures. Because the colors
@@ -1004,35 +1005,43 @@ are solid, you should be able to get away with using small textures. Tiny
 textures. Single-digit resolution textures. Possible, right?&lt;/p&gt;
 &lt;p&gt;The problem: Roblox applies linear interpolation to its textures. Here is a
 2-by-1 Decal, where the left pixel is white, and the right pixel is black:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig1.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Indeed, the left side is white, and the right side is black, but in between,
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig1.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Indeed, the left side is white, and the right side is black, but in between,
 there is a smooth, linear interpolation from one pixel to the other.&lt;/p&gt;
 &lt;p&gt;When constructing UVs for a mesh, we&amp;rsquo;ll have to find a way around this. Let&amp;rsquo;s
 head over to Blender, and work on a simple plane mesh:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig2.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;The interpolation of the texture should be set to &lt;strong&gt;Linear&lt;/strong&gt;, and the extension
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig2.png"&gt;
+&lt;/figure&gt;&lt;p&gt;The interpolation of the texture should be set to &lt;strong&gt;Linear&lt;/strong&gt;, and the extension
 should be set to &lt;strong&gt;Repeat&lt;/strong&gt;. This will match how Roblox renders textures on
 MeshParts. When we import it into Roblox, it looks mostly similar:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig3.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Notably, the left side begins to fade towards black, while the right side fades
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig3.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Notably, the left side begins to fade towards black, while the right side fades
 towards white, which proves that the texture repeats. So we&amp;rsquo;ll be able to use
 Blender to get a rough idea of what Roblox will render.&lt;/p&gt;
 &lt;p&gt;So how do we produce solid colors? We can&amp;rsquo;t just cover the whole pixel with a
 face, because half of the pixel is always interpolating to its neighbor:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig4.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;To get a solid color, the coordinates have to be in the exact center of the
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig4.png"&gt;
+&lt;/figure&gt;&lt;p&gt;To get a solid color, the coordinates have to be in the exact center of the
 pixel:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig5.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Two faces, each using one color:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig6.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;But does it work in Roblox?&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig7.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Indeed! To compare the colors, the top squares are regular Parts, while the
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig5.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Two faces, each using one color:&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig6.png"&gt;
+&lt;/figure&gt;&lt;p&gt;But does it work in Roblox?&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig7.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Indeed! To compare the colors, the top squares are regular Parts, while the
 bottom squares are the mesh.&lt;/p&gt;
 &lt;p&gt;UV coordinates are reused for SurfaceAppearance textures, so this technique can
 be used to set the roughness and metalness of surfaces as well:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig8.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig8.png"&gt;
+&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
 the scale tool, and set the scale amounts to 0. This will move all vertices to a
 single location, which you can then move to the center of the desired pixel.&lt;/p&gt;
 &lt;p&gt;&lt;video src="fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
@@ -1048,20 +1057,14 @@ get the bright idea of linking to &lt;a&gt;issues/new&lt;/a&gt;. How convenient!
 and they&amp;rsquo;re able to start writing a report immediately! Except, that isn&amp;rsquo;t what
 happens.&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src="login.png" alt="An unsolicited GitHub login page."&gt;
-&lt;figcaption&gt;
-What actually happens when users click on your link.
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;Ugh. Don&amp;rsquo;t assume my intentions. All you had to do was link to the issue page.
+&lt;img src="https://anaminus.github.io/blog/posts/new-issues/login.png"&gt;
+&lt;figcaption&gt;What actually happens when users click on your link.&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;Ugh. Don&amp;rsquo;t assume my intentions. All you had to do was link to the issue page.
 It&amp;rsquo;s not like opening a new issue from there is hard.&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src="new-issue.png" alt="New-issue button on GitHub's issue tracker page."&gt;
-&lt;figcaption&gt;
-Can't miss it.
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;Other reasons why you may not want to do this:&lt;/p&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/new-issues/new-issue.png"&gt;
+&lt;figcaption&gt;Can&amp;rsquo;t miss it.&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;p&gt;Other reasons why you may not want to do this:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Non-GitHub users are stonewalled from even viewing your tracker without
 backtracking to find an alternate route.&lt;/li&gt;

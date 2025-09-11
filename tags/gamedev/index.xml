@@ -1,49 +1,65 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Gamedev on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/gamedev/</link><description>Recent content in Gamedev on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Tue, 12 Aug 2025 15:22:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/gamedev/index.xml" rel="self" type="application/rss+xml"/><item><title>Proportional bitmap fonts</title><link>https://anaminus.github.io/blog/threads/202508121522/</link><pubDate>Tue, 12 Aug 2025 15:22:00 +0000</pubDate><guid>https://anaminus.github.io/blog/threads/202508121522/</guid><content:encoded>&lt;p&gt;A method for producing proportional bitmap fonts. The red component defines the
-drawable area for each glyph. Green defines the actual appearance. Blue defines
-the origin and spacing. Blank glyphs are skipped.&lt;/p&gt;
-&lt;p&gt;&lt;img src="00.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Layers are used to define groups of characters, allowing any part of the unicode
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Gamedev on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/gamedev/</link><description>Recent content in Gamedev on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Tue, 12 Aug 2025 15:22:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/gamedev/index.xml" rel="self" type="application/rss+xml"/><item><title>Proportional bitmap fonts</title><link>https://anaminus.github.io/blog/threads/202508121522/</link><pubDate>Tue, 12 Aug 2025 15:22:00 +0000</pubDate><guid>https://anaminus.github.io/blog/threads/202508121522/</guid><content:encoded>&lt;div&gt;
+Here's a method for producing proportional bitmap fonts. The red component
+defines the drawable area for each glyph. Green defines the actual appearance.
+Blue defines the origin and spacing. Blank glyphs are skipped.
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/threads/202508121522/00.png"&gt;
+&lt;/figure&gt;&lt;/div&gt;
+&lt;div&gt;
+Layers are used to define groups of characters, allowing any part of the unicode
 codespace to be specified. A layer name with a single code point defines a
 sequential group. Ligatures are possible by defining a layer name with more than
-one code point.&lt;/p&gt;
-&lt;p&gt;Text is rendered by placing the left-most blue pixel of a glyph over the
+one code point.
+&lt;/div&gt;
+&lt;div&gt;
+Text is rendered by placing the left-most blue pixel of a glyph over the
 right-most blue pixel of the previous glyph. Using a baseline instead of
 boundaries for glyph placement allows glyphs to be spaced arbitrarily, and even
-drawn over each other.&lt;/p&gt;
-&lt;p&gt;&lt;img src="01.png" alt=""&gt;&lt;/p&gt;</content:encoded></item><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>Making minimal and efficient UVs in Blender for Roblox.</description><content:encoded>&lt;p&gt;You want to produce meshes with simple, solid color textures. Because the colors
+drawn over each other.
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/threads/202508121522/01.png"&gt;
+&lt;/figure&gt;&lt;/div&gt;</content:encoded></item><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>Making minimal and efficient UVs in Blender for Roblox.</description><content:encoded>&lt;p&gt;You want to produce meshes with simple, solid color textures. Because the colors
 are solid, you should be able to get away with using small textures. Tiny
 textures. Single-digit resolution textures. Possible, right?&lt;/p&gt;
 &lt;p&gt;The problem: Roblox applies linear interpolation to its textures. Here is a
 2-by-1 Decal, where the left pixel is white, and the right pixel is black:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig1.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Indeed, the left side is white, and the right side is black, but in between,
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig1.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Indeed, the left side is white, and the right side is black, but in between,
 there is a smooth, linear interpolation from one pixel to the other.&lt;/p&gt;
 &lt;p&gt;When constructing UVs for a mesh, we&amp;rsquo;ll have to find a way around this. Let&amp;rsquo;s
 head over to Blender, and work on a simple plane mesh:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig2.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;The interpolation of the texture should be set to &lt;strong&gt;Linear&lt;/strong&gt;, and the extension
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig2.png"&gt;
+&lt;/figure&gt;&lt;p&gt;The interpolation of the texture should be set to &lt;strong&gt;Linear&lt;/strong&gt;, and the extension
 should be set to &lt;strong&gt;Repeat&lt;/strong&gt;. This will match how Roblox renders textures on
 MeshParts. When we import it into Roblox, it looks mostly similar:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig3.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Notably, the left side begins to fade towards black, while the right side fades
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig3.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Notably, the left side begins to fade towards black, while the right side fades
 towards white, which proves that the texture repeats. So we&amp;rsquo;ll be able to use
 Blender to get a rough idea of what Roblox will render.&lt;/p&gt;
 &lt;p&gt;So how do we produce solid colors? We can&amp;rsquo;t just cover the whole pixel with a
 face, because half of the pixel is always interpolating to its neighbor:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig4.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;To get a solid color, the coordinates have to be in the exact center of the
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig4.png"&gt;
+&lt;/figure&gt;&lt;p&gt;To get a solid color, the coordinates have to be in the exact center of the
 pixel:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig5.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Two faces, each using one color:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig6.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;But does it work in Roblox?&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig7.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;Indeed! To compare the colors, the top squares are regular Parts, while the
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig5.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Two faces, each using one color:&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig6.png"&gt;
+&lt;/figure&gt;&lt;p&gt;But does it work in Roblox?&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig7.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Indeed! To compare the colors, the top squares are regular Parts, while the
 bottom squares are the mesh.&lt;/p&gt;
 &lt;p&gt;UV coordinates are reused for SurfaceAppearance textures, so this technique can
 be used to set the roughness and metalness of surfaces as well:&lt;/p&gt;
-&lt;p&gt;&lt;img src="fig8.png" alt=""&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig8.png"&gt;
+&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
 the scale tool, and set the scale amounts to 0. This will move all vertices to a
 single location, which you can then move to the center of the desired pixel.&lt;/p&gt;
 &lt;p&gt;&lt;video src="fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
