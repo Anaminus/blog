@@ -21,7 +21,7 @@ term = ['html', 'rss']
 description = "Blog from Anaminus."
 pageListSize = 20
 termListSize = 20
-briefTimeline = 20
+briefTimeline = 64
 
 [params.formats]
 tags = "#%s"
