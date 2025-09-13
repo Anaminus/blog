@@ -9,9 +9,12 @@
 {{- end }}
 <div class="briefs">
 	{{- range $pages }}
-		<article class="brief">
+		<article id="{{.Date | time.Format "200601021504"}}" class="brief">
 			<header>
 				<div class="title">
+					{{- if .Params.replyto }}
+						<a href="{{.Params.replyto}}" target="_blank">⤷ Reply</a>
+					{{- end }}
 					<h1><a href="{{.Permalink}}">{{.Title}}</a></h1>
 					<time class="date" title="{{.Date | time.Format "2006-01-02 15:04"}}">{{.Date | time.Format "2006-01-02"}}</time>
 				</div>
