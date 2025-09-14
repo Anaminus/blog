@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Codeimage on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/codeimage/</link><description>Recent content in Codeimage on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 15 Apr 2024 14:23:27 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/codeimage/index.xml" rel="self" type="application/rss+xml"/><item><title>Query engine</title><link>https://anaminus.github.io/blog/briefs/202404151423/</link><pubDate>Mon, 15 Apr 2024 14:23:27 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404151423/</guid><content:encoded>&lt;p&gt;Implemented a query engine that can search for API items through just about any
+aspect. As expected, it&amp;rsquo;s quite fast.&lt;/p&gt;
+&lt;p&gt;For now, the plan is to use only the fuzzy matcher. After I replace the old
+website, I can work on writing a parser than can utilize the entire engine.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/00.jpg"&gt;
+&lt;/figure&gt;&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/01.png"&gt;
+&lt;/figure&gt;&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/02.png"&gt;
+&lt;/figure&gt;&lt;p&gt;The query syntax is made up. Here&amp;rsquo;s the current plan:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Expressions
+
+	foo bar : expressions foo and bar
+	foo &amp;amp;&amp;amp; bar : foo and bar
+	foo, bar : foo or bar
+	foo || bar : foo or bar
+	!foo : negation of foo
+	(foo) : expression grouping
+
+Simple
+
+	foo : fuzzy match name to foo
+	&amp;#34;foo&amp;#34; : name exactly equal to foo
+	/foo/ : match name to regexp foo
+	* : always match
+
+Compound
+
+	foo. : match primary name to foo (e.g. class name)
+	.bar : match secondary name to bar (e.g. property name)
+	foo.bar : match primary name to foo and secondary name to bar
+
+Fields
+
+	is:foo : of type &amp;#34;foo&amp;#34; (class, function, etc)
+	tag:foo : has tag &amp;#34;foo&amp;#34;
+	has:foo : has field &amp;#34;foo&amp;#34;
+	removed:yes : is removed
+	superclasses:N : number of superclasses (class)
+	subclasses:N : number of subclasses (class)
+	members:N : number of members (class)
+	superclass:foo : superclass foo (class)
+	subclass:foo : superclass foo (class)
+	memcat:foo : MemoryCategory foo (class)
+	threadsafety:foo : ThreadSafety foo (member)
+	security:foo : Security foo (member)
+	cansave:yes : CanSave (property)
+	canload:yes : CanLoad (property)
+	readsecurity:foo : ReadSecurity foo (property)
+	writesecurity:foo : WriteSecurity foo (property)
+	valuetypecat:foo : ValueType.Category foo (property)
+	valuetypename:foo : ValueType.Name foo (property)
+	category:foo : Category foo (property)
+	default:foo : Default foo (property)
+	returns:N : number of returns (function)
+	parameters:N : number of parameters (function)
+	returntypecat:foo : return.Type.Category foo (function)
+	returntypename:foo : return.Type.Name foo (function)
+	returntypeopt:yes : return.Type.Optional (function)
+	paramtypecat:foo : parameter.Type.Category foo (function)
+	paramtypename:foo : parameter.Type.Name foo (function)
+	paramtypeopt:yes : parameter.Type.Optional (function)
+	paramname:foo : parameter.Name foo (function)
+	paramdefault:foo : parameter.Default foo (function)
+	enumitems:N : number of enum items (enum)
+	itemvalue:foo : enum item value foo (enumitem)
+	legacynames:N : number of legacy names (enumitem)
+	legacyname:foo : legacy name foo (enumitem)
+	typecat:foo : type category foo (type)
+
+String
+
+	security:foo : fuzzy match
+	security:&amp;#34;foo&amp;#34; : exact match
+	security:/foo/ : regex match
+	security:* : always match
+
+Numeric
+
+	members:N : field equal to N
+	!members:N : field not equal to N
+	members:&amp;lt;N : field less than N
+	members:&amp;lt;=N : field less than or equal to N
+	members:&amp;gt;N : field greater than N
+	members:&amp;gt;=N : field greater than or equal to N
+
+Boolean
+
+	removed:no : match false
+	removed:n : match false
+	removed:0 : match false
+	removed:false : match false
+	removed:f : match false
+	removed:yes : match true
+	removed:y : match true
+	removed:1 : match true
+	removed:true : match true
+	removed:t : match true
+
+Meta
+
+	$types : list entity types
+	$tags : list entity tags
+	$securities : list security field values
+	$threadsafeties : list threadsafety field values
+	$typecats : list type categories
+
+Results
+
+	limit:50 : set result limit to 50 (default)
+	limit:0 : set no result limit
+	order:foo : sort ascending by field foo
+	order:&amp;lt;foo : sort ascending
+	order:&amp;gt;foo : sort descending
+	order:score : sort descending by score (default)
+	order:name : sort ascending by name
+	go:docs : Redirect to CreatorHub page of 1st result
+	go:git : Redirect to creator-docs repo page of 1st result
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Cartesian product</title><link>https://anaminus.github.io/blog/briefs/202307261558/</link><pubDate>Wed, 26 Jul 2023 15:58:01 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307261558/</guid><content:encoded>&lt;p&gt;What is the name of the thing I am doing here?&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202307261558/00.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Best answer: Cartesian product&lt;/p&gt;</content:encoded></item><item><title>Tests n benchmarks</title><link>https://anaminus.github.io/blog/briefs/202307252210/</link><pubDate>Tue, 25 Jul 2023 22:10:40 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307252210/</guid><content:encoded>&lt;p&gt;thinkin bout tests n benchmarks&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202307252210/00.png"&gt;
+&lt;/figure&gt;</content:encoded></item><item><title>Connect serial</title><link>https://anaminus.github.io/blog/briefs/202307181212/</link><pubDate>Tue, 18 Jul 2023 12:12:18 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307181212/</guid><content:encoded>&lt;p&gt;Function to connect a listener to a signal serially. task.cancel continues to be
+MVP.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202307181212/00.png"&gt;
+&lt;/figure&gt;</content:encoded></item></channel></rss>

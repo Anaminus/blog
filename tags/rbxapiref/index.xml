@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Rbxapiref on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/rbxapiref/</link><description>Recent content in Rbxapiref on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Fri, 13 Sep 2024 18:00:30 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/rbxapiref/index.xml" rel="self" type="application/rss+xml"/><item><title>Engine documentation</title><link>https://anaminus.github.io/blog/briefs/202409131800/</link><pubDate>Fri, 13 Sep 2024 18:00:30 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202409131800/</guid><content:encoded>&lt;p&gt;Happy spooky friday! The API reference now has engine documentation included
+directly for classes and enums.
+&lt;a href="https://robloxapi.github.io/ref/"&gt;https://robloxapi.github.io/ref/&lt;/a&gt;&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202409131800/00.jpg"&gt;
+&lt;/figure&gt;</content:encoded></item><item><title>Type documentation</title><link>https://anaminus.github.io/blog/briefs/202407241540/</link><pubDate>Wed, 24 Jul 2024 15:40:31 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202407241540/</guid><content:encoded>&lt;p&gt;👀&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202407241540/00.jpg"&gt;
+&lt;/figure&gt;</content:encoded></item><item><title>Search for all values</title><link>https://anaminus.github.io/blog/briefs/202405150045/</link><pubDate>Wed, 15 May 2024 00:45:09 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202405150045/</guid><content:encoded>&lt;p&gt;Improved syntax: to display all values of a field, just use the field name
+without specifying a value.&lt;/p&gt;
+&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202405150045/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>List selector</title><link>https://anaminus.github.io/blog/briefs/202405132239/</link><pubDate>Mon, 13 May 2024 22:39:58 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202405132239/</guid><content:encoded>&lt;p&gt;I implemented a &amp;ldquo;list&amp;rdquo; selector and it&amp;rsquo;s kind of overpowered.&lt;/p&gt;
+&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202405132239/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Search engine grammar</title><link>https://anaminus.github.io/blog/briefs/202405081353/</link><pubDate>Wed, 08 May 2024 13:53:44 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202405081353/</guid><content:encoded>&lt;p&gt;Search engine grammar is coming along.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202405081353/00.jpg"&gt;
+&lt;/figure&gt;</content:encoded></item><item><title>Updates feed</title><link>https://anaminus.github.io/blog/briefs/202405021947/</link><pubDate>Thu, 02 May 2024 19:47:04 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202405021947/</guid><content:encoded>&lt;p&gt;Added RSS feed for API updates:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://robloxapi.github.io/ref/updates/index.xml"&gt;https://robloxapi.github.io/ref/updates/index.xml&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>API reference is live</title><link>https://anaminus.github.io/blog/briefs/202404292126/</link><pubDate>Mon, 29 Apr 2024 21:26:15 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404292126/</guid><content:encoded>&lt;p&gt;The new Roblox API Reference is live.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://robloxapi.github.io/ref/"&gt;https://robloxapi.github.io/ref/&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Mobile layout panels</title><link>https://anaminus.github.io/blog/briefs/202404261503/</link><pubDate>Fri, 26 Apr 2024 15:03:08 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404261503/</guid><content:encoded>&lt;p&gt;Have panels for a mobile layout now, implemented with no javascript.&lt;/p&gt;
+&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202404261503/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Reference statistics</title><link>https://anaminus.github.io/blog/briefs/202404191747/</link><pubDate>Fri, 19 Apr 2024 17:47:45 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404191747/</guid><content:encoded>&lt;p&gt;Decided to indulge a bit with a page of API statistics.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://robloxapi.github.io/ref/stats.html"&gt;https://robloxapi.github.io/ref/stats.html&lt;/a&gt;&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202404191747/00.jpg"&gt;
+&lt;/figure&gt;</content:encoded></item><item><title>Sibling classes</title><link>https://anaminus.github.io/blog/briefs/202404181341/</link><pubDate>Thu, 18 Apr 2024 13:41:53 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404181341/</guid><content:encoded>&lt;p&gt;Sibling classes. Obvious in retrospect, and very easy to implement.&lt;/p&gt;
+&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202404181341/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Search update</title><link>https://anaminus.github.io/blog/briefs/202404171643/</link><pubDate>Wed, 17 Apr 2024 16:43:26 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404171643/</guid><content:encoded>&lt;p&gt;Basic search now working.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://robloxapi.github.io/ref/?q=ffc"&gt;https://robloxapi.github.io/ref/?q=ffc&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Query engine</title><link>https://anaminus.github.io/blog/briefs/202404151423/</link><pubDate>Mon, 15 Apr 2024 14:23:27 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404151423/</guid><content:encoded>&lt;p&gt;Implemented a query engine that can search for API items through just about any
+aspect. As expected, it&amp;rsquo;s quite fast.&lt;/p&gt;
+&lt;p&gt;For now, the plan is to use only the fuzzy matcher. After I replace the old
+website, I can work on writing a parser than can utilize the entire engine.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/00.jpg"&gt;
+&lt;/figure&gt;&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/01.png"&gt;
+&lt;/figure&gt;&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/02.png"&gt;
+&lt;/figure&gt;&lt;p&gt;The query syntax is made up. Here&amp;rsquo;s the current plan:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Expressions
+
+	foo bar : expressions foo and bar
+	foo &amp;amp;&amp;amp; bar : foo and bar
+	foo, bar : foo or bar
+	foo || bar : foo or bar
+	!foo : negation of foo
+	(foo) : expression grouping
+
+Simple
+
+	foo : fuzzy match name to foo
+	&amp;#34;foo&amp;#34; : name exactly equal to foo
+	/foo/ : match name to regexp foo
+	* : always match
+
+Compound
+
+	foo. : match primary name to foo (e.g. class name)
+	.bar : match secondary name to bar (e.g. property name)
+	foo.bar : match primary name to foo and secondary name to bar
+
+Fields
+
+	is:foo : of type &amp;#34;foo&amp;#34; (class, function, etc)
+	tag:foo : has tag &amp;#34;foo&amp;#34;
+	has:foo : has field &amp;#34;foo&amp;#34;
+	removed:yes : is removed
+	superclasses:N : number of superclasses (class)
+	subclasses:N : number of subclasses (class)
+	members:N : number of members (class)
+	superclass:foo : superclass foo (class)
+	subclass:foo : superclass foo (class)
+	memcat:foo : MemoryCategory foo (class)
+	threadsafety:foo : ThreadSafety foo (member)
+	security:foo : Security foo (member)
+	cansave:yes : CanSave (property)
+	canload:yes : CanLoad (property)
+	readsecurity:foo : ReadSecurity foo (property)
+	writesecurity:foo : WriteSecurity foo (property)
+	valuetypecat:foo : ValueType.Category foo (property)
+	valuetypename:foo : ValueType.Name foo (property)
+	category:foo : Category foo (property)
+	default:foo : Default foo (property)
+	returns:N : number of returns (function)
+	parameters:N : number of parameters (function)
+	returntypecat:foo : return.Type.Category foo (function)
+	returntypename:foo : return.Type.Name foo (function)
+	returntypeopt:yes : return.Type.Optional (function)
+	paramtypecat:foo : parameter.Type.Category foo (function)
+	paramtypename:foo : parameter.Type.Name foo (function)
+	paramtypeopt:yes : parameter.Type.Optional (function)
+	paramname:foo : parameter.Name foo (function)
+	paramdefault:foo : parameter.Default foo (function)
+	enumitems:N : number of enum items (enum)
+	itemvalue:foo : enum item value foo (enumitem)
+	legacynames:N : number of legacy names (enumitem)
+	legacyname:foo : legacy name foo (enumitem)
+	typecat:foo : type category foo (type)
+
+String
+
+	security:foo : fuzzy match
+	security:&amp;#34;foo&amp;#34; : exact match
+	security:/foo/ : regex match
+	security:* : always match
+
+Numeric
+
+	members:N : field equal to N
+	!members:N : field not equal to N
+	members:&amp;lt;N : field less than N
+	members:&amp;lt;=N : field less than or equal to N
+	members:&amp;gt;N : field greater than N
+	members:&amp;gt;=N : field greater than or equal to N
+
+Boolean
+
+	removed:no : match false
+	removed:n : match false
+	removed:0 : match false
+	removed:false : match false
+	removed:f : match false
+	removed:yes : match true
+	removed:y : match true
+	removed:1 : match true
+	removed:true : match true
+	removed:t : match true
+
+Meta
+
+	$types : list entity types
+	$tags : list entity tags
+	$securities : list security field values
+	$threadsafeties : list threadsafety field values
+	$typecats : list type categories
+
+Results
+
+	limit:50 : set result limit to 50 (default)
+	limit:0 : set no result limit
+	order:foo : sort ascending by field foo
+	order:&amp;lt;foo : sort ascending
+	order:&amp;gt;foo : sort descending
+	order:score : sort descending by score (default)
+	order:name : sort ascending by name
+	go:docs : Redirect to CreatorHub page of 1st result
+	go:git : Redirect to creator-docs repo page of 1st result
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Database schema</title><link>https://anaminus.github.io/blog/briefs/202404131747/</link><pubDate>Sat, 13 Apr 2024 17:47:20 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404131747/</guid><content:encoded>&lt;p&gt;Organizing database rows by type.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202404131747/00.png"&gt;
+&lt;/figure&gt;</content:encoded></item><item><title>Static website database</title><link>https://anaminus.github.io/blog/briefs/202404101839/</link><pubDate>Wed, 10 Apr 2024 18:39:27 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404101839/</guid><content:encoded>&lt;p&gt;Working out how to do searches on a static website. This hinges on the
+assumption that testing 21k+ entries is surprisingly fast.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202404101839/00.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Fun fact: The size of this table is 3490.2x500505 pixels.&lt;/p&gt;</content:encoded></item><item><title>Reference settings</title><link>https://anaminus.github.io/blog/briefs/202404092341/</link><pubDate>Tue, 09 Apr 2024 23:41:42 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404092341/</guid><content:encoded>&lt;p&gt;Got settings up and running.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202404092341/00.png"&gt;
+&lt;/figure&gt;</content:encoded></item><item><title>Reference icons</title><link>https://anaminus.github.io/blog/briefs/202404022311/</link><pubDate>Tue, 02 Apr 2024 23:11:52 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404022311/</guid><content:encoded>&lt;p&gt;Icons!&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202404022311/00.jpg"&gt;
+&lt;/figure&gt;</content:encoded></item><item><title>Updates page</title><link>https://anaminus.github.io/blog/briefs/202403231142/</link><pubDate>Sat, 23 Mar 2024 11:42:50 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202403231142/</guid><content:encoded>&lt;p&gt;Slowly plugging along on the new website. The updates page is more usable now.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://robloxapi.github.io/ref/updates.html"&gt;https://robloxapi.github.io/ref/updates.html&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>CSS filtering</title><link>https://anaminus.github.io/blog/briefs/202403200545/</link><pubDate>Wed, 20 Mar 2024 05:45:53 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202403200545/</guid><content:encoded>&lt;p&gt;Pure CSS filtering and counting.&lt;/p&gt;
+&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202403200545/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Reference rewrite</title><link>https://anaminus.github.io/blog/briefs/202403061607/</link><pubDate>Wed, 06 Mar 2024 16:07:31 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202403061607/</guid><content:encoded>&lt;p&gt;I&amp;rsquo;ve been working on a complete rewrite of the Roblox API Reference, which is
+why it hasn&amp;rsquo;t been updating. Until it&amp;rsquo;s finished, the new website can be
+previewed here, for now:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://robloxapi.github.io/ref-temp/"&gt;https://robloxapi.github.io/ref-temp/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Features a simpler architecture, use of full API dumps, creator-docs
+integration. Focusing on feature parity with the current site for now, though.&lt;/p&gt;</content:encoded></item><item><title>Rewinding</title><link>https://anaminus.github.io/blog/briefs/202311101534/</link><pubDate>Fri, 10 Nov 2023 15:34:24 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202311101534/</guid><content:encoded>&lt;p&gt;This is fine. I&amp;rsquo;m okay with the events that are unfolding currently.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202311101534/00.png"&gt;
+&lt;/figure&gt;&lt;p&gt;&amp;ldquo;Fixed&amp;rdquo; it. There&amp;rsquo;s some rewind logic that stops new builds from being displayed
+until Roblox says they&amp;rsquo;re live. It seems to malfunction when a build hash
+appears more than once in the deploy history. Fixed by disabling rewind, so
+diffs can now be enjoyed before they go live.&lt;/p&gt;</content:encoded></item><item><title>Creator docs</title><link>https://anaminus.github.io/blog/briefs/202311080005/</link><pubDate>Wed, 08 Nov 2023 00:05:05 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202311080005/</guid><content:encoded>&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202311080005/00.jpg"&gt;
+&lt;/figure&gt;</content:encoded></item><item><title>Dusty reference</title><link>https://anaminus.github.io/blog/briefs/202306240026/</link><pubDate>Sat, 24 Jun 2023 00:26:30 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306240026/</guid><content:encoded>&lt;p&gt;The Roblox API Reference hasn&amp;rsquo;t been updating since the start of June, but it
+should now be working normally again.
+&lt;a href="https://robloxapi.github.io/ref/updates.html"&gt;https://robloxapi.github.io/ref/updates.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Definitely kicked up some dust trying to fix it. Can&amp;rsquo;t wait to rewrite it.&lt;/p&gt;</content:encoded></item></channel></rss>

@@ -992,7 +992,7 @@ be used to set the roughness and metalness of surfaces as well:&lt;/p&gt;
 &lt;/figure&gt;&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
 the scale tool, and set the scale amounts to 0. This will move all vertices to a
 single location, which you can then move to the center of the desired pixel.&lt;/p&gt;
-&lt;p&gt;&lt;video src="fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/posts/tiny-uv/fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
 &lt;p&gt;Another interesting idea: Because colors are interpolated, we could set the
 coordinates to somewhere besides a pixel center, in order to get more colors.
 For example, the simple 2-by-1 white-to-black texture can also be used to get

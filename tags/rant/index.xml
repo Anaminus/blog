@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Rant on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/rant/</link><description>Recent content in Rant on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Thu, 07 Aug 2025 15:44:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/rant/index.xml" rel="self" type="application/rss+xml"/><item><title>Terms of Service</title><link>https://anaminus.github.io/blog/briefs/202508071544/</link><pubDate>Thu, 07 Aug 2025 15:44:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202508071544/</guid><content:encoded>&lt;p&gt;The year is 2025. There is still no benchmark for displaying differences in
 Terms of Service. Users everywhere are still expected to memorize the whole
-thing and then comb through looking for changes.&lt;/p&gt;</content:encoded></item><item><title>How the Plugin Marketplace actually works</title><link>https://anaminus.github.io/blog/posts/plugin-marketplace/</link><pubDate>Thu, 22 Jun 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/plugin-marketplace/</guid><content:encoded>&lt;h2 id="part-i---the-plugin-compensation-model"&gt;Part I - The Plugin Compensation Model&lt;/h2&gt;
+thing and then comb through looking for changes.&lt;/p&gt;</content:encoded></item><item><title>API dump woes</title><link>https://anaminus.github.io/blog/briefs/202402191024/</link><pubDate>Mon, 19 Feb 2024 10:24:44 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202402191024/</guid><content:encoded>&lt;p&gt;To whoever did this, I just want you to know that I am very annoyed by your
+decision.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202402191024/00.png"&gt;
+&lt;/figure&gt;</content:encoded></item><item><title>Longevity</title><link>https://anaminus.github.io/blog/briefs/202312010635/</link><pubDate>Fri, 01 Dec 2023 06:35:06 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202312010635/</guid><content:encoded>&lt;p&gt;17 years on the platform is not enough for #Roblox&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202312010635/00.png"&gt;
+&lt;/figure&gt;</content:encoded></item><item><title>FAQs</title><link>https://anaminus.github.io/blog/briefs/202309191930/</link><pubDate>Tue, 19 Sep 2023 19:30:15 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309191930/</guid><content:encoded>&lt;p&gt;Preemptive FAQs are not FAQs.&lt;/p&gt;</content:encoded></item><item><title>How the Plugin Marketplace actually works</title><link>https://anaminus.github.io/blog/posts/plugin-marketplace/</link><pubDate>Thu, 22 Jun 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/plugin-marketplace/</guid><content:encoded>&lt;h2 id="part-i---the-plugin-compensation-model"&gt;Part I - The Plugin Compensation Model&lt;/h2&gt;
 &lt;p&gt;You are &lt;strong&gt;developing a game&lt;/strong&gt; on Roblox. Some aspect of your workflow is
 lacking, so you write a Studio plugin. This plugin improves the workflow of the
 &lt;strong&gt;development of your game&lt;/strong&gt;. You rejoice, as you are able to &lt;strong&gt;develop your
@@ -49,7 +56,32 @@ service of &lt;em&gt;their&lt;/em&gt; content while making them pay you definite
 &lt;li&gt;Whatever it is you &lt;span title="oh baby a triple"&gt;&lt;em&gt;do&lt;/em&gt; do, do&lt;/span&gt; not
 expect compensation for work done on a plugin that isn&amp;rsquo;t directly in service
 of a game or other UGC. At best, expect no money.&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title>Stop linking to issues/new</title><link>https://anaminus.github.io/blog/posts/new-issues/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/new-issues/</guid><content:encoded>&lt;p&gt;You have a neat software project. This project has a presence on GitHub. Maybe
+&lt;/ul&gt;</content:encoded></item><item><title>Arrow</title><link>https://anaminus.github.io/blog/briefs/202305232027/</link><pubDate>Tue, 23 May 2023 20:27:44 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202305232027/</guid><content:encoded>&lt;p&gt;The &lt;code&gt;-&amp;gt;&lt;/code&gt; operator is unergonomic to type and almost always looks like shit but
+new languages will always find an excuse to include it because teehee it&amp;rsquo;s an
+arrow.&lt;/p&gt;</content:encoded></item><item><title>Child indexing</title><link>https://anaminus.github.io/blog/briefs/202305190907/</link><pubDate>Fri, 19 May 2023 09:07:35 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202305190907/</guid><content:encoded>&lt;p&gt;stop [clap] using [clap] child [clap] indexing&lt;/p&gt;
+&lt;p&gt;The entire problem is that the operation isn’t forward compatible. Either we
+can’t index children, or Roblox can’t add new class members.&lt;/p&gt;</content:encoded></item><item><title>Screen/viewport split</title><link>https://anaminus.github.io/blog/briefs/202303171116/</link><pubDate>Fri, 17 Mar 2023 11:16:01 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202303171116/</guid><content:encoded>&lt;p&gt;The screen/viewport split was one of the biggest blunders Roblox ever made.&lt;/p&gt;</content:encoded></item><item><title>202302132136</title><link>https://anaminus.github.io/blog/briefs/202302132136/</link><pubDate>Mon, 13 Feb 2023 21:36:54 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202302132136/</guid><content:encoded>&lt;p&gt;My local news on balloons: Here&amp;rsquo;s some old information that we repeated
+yesterday and the day before. We&amp;rsquo;ll be sure to keep you up to date on the latest
+nothing that&amp;rsquo;s unfolding.&lt;/p&gt;
+&lt;p&gt;My local news on catastrophic industrial disasters: That happened. Here&amp;rsquo;s the
+weather.&lt;/p&gt;</content:encoded></item><item><title>The Cloud™</title><link>https://anaminus.github.io/blog/briefs/202301210944/</link><pubDate>Sat, 21 Jan 2023 09:44:26 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202301210944/</guid><content:encoded>&lt;p&gt;There goes a productive day. Thanks, The Cloud™.&lt;/p&gt;</content:encoded></item><item><title>Streaming</title><link>https://anaminus.github.io/blog/briefs/202301090959/</link><pubDate>Mon, 09 Jan 2023 09:59:23 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202301090959/</guid><content:encoded>&lt;p&gt;A problem with streaming on Roblox is that a client can just move the camera
+anywhere, and the server will happily stream whatever is at that location, even
+if the player is not meant to be there. Developers need to be able to exclude
+areas from being streamed to certain clients.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2023-01-16 23:14&lt;/em&gt;: As a follow up, it turns out to be possible with the
+Player.ReplicationFocus property. Setting it to a dummy part gives the server
+the opportunity to deny streaming in. The position of the dummy part matches the
+character, except when the character moves to an undesired location.&lt;/p&gt;</content:encoded></item><item><title>Immediate mode</title><link>https://anaminus.github.io/blog/briefs/202211021020/</link><pubDate>Wed, 02 Nov 2022 10:20:02 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202211021020/</guid><content:encoded>&lt;p&gt;Why do we use immediate mode libraries on top of retained mode APIs on top of
+immediate mode graphics?&lt;/p&gt;</content:encoded></item><item><title>Roact</title><link>https://anaminus.github.io/blog/briefs/202211021007/</link><pubDate>Wed, 02 Nov 2022 10:07:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202211021007/</guid><content:encoded>&lt;p&gt;my favorite part of roact is how you can instantly tell when it&amp;rsquo;s being used by
+the complete lack of keyboard support and the general feeling of sluggishness&lt;/p&gt;
+&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202211021007/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It would run much better with a proper component implementation.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Of course, but it wasn&amp;rsquo;t done that way. Why not? Maybe it&amp;rsquo;s because Roact makes
+it easy to do the wrong thing. Or hard to do the right thing. Or both.&lt;/p&gt;</content:encoded></item><item><title>Transpiling</title><link>https://anaminus.github.io/blog/briefs/202211012140/</link><pubDate>Tue, 01 Nov 2022 21:40:30 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202211012140/</guid><content:encoded>&lt;p&gt;My beef with transpiling is writing in one language and receiving errors in
+another language. Or worse, having to mentally map one to the other while
+stepping through a debugger. It&amp;rsquo;s not worth it if the productivity gained during
+writing is lost during debugging.&lt;/p&gt;</content:encoded></item><item><title>Stop linking to issues/new</title><link>https://anaminus.github.io/blog/posts/new-issues/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/new-issues/</guid><content:encoded>&lt;p&gt;You have a neat software project. This project has a presence on GitHub. Maybe
 you host the source code there, maybe you&amp;rsquo;re just leveraging the issue tracker.&lt;/p&gt;
 &lt;p&gt;Your project also has a website. You know that your users will have problems
 with your software, so you want to direct them from your website to your issue

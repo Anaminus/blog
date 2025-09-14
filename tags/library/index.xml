@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Library on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/library/</link><description>Recent content in Library on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sat, 19 Aug 2023 15:29:23 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/library/index.xml" rel="self" type="application/rss+xml"/><item><title>TaskPolyfill</title><link>https://anaminus.github.io/blog/briefs/202308191529/</link><pubDate>Sat, 19 Aug 2023 15:29:23 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202308191529/</guid><content:encoded>&lt;p&gt;Polyfill for Roblox&amp;rsquo;s task library. Useful for standalone Luau.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/tree/master/modules/TaskPolyfill"&gt;https://github.com/Anaminus/roblox-library/tree/master/modules/TaskPolyfill&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Scope library</title><link>https://anaminus.github.io/blog/briefs/202307221951/</link><pubDate>Sat, 22 Jul 2023 19:51:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307221951/</guid><content:encoded>&lt;p&gt;Experimental library for lifetime management and value scoping.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/tree/master/modules/Scope"&gt;https://github.com/Anaminus/roblox-library/tree/master/modules/Scope&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>ModuleReflector</title><link>https://anaminus.github.io/blog/briefs/202307141235/</link><pubDate>Fri, 14 Jul 2023 12:35:13 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307141235/</guid><content:encoded>&lt;p&gt;Here&amp;rsquo;s a module for requiring modules without caching, and monitoring Source
+changes. A key difference from other implementations is that loadstring isn&amp;rsquo;t
+used. The killer feature is that breakpoints can be synced between copy and
+original, so debugging is possible.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/tree/master/modules/ModuleReflector"&gt;https://github.com/Anaminus/roblox-library/tree/master/modules/ModuleReflector&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Unfortunately, plugins can&amp;rsquo;t access the DebuggerManager, so the debugging method
+has to be invoked through the command bar. Fortunately, plugins and the command
+bar share the same &lt;code&gt;_G&lt;/code&gt; table, so a plugin can expose it that way.&lt;/p&gt;</content:encoded></item><item><title>Maid pattern</title><link>https://anaminus.github.io/blog/briefs/202211141900/</link><pubDate>Mon, 14 Nov 2022 19:00:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202211141900/</guid><content:encoded>&lt;p&gt;Janitor/Maid/etc are different conveniences built on the same core principal:
+finalization is established near initialization. I continue to assert that maid
+is a pattern, so the best solution is to either roll your own, or pick whatever
+best suits your needs.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s my implementation, which represents my current theory on the matter:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/tree/master/modules/Maid"&gt;https://github.com/Anaminus/roblox-library/tree/master/modules/Maid&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As for memory leaks, no library will save you from having the wrong mindset
+about memory management. Maids and Janitors are just one of the many possible
+answers to &amp;ldquo;What am I going to do about this thing I just created once I no
+longer need it?&amp;rdquo;&lt;/p&gt;</content:encoded></item><item><title>Binstruct rewrite</title><link>https://anaminus.github.io/blog/briefs/202210301223/</link><pubDate>Sun, 30 Oct 2022 12:23:45 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210301223/</guid><content:encoded>&lt;p&gt;Rewriting Binstruct to be more ergonomic. Also added support for recursive type
+definitions, which is implemented in the VM as subroutines. Continues to be my
+favorite module to write.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/00.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Rewrote Binstruct&amp;rsquo;s union type to work like an if statement. Here&amp;rsquo;s what parsing
+a value for serialized attributes looks like.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/01.png"&gt;
+&lt;/figure&gt;&lt;p&gt;Because type definitions in Binstruct are just tables, it&amp;rsquo;s really easy to
+create abstractions to make defining types more ergonomic. This is an example of
+a builder that allows advanced functions to be added to a definition more
+easily.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/02.png"&gt;
+&lt;/figure&gt;&lt;p&gt;The builder in action. The decode/encode functions convert between a finalized
+value and an intermediate representation that is more easily digested by the
+codec, though this representation is often useful enough on its own.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/03.png"&gt;
+&lt;/figure&gt;&lt;p&gt;All good data formats have a version number. Here&amp;rsquo;s a constructor that applies
+versioning to any type. It uses a union to match a version to one of a number of
+types. The version is also available as a &amp;ldquo;global&amp;rdquo;, allowing the value to be
+inspected from anywhere in the structure.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/04.png"&gt;
+&lt;/figure&gt;</content:encoded></item></channel></rss>

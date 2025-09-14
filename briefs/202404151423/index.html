@@ -1,0 +1,113 @@
+<!doctype html><html lang=en-US dir=ltr><head><meta charset=utf-8><meta name=viewport content="initial-scale=1,width=device-width"><link rel=icon type=image/png sizes=32x32 href=/blog/favicons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/blog/favicons/favicon-16x16.png><link rel="shortcut icon" href=/blog/favicons/favicon.ico><title>Query engine | Anaminus.Blog</title><meta name=twitter:card content="summary"><meta name=twitter:title content="Query engine | Anaminus.Blog"><meta name=twitter:image content="https://anaminus.github.io/blog/favicons/favicon-512x512.png"><meta property="og:type" content="website"><meta property="og:title" content="Query engine | Anaminus.Blog"><meta property="og:image" content="https://anaminus.github.io/blog/favicons/favicon-512x512.png"><link rel=stylesheet href=/blog/main.min.d44314867109fd1d095a61348ef92643a7f78532ebd601a156b2d85ef6e4522e.css integrity="sha256-1EMUhnEJ/R0JWmE0jvkmQ6f3hTLr1gGhVrLYXvbkUi4=" crossorigin=anonymous></head><body><header><a href=https://anaminus.github.io/blog/><svg class="header" width="43" height="9" viewBox="0 0 43 9"><title>Logo with title ".Blog"</title><path class="logo" d="m2 1v1H1v3h1v3h1V7h1v1h1V5h1V2H5V1H4v1H3V1zm0 2h1v1H2zm2 0h1v1H4z"/><path class="title" d="m13 1v7h4V7h-3V5h3V4h-3V2h3V1zm4 1v2h1V2zm0 3v2h1V5zm2-2v5h5V7h-4V3zm7 0v1h3V3zm3 1v3h1V4zm0 3h-3v1h3zm-3 0V4h-1v3zm6-4v1h4V3zm0 1h-1v3h1zm0 3v1h3V7zm3 0h1V5h-3v1h2zM9 7v1h1V7z"/><path class="cursor" d="m37 8h5v1h-5z"/></svg></a></header><main><nav><a href=https://anaminus.github.io/blog/briefs/>Briefs</a></nav><article><header><div class=title><h1>Query engine</h1><span class=date>Published on <time>2024-04-15 14:23</time></span></div><div class=subtitle><span class=tags><a class=tag href=https://anaminus.github.io/blog/tags/rbxapiref/>#rbxapiref</a>
+<a class=tag href=https://anaminus.github.io/blog/tags/codeimage/>#codeimage</a></span></div></header><p>Implemented a query engine that can search for API items through just about any
+aspect. As expected, it&rsquo;s quite fast.</p><p>For now, the plan is to use only the fuzzy matcher. After I replace the old
+website, I can work on writing a parser than can utilize the entire engine.</p><figure><img src=/blog/briefs/202404151423/00.jpg></figure><figure><img src=/blog/briefs/202404151423/01.png></figure><figure><img src=/blog/briefs/202404151423/02.png></figure><p>The query syntax is made up. Here&rsquo;s the current plan:</p><pre tabindex=0><code>Expressions
+
+	foo bar     : expressions foo and bar
+	foo &amp;&amp; bar  : foo and bar
+	foo, bar    : foo or bar
+	foo || bar  : foo or bar
+	!foo        : negation of foo
+	(foo)       : expression grouping
+
+Simple
+
+	foo      : fuzzy match name to foo
+	&#34;foo&#34;    : name exactly equal to foo
+	/foo/    : match name to regexp foo
+	*        : always match
+
+Compound
+
+	foo.     : match primary name to foo (e.g. class name)
+	.bar     : match secondary name to bar (e.g. property name)
+	foo.bar  : match primary name to foo and secondary name to bar
+
+Fields
+
+	is:foo              : of type &#34;foo&#34; (class, function, etc)
+	tag:foo             : has tag &#34;foo&#34;
+	has:foo             : has field &#34;foo&#34;
+	removed:yes         : is removed
+	superclasses:N      : number of superclasses (class)
+	subclasses:N        : number of subclasses (class)
+	members:N           : number of members (class)
+	superclass:foo      : superclass foo (class)
+	subclass:foo        : superclass foo (class)
+	memcat:foo          : MemoryCategory foo (class)
+	threadsafety:foo    : ThreadSafety foo (member)
+	security:foo        : Security foo (member)
+	cansave:yes         : CanSave (property)
+	canload:yes         : CanLoad (property)
+	readsecurity:foo    : ReadSecurity foo (property)
+	writesecurity:foo   : WriteSecurity foo (property)
+	valuetypecat:foo    : ValueType.Category foo (property)
+	valuetypename:foo   : ValueType.Name foo (property)
+	category:foo        : Category foo (property)
+	default:foo         : Default foo (property)
+	returns:N           : number of returns (function)
+	parameters:N        : number of parameters (function)
+	returntypecat:foo   : return.Type.Category foo (function)
+	returntypename:foo  : return.Type.Name foo (function)
+	returntypeopt:yes   : return.Type.Optional (function)
+	paramtypecat:foo    : parameter.Type.Category foo (function)
+	paramtypename:foo   : parameter.Type.Name foo (function)
+	paramtypeopt:yes    : parameter.Type.Optional (function)
+	paramname:foo       : parameter.Name foo (function)
+	paramdefault:foo    : parameter.Default foo (function)
+	enumitems:N         : number of enum items (enum)
+	itemvalue:foo       : enum item value foo (enumitem)
+	legacynames:N       : number of legacy names (enumitem)
+	legacyname:foo      : legacy name foo (enumitem)
+	typecat:foo         : type category foo (type)
+
+String
+
+	security:foo    : fuzzy match
+	security:&#34;foo&#34;  : exact match
+	security:/foo/  : regex match
+	security:*      : always match
+
+Numeric
+
+	members:N    : field equal to N
+	!members:N   : field not equal to N
+	members:&lt;N   : field less than N
+	members:&lt;=N  : field less than or equal to N
+	members:&gt;N   : field greater than N
+	members:&gt;=N  : field greater than or equal to N
+
+Boolean
+
+	removed:no     : match false
+	removed:n      : match false
+	removed:0      : match false
+	removed:false  : match false
+	removed:f      : match false
+	removed:yes    : match true
+	removed:y      : match true
+	removed:1      : match true
+	removed:true   : match true
+	removed:t      : match true
+
+Meta
+
+	$types           : list entity types
+	$tags            : list entity tags
+	$securities      : list security field values
+	$threadsafeties  : list threadsafety field values
+	$typecats        : list type categories
+
+Results
+
+	limit:50     : set result limit to 50 (default)
+	limit:0      : set no result limit
+	order:foo    : sort ascending by field foo
+	order:&lt;foo   : sort ascending
+	order:&gt;foo   : sort descending
+	order:score  : sort descending by score (default)
+	order:name   : sort ascending by name
+	go:docs      : Redirect to CreatorHub page of 1st result
+	go:git       : Redirect to creator-docs repo page of 1st result
+</code></pre></article></main><footer><span class=license>Content is licensed under <a href=https://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA-4.0</a><a class=feed-icon title="RSS feed" href=https://anaminus.github.io/blog/index.xml><svg width="128" height="128" viewBox="0 0 256 256"><path d="m92 189a24 24 0 01-24 24 24 24 0 01-24-24 24 24 0 0124-24 24 24 0 0124 24z"/><path d="m160 213h-34a82 82 0 00-82-82V97a116 116 0 01116 116z"/><path d="M184 213A140 140 0 0044 73V38a175 175 0 01175 175z"/></svg></a></span>
+<span class=publication><svg viewBox="0 0 7 7" width="7" height="7"><path d="m2 0v1H1v3h1v3h1V6h1v1h1V4h1V1H5V0H4v1H3V0zm0 2h1v1H2zm2 0h1v1H4z"/></svg> 2022–2025 <a href=https://anaminus.github.io/>Anaminus</a></span></footer></body></html>
