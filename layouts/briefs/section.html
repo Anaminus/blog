@@ -9,7 +9,7 @@
 {{- end }}
 <div class="briefs">
 	{{- range $pages }}
-		<article id="{{.Date | time.Format "200601021504"}}" class="brief">
+		<article id="{{.File.ContentBaseName}}" class="brief">
 			<header>
 				<div class="title">
 					{{- if .Params.replyto }}
