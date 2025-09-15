@@ -18,7 +18,7 @@
 	<h1><a href="{{$tax.Page.Permalink}}">{{$tax.Page.Title}}</a></h1>
 	{{- $max := or (int site.Params.termListSize) (int math.MaxInt64) }}
 	{{- $terms := $tax.ByCount }}
-	<ul>
+	<ul class="columned">
 		{{- range $tax.ByCount | first $max }}
 			{{- partial "term/li.html" . }}
 		{{- end }}

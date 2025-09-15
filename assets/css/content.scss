@@ -97,6 +97,9 @@ ul, ol {
 ul {
 	list-style-type: square;
 }
+ul.columned {
+	columns: 2;
+}
 p, blockquote, figure, table {
 	margin-block-start: 1rem;
 	margin-block-end: 1rem;
