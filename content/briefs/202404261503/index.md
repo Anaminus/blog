@@ -6,4 +6,4 @@ tags = ["rbxapiref"]
 
 Have panels for a mobile layout now, implemented with no javascript.
 
-{{< video src="00.mp4" >}}
+![](00.mp4)

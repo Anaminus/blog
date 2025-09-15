@@ -9,4 +9,4 @@ As an example, a binding that fills in terrain based on parts is included.
 
 https://github.com/Anaminus/roblox-library/tree/master/plugins/LiveBind
 
-{{< video src="00.mp4" >}}
+![](00.mp4)

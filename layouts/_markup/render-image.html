@@ -1,8 +1,10 @@
 {{- $u := urls.Parse .Destination -}}
 {{- $src := $u.String -}}
+{{- $res := false -}}
 {{- if not $u.IsAbs -}}
 	{{- $path := strings.TrimPrefix "./" $u.Path -}}
 	{{- with or (.PageInner.Resources.Get $path) (resources.Get $path) -}}
+		{{- $res = . -}}
 		{{- $src = .RelPermalink -}}
 		{{- with $u.RawQuery -}}
 			{{- $src = printf "%s?%s" $src . -}}
@@ -15,7 +17,16 @@
 {{- if .IsBlock -}}
 <figure>
 {{- end -}}
-<img src="{{$src}}"
+{{- $tag := "<img" -}}
+{{- with $res -}}
+	{{- if eq .ResourceType "video" -}}
+		{{- $tag = "<video" -}}
+	{{- end -}}
+{{- end -}}
+{{$tag|safeHTML}} src="{{$src}}"
+	{{- with $res}}
+	{{- if eq .ResourceType "video"}} controls loop {{- end -}}
+	{{- end -}}
 	{{- if not .IsBlock }} alt="{{.PlainText}}" {{- end -}}
 	{{- with .Title }} title="{{.}}" {{- end -}}
 	{{- range $k, $v := .Attributes -}}
@@ -23,7 +34,7 @@
 			{{- printf " %s=%q" $k ($v | transform.HTMLEscape) | safeHTMLAttr -}}
 		{{- end -}}
 	{{- end -}}
->
+>{{- with $res}}{{- if eq .ResourceType "video" -}}</video>{{- end -}}{{- end -}}
 {{- if .IsBlock -}}
 {{- if .Text -}}
 <figcaption>{{.Text}}</figcaption>

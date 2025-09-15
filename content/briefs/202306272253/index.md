@@ -9,4 +9,4 @@ made, it is added to the list, then monitored for changes. Each
 Source+UserInputType+KeyCode combination produces its own object. Sources used
 are the Input signals from UserInputService and a Frame GUI.
 
-{{< video src="00.mp4" >}}
+![](00.mp4)

@@ -6,4 +6,4 @@ tags = ["css", "webdev", "rbxapiref"]
 
 Pure CSS filtering and counting.
 
-{{< video src="00.mp4" >}}
+![](00.mp4)

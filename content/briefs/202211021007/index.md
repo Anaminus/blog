@@ -7,7 +7,7 @@ tags = ["roblox", "rant"]
 my favorite part of roact is how you can instantly tell when it's being used by
 the complete lack of keyboard support and the general feeling of sluggishness
 
-{{< video src="00.mp4" >}}
+![](00.mp4)
 
 > It would run much better with a proper component implementation.
 

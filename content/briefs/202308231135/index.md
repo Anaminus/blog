@@ -6,4 +6,4 @@ tags = ["luau"]
 
 Wrote a script to display `luau --coverage` in a readable format.
 
-{{< video src="00.mp4" >}}
+![](00.mp4)

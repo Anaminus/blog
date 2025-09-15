@@ -7,4 +7,4 @@ tags = ["roblox", "gamedev", "fusion"]
 Fusion widget to help narrow down what StudioStyleGuideColor a studio element is
 using.
 
-{{< video src="00.mp4" >}}
+![](00.mp4)

@@ -6,4 +6,4 @@ tags = ["rbxapiref"]
 
 Sibling classes. Obvious in retrospect, and very easy to implement.
 
-{{< video src="00.mp4" >}}
+![](00.mp4)

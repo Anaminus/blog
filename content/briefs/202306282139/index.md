@@ -9,4 +9,4 @@ handled by monitoring the key's InputObject, while mouse wheel input is best
 handled by getting it from a source, because an emission from a source doesn't
 always correspond to a property change.
 
-{{< video src="00.mp4" >}}
+![](00.mp4)

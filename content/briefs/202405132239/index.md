@@ -6,4 +6,4 @@ tags = ["rbxapiref"]
 
 I implemented a "list" selector and it's kind of overpowered.
 
-{{< video src="00.mp4" >}}
+![](00.mp4)

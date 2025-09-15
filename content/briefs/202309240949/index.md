@@ -8,4 +8,4 @@ If you need to simulate something, such as an assembly, you can call
 RunService:Run() and :Stop() from the command bar. It even respects undo/redo.
 Keep in mind that the whole place is simulated.
 
-{{< video src="00.mp4" >}}
+![](00.mp4)

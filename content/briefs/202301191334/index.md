@@ -6,7 +6,7 @@ tags = ["roblox", "gamedev"]
 
 ProximityPrompts make for great general proximity detectors.
 
-{{< video src="00.mp4" >}}
+![](00.mp4)
 
 The proximity signals are client-only, so validation is still required. But it’s
 a fast and simple solution for detection. I like to think that it’s been

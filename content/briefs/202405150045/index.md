@@ -7,4 +7,4 @@ tags = ["rbxapiref"]
 Improved syntax: to display all values of a field, just use the field name
 without specifying a value.
 
-{{< video src="00.mp4" >}}
+![](00.mp4)

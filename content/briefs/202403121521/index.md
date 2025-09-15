@@ -8,4 +8,4 @@ Multiple menu panels with just CSS.
 
 https://gist.github.com/Anaminus/5ef8086ba5260c480e2b7a895d55ce5a
 
-{{< video src="00.mp4" >}}
+![](00.mp4)
