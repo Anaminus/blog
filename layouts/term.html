@@ -4,10 +4,18 @@
 {{- $name := partial "format-term.txt" (slice .Section $term) }}
 {{- partial "withfeed.html" (slice . $name) }}
 {{- $desc := partial "description.txt" . }}
-{{- if $desc }}<p>{{$desc}}</p>{{- end }}
-<ul>
-	{{- range .Pages }}
-		{{- partial "page/li-section.html" . }}
+{{- with $desc }}<p>{{.}}</p>{{- end }}
+{{- range $sec := site.Sections.ByWeight }}
+	{{- range page.Pages.GroupBy "Section" }}
+		{{- if eq .Key $sec.Section }}
+			<h2>{{$sec.Title}}</h2>
+			<ul>
+				{{- range .Pages }}
+					{{- partial "page/li.html" . }}
+				{{- end }}
+			</ul>
+		{{- end }}
 	{{- end }}
-</ul>
+{{- end }}
+
 {{- end }}
