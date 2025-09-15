@@ -14,7 +14,9 @@
 {{- end -}}
 {{- if .IsBlock -}}
 <figure>
+{{- end -}}
 <img src="{{$src}}"
+	{{- if not .IsBlock }} alt="{{.PlainText}}" {{- end -}}
 	{{- with .Title }} title="{{.}}" {{- end -}}
 	{{- range $k, $v := .Attributes -}}
 		{{- if $v -}}
@@ -22,18 +24,10 @@
 		{{- end -}}
 	{{- end -}}
 >
-{{- if .Text }}
+{{- if .IsBlock -}}
+{{- if .Text -}}
 <figcaption>{{.Text}}</figcaption>
-{{- end }}
+{{- end -}}
 </figure>
-{{- else -}}
-<img src="{{$src}}" alt="{{.PlainText}}"
-	{{- with .Title }} title="{{.}}" {{- end -}}
-	{{- range $k, $v := .Attributes -}}
-		{{- if $v -}}
-			{{- printf " %s=%q" $k ($v | transform.HTMLEscape) | safeHTMLAttr -}}
-		{{- end -}}
-	{{- end -}}
->
 {{- end -}}
 {{- /**/ -}}
