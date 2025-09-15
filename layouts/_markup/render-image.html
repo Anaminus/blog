@@ -25,6 +25,7 @@
 {{- end -}}
 {{$tag|safeHTML}} src="{{$src}}"
 	{{- with $res}}
+	{{- if eq .ResourceType "image"}} width="{{.Width}}" height="{{.Height}}" loading="lazy" {{- end -}}
 	{{- if eq .ResourceType "video"}} controls loop {{- end -}}
 	{{- end -}}
 	{{- if not .IsBlock }} alt="{{.PlainText}}" {{- end -}}

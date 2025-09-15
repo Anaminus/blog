@@ -152,6 +152,8 @@ figure {
 	justify-items: center;
 	> * {
 		max-width: 100%;
+		height: auto;
+		object-fit: contain;
 		flex: 0 1 0;
 		padding: 0;
 	}
