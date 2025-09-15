@@ -12,6 +12,7 @@
 		<article id="{{.File.ContentBaseName}}" class="brief">
 			<header>
 				<div class="title">
+					{{- if hugo.IsDevelopment}}<a href="file://{{.File.Filename}}" target="_blank">{{.File.ContentBaseName}}</a>{{end}}
 					{{- if .Params.replyto }}
 						<a href="{{.Params.replyto}}" target="_blank">⤷ Reply</a>
 					{{- end }}
