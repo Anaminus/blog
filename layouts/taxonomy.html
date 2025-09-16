@@ -4,6 +4,11 @@
 <ul>
 	{{- range (index site.Taxonomies .Section).Alphabetical }}
 		{{- partial "term/li.html" . }}
+		{{- if hugo.IsDevelopment }}
+			{{- if not (page.RenderString (index (index site.Data .Page.Section) (.Page.Path | path.Base))) }}
+				<span>NO DESCRIPTION</span>
+			{{- end }}
+		{{- end }}
 	{{- end }}
 </ul>
 {{- end }}
