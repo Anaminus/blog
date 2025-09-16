@@ -94,15 +94,22 @@ ul, ol {
 	padding: 0;
 	padding-left: 2ch;
 }
+:is(ul, ol) :is(ul, ol) {
+	margin-block: 0;
+	padding-left: calc(var(--indent) * 1ch);
+}
 ul {
 	list-style-type: square;
 }
 ul.columned {
 	columns: 2;
 }
-p, blockquote, figure, table {
+p, blockquote, figure, table, ul, ol {
 	margin-block-start: 1rem;
 	margin-block-end: 1rem;
+}
+li p {
+	margin-block: 0;
 }
 table {
 	width: 100%;
@@ -116,7 +123,7 @@ table {
 	}
 }
 blockquote {
-	margin-inline-start: 4ch;
+	margin-inline: 2ch;
 	border-inline-start: 3px solid var(--theme-line);
 	padding-inline-start: 1ch;
 }
@@ -126,6 +133,7 @@ pre {
 }
 code {
 	font-family: var(--monospace);
+	tab-size: var(--indent);
 }
 strong {
 	font-weight: bold;
