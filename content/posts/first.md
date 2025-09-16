@@ -1,6 +1,7 @@
 +++
 title = "The episode in which I make a blog"
 date = 2022-02-22
+tags = ["meta"]
 +++
 
 Found a [nice tool](https://gohugo.io/), found a good workflow. Instead of long
