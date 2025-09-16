@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Gamedev on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/gamedev/</link><description>Recent content in Gamedev on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Tue, 12 Aug 2025 15:22:00 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/gamedev/index.xml" rel="self" type="application/rss+xml"/><item><title>Proportional bitmap fonts</title><link>https://anaminus.github.io/blog/briefs/202508121522/</link><pubDate>Tue, 12 Aug 2025 15:22:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202508121522/</guid><content:encoded>&lt;p&gt;Here&amp;rsquo;s a method for producing proportional bitmap fonts. The red component
 defines the drawable area for each glyph. Green defines the actual appearance.
 Blue defines the origin and spacing. Blank glyphs are skipped.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202508121522/00.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Layers are used to define groups of characters, allowing any part of the unicode
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202508121522/00.png" width="1287" height="726" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Layers are used to define groups of characters, allowing any part of the unicode
 codespace to be specified. A layer name with a single code point defines a
 sequential group. Ligatures are possible by defining a layer name with more than
 one code point.&lt;/p&gt;
@@ -11,45 +9,31 @@ one code point.&lt;/p&gt;
 right-most blue pixel of the previous glyph. Using a baseline instead of
 boundaries for glyph placement allows glyphs to be spaced arbitrarily, and even
 drawn over each other.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202508121522/01.png"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>DataStore keys</title><link>https://anaminus.github.io/blog/briefs/202311220936/</link><pubDate>Wed, 22 Nov 2023 09:36:38 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202311220936/</guid><content:encoded>&lt;p&gt;Boring Facts: DataStore keys are binary-safe. They have a size limit of 50
-bytes, not characters. That&amp;rsquo;s 400 full bits to work with.&lt;/p&gt;</content:encoded></item><item><title>RunService</title><link>https://anaminus.github.io/blog/briefs/202309240949/</link><pubDate>Sun, 24 Sep 2023 09:49:55 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309240949/</guid><content:encoded>&lt;p&gt;If you need to simulate something, such as an assembly, you can call
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202508121522/01.png" width="1026" height="776" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>RunService</title><link>https://anaminus.github.io/blog/briefs/202309240949/</link><pubDate>Sun, 24 Sep 2023 09:49:55 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309240949/</guid><content:encoded>&lt;p&gt;If you need to simulate something, such as an assembly, you can call
 RunService:Run() and :Stop() from the command bar. It even respects undo/redo.
 Keep in mind that the whole place is simulated.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202309240949/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Real houses</title><link>https://anaminus.github.io/blog/briefs/202309191037/</link><pubDate>Tue, 19 Sep 2023 10:37:42 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309191037/</guid><content:encoded>&lt;p&gt;Latest obsession: building houses realistically. Most of it will be abstracted
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202309240949/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Real houses</title><link>https://anaminus.github.io/blog/briefs/202309191037/</link><pubDate>Tue, 19 Sep 2023 10:37:42 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309191037/</guid><content:encoded>&lt;p&gt;Latest obsession: building houses realistically. Most of it will be abstracted
 away in an actual build, but doing it this way informs the layout of the house.
 For example, the stairway in this image isn&amp;rsquo;t ideal, because its headroom
 conflicts with the roof (1.5-story house).&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202309191037/00.jpg"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>Remote signals</title><link>https://anaminus.github.io/blog/briefs/202309160943/</link><pubDate>Sat, 16 Sep 2023 09:43:37 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309160943/</guid><content:encoded>&lt;p&gt;Remotes effectively break the Signal pattern, so the only thing you should be
-doing with them is :Connect()ing exactly one listener.&lt;/p&gt;</content:encoded></item><item><title>Destroying</title><link>https://anaminus.github.io/blog/briefs/202307090002/</link><pubDate>Sun, 09 Jul 2023 00:02:20 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307090002/</guid><content:encoded>&lt;p&gt;Boring Facts: If Destroying is used to add a child to the destroyed instance,
-that child wont be destroyed.&lt;/p&gt;</content:encoded></item><item><title>Input handling</title><link>https://anaminus.github.io/blog/briefs/202306282139/</link><pubDate>Wed, 28 Jun 2023 21:39:05 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306282139/</guid><content:encoded>&lt;p&gt;Certain input types have to be handled in certain ways. Key repetitions must be
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202309191037/00.jpg" width="1200" height="640" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Remote signals</title><link>https://anaminus.github.io/blog/briefs/202309160943/</link><pubDate>Sat, 16 Sep 2023 09:43:37 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309160943/</guid><content:encoded>&lt;p&gt;Remotes effectively break the Signal pattern, so the only thing you should be
+doing with them is :Connect()ing exactly one listener.&lt;/p&gt;</content:encoded></item><item><title>Input handling</title><link>https://anaminus.github.io/blog/briefs/202306282139/</link><pubDate>Wed, 28 Jun 2023 21:39:05 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306282139/</guid><content:encoded>&lt;p&gt;Certain input types have to be handled in certain ways. Key repetitions must be
 handled by monitoring the key&amp;rsquo;s InputObject, while mouse wheel input is best
 handled by getting it from a source, because an emission from a source doesn&amp;rsquo;t
 always correspond to a property change.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306282139/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Input position</title><link>https://anaminus.github.io/blog/briefs/202306272259/</link><pubDate>Tue, 27 Jun 2023 22:59:22 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306272259/</guid><content:encoded>&lt;p&gt;Boring Facts: The Position of a Keyboard InputObject will update with the
-position of the mouse while the key is held down.&lt;/p&gt;
-&lt;p&gt;Correction: Only some keys do this, including the arrow keys, Return, Backspace,
-and Delete.&lt;/p&gt;
-&lt;p&gt;Further correction: this is caused by key repetition. Generally, a keyboard
-object will update with the position of the mouse. However, certain keys that
-repeat will switch to the End state, then immediately back to the Begin state,
-and repeat again while the key is held down.&lt;/p&gt;</content:encoded></item><item><title>Keyboard InputObjects</title><link>https://anaminus.github.io/blog/briefs/202306272255/</link><pubDate>Tue, 27 Jun 2023 22:55:05 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306272255/</guid><content:encoded>&lt;p&gt;Boring Facts: Keyboard InputObjects are reused per KeyCode, but only while the
-current source (e.g. UserInputService or a GUI) is in focus.&lt;/p&gt;</content:encoded></item><item><title>Input visualizer</title><link>https://anaminus.github.io/blog/briefs/202306272253/</link><pubDate>Tue, 27 Jun 2023 22:53:12 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306272253/</guid><content:encoded>&lt;p&gt;Widget to visualize how InputObjects are produced. Whenever a new object is
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306282139/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Input visualizer</title><link>https://anaminus.github.io/blog/briefs/202306272253/</link><pubDate>Tue, 27 Jun 2023 22:53:12 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306272253/</guid><content:encoded>&lt;p&gt;Widget to visualize how InputObjects are produced. Whenever a new object is
 made, it is added to the list, then monitored for changes. Each
 Source+UserInputType+KeyCode combination produces its own object. Sources used
 are the Input signals from UserInputService and a Frame GUI.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306272253/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Track the mouse</title><link>https://anaminus.github.io/blog/briefs/202306271227/</link><pubDate>Tue, 27 Jun 2023 12:27:26 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306271227/</guid><content:encoded>&lt;p&gt;A unique advantage of ScrollingFrames over a custom implementation is that the
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306272253/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Track the mouse</title><link>https://anaminus.github.io/blog/briefs/202306271227/</link><pubDate>Tue, 27 Jun 2023 12:27:26 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306271227/</guid><content:encoded>&lt;p&gt;A unique advantage of ScrollingFrames over a custom implementation is that the
 scrollbar can track the mouse across the entire screen, not just the viewport.&lt;/p&gt;
 &lt;p&gt;Correction: This isn&amp;rsquo;t unique: the behavior applies to InputObjects, but only
 while a mouse button is held down.&lt;/p&gt;</content:encoded></item><item><title>StudioStyleGuideColor</title><link>https://anaminus.github.io/blog/briefs/202306262146/</link><pubDate>Mon, 26 Jun 2023 21:46:24 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306262146/</guid><content:encoded>&lt;p&gt;Fusion widget to help narrow down what StudioStyleGuideColor a studio element is
 using.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306262146/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Lattice</title><link>https://anaminus.github.io/blog/briefs/202306241601/</link><pubDate>Sat, 24 Jun 2023 16:01:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306241601/</guid><content:encoded>&lt;p&gt;A port of my &amp;ldquo;lattice&amp;rdquo; container GUI to Fusion. Takes a grid of columns and rows
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306262146/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Lattice</title><link>https://anaminus.github.io/blog/briefs/202306241601/</link><pubDate>Sat, 24 Jun 2023 16:01:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306241601/</guid><content:encoded>&lt;p&gt;A port of my &amp;ldquo;lattice&amp;rdquo; container GUI to Fusion. Takes a grid of columns and rows
 defined as constant pixels or fractional values, and turns them into static
 UDim2s. Has options for padding, margins, and a visualizer for debugging.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306241601/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Walk speed</title><link>https://anaminus.github.io/blog/briefs/202304170002/</link><pubDate>Mon, 17 Apr 2023 00:02:01 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202304170002/</guid><content:encoded>&lt;p&gt;Theory: The reason player characters move at different speeds from NPCs is
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306241601/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Walk speed</title><link>https://anaminus.github.io/blog/briefs/202304170002/</link><pubDate>Mon, 17 Apr 2023 00:02:01 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202304170002/</guid><content:encoded>&lt;p&gt;Theory: The reason player characters move at different speeds from NPCs is
 because the PC has been calibrated on the player&amp;rsquo;s perception. PCs can&amp;rsquo;t move as
 slow as NPCs because it would feel sluggish, and NPCs can&amp;rsquo;t move as fast as PCs
 because it wouldn&amp;rsquo;t look realistic.&lt;/p&gt;
@@ -57,16 +41,10 @@ because it wouldn&amp;rsquo;t look realistic.&lt;/p&gt;
 tweet. If you are one of the lucky few to see it, hi!&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title>WireframeHandleAdornment</title><link>https://anaminus.github.io/blog/briefs/202303171137/</link><pubDate>Fri, 17 Mar 2023 11:37:07 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202303171137/</guid><content:encoded>&lt;p&gt;Tip for using WireframeHandleAdornment: The Color3/Transparency of the adornment
 only affects newly added lines, so you only need one adornment to draw lines
 with any appearance.&lt;/p&gt;</content:encoded></item><item><title>R-tree</title><link>https://anaminus.github.io/blog/briefs/202303171111/</link><pubDate>Fri, 17 Mar 2023 11:11:04 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202303171111/</guid><content:encoded>&lt;p&gt;Visualization of an r-tree. WireframeHandleAdornment is essential for debugging.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202303171111/00.jpg"&gt;
-&lt;/figure&gt;&lt;p&gt;It&amp;rsquo;s harder to draw shapes, but it&amp;rsquo;s way better than keeping track of a million
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202303171111/00.jpg" width="1200" height="684" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;It&amp;rsquo;s harder to draw shapes, but it&amp;rsquo;s way better than keeping track of a million
 handle adornments.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202303171111/01.jpg"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>Enum alises</title><link>https://anaminus.github.io/blog/briefs/202302051058/</link><pubDate>Sun, 05 Feb 2023 10:58:34 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202302051058/</guid><content:encoded>&lt;p&gt;Renamed enum items are &amp;ldquo;removed&amp;rdquo; from the API, but still stick around as an
-alias to whatever replaced them.&lt;/p&gt;</content:encoded></item><item><title>ProximityPrompts</title><link>https://anaminus.github.io/blog/briefs/202301191334/</link><pubDate>Thu, 19 Jan 2023 13:34:33 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202301191334/</guid><content:encoded>&lt;p&gt;ProximityPrompts make for great general proximity detectors.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202301191334/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;The proximity signals are client-only, so validation is still required. But it’s
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202303171111/01.jpg" width="1200" height="706" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>ProximityPrompts</title><link>https://anaminus.github.io/blog/briefs/202301191334/</link><pubDate>Thu, 19 Jan 2023 13:34:33 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202301191334/</guid><content:encoded>&lt;p&gt;ProximityPrompts make for great general proximity detectors.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202301191334/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;The proximity signals are client-only, so validation is still required. But it’s
 a fast and simple solution for detection. I like to think that it’s been
 optimized for large numbers of prompts spread across the workspace, so it’d be a
 winner in that case.&lt;/p&gt;
@@ -91,59 +69,48 @@ areas from being streamed to certain clients.&lt;/p&gt;
 Player.ReplicationFocus property. Setting it to a dummy part gives the server
 the opportunity to deny streaming in. The position of the dummy part matches the
 character, except when the character moves to an undesired location.&lt;/p&gt;</content:encoded></item><item><title>1-bit LÖVE</title><link>https://anaminus.github.io/blog/briefs/202212300234/</link><pubDate>Fri, 30 Dec 2022 02:34:12 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202212300234/</guid><content:encoded>&lt;p&gt;Having some fun with LÖVE.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202212300234/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;Here&amp;rsquo;s a view of the chunk buffer demonstrating simplified chunk loading:&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202212300234/01.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;The white area is the viewport. Chunks are updated only when the focus leaves
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202212300234/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Here&amp;rsquo;s a view of the chunk buffer demonstrating simplified chunk loading:&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202212300234/01.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;The white area is the viewport. Chunks are updated only when the focus leaves
 the yellow area. Each corner of the blue area determines which chunks are
 loaded.&lt;/p&gt;</content:encoded></item><item><title>Punishing players</title><link>https://anaminus.github.io/blog/briefs/202212080955/</link><pubDate>Thu, 08 Dec 2022 09:55:35 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202212080955/</guid><content:encoded>&lt;p&gt;It&amp;rsquo;s current year and we&amp;rsquo;re still hell-bent on punishing players for not playing
 our games correctly instead of just shoving them into their own world where they
-can play however they like.&lt;/p&gt;</content:encoded></item><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>Making minimal and efficient UVs in Blender for Roblox.</description><content:encoded>&lt;p&gt;You want to produce meshes with simple, solid color textures. Because the colors
+can play however they like.&lt;/p&gt;</content:encoded></item><item><title>Foliage</title><link>https://anaminus.github.io/blog/briefs/202209292251/</link><pubDate>Thu, 29 Sep 2022 22:51:14 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209292251/</guid><content:encoded>&lt;p&gt;Playing with foliage. Here we have the same texture, triangle count, and
+triangle size, but different scaling of the base shape, which is a sphere in
+this case. Unfortunately, it&amp;rsquo;s hard to get something that looks good without
+fine-tuning each of these parameters.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202209292251/00.jpg" width="1200" height="675" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Cartridge</title><link>https://anaminus.github.io/blog/briefs/202209240907/</link><pubDate>Sat, 24 Sep 2022 09:07:49 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209240907/</guid><content:encoded>&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202209240907/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>Making minimal and efficient UVs in Blender for Roblox.</description><content:encoded>&lt;p&gt;You want to produce meshes with simple, solid color textures. Because the colors
 are solid, you should be able to get away with using small textures. Tiny
 textures. Single-digit resolution textures. Possible, right?&lt;/p&gt;
 &lt;p&gt;The problem: Roblox applies linear interpolation to its textures. Here is a
 2-by-1 Decal, where the left pixel is white, and the right pixel is black:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig1.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Indeed, the left side is white, and the right side is black, but in between,
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig1.png" width="300" height="200" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Indeed, the left side is white, and the right side is black, but in between,
 there is a smooth, linear interpolation from one pixel to the other.&lt;/p&gt;
 &lt;p&gt;When constructing UVs for a mesh, we&amp;rsquo;ll have to find a way around this. Let&amp;rsquo;s
 head over to Blender, and work on a simple plane mesh:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig2.png"&gt;
-&lt;/figure&gt;&lt;p&gt;The interpolation of the texture should be set to &lt;strong&gt;Linear&lt;/strong&gt;, and the extension
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig2.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;The interpolation of the texture should be set to &lt;strong&gt;Linear&lt;/strong&gt;, and the extension
 should be set to &lt;strong&gt;Repeat&lt;/strong&gt;. This will match how Roblox renders textures on
 MeshParts. When we import it into Roblox, it looks mostly similar:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig3.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Notably, the left side begins to fade towards black, while the right side fades
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig3.png" width="300" height="200" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Notably, the left side begins to fade towards black, while the right side fades
 towards white, which proves that the texture repeats. So we&amp;rsquo;ll be able to use
 Blender to get a rough idea of what Roblox will render.&lt;/p&gt;
 &lt;p&gt;So how do we produce solid colors? We can&amp;rsquo;t just cover the whole pixel with a
 face, because half of the pixel is always interpolating to its neighbor:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig4.png"&gt;
-&lt;/figure&gt;&lt;p&gt;To get a solid color, the coordinates have to be in the exact center of the
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig4.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;To get a solid color, the coordinates have to be in the exact center of the
 pixel:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig5.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Two faces, each using one color:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig6.png"&gt;
-&lt;/figure&gt;&lt;p&gt;But does it work in Roblox?&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig7.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Indeed! To compare the colors, the top squares are regular Parts, while the
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig5.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Two faces, each using one color:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig6.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;But does it work in Roblox?&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig7.png" width="830" height="508" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Indeed! To compare the colors, the top squares are regular Parts, while the
 bottom squares are the mesh.&lt;/p&gt;
 &lt;p&gt;UV coordinates are reused for SurfaceAppearance textures, so this technique can
 be used to set the roughness and metalness of surfaces as well:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig8.png"&gt;
-&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig8.png" width="830" height="508" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
 the scale tool, and set the scale amounts to 0. This will move all vertices to a
 single location, which you can then move to the center of the desired pixel.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/posts/tiny-uv/fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;Another interesting idea: Because colors are interpolated, we could set the
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/posts/tiny-uv/fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Another interesting idea: Because colors are interpolated, we could set the
 coordinates to somewhere besides a pixel center, in order to get more colors.
 For example, the simple 2-by-1 white-to-black texture can also be used to get
-any shade of gray.&lt;/p&gt;</content:encoded></item></channel></rss>
+any shade of gray.&lt;/p&gt;</content:encoded></item><item><title>Gamejam</title><link>https://anaminus.github.io/blog/briefs/202208281404/</link><pubDate>Sun, 28 Aug 2022 14:04:45 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202208281404/</guid><content:encoded>&lt;p&gt;Not at RDC, but I thought I&amp;rsquo;d gamejam anyway. Didn&amp;rsquo;t finish, but I still had
+fun. Here&amp;rsquo;s what would have been the thumbnail:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202208281404/00.jpg" width="1024" height="1024" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;If you&amp;rsquo;re going to solojam, try to use existing assets as much as possible. I
+modeled the car, sun, and skybox from scratch, which was fun to do, but sunk way
+too much time.&lt;/p&gt;</content:encoded></item></channel></rss>

@@ -226,4 +226,10 @@ untyped interface with two more:&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;UntypedOptional&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// Optional&amp;lt;?&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now the problem is simply deciding on actual names for all of thes-&lt;/p&gt;
-&lt;p&gt;Maybe I&amp;rsquo;ll reconsider&amp;hellip;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;Maybe I&amp;rsquo;ll reconsider&amp;hellip;&lt;/p&gt;</content:encoded></item><item><title>Go DSP</title><link>https://anaminus.github.io/blog/briefs/202209031653/</link><pubDate>Sat, 03 Sep 2022 16:53:59 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209031653/</guid><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&amp;hellip; Go has some performance hurdles that make it unsuitable for many real-time
+or time-critical applications, for example having a garbage collector. I would
+definitely not want to use Go for something like audiovisual processing or
+DSP.&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/dphfox/status/1566154764571779072"&gt;@dphfox, 8:02 PM · Sep 3, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/andrepxx/go-dsp-guitar/blob/master/doc/performance.md#analysis-of-go-dsp-guitar-real-time-performance"&gt;An analysis of a DSP written in Go.&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>

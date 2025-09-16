@@ -21,9 +21,7 @@ most optimal choice between two libraries is neither.&lt;/p&gt;
 &lt;li&gt;Yes: Then it will be optimized away.&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title>Language benchmarks</title><link>https://anaminus.github.io/blog/briefs/202309150855/</link><pubDate>Fri, 15 Sep 2023 08:55:18 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309150855/</guid><content:encoded>&lt;p&gt;If a language benchmark requires sacrificing readability to achieve performance,
 then it isn&amp;rsquo;t an accurate measurement of the language.&lt;/p&gt;</content:encoded></item><item><title>Testing testing</title><link>https://anaminus.github.io/blog/briefs/202307301039/</link><pubDate>Sun, 30 Jul 2023 10:39:23 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307301039/</guid><content:encoded>&lt;p&gt;What tests the testing framework?&lt;/p&gt;</content:encoded></item><item><title>Cartesian product</title><link>https://anaminus.github.io/blog/briefs/202307261558/</link><pubDate>Wed, 26 Jul 2023 15:58:01 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307261558/</guid><content:encoded>&lt;p&gt;What is the name of the thing I am doing here?&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202307261558/00.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Best answer: Cartesian product&lt;/p&gt;</content:encoded></item><item><title>Arrow</title><link>https://anaminus.github.io/blog/briefs/202305232027/</link><pubDate>Tue, 23 May 2023 20:27:44 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202305232027/</guid><content:encoded>&lt;p&gt;The &lt;code&gt;-&amp;gt;&lt;/code&gt; operator is unergonomic to type and almost always looks like shit but
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202307261558/00.png" width="406" height="254" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Best answer: Cartesian product&lt;/p&gt;</content:encoded></item><item><title>Arrow</title><link>https://anaminus.github.io/blog/briefs/202305232027/</link><pubDate>Tue, 23 May 2023 20:27:44 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202305232027/</guid><content:encoded>&lt;p&gt;The &lt;code&gt;-&amp;gt;&lt;/code&gt; operator is unergonomic to type and almost always looks like shit but
 new languages will always find an excuse to include it because teehee it&amp;rsquo;s an
 arrow.&lt;/p&gt;</content:encoded></item><item><title>Bad but easy</title><link>https://anaminus.github.io/blog/briefs/202304080059/</link><pubDate>Sat, 08 Apr 2023 00:59:22 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202304080059/</guid><content:encoded>&lt;p&gt;Instead of trying to work out a good-but-hard design from scratch, just start
 with a bad-but-easy design. Refactoring a bad design into a good design is
@@ -36,8 +34,7 @@ boolean := &amp;#34;right&amp;#34;
 are completely explored. Occasionally connects a new vertex to a nearby existing
 vertex, forming a loop. Rarely creates a long loop by connecting to the most
 distant vertex.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202301121724/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;The graph is represented by a force-directed graph that moves the vertices
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202301121724/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;The graph is represented by a force-directed graph that moves the vertices
 around to make them easier to visualize. The actual graph is dimensionless, with
 the vertices having no 2D or 3D position.&lt;/p&gt;</content:encoded></item><item><title>Bumping dependencies</title><link>https://anaminus.github.io/blog/briefs/202212162341/</link><pubDate>Fri, 16 Dec 2022 23:41:03 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202212162341/</guid><content:encoded>&lt;p&gt;Hope you check dependency diffs before bumping them.&lt;/p&gt;</content:encoded></item><item><title>Software design</title><link>https://anaminus.github.io/blog/briefs/202211142003/</link><pubDate>Mon, 14 Nov 2022 20:03:08 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202211142003/</guid><content:encoded>&lt;p&gt;When a software&amp;rsquo;s design is poorly understood, the only thing users have to go
 off of is whatever they&amp;rsquo;re allowed to do.&lt;/p&gt;</content:encoded></item><item><title>Maid pattern</title><link>https://anaminus.github.io/blog/briefs/202211141900/</link><pubDate>Mon, 14 Nov 2022 19:00:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202211141900/</guid><content:encoded>&lt;p&gt;Janitor/Maid/etc are different conveniences built on the same core principal:
@@ -85,7 +82,89 @@ exported types.&lt;/p&gt;
 &lt;p&gt;This is incredibly useful for smuggling types from a server module in a client
 module so the data the client is going to receive from the server via a remote
 can be fully typed.&lt;/p&gt;
-&lt;p&gt;&amp;mdash; &lt;a href="https://x.com/fewkz/status/1590230560764760065"&gt;@fewkz, 6:31 AM · Nov 9, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/fewkz/status/1590230560764760065"&gt;@fewkz, 6:31 AM · Nov 9, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;So nothing breaks on the client even though the modules containing the server
 types aren’t replicated, because types don’t matter at runtime. Interesting
-approach.&lt;/p&gt;</content:encoded></item></channel></rss>
+approach.&lt;/p&gt;</content:encoded></item><item><title>Rx</title><link>https://anaminus.github.io/blog/briefs/202210162211/</link><pubDate>Sun, 16 Oct 2022 22:11:37 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210162211/</guid><content:encoded>&lt;p&gt;Ripped a standalone version of @Quenty&amp;rsquo;s Rx module out of Nevermore. Looks very
+very promising.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202210162211/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Interfacing with Fusion&amp;rsquo;s Value objects is really easy:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-lua" data-lang="lua"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;function&lt;/span&gt; &lt;span class="nc"&gt;Rxf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;value&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Fusion.Value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;Rx.Observer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Rx.observer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Rx.Subscriber&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;Maid.Task&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Fusion.Observer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="n"&gt;onChange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;			&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Fire&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Fire&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="kr"&gt;return&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;How&amp;rsquo;s performance? I&amp;rsquo;ve been looking to write a version of what you&amp;rsquo;re writing
+here for a while, but query performance seems scary.&lt;/p&gt;
+&lt;p&gt;Using RxInstanceUtils for now, but this is looking a lot cleaner.&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/Quenty/status/1582087487610302464"&gt;@Quenty, 7:13 PM · Oct 17, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;I haven&amp;rsquo;t deliberately optimized anything, but it&amp;rsquo;s not the worst. I might be
+comfortable with one query that updates every frame, for example. It&amp;rsquo;s a mess,
+but you can &lt;a href="https://gist.github.com/Anaminus/1f31af4e5280b9333f3f58e13840c670"&gt;play with it here&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hey wait a minute, arent you not a fan of observing any kind of behavior on
+instances that enter the data model?&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/Kampfkarren/status/1582087755311349760"&gt;@Kampfkarren, 7:14 PM · Oct 17, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;That&amp;rsquo;s right. Which is why Rx is great, because it simplifies a bunch of
+boilerplate that would otherwise be need to ensure that an observation is
+correct.&lt;/p&gt;</content:encoded></item><item><title>Metatables suck</title><link>https://anaminus.github.io/blog/briefs/202210160957/</link><pubDate>Sun, 16 Oct 2022 09:57:29 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210160957/</guid><content:encoded>&lt;p&gt;&lt;em&gt;In response to &lt;a href="https://elttob.medium.com/metatables-suck-473f1fe5afc2"&gt;Metatables suck.&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Metatables:&lt;/strong&gt; I use metatables to signal the separation of data and behavior.
+Data goes in the table, behavior goes in the metatable. Great for debugging; the
+debugger isn&amp;rsquo;t cluttered with a bunch of methods.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Encapsulation:&lt;/strong&gt; I don&amp;rsquo;t actually want true encapsulation, because it&amp;rsquo;s harder
+to debug. Unlike local variables, private fields can be tapped into, and I don&amp;rsquo;t
+have to hunt them down in the debugger. Also makes writing tests easier.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Overloading:&lt;/strong&gt; I agree in principal, but in practice, sometimes the
+convenience is too much to pass up. To reconcile this, I always accompany a
+non-obvious metamethod behavior with an equivalent method.&lt;/p&gt;
+&lt;p&gt;But it&amp;rsquo;s worth noting that metamethods are harder to debug, because they don&amp;rsquo;t
+allow yielding, so you can&amp;rsquo;t set breakpoints in them. That&amp;rsquo;s why it&amp;rsquo;s good to
+have a regular method-based equivalent.&lt;/p&gt;</content:encoded></item><item><title>Cancelable delays</title><link>https://anaminus.github.io/blog/briefs/202210111423/</link><pubDate>Tue, 11 Oct 2022 14:23:18 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210111423/</guid><content:encoded>&lt;p&gt;Protip: &lt;code&gt;task.delay&lt;/code&gt; returns the delayed thread, making cancelable delays
+trivial.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-luau" data-lang="luau"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;thread&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task.delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Hi!&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;task.wait&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;task.cancel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;thread&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Maid connect</title><link>https://anaminus.github.io/blog/briefs/202210111420/</link><pubDate>Tue, 11 Oct 2022 14:20:26 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210111420/</guid><content:encoded>&lt;p&gt;Justifying a Connect method on maids.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-luau" data-lang="luau"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;-- Regular method.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="n"&gt;maid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Alive&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="kr"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;maid.heartbeat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;RunService.Heartbeat&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;delta time&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;-- Method if your name is Max.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;maid.heartbeat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="n"&gt;maid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Alive&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="kr"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;RunService.Heartbeat&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;delta time&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;else&lt;/span&gt; &lt;span class="kc"&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;-- Connect method.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;maid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;heartbeat&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;RunService.Heartbeat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;delta time&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Maintenance</title><link>https://anaminus.github.io/blog/briefs/202210110949/</link><pubDate>Tue, 11 Oct 2022 09:49:15 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210110949/</guid><content:encoded>&lt;p&gt;If you maintain a popular project, and you&amp;rsquo;re going on hiatus, are too busy, or
+just don&amp;rsquo;t feel like maintaining it right now/anymore, please let your users
+know.&lt;/p&gt;</content:encoded></item><item><title>Marketing</title><link>https://anaminus.github.io/blog/briefs/202210080800/</link><pubDate>Sat, 08 Oct 2022 08:00:20 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210080800/</guid><content:encoded>&lt;p&gt;Getting annoyed by projects that market themselves like they&amp;rsquo;re ready but don&amp;rsquo;t
+even have basic documentation.&lt;/p&gt;</content:encoded></item><item><title>If-expression</title><link>https://anaminus.github.io/blog/briefs/202209271828/</link><pubDate>Tue, 27 Sep 2022 18:28:58 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209271828/</guid><content:encoded>&lt;p&gt;An if-expression that is too long to be one-lined should just be an
+if-statement.&lt;/p&gt;</content:encoded></item><item><title>Studio cookies</title><link>https://anaminus.github.io/blog/briefs/202208171639/</link><pubDate>Wed, 17 Aug 2022 16:39:35 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202208171639/</guid><content:encoded>&lt;p&gt;If you have tooling that makes use of Studio&amp;rsquo;s cookies, Roblox recently changed
+how they work in Windows. Cookies are no longer stored in the registry, and are
+instead stored as Credentials:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Studio stores the &lt;code&gt;https://www.roblox.com:RobloxStudioAuthCookies&lt;/code&gt; credential.&lt;/li&gt;
+&lt;li&gt;Its value is a &lt;code&gt;;&lt;/code&gt; separated list of cookie names (rather, each name has a &lt;code&gt;;&lt;/code&gt;
+appended, note the trailing &lt;code&gt;;&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;The value of each cookie is stored as a credential named
+&lt;code&gt;https://www.roblox.com:RobloxStudioAuth&lt;/code&gt; + the cookie name.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tooling will still be able to access these cookies just fine. There&amp;rsquo;s a winapi
+for it, so most languages will likely have a library for it. I listed some in
+another tweet.&lt;/p&gt;
+&lt;p&gt;Relevant libraries for some random languages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rust: &lt;a href="https://crates.io/crates/wincredentials"&gt;https://crates.io/crates/wincredentials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Go: &lt;a href="https://github.com/danieljoos/wincred"&gt;https://github.com/danieljoos/wincred&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

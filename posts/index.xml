@@ -580,10 +580,7 @@ one player. It doesn&amp;rsquo;t make sense to render everyone else&amp;rsquo;s 
 point in replicating them either.&lt;/p&gt;
 &lt;p&gt;We can use this as a solution to our problems. To replicate an instance
 exclusively to one client, we can copy the instance to the client&amp;rsquo;s PlayerGui.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig1.png"&gt;
-&lt;figcaption&gt;You can put anything under the PlayerGui.&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;p&gt;I use the term &amp;ldquo;exclusive&amp;rdquo; here rather than &amp;ldquo;selective&amp;rdquo;, because this technique
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig1.png" width="526" height="238" loading="lazy"&gt;&lt;figcaption&gt;You can put anything under the PlayerGui.&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;I use the term &amp;ldquo;exclusive&amp;rdquo; here rather than &amp;ldquo;selective&amp;rdquo;, because this technique
 doesn&amp;rsquo;t actually let us select which clients a specific instance is replicated
 to. Instead, we have to make a copy of the instance on the server for each
 client we want to replicate to. It&amp;rsquo;s possible to write a module that manages all
@@ -602,24 +599,18 @@ matched to an instance on the client by the instance itself, rather than its
 location. So, on the client, as long as the instance stays under the DataModel,
 it will continue to receive changes from the server no matter where it is
 located.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig2.png"&gt;
-&lt;figcaption&gt;Moving an instance is considered a distinct unit of change, like setting a
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig2.png" width="1162" height="770" loading="lazy"&gt;&lt;figcaption&gt;Moving an instance is considered a distinct unit of change, like setting a
 property or adding a new child. That is, whenever some other change occurs,
 there isn&amp;rsquo;t going to be an additional check to make sure the instance in
 question is in the right place. The Parent property of the instance will only be
-replicated when it actually changes on the server.&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;p&gt;Instead of putting instances directly in the PlayerGui, let&amp;rsquo;s put them in a
+replicated when it actually changes on the server.&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;Instead of putting instances directly in the PlayerGui, let&amp;rsquo;s put them in a
 Folder that is located under the PlayerGui. On the server, the Folder must
 always stay here. On the client however, it can be moved to anywhere we want. By
 moving it outside of the PlayerGui, the replication behavior is retained, while
 the GUI-rendering behavior is dropped.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig3.png"&gt;
-&lt;figcaption&gt;Changes to the Container on the server are still replicated to the Container
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig3.png" width="610" height="433" loading="lazy"&gt;&lt;figcaption&gt;Changes to the Container on the server are still replicated to the Container
 on the client, no matter where it is located. ServerStorage is perfectly usable
-on the client, and makes for a good location to store the Container.&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;p&gt;There is only one more problem now: by default, all instances under the
+on the client, and makes for a good location to store the Container.&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;There is only one more problem now: by default, all instances under the
 PlayerGui will be removed before the player&amp;rsquo;s character respawns. For
 ScreenGuis, this can be prevented with the ResetOnSpawn property, but Folders do
 not have this. Fortunately, there is the
@@ -636,10 +627,7 @@ addition of some kind of &amp;ldquo;PlayerStorage&amp;rdquo; container, whose on
 replicate its descendants to one player at a time. There are other more
 complicated solutions to selective replication, but I feel like this would be a
 good and very simple intermediate step.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig4.png"&gt;
-&lt;figcaption&gt;Get an icon ready!&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;p&gt;We might be tempted to do this right now; instead of putting the Container under
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig4.png" width="241" height="177" loading="lazy"&gt;&lt;figcaption&gt;Get an icon ready!&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;We might be tempted to do this right now; instead of putting the Container under
 ServerStorage, we could call it &amp;ldquo;PlayerStorage&amp;rdquo; and put it directly under the
 Player. However, if Roblox does add their own PlayerStorage container, then it
 will conflict with ours, and things will likely break. Personally, I really like
@@ -925,27 +913,17 @@ secret drafts to GitHub! Fortunately, GitHub has what are called &amp;ldquo;Prot
 rules&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;To set it up, first the branch needs to be on GitHub. It&amp;rsquo;s easy enough to create
 a new branch on the website by going to the &lt;code&gt;/branches&lt;/code&gt; page.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig1.png"&gt;
-&lt;/figure&gt;&lt;p&gt;The branch has to be based off of another one. I used the same branch as what my
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig1.png" width="284" height="113" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;The branch has to be based off of another one. I used the same branch as what my
 local &lt;code&gt;drafts&lt;/code&gt; branch is based off of. This will make accidental pulls safe,
 since git will just think the local branch is the latest.&lt;/p&gt;
 &lt;p&gt;Next, I went to Settings, then Branches, and added a new Branch protection rule,
 where the pattern matched the name of the branch:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig2.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Then I included the Lock branch rule. This will prevent me from pushing to it. I
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig2.png" width="795" height="229" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Then I included the Lock branch rule. This will prevent me from pushing to it. I
 also included the &amp;ldquo;Do not allow bypassing above settings&amp;rdquo;. Seems like a safe
 thing to do.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig3.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Saved the rule, and that&amp;rsquo;s it.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig4.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Now when I try to push to the branch, GitHub will reject the attempt.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig5.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Notably, git still tries to upload everything, and the rejection comes
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig3.png" width="793" height="183" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Saved the rule, and that&amp;rsquo;s it.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig4.png" width="794" height="150" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Now when I try to push to the branch, GitHub will reject the attempt.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig5.png" width="458" height="246" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Notably, git still tries to upload everything, and the rejection comes
 afterwards. I could add a local pre-push hook to prevent the uploading, but I&amp;rsquo;m
 not worried about it. The point is to prevent the drafts from becoming public,
 which has already been accomplished.&lt;/p&gt;</content:encoded></item><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>Making minimal and efficient UVs in Blender for Roblox.</description><content:encoded>&lt;p&gt;You want to produce meshes with simple, solid color textures. Because the colors
@@ -953,47 +931,30 @@ are solid, you should be able to get away with using small textures. Tiny
 textures. Single-digit resolution textures. Possible, right?&lt;/p&gt;
 &lt;p&gt;The problem: Roblox applies linear interpolation to its textures. Here is a
 2-by-1 Decal, where the left pixel is white, and the right pixel is black:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig1.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Indeed, the left side is white, and the right side is black, but in between,
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig1.png" width="300" height="200" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Indeed, the left side is white, and the right side is black, but in between,
 there is a smooth, linear interpolation from one pixel to the other.&lt;/p&gt;
 &lt;p&gt;When constructing UVs for a mesh, we&amp;rsquo;ll have to find a way around this. Let&amp;rsquo;s
 head over to Blender, and work on a simple plane mesh:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig2.png"&gt;
-&lt;/figure&gt;&lt;p&gt;The interpolation of the texture should be set to &lt;strong&gt;Linear&lt;/strong&gt;, and the extension
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig2.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;The interpolation of the texture should be set to &lt;strong&gt;Linear&lt;/strong&gt;, and the extension
 should be set to &lt;strong&gt;Repeat&lt;/strong&gt;. This will match how Roblox renders textures on
 MeshParts. When we import it into Roblox, it looks mostly similar:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig3.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Notably, the left side begins to fade towards black, while the right side fades
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig3.png" width="300" height="200" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Notably, the left side begins to fade towards black, while the right side fades
 towards white, which proves that the texture repeats. So we&amp;rsquo;ll be able to use
 Blender to get a rough idea of what Roblox will render.&lt;/p&gt;
 &lt;p&gt;So how do we produce solid colors? We can&amp;rsquo;t just cover the whole pixel with a
 face, because half of the pixel is always interpolating to its neighbor:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig4.png"&gt;
-&lt;/figure&gt;&lt;p&gt;To get a solid color, the coordinates have to be in the exact center of the
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig4.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;To get a solid color, the coordinates have to be in the exact center of the
 pixel:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig5.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Two faces, each using one color:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig6.png"&gt;
-&lt;/figure&gt;&lt;p&gt;But does it work in Roblox?&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig7.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Indeed! To compare the colors, the top squares are regular Parts, while the
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig5.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Two faces, each using one color:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig6.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;But does it work in Roblox?&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig7.png" width="830" height="508" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Indeed! To compare the colors, the top squares are regular Parts, while the
 bottom squares are the mesh.&lt;/p&gt;
 &lt;p&gt;UV coordinates are reused for SurfaceAppearance textures, so this technique can
 be used to set the roughness and metalness of surfaces as well:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig8.png"&gt;
-&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig8.png" width="830" height="508" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
 the scale tool, and set the scale amounts to 0. This will move all vertices to a
 single location, which you can then move to the center of the desired pixel.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/posts/tiny-uv/fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;Another interesting idea: Because colors are interpolated, we could set the
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/posts/tiny-uv/fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Another interesting idea: Because colors are interpolated, we could set the
 coordinates to somewhere besides a pixel center, in order to get more colors.
 For example, the simple 2-by-1 white-to-black texture can also be used to get
 any shade of gray.&lt;/p&gt;</content:encoded></item><item><title>Stop linking to issues/new</title><link>https://anaminus.github.io/blog/posts/new-issues/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/new-issues/</guid><content:encoded>&lt;p&gt;You have a neat software project. This project has a presence on GitHub. Maybe
@@ -1004,15 +965,9 @@ tracker. You want them to have the most streamlined experience possible, so you
 get the bright idea of linking to &lt;a&gt;issues/new&lt;/a&gt;. How convenient! One click,
 and they&amp;rsquo;re able to start writing a report immediately! Except, that isn&amp;rsquo;t what
 happens.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/new-issues/login.png"&gt;
-&lt;figcaption&gt;What actually happens when users click on your link.&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;p&gt;Ugh. Don&amp;rsquo;t assume my intentions. All you had to do was link to the issue page.
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/new-issues/login.png" width="400" height="480" loading="lazy"&gt;&lt;figcaption&gt;What actually happens when users click on your link.&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;Ugh. Don&amp;rsquo;t assume my intentions. All you had to do was link to the issue page.
 It&amp;rsquo;s not like opening a new issue from there is hard.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/new-issues/new-issue.png"&gt;
-&lt;figcaption&gt;Can&amp;rsquo;t miss it.&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;p&gt;Other reasons why you may not want to do this:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/new-issues/new-issue.png" width="400" height="120" loading="lazy"&gt;&lt;figcaption&gt;Can&amp;rsquo;t miss it.&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;Other reasons why you may not want to do this:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Non-GitHub users are stonewalled from even viewing your tracker without
 backtracking to find an alternate route.&lt;/li&gt;

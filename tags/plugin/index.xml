@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Plugin on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/plugin/</link><description>Recent content in Plugin on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sat, 30 Sep 2023 14:31:53 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/plugin/index.xml" rel="self" type="application/rss+xml"/><item><title>LiveBind plugin</title><link>https://anaminus.github.io/blog/briefs/202309301431/</link><pubDate>Sat, 30 Sep 2023 14:31:53 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309301431/</guid><content:encoded>&lt;p&gt;LiveBind: A quick and dirty plugin to make tag bindings to aid with development.
 As an example, a binding that fills in terrain based on parts is included.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/tree/master/plugins/LiveBind"&gt;https://github.com/Anaminus/roblox-library/tree/master/plugins/LiveBind&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202309301431/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202309301431/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Probably</title><link>https://anaminus.github.io/blog/briefs/202209260940/</link><pubDate>Mon, 26 Sep 2022 09:40:12 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209260940/</guid><content:encoded>&lt;p&gt;&lt;strong&gt;Probably&lt;/strong&gt;, a Roblox Studio plugin for displaying the probability
+distributions of functions, is now available!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://devforum.roblox.com/t/1996506"&gt;https://devforum.roblox.com/t/1996506&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Probability plugin</title><link>https://anaminus.github.io/blog/briefs/202209142100/</link><pubDate>Wed, 14 Sep 2022 21:00:32 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209142100/</guid><content:encoded>&lt;p&gt;Plugin that displays probability curves of functions.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202209142100/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Improvements.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202209142100/01.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Ice cream</title><link>https://anaminus.github.io/blog/briefs/202208112219/</link><pubDate>Thu, 11 Aug 2022 22:19:09 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202208112219/</guid><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;Your cashier gives you three dimes and a nickel as your change. Do you:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Put it in the tip jar&lt;/li&gt;
+&lt;li&gt;Put it in the charity bin&lt;/li&gt;
+&lt;li&gt;Put it in a locked safe because it&amp;rsquo;s so much money you can&amp;rsquo;t imagine
+spending it even on something you use every day&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/BoatbomberRBLX/status/1557918024299991045"&gt;@BoatbomberRBLX, 2:32 AM · Aug 12, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;??? it goes in the paper cup where it is eventually used to extract exact change
+when buying ice cream at the drive thru&lt;/p&gt;
+&lt;p&gt;More accurately:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Buy plugin&lt;/li&gt;
+&lt;li&gt;It turns out to be shit&lt;/li&gt;
+&lt;li&gt;Could have been ice cream&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item></channel></rss>

@@ -52,27 +52,17 @@ secret drafts to GitHub! Fortunately, GitHub has what are called &amp;ldquo;Prot
 rules&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;To set it up, first the branch needs to be on GitHub. It&amp;rsquo;s easy enough to create
 a new branch on the website by going to the &lt;code&gt;/branches&lt;/code&gt; page.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig1.png"&gt;
-&lt;/figure&gt;&lt;p&gt;The branch has to be based off of another one. I used the same branch as what my
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig1.png" width="284" height="113" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;The branch has to be based off of another one. I used the same branch as what my
 local &lt;code&gt;drafts&lt;/code&gt; branch is based off of. This will make accidental pulls safe,
 since git will just think the local branch is the latest.&lt;/p&gt;
 &lt;p&gt;Next, I went to Settings, then Branches, and added a new Branch protection rule,
 where the pattern matched the name of the branch:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig2.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Then I included the Lock branch rule. This will prevent me from pushing to it. I
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig2.png" width="795" height="229" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Then I included the Lock branch rule. This will prevent me from pushing to it. I
 also included the &amp;ldquo;Do not allow bypassing above settings&amp;rdquo;. Seems like a safe
 thing to do.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig3.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Saved the rule, and that&amp;rsquo;s it.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig4.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Now when I try to push to the branch, GitHub will reject the attempt.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig5.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Notably, git still tries to upload everything, and the rejection comes
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig3.png" width="793" height="183" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Saved the rule, and that&amp;rsquo;s it.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig4.png" width="794" height="150" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Now when I try to push to the branch, GitHub will reject the attempt.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/secret-branch/fig5.png" width="458" height="246" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Notably, git still tries to upload everything, and the rejection comes
 afterwards. I could add a local pre-push hook to prevent the uploading, but I&amp;rsquo;m
 not worried about it. The point is to prevent the drafts from becoming public,
 which has already been accomplished.&lt;/p&gt;</content:encoded></item></channel></rss>

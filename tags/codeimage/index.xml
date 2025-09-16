@@ -2,13 +2,7 @@
 aspect. As expected, it&amp;rsquo;s quite fast.&lt;/p&gt;
 &lt;p&gt;For now, the plan is to use only the fuzzy matcher. After I replace the old
 website, I can work on writing a parser than can utilize the entire engine.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/00.jpg"&gt;
-&lt;/figure&gt;&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/01.png"&gt;
-&lt;/figure&gt;&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/02.png"&gt;
-&lt;/figure&gt;&lt;p&gt;The query syntax is made up. Here&amp;rsquo;s the current plan:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/00.jpg" width="960" height="655" loading="lazy"&gt;&lt;/figure&gt;&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/01.png" width="765" height="487" loading="lazy"&gt;&lt;/figure&gt;&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202404151423/02.png" width="670" height="423" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;The query syntax is made up. Here&amp;rsquo;s the current plan:&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;Expressions
 
 	foo bar : expressions foo and bar
@@ -118,13 +112,7 @@ Results
 	go:docs : Redirect to CreatorHub page of 1st result
 	go:git : Redirect to creator-docs repo page of 1st result
 &lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Cartesian product</title><link>https://anaminus.github.io/blog/briefs/202307261558/</link><pubDate>Wed, 26 Jul 2023 15:58:01 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307261558/</guid><content:encoded>&lt;p&gt;What is the name of the thing I am doing here?&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202307261558/00.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Best answer: Cartesian product&lt;/p&gt;</content:encoded></item><item><title>Tests n benchmarks</title><link>https://anaminus.github.io/blog/briefs/202307252210/</link><pubDate>Tue, 25 Jul 2023 22:10:40 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307252210/</guid><content:encoded>&lt;p&gt;thinkin bout tests n benchmarks&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202307252210/00.png"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>Connect serial</title><link>https://anaminus.github.io/blog/briefs/202307181212/</link><pubDate>Tue, 18 Jul 2023 12:12:18 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307181212/</guid><content:encoded>&lt;p&gt;Function to connect a listener to a signal serially. task.cancel continues to be
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202307261558/00.png" width="406" height="254" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Best answer: Cartesian product&lt;/p&gt;</content:encoded></item><item><title>Tests n benchmarks</title><link>https://anaminus.github.io/blog/briefs/202307252210/</link><pubDate>Tue, 25 Jul 2023 22:10:40 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307252210/</guid><content:encoded>&lt;p&gt;thinkin bout tests n benchmarks&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202307252210/00.png" width="798" height="711" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Connect serial</title><link>https://anaminus.github.io/blog/briefs/202307181212/</link><pubDate>Tue, 18 Jul 2023 12:12:18 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307181212/</guid><content:encoded>&lt;p&gt;Function to connect a listener to a signal serially. task.cancel continues to be
 MVP.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202307181212/00.png"&gt;
-&lt;/figure&gt;</content:encoded></item></channel></rss>
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202307181212/00.png" width="862" height="497" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>

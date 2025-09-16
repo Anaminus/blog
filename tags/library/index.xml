@@ -19,27 +19,17 @@ answers to &amp;ldquo;What am I going to do about this thing I just created once
 longer need it?&amp;rdquo;&lt;/p&gt;</content:encoded></item><item><title>Binstruct rewrite</title><link>https://anaminus.github.io/blog/briefs/202210301223/</link><pubDate>Sun, 30 Oct 2022 12:23:45 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210301223/</guid><content:encoded>&lt;p&gt;Rewriting Binstruct to be more ergonomic. Also added support for recursive type
 definitions, which is implemented in the VM as subroutines. Continues to be my
 favorite module to write.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/00.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Rewrote Binstruct&amp;rsquo;s union type to work like an if statement. Here&amp;rsquo;s what parsing
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/00.png" width="1200" height="831" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Rewrote Binstruct&amp;rsquo;s union type to work like an if statement. Here&amp;rsquo;s what parsing
 a value for serialized attributes looks like.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/01.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Because type definitions in Binstruct are just tables, it&amp;rsquo;s really easy to
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/01.png" width="1200" height="759" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Because type definitions in Binstruct are just tables, it&amp;rsquo;s really easy to
 create abstractions to make defining types more ergonomic. This is an example of
 a builder that allows advanced functions to be added to a definition more
 easily.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/02.png"&gt;
-&lt;/figure&gt;&lt;p&gt;The builder in action. The decode/encode functions convert between a finalized
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/02.png" width="542" height="497" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;The builder in action. The decode/encode functions convert between a finalized
 value and an intermediate representation that is more easily digested by the
 codec, though this representation is often useful enough on its own.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/03.png"&gt;
-&lt;/figure&gt;&lt;p&gt;All good data formats have a version number. Here&amp;rsquo;s a constructor that applies
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/03.png" width="702" height="409" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;All good data formats have a version number. Here&amp;rsquo;s a constructor that applies
 versioning to any type. It uses a union to match a version to one of a number of
 types. The version is also available as a &amp;ldquo;global&amp;rdquo;, allowing the value to be
 inspected from anywhere in the structure.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/04.png"&gt;
-&lt;/figure&gt;</content:encoded></item></channel></rss>
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/04.png" width="822" height="479" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Roblox on Anaminus.Blog</title><link>https://anaminus.github.io/blog/tags/roblox/</link><description>Recent content in Roblox on Anaminus.Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sat, 27 Apr 2024 23:09:10 +0000</lastBuildDate><atom:link href="https://anaminus.github.io/blog/tags/roblox/index.xml" rel="self" type="application/rss+xml"/><item><title>Missing separator</title><link>https://anaminus.github.io/blog/briefs/202404272309/</link><pubDate>Sat, 27 Apr 2024 23:09:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404272309/</guid><content:encoded>&lt;p&gt;The changes shown in this image hint at how parameters are named internally in
 Roblox&amp;rsquo;s engine. It&amp;rsquo;s clear that someone missed a separator when adding the
 &amp;ldquo;plugin&amp;rdquo; parameter.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202404272309/00.png"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>Premature ads</title><link>https://anaminus.github.io/blog/briefs/202404242216/</link><pubDate>Wed, 24 Apr 2024 22:16:02 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404242216/</guid><content:encoded>&lt;blockquote&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202404272309/00.png" width="514" height="327" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Premature ads</title><link>https://anaminus.github.io/blog/briefs/202404242216/</link><pubDate>Wed, 24 Apr 2024 22:16:02 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202404242216/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;You absolutely should not run ads for a game that is first-day-public. You
 need to publicly softlaunch for at least 10 (maybe 14?) days first or you&amp;rsquo;re
 going to run afoul of the security system.&lt;/p&gt;
-&lt;p&gt;&amp;mdash; &lt;a href="https://x.com/MrChickenRocket/status/1783331200175890922"&gt;@MrChickenRocket, 3:04 AM · Apr 25, 2024&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/MrChickenRocket/status/1783331200175890922"&gt;@MrChickenRocket, 3:04 AM · Apr 25, 2024&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Where would I learn this information that isn&amp;rsquo;t an impromptu tweet from someone
 I happen to follow replying to someone else I happen to follow that I happen to
 see incidentally?&lt;/p&gt;
@@ -18,49 +16,33 @@ for .. reasons? I guess, but I&amp;rsquo;ve watched multiple game launches step 
 garden rake of not being able to have people join.&lt;/p&gt;
 &lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/MrChickenRocket/status/1783363574192320705"&gt;@MrChickenRocket, 5:13 AM · Apr 25, 2024&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;</content:encoded></item><item><title>API dump woes</title><link>https://anaminus.github.io/blog/briefs/202402191024/</link><pubDate>Mon, 19 Feb 2024 10:24:44 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202402191024/</guid><content:encoded>&lt;p&gt;To whoever did this, I just want you to know that I am very annoyed by your
 decision.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202402191024/00.png"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>Buffer efficiency</title><link>https://anaminus.github.io/blog/briefs/202402161108/</link><pubDate>Fri, 16 Feb 2024 11:08:11 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202402161108/</guid><content:encoded>&lt;p&gt;Is passing a buffer directly to MessagingService/DataStore actually better?
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202402191024/00.png" width="808" height="615" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Buffer efficiency</title><link>https://anaminus.github.io/blog/briefs/202402161108/</link><pubDate>Fri, 16 Feb 2024 11:08:11 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202402161108/</guid><content:encoded>&lt;p&gt;Is passing a buffer directly to MessagingService/DataStore actually better?
 Mandatory compression means that a size check is required, which means double
 encoding. Also does base64, which has worse size overhead than base85 via Luau.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202402161108/00.png"&gt;
-&lt;/figure&gt;&lt;p&gt;For specialized data, the developer will be able achieve higher info density way
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202402161108/00.png" width="505" height="765" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;For specialized data, the developer will be able achieve higher info density way
 better than general compression ever could. I&amp;rsquo;d argue that the compression step
 should be skipped entirely.&lt;/p&gt;</content:encoded></item><item><title>Longevity</title><link>https://anaminus.github.io/blog/briefs/202312010635/</link><pubDate>Fri, 01 Dec 2023 06:35:06 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202312010635/</guid><content:encoded>&lt;p&gt;17 years on the platform is not enough for #Roblox&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202312010635/00.png"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>DataStore keys</title><link>https://anaminus.github.io/blog/briefs/202311220936/</link><pubDate>Wed, 22 Nov 2023 09:36:38 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202311220936/</guid><content:encoded>&lt;p&gt;Boring Facts: DataStore keys are binary-safe. They have a size limit of 50
-bytes, not characters. That&amp;rsquo;s 400 full bits to work with.&lt;/p&gt;</content:encoded></item><item><title>Creator docs</title><link>https://anaminus.github.io/blog/briefs/202311080005/</link><pubDate>Wed, 08 Nov 2023 00:05:05 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202311080005/</guid><content:encoded>&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202311080005/00.jpg"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>Glass</title><link>https://anaminus.github.io/blog/briefs/202309301803/</link><pubDate>Sat, 30 Sep 2023 18:03:23 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309301803/</guid><content:encoded>&lt;p&gt;Glass is being fun lately.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202309301803/00.jpg"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>LiveBind plugin</title><link>https://anaminus.github.io/blog/briefs/202309301431/</link><pubDate>Sat, 30 Sep 2023 14:31:53 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309301431/</guid><content:encoded>&lt;p&gt;LiveBind: A quick and dirty plugin to make tag bindings to aid with development.
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202312010635/00.png" width="282" height="131" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>DataStore keys</title><link>https://anaminus.github.io/blog/briefs/202311220936/</link><pubDate>Wed, 22 Nov 2023 09:36:38 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202311220936/</guid><content:encoded>&lt;p&gt;Boring Facts: DataStore keys are binary-safe. They have a size limit of 50
+bytes, not characters. That&amp;rsquo;s 400 full bits to work with.&lt;/p&gt;</content:encoded></item><item><title>Creator docs</title><link>https://anaminus.github.io/blog/briefs/202311080005/</link><pubDate>Wed, 08 Nov 2023 00:05:05 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202311080005/</guid><content:encoded>&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202311080005/00.jpg" width="882" height="756" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Glass</title><link>https://anaminus.github.io/blog/briefs/202309301803/</link><pubDate>Sat, 30 Sep 2023 18:03:23 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309301803/</guid><content:encoded>&lt;p&gt;Glass is being fun lately.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202309301803/00.jpg" width="1130" height="700" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>LiveBind plugin</title><link>https://anaminus.github.io/blog/briefs/202309301431/</link><pubDate>Sat, 30 Sep 2023 14:31:53 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309301431/</guid><content:encoded>&lt;p&gt;LiveBind: A quick and dirty plugin to make tag bindings to aid with development.
 As an example, a binding that fills in terrain based on parts is included.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/tree/master/plugins/LiveBind"&gt;https://github.com/Anaminus/roblox-library/tree/master/plugins/LiveBind&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202309301431/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Rotating and tilting</title><link>https://anaminus.github.io/blog/briefs/202309252224/</link><pubDate>Mon, 25 Sep 2023 22:24:07 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309252224/</guid><content:encoded>&lt;p&gt;In Roblox Studio, Ctrl+R &amp;ldquo;rotates&amp;rdquo; around the normal of the focused surface.
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202309301431/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Rotating and tilting</title><link>https://anaminus.github.io/blog/briefs/202309252224/</link><pubDate>Mon, 25 Sep 2023 22:24:07 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309252224/</guid><content:encoded>&lt;p&gt;In Roblox Studio, Ctrl+R &amp;ldquo;rotates&amp;rdquo; around the normal of the focused surface.
 Ctrl+T uses the axis that is nearest aligned to the camera&amp;rsquo;s local X axis, so
 that it &amp;ldquo;tilts&amp;rdquo; towards the camera.&lt;/p&gt;</content:encoded></item><item><title>RunService</title><link>https://anaminus.github.io/blog/briefs/202309240949/</link><pubDate>Sun, 24 Sep 2023 09:49:55 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309240949/</guid><content:encoded>&lt;p&gt;If you need to simulate something, such as an assembly, you can call
 RunService:Run() and :Stop() from the command bar. It even respects undo/redo.
 Keep in mind that the whole place is simulated.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202309240949/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Best UI</title><link>https://anaminus.github.io/blog/briefs/202309222313/</link><pubDate>Fri, 22 Sep 2023 23:13:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309222313/</guid><content:encoded>&lt;p&gt;Roblox Studio&amp;rsquo;s interface should be more like Blender&amp;rsquo;s.&lt;/p&gt;</content:encoded></item><item><title>Real houses</title><link>https://anaminus.github.io/blog/briefs/202309191037/</link><pubDate>Tue, 19 Sep 2023 10:37:42 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309191037/</guid><content:encoded>&lt;p&gt;Latest obsession: building houses realistically. Most of it will be abstracted
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202309240949/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Best UI</title><link>https://anaminus.github.io/blog/briefs/202309222313/</link><pubDate>Fri, 22 Sep 2023 23:13:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309222313/</guid><content:encoded>&lt;p&gt;Roblox Studio&amp;rsquo;s interface should be more like Blender&amp;rsquo;s.&lt;/p&gt;</content:encoded></item><item><title>Real houses</title><link>https://anaminus.github.io/blog/briefs/202309191037/</link><pubDate>Tue, 19 Sep 2023 10:37:42 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309191037/</guid><content:encoded>&lt;p&gt;Latest obsession: building houses realistically. Most of it will be abstracted
 away in an actual build, but doing it this way informs the layout of the house.
 For example, the stairway in this image isn&amp;rsquo;t ideal, because its headroom
 conflicts with the roof (1.5-story house).&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202309191037/00.jpg"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>Remote signals</title><link>https://anaminus.github.io/blog/briefs/202309160943/</link><pubDate>Sat, 16 Sep 2023 09:43:37 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309160943/</guid><content:encoded>&lt;p&gt;Remotes effectively break the Signal pattern, so the only thing you should be
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202309191037/00.jpg" width="1200" height="640" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Remote signals</title><link>https://anaminus.github.io/blog/briefs/202309160943/</link><pubDate>Sat, 16 Sep 2023 09:43:37 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202309160943/</guid><content:encoded>&lt;p&gt;Remotes effectively break the Signal pattern, so the only thing you should be
 doing with them is :Connect()ing exactly one listener.&lt;/p&gt;</content:encoded></item><item><title>TaskPolyfill</title><link>https://anaminus.github.io/blog/briefs/202308191529/</link><pubDate>Sat, 19 Aug 2023 15:29:23 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202308191529/</guid><content:encoded>&lt;p&gt;Polyfill for Roblox&amp;rsquo;s task library. Useful for standalone Luau.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/tree/master/modules/TaskPolyfill"&gt;https://github.com/Anaminus/roblox-library/tree/master/modules/TaskPolyfill&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Tests n benchmarks</title><link>https://anaminus.github.io/blog/briefs/202307252210/</link><pubDate>Tue, 25 Jul 2023 22:10:40 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307252210/</guid><content:encoded>&lt;p&gt;thinkin bout tests n benchmarks&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202307252210/00.png"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>Scope library</title><link>https://anaminus.github.io/blog/briefs/202307221951/</link><pubDate>Sat, 22 Jul 2023 19:51:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307221951/</guid><content:encoded>&lt;p&gt;Experimental library for lifetime management and value scoping.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202307252210/00.png" width="798" height="711" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Scope library</title><link>https://anaminus.github.io/blog/briefs/202307221951/</link><pubDate>Sat, 22 Jul 2023 19:51:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307221951/</guid><content:encoded>&lt;p&gt;Experimental library for lifetime management and value scoping.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/tree/master/modules/Scope"&gt;https://github.com/Anaminus/roblox-library/tree/master/modules/Scope&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Connect serial</title><link>https://anaminus.github.io/blog/briefs/202307181212/</link><pubDate>Tue, 18 Jul 2023 12:12:18 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307181212/</guid><content:encoded>&lt;p&gt;Function to connect a listener to a signal serially. task.cancel continues to be
 MVP.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202307181212/00.png"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>ModuleReflector</title><link>https://anaminus.github.io/blog/briefs/202307141235/</link><pubDate>Fri, 14 Jul 2023 12:35:13 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307141235/</guid><content:encoded>&lt;p&gt;Here&amp;rsquo;s a module for requiring modules without caching, and monitoring Source
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202307181212/00.png" width="862" height="497" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>ModuleReflector</title><link>https://anaminus.github.io/blog/briefs/202307141235/</link><pubDate>Fri, 14 Jul 2023 12:35:13 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202307141235/</guid><content:encoded>&lt;p&gt;Here&amp;rsquo;s a module for requiring modules without caching, and monitoring Source
 changes. A key difference from other implementations is that loadstring isn&amp;rsquo;t
 used. The killer feature is that breakpoints can be synced between copy and
 original, so debugging is possible.&lt;/p&gt;
@@ -75,7 +57,7 @@ that child wont be destroyed.&lt;/p&gt;</content:encoded></item><item><title>Inp
 handled by monitoring the key&amp;rsquo;s InputObject, while mouse wheel input is best
 handled by getting it from a source, because an emission from a source doesn&amp;rsquo;t
 always correspond to a property change.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306282139/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Input position</title><link>https://anaminus.github.io/blog/briefs/202306272259/</link><pubDate>Tue, 27 Jun 2023 22:59:22 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306272259/</guid><content:encoded>&lt;p&gt;Boring Facts: The Position of a Keyboard InputObject will update with the
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306282139/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Input position</title><link>https://anaminus.github.io/blog/briefs/202306272259/</link><pubDate>Tue, 27 Jun 2023 22:59:22 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306272259/</guid><content:encoded>&lt;p&gt;Boring Facts: The Position of a Keyboard InputObject will update with the
 position of the mouse while the key is held down.&lt;/p&gt;
 &lt;p&gt;Correction: Only some keys do this, including the arrow keys, Return, Backspace,
 and Delete.&lt;/p&gt;
@@ -87,15 +69,15 @@ current source (e.g. UserInputService or a GUI) is in focus.&lt;/p&gt;</content:
 made, it is added to the list, then monitored for changes. Each
 Source+UserInputType+KeyCode combination produces its own object. Sources used
 are the Input signals from UserInputService and a Frame GUI.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306272253/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Track the mouse</title><link>https://anaminus.github.io/blog/briefs/202306271227/</link><pubDate>Tue, 27 Jun 2023 12:27:26 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306271227/</guid><content:encoded>&lt;p&gt;A unique advantage of ScrollingFrames over a custom implementation is that the
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306272253/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Track the mouse</title><link>https://anaminus.github.io/blog/briefs/202306271227/</link><pubDate>Tue, 27 Jun 2023 12:27:26 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306271227/</guid><content:encoded>&lt;p&gt;A unique advantage of ScrollingFrames over a custom implementation is that the
 scrollbar can track the mouse across the entire screen, not just the viewport.&lt;/p&gt;
 &lt;p&gt;Correction: This isn&amp;rsquo;t unique: the behavior applies to InputObjects, but only
 while a mouse button is held down.&lt;/p&gt;</content:encoded></item><item><title>StudioStyleGuideColor</title><link>https://anaminus.github.io/blog/briefs/202306262146/</link><pubDate>Mon, 26 Jun 2023 21:46:24 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306262146/</guid><content:encoded>&lt;p&gt;Fusion widget to help narrow down what StudioStyleGuideColor a studio element is
 using.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306262146/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Lattice</title><link>https://anaminus.github.io/blog/briefs/202306241601/</link><pubDate>Sat, 24 Jun 2023 16:01:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306241601/</guid><content:encoded>&lt;p&gt;A port of my &amp;ldquo;lattice&amp;rdquo; container GUI to Fusion. Takes a grid of columns and rows
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306262146/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Lattice</title><link>https://anaminus.github.io/blog/briefs/202306241601/</link><pubDate>Sat, 24 Jun 2023 16:01:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306241601/</guid><content:encoded>&lt;p&gt;A port of my &amp;ldquo;lattice&amp;rdquo; container GUI to Fusion. Takes a grid of columns and rows
 defined as constant pixels or fractional values, and turns them into static
 UDim2s. Has options for padding, margins, and a visualizer for debugging.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306241601/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>How the Plugin Marketplace actually works</title><link>https://anaminus.github.io/blog/posts/plugin-marketplace/</link><pubDate>Thu, 22 Jun 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/plugin-marketplace/</guid><content:encoded>&lt;h2 id="part-i---the-plugin-compensation-model"&gt;Part I - The Plugin Compensation Model&lt;/h2&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306241601/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>How the Plugin Marketplace actually works</title><link>https://anaminus.github.io/blog/posts/plugin-marketplace/</link><pubDate>Thu, 22 Jun 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/plugin-marketplace/</guid><content:encoded>&lt;h2 id="part-i---the-plugin-compensation-model"&gt;Part I - The Plugin Compensation Model&lt;/h2&gt;
 &lt;p&gt;You are &lt;strong&gt;developing a game&lt;/strong&gt; on Roblox. Some aspect of your workflow is
 lacking, so you write a Studio plugin. This plugin improves the workflow of the
 &lt;strong&gt;development of your game&lt;/strong&gt;. You rejoice, as you are able to &lt;strong&gt;develop your
@@ -145,9 +127,7 @@ service of &lt;em&gt;their&lt;/em&gt; content while making them pay you definite
 expect compensation for work done on a plugin that isn&amp;rsquo;t directly in service
 of a game or other UGC. At best, expect no money.&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title>Hand-holding</title><link>https://anaminus.github.io/blog/briefs/202306201618/</link><pubDate>Tue, 20 Jun 2023 16:18:54 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306201618/</guid><content:encoded>&lt;p&gt;Game: depicts hand-holding&lt;/p&gt;
-&lt;p&gt;Roblox: this game is rated 17+&lt;/p&gt;</content:encoded></item><item><title>🗿</title><link>https://anaminus.github.io/blog/briefs/202305201058/</link><pubDate>Sat, 20 May 2023 10:58:01 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202305201058/</guid><content:encoded>&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202305201058/00.jpg"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>Child indexing</title><link>https://anaminus.github.io/blog/briefs/202305190907/</link><pubDate>Fri, 19 May 2023 09:07:35 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202305190907/</guid><content:encoded>&lt;p&gt;stop [clap] using [clap] child [clap] indexing&lt;/p&gt;
+&lt;p&gt;Roblox: this game is rated 17+&lt;/p&gt;</content:encoded></item><item><title>🗿</title><link>https://anaminus.github.io/blog/briefs/202305201058/</link><pubDate>Sat, 20 May 2023 10:58:01 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202305201058/</guid><content:encoded>&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202305201058/00.jpg" width="1200" height="675" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Child indexing</title><link>https://anaminus.github.io/blog/briefs/202305190907/</link><pubDate>Fri, 19 May 2023 09:07:35 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202305190907/</guid><content:encoded>&lt;p&gt;stop [clap] using [clap] child [clap] indexing&lt;/p&gt;
 &lt;p&gt;The entire problem is that the operation isn’t forward compatible. Either we
 can’t index children, or Roblox can’t add new class members.&lt;/p&gt;</content:encoded></item><item><title>KVM switches</title><link>https://anaminus.github.io/blog/briefs/202305081614/</link><pubDate>Mon, 08 May 2023 16:14:39 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202305081614/</guid><content:encoded>&lt;p&gt;At this point, I&amp;rsquo;m just gonna call it: VM with GPU passthru is dead. Long live
 KVM switches.&lt;/p&gt;
@@ -171,28 +151,18 @@ could be considered a pun.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;	&lt;/span&gt;&lt;span class="nx"&gt;it&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;writes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;rf32b&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;v&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Max&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;X&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;	&lt;/span&gt;&lt;span class="nx"&gt;it&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;writes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;rf32b&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;v&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Max&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Thatcher Cinematic Universe</title><link>https://anaminus.github.io/blog/briefs/202303172225/</link><pubDate>Fri, 17 Mar 2023 22:25:19 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202303172225/</guid><content:encoded>&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202303172225/00.jpg"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>WireframeHandleAdornment</title><link>https://anaminus.github.io/blog/briefs/202303171137/</link><pubDate>Fri, 17 Mar 2023 11:37:07 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202303171137/</guid><content:encoded>&lt;p&gt;Tip for using WireframeHandleAdornment: The Color3/Transparency of the adornment
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Thatcher Cinematic Universe</title><link>https://anaminus.github.io/blog/briefs/202303172225/</link><pubDate>Fri, 17 Mar 2023 22:25:19 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202303172225/</guid><content:encoded>&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202303172225/00.jpg" width="1165" height="730" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>WireframeHandleAdornment</title><link>https://anaminus.github.io/blog/briefs/202303171137/</link><pubDate>Fri, 17 Mar 2023 11:37:07 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202303171137/</guid><content:encoded>&lt;p&gt;Tip for using WireframeHandleAdornment: The Color3/Transparency of the adornment
 only affects newly added lines, so you only need one adornment to draw lines
 with any appearance.&lt;/p&gt;</content:encoded></item><item><title>Screen/viewport split</title><link>https://anaminus.github.io/blog/briefs/202303171116/</link><pubDate>Fri, 17 Mar 2023 11:16:01 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202303171116/</guid><content:encoded>&lt;p&gt;The screen/viewport split was one of the biggest blunders Roblox ever made.&lt;/p&gt;</content:encoded></item><item><title>R-tree</title><link>https://anaminus.github.io/blog/briefs/202303171111/</link><pubDate>Fri, 17 Mar 2023 11:11:04 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202303171111/</guid><content:encoded>&lt;p&gt;Visualization of an r-tree. WireframeHandleAdornment is essential for debugging.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202303171111/00.jpg"&gt;
-&lt;/figure&gt;&lt;p&gt;It&amp;rsquo;s harder to draw shapes, but it&amp;rsquo;s way better than keeping track of a million
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202303171111/00.jpg" width="1200" height="684" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;It&amp;rsquo;s harder to draw shapes, but it&amp;rsquo;s way better than keeping track of a million
 handle adornments.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202303171111/01.jpg"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>Angry voice lines</title><link>https://anaminus.github.io/blog/briefs/202302081049/</link><pubDate>Wed, 08 Feb 2023 10:49:53 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202302081049/</guid><content:encoded>&lt;p&gt;Roblox allowing things like profanity will actually make the writing of angry
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202303171111/01.jpg" width="1200" height="706" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Angry voice lines</title><link>https://anaminus.github.io/blog/briefs/202302081049/</link><pubDate>Wed, 08 Feb 2023 10:49:53 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202302081049/</guid><content:encoded>&lt;p&gt;Roblox allowing things like profanity will actually make the writing of angry
 characters worse.&lt;/p&gt;</content:encoded></item><item><title>Enum alises</title><link>https://anaminus.github.io/blog/briefs/202302051058/</link><pubDate>Sun, 05 Feb 2023 10:58:34 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202302051058/</guid><content:encoded>&lt;p&gt;Renamed enum items are &amp;ldquo;removed&amp;rdquo; from the API, but still stick around as an
 alias to whatever replaced them.&lt;/p&gt;</content:encoded></item><item><title>Roblox 2:2</title><link>https://anaminus.github.io/blog/briefs/202302041156/</link><pubDate>Sat, 04 Feb 2023 11:56:53 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202302041156/</guid><content:encoded>&lt;p&gt;And on the sixth day God rested, for the damn servers were down anyway.&lt;/p&gt;</content:encoded></item><item><title>Go big</title><link>https://anaminus.github.io/blog/briefs/202302021519/</link><pubDate>Thu, 02 Feb 2023 15:19:31 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202302021519/</guid><content:encoded>&lt;p&gt;Investors: How make number go bigger?&lt;/p&gt;
 &lt;p&gt;Roblox:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://devforum.roblox.com/t/beta-update-new-experiences-have-team-create-enabled/2172232"&gt;https://devforum.roblox.com/t/beta-update-new-experiences-have-team-create-enabled/2172232&lt;/a&gt;&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202302021519/00.jpg"&gt;
-&lt;/figure&gt;&lt;p&gt;For comparison, stats as displayed on 2022-11-15:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202302021519/01.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Idiot theory: Roblox made a bad-faith measurement of developers/experiences in
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202302021519/00.jpg" width="802" height="956" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;For comparison, stats as displayed on 2022-11-15:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202302021519/01.png" width="760" height="359" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Idiot theory: Roblox made a bad-faith measurement of developers/experiences in
 Q2, with the stats from Q3 (above) being more accurate. To address number go
 down, they&amp;rsquo;re pushing Team Create hard to make number go big again.&lt;/p&gt;</content:encoded></item><item><title>CFrame mnemonics</title><link>https://anaminus.github.io/blog/posts/cframe-mnemonics/</link><pubDate>Tue, 31 Jan 2023 12:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/cframe-mnemonics/</guid><description>A way to remember how CFrames are used.</description><content:encoded>&lt;h2 id="methods"&gt;Methods&lt;/h2&gt;
 &lt;p&gt;Certain methods on CFrame have an equivalent operator-based expression, which
@@ -346,8 +316,7 @@ don&amp;rsquo;t let the documentation let you think otherwise.&lt;/p&gt;
 UpVector == YVector
 LookVector == -ZVector
 &lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>The Cloud™</title><link>https://anaminus.github.io/blog/briefs/202301210944/</link><pubDate>Sat, 21 Jan 2023 09:44:26 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202301210944/</guid><content:encoded>&lt;p&gt;There goes a productive day. Thanks, The Cloud™.&lt;/p&gt;</content:encoded></item><item><title>ProximityPrompts</title><link>https://anaminus.github.io/blog/briefs/202301191334/</link><pubDate>Thu, 19 Jan 2023 13:34:33 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202301191334/</guid><content:encoded>&lt;p&gt;ProximityPrompts make for great general proximity detectors.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202301191334/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;The proximity signals are client-only, so validation is still required. But it’s
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202301191334/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;The proximity signals are client-only, so validation is still required. But it’s
 a fast and simple solution for detection. I like to think that it’s been
 optimized for large numbers of prompts spread across the workspace, so it’d be a
 winner in that case.&lt;/p&gt;
@@ -580,10 +549,7 @@ one player. It doesn&amp;rsquo;t make sense to render everyone else&amp;rsquo;s 
 point in replicating them either.&lt;/p&gt;
 &lt;p&gt;We can use this as a solution to our problems. To replicate an instance
 exclusively to one client, we can copy the instance to the client&amp;rsquo;s PlayerGui.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig1.png"&gt;
-&lt;figcaption&gt;You can put anything under the PlayerGui.&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;p&gt;I use the term &amp;ldquo;exclusive&amp;rdquo; here rather than &amp;ldquo;selective&amp;rdquo;, because this technique
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig1.png" width="526" height="238" loading="lazy"&gt;&lt;figcaption&gt;You can put anything under the PlayerGui.&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;I use the term &amp;ldquo;exclusive&amp;rdquo; here rather than &amp;ldquo;selective&amp;rdquo;, because this technique
 doesn&amp;rsquo;t actually let us select which clients a specific instance is replicated
 to. Instead, we have to make a copy of the instance on the server for each
 client we want to replicate to. It&amp;rsquo;s possible to write a module that manages all
@@ -602,24 +568,18 @@ matched to an instance on the client by the instance itself, rather than its
 location. So, on the client, as long as the instance stays under the DataModel,
 it will continue to receive changes from the server no matter where it is
 located.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig2.png"&gt;
-&lt;figcaption&gt;Moving an instance is considered a distinct unit of change, like setting a
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig2.png" width="1162" height="770" loading="lazy"&gt;&lt;figcaption&gt;Moving an instance is considered a distinct unit of change, like setting a
 property or adding a new child. That is, whenever some other change occurs,
 there isn&amp;rsquo;t going to be an additional check to make sure the instance in
 question is in the right place. The Parent property of the instance will only be
-replicated when it actually changes on the server.&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;p&gt;Instead of putting instances directly in the PlayerGui, let&amp;rsquo;s put them in a
+replicated when it actually changes on the server.&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;Instead of putting instances directly in the PlayerGui, let&amp;rsquo;s put them in a
 Folder that is located under the PlayerGui. On the server, the Folder must
 always stay here. On the client however, it can be moved to anywhere we want. By
 moving it outside of the PlayerGui, the replication behavior is retained, while
 the GUI-rendering behavior is dropped.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig3.png"&gt;
-&lt;figcaption&gt;Changes to the Container on the server are still replicated to the Container
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig3.png" width="610" height="433" loading="lazy"&gt;&lt;figcaption&gt;Changes to the Container on the server are still replicated to the Container
 on the client, no matter where it is located. ServerStorage is perfectly usable
-on the client, and makes for a good location to store the Container.&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;p&gt;There is only one more problem now: by default, all instances under the
+on the client, and makes for a good location to store the Container.&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;There is only one more problem now: by default, all instances under the
 PlayerGui will be removed before the player&amp;rsquo;s character respawns. For
 ScreenGuis, this can be prevented with the ResetOnSpawn property, but Folders do
 not have this. Fortunately, there is the
@@ -636,10 +596,7 @@ addition of some kind of &amp;ldquo;PlayerStorage&amp;rdquo; container, whose on
 replicate its descendants to one player at a time. There are other more
 complicated solutions to selective replication, but I feel like this would be a
 good and very simple intermediate step.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig4.png"&gt;
-&lt;figcaption&gt;Get an icon ready!&lt;/figcaption&gt;
-&lt;/figure&gt;&lt;p&gt;We might be tempted to do this right now; instead of putting the Container under
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/exclusive-replication/fig4.png" width="241" height="177" loading="lazy"&gt;&lt;figcaption&gt;Get an icon ready!&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;We might be tempted to do this right now; instead of putting the Container under
 ServerStorage, we could call it &amp;ldquo;PlayerStorage&amp;rdquo; and put it directly under the
 Player. However, if Roblox does add their own PlayerStorage container, then it
 will conflict with ours, and things will likely break. Personally, I really like
@@ -659,8 +616,7 @@ Roblox&amp;rsquo;s convention for modules is module.camelCase, I match that inst
 the difference becomes unexportedFunction vs module.exportedFunction, and
 PascalCase just isn&amp;rsquo;t used for top-level functions.&lt;/p&gt;</content:encoded></item><item><title>Roact</title><link>https://anaminus.github.io/blog/briefs/202211021007/</link><pubDate>Wed, 02 Nov 2022 10:07:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202211021007/</guid><content:encoded>&lt;p&gt;my favorite part of roact is how you can instantly tell when it&amp;rsquo;s being used by
 the complete lack of keyboard support and the general feeling of sluggishness&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202211021007/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202211021007/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;blockquote&gt;
 &lt;p&gt;It would run much better with a proper component implementation.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Of course, but it wasn&amp;rsquo;t done that way. Why not? Maybe it&amp;rsquo;s because Roact makes
 it easy to do the wrong thing. Or hard to do the right thing. Or both.&lt;/p&gt;</content:encoded></item><item><title>Module packages</title><link>https://anaminus.github.io/blog/briefs/202211012005/</link><pubDate>Tue, 01 Nov 2022 20:05:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202211012005/</guid><content:encoded>&lt;p&gt;I feel like a problem with modules is that a module&amp;rsquo;s namespace can&amp;rsquo;t be divided
@@ -668,30 +624,20 @@ further than one ModuleScript. It would be nice if there were some kind of
 Package object, where all child ModuleScripts shared the same environment.&lt;/p&gt;</content:encoded></item><item><title>Binstruct rewrite</title><link>https://anaminus.github.io/blog/briefs/202210301223/</link><pubDate>Sun, 30 Oct 2022 12:23:45 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210301223/</guid><content:encoded>&lt;p&gt;Rewriting Binstruct to be more ergonomic. Also added support for recursive type
 definitions, which is implemented in the VM as subroutines. Continues to be my
 favorite module to write.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/00.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Rewrote Binstruct&amp;rsquo;s union type to work like an if statement. Here&amp;rsquo;s what parsing
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/00.png" width="1200" height="831" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Rewrote Binstruct&amp;rsquo;s union type to work like an if statement. Here&amp;rsquo;s what parsing
 a value for serialized attributes looks like.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/01.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Because type definitions in Binstruct are just tables, it&amp;rsquo;s really easy to
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/01.png" width="1200" height="759" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Because type definitions in Binstruct are just tables, it&amp;rsquo;s really easy to
 create abstractions to make defining types more ergonomic. This is an example of
 a builder that allows advanced functions to be added to a definition more
 easily.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/02.png"&gt;
-&lt;/figure&gt;&lt;p&gt;The builder in action. The decode/encode functions convert between a finalized
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/02.png" width="542" height="497" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;The builder in action. The decode/encode functions convert between a finalized
 value and an intermediate representation that is more easily digested by the
 codec, though this representation is often useful enough on its own.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/03.png"&gt;
-&lt;/figure&gt;&lt;p&gt;All good data formats have a version number. Here&amp;rsquo;s a constructor that applies
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/03.png" width="702" height="409" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;All good data formats have a version number. Here&amp;rsquo;s a constructor that applies
 versioning to any type. It uses a union to match a version to one of a number of
 types. The version is also available as a &amp;ldquo;global&amp;rdquo;, allowing the value to be
 inspected from anywhere in the structure.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/04.png"&gt;
-&lt;/figure&gt;</content:encoded></item><item><title>Type smuggling</title><link>https://anaminus.github.io/blog/briefs/202210261007/</link><pubDate>Wed, 26 Oct 2022 10:07:30 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210261007/</guid><content:encoded>&lt;p&gt;Type smuggling:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210301223/04.png" width="822" height="479" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Type smuggling</title><link>https://anaminus.github.io/blog/briefs/202210261007/</link><pubDate>Wed, 26 Oct 2022 10:07:30 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210261007/</guid><content:encoded>&lt;p&gt;Type smuggling:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-luau" data-lang="luau"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;typeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(...))&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Allows you to get types from a module without requiring it. Does not work with
 exported types.&lt;/p&gt;
@@ -717,55 +663,224 @@ exported types.&lt;/p&gt;
 &lt;p&gt;This is incredibly useful for smuggling types from a server module in a client
 module so the data the client is going to receive from the server via a remote
 can be fully typed.&lt;/p&gt;
-&lt;p&gt;&amp;mdash; &lt;a href="https://x.com/fewkz/status/1590230560764760065"&gt;@fewkz, 6:31 AM · Nov 9, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/fewkz/status/1590230560764760065"&gt;@fewkz, 6:31 AM · Nov 9, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;So nothing breaks on the client even though the modules containing the server
 types aren’t replicated, because types don’t matter at runtime. Interesting
-approach.&lt;/p&gt;</content:encoded></item><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>Making minimal and efficient UVs in Blender for Roblox.</description><content:encoded>&lt;p&gt;You want to produce meshes with simple, solid color textures. Because the colors
+approach.&lt;/p&gt;</content:encoded></item><item><title>Fusion predicates</title><link>https://anaminus.github.io/blog/briefs/202210171302/</link><pubDate>Mon, 17 Oct 2022 13:02:08 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210171302/</guid><content:encoded>&lt;p&gt;I was thinking of a Fusion-like way to select children based on a predicate
+function.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210171302/00.png" width="632" height="357" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;More tasteful syntax:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210171302/01.png" width="621" height="279" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Rx</title><link>https://anaminus.github.io/blog/briefs/202210162211/</link><pubDate>Sun, 16 Oct 2022 22:11:37 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210162211/</guid><content:encoded>&lt;p&gt;Ripped a standalone version of @Quenty&amp;rsquo;s Rx module out of Nevermore. Looks very
+very promising.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202210162211/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Interfacing with Fusion&amp;rsquo;s Value objects is really easy:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-lua" data-lang="lua"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;function&lt;/span&gt; &lt;span class="nc"&gt;Rxf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;value&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Fusion.Value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;Rx.Observer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Rx.observer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Rx.Subscriber&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;Maid.Task&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Fusion.Observer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="n"&gt;onChange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;			&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Fire&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Fire&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="kr"&gt;return&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;How&amp;rsquo;s performance? I&amp;rsquo;ve been looking to write a version of what you&amp;rsquo;re writing
+here for a while, but query performance seems scary.&lt;/p&gt;
+&lt;p&gt;Using RxInstanceUtils for now, but this is looking a lot cleaner.&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/Quenty/status/1582087487610302464"&gt;@Quenty, 7:13 PM · Oct 17, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;I haven&amp;rsquo;t deliberately optimized anything, but it&amp;rsquo;s not the worst. I might be
+comfortable with one query that updates every frame, for example. It&amp;rsquo;s a mess,
+but you can &lt;a href="https://gist.github.com/Anaminus/1f31af4e5280b9333f3f58e13840c670"&gt;play with it here&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hey wait a minute, arent you not a fan of observing any kind of behavior on
+instances that enter the data model?&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/Kampfkarren/status/1582087755311349760"&gt;@Kampfkarren, 7:14 PM · Oct 17, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;That&amp;rsquo;s right. Which is why Rx is great, because it simplifies a bunch of
+boilerplate that would otherwise be need to ensure that an observation is
+correct.&lt;/p&gt;</content:encoded></item><item><title>Metatables suck</title><link>https://anaminus.github.io/blog/briefs/202210160957/</link><pubDate>Sun, 16 Oct 2022 09:57:29 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210160957/</guid><content:encoded>&lt;p&gt;&lt;em&gt;In response to &lt;a href="https://elttob.medium.com/metatables-suck-473f1fe5afc2"&gt;Metatables suck.&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Metatables:&lt;/strong&gt; I use metatables to signal the separation of data and behavior.
+Data goes in the table, behavior goes in the metatable. Great for debugging; the
+debugger isn&amp;rsquo;t cluttered with a bunch of methods.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Encapsulation:&lt;/strong&gt; I don&amp;rsquo;t actually want true encapsulation, because it&amp;rsquo;s harder
+to debug. Unlike local variables, private fields can be tapped into, and I don&amp;rsquo;t
+have to hunt them down in the debugger. Also makes writing tests easier.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Overloading:&lt;/strong&gt; I agree in principal, but in practice, sometimes the
+convenience is too much to pass up. To reconcile this, I always accompany a
+non-obvious metamethod behavior with an equivalent method.&lt;/p&gt;
+&lt;p&gt;But it&amp;rsquo;s worth noting that metamethods are harder to debug, because they don&amp;rsquo;t
+allow yielding, so you can&amp;rsquo;t set breakpoints in them. That&amp;rsquo;s why it&amp;rsquo;s good to
+have a regular method-based equivalent.&lt;/p&gt;</content:encoded></item><item><title>For the Roblox iceberg</title><link>https://anaminus.github.io/blog/briefs/202210141109/</link><pubDate>Fri, 14 Oct 2022 11:09:19 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210141109/</guid><content:encoded>&lt;p&gt;In no particular order:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;lens flares&lt;/li&gt;
+&lt;li&gt;lowercase archivable property&lt;/li&gt;
+&lt;li&gt;hidden attribute types&lt;/li&gt;
+&lt;li&gt;data transfer over physics&lt;/li&gt;
+&lt;li&gt;Instance.Lock/Unlock&lt;/li&gt;
+&lt;li&gt;/sc == ROOT&lt;/li&gt;
+&lt;li&gt;DebugId can overflow&lt;/li&gt;
+&lt;li&gt;UniqueId epoch&lt;/li&gt;
+&lt;li&gt;roblox.xsd&lt;/li&gt;
+&lt;li&gt;&amp;lt;External&amp;gt; tag&lt;/li&gt;
+&lt;li&gt;true purpose of Geometry service&lt;/li&gt;
+&lt;li&gt;preliminary status&lt;/li&gt;
+&lt;li&gt;preprocessor syntax&lt;/li&gt;
+&lt;li&gt;editable object browser summaries&lt;/li&gt;
+&lt;li&gt;GC only collects instance&amp;rsquo;s userdata&lt;/li&gt;
+&lt;li&gt;comic sans ui&lt;/li&gt;
+&lt;li&gt;runaway wait() throttling&lt;/li&gt;
+&lt;li&gt;property names can have any character&lt;/li&gt;
+&lt;li&gt;userdata keys in global environment&lt;/li&gt;
+&lt;li&gt;undead Authoring class&lt;/li&gt;
+&lt;li&gt;fast child removal&lt;/li&gt;
+&lt;li&gt;GuiText&lt;/li&gt;
+&lt;li&gt;GuiMain&lt;/li&gt;
+&lt;li&gt;GuiRoot/GuiItem&lt;/li&gt;
+&lt;li&gt;LoadingGui&lt;/li&gt;
+&lt;li&gt;PlayerHUD&lt;/li&gt;
+&lt;li&gt;PseudoPlayer&lt;/li&gt;
+&lt;li&gt;ParallelRampPart&lt;/li&gt;
+&lt;li&gt;PrisimPart&lt;/li&gt;
+&lt;li&gt;PyramidPart&lt;/li&gt;
+&lt;li&gt;RightAngleRampPart&lt;/li&gt;
+&lt;li&gt;QDir/QFont types&lt;/li&gt;
+&lt;li&gt;SystemAddress type&lt;/li&gt;
+&lt;li&gt;__gc attack vector&lt;/li&gt;
+&lt;li&gt;string.rep attack vector&lt;/li&gt;
+&lt;li&gt;debug.loadmodule&lt;/li&gt;
+&lt;li&gt;gameserver.ashx&lt;/li&gt;
+&lt;li&gt;DeployHistory.txt&lt;/li&gt;
+&lt;li&gt;WritePlayerSecurity&lt;/li&gt;
+&lt;li&gt;BasePart.siz&lt;/li&gt;
+&lt;li&gt;DraggingV1&lt;/li&gt;
+&lt;li&gt;MouseButton1DownConnectionCount&lt;/li&gt;
+&lt;li&gt;.mesh girl&lt;/li&gt;
+&lt;li&gt;application/x-roblox-studio&lt;/li&gt;
+&lt;li&gt;loadfile security context&lt;/li&gt;
+&lt;li&gt;bytecode environment injection&lt;/li&gt;
+&lt;li&gt;connectFirst/connectLast&lt;/li&gt;
+&lt;li&gt;studio verbs&lt;/li&gt;
+&lt;li&gt;TextBox.Confidential&lt;/li&gt;
+&lt;li&gt;OverrideCoreScripts&lt;/li&gt;
+&lt;li&gt;DefaultWaitTime&lt;/li&gt;
+&lt;li&gt;ypcall&lt;/li&gt;
+&lt;li&gt;NaN FoV void&lt;/li&gt;
+&lt;li&gt;self-returning modules leak&lt;/li&gt;
+&lt;li&gt;DataModel.Loaded conflict&lt;/li&gt;
+&lt;li&gt;overloaded ScriptContext.AddCoreScript&lt;/li&gt;
+&lt;li&gt;extra KeyCode.KeypadEquals enum items&lt;/li&gt;
+&lt;li&gt;second CameraMode enum&lt;/li&gt;
+&lt;li&gt;second Pages class&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Property&amp;rdquo; type&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;preprocessor syntax:&lt;/strong&gt; In older versions of studio, having a &lt;code&gt;$&lt;/code&gt; at the start
+of a script would highlight the first line in red. Later, when custom highlight
+colors were added, this was referenced with the &lt;a href="https://robloxapi.github.io/ref/class/Studio.html#member-Preprocessor%20Color"&gt;Preprocessor Color&lt;/a&gt;
+property, even though it was unused.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;self-returning modules leak:&lt;/strong&gt; If a module returns a value that contains a
+reference to the module (&lt;code&gt;return script&lt;/code&gt;, return &lt;code&gt;{script}&lt;/code&gt;, etc), then it will
+never be GC&amp;rsquo;d.&lt;/p&gt;</content:encoded></item><item><title>New game metrics</title><link>https://anaminus.github.io/blog/briefs/202210122320/</link><pubDate>Wed, 12 Oct 2022 23:20:27 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210122320/</guid><content:encoded>&lt;p&gt;How poorly do metrics have to be misinterpreted to reach the conclusion that a
+developer is creating an entire new game from scratch every single time they
+open the baseplate?&lt;/p&gt;</content:encoded></item><item><title>Not invented here</title><link>https://anaminus.github.io/blog/briefs/202210111600/</link><pubDate>Tue, 11 Oct 2022 16:00:58 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210111600/</guid><content:encoded>&lt;p&gt;Today on roblox dev: everyone learns the difference between inventions and
+discoveries.&lt;/p&gt;</content:encoded></item><item><title>Cancelable delays</title><link>https://anaminus.github.io/blog/briefs/202210111423/</link><pubDate>Tue, 11 Oct 2022 14:23:18 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210111423/</guid><content:encoded>&lt;p&gt;Protip: &lt;code&gt;task.delay&lt;/code&gt; returns the delayed thread, making cancelable delays
+trivial.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-luau" data-lang="luau"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;thread&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;task.delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Hi!&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;task.wait&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;task.cancel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;thread&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Maid connect</title><link>https://anaminus.github.io/blog/briefs/202210111420/</link><pubDate>Tue, 11 Oct 2022 14:20:26 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210111420/</guid><content:encoded>&lt;p&gt;Justifying a Connect method on maids.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-luau" data-lang="luau"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;-- Regular method.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="n"&gt;maid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Alive&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="kr"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;maid.heartbeat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;RunService.Heartbeat&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;delta time&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;-- Method if your name is Max.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;maid.heartbeat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="n"&gt;maid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Alive&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="kr"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;RunService.Heartbeat&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;delta time&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;else&lt;/span&gt; &lt;span class="kc"&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;-- Connect method.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;maid&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;heartbeat&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;RunService.Heartbeat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;delta time&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Foliage</title><link>https://anaminus.github.io/blog/briefs/202209292251/</link><pubDate>Thu, 29 Sep 2022 22:51:14 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209292251/</guid><content:encoded>&lt;p&gt;Playing with foliage. Here we have the same texture, triangle count, and
+triangle size, but different scaling of the base shape, which is a sphere in
+this case. Unfortunately, it&amp;rsquo;s hard to get something that looks good without
+fine-tuning each of these parameters.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202209292251/00.jpg" width="1200" height="675" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Probably</title><link>https://anaminus.github.io/blog/briefs/202209260940/</link><pubDate>Mon, 26 Sep 2022 09:40:12 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209260940/</guid><content:encoded>&lt;p&gt;&lt;strong&gt;Probably&lt;/strong&gt;, a Roblox Studio plugin for displaying the probability
+distributions of functions, is now available!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://devforum.roblox.com/t/1996506"&gt;https://devforum.roblox.com/t/1996506&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Cartridge</title><link>https://anaminus.github.io/blog/briefs/202209240907/</link><pubDate>Sat, 24 Sep 2022 09:07:49 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209240907/</guid><content:encoded>&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202209240907/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Tiny UVs</title><link>https://anaminus.github.io/blog/posts/tiny-uv/</link><pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/tiny-uv/</guid><description>Making minimal and efficient UVs in Blender for Roblox.</description><content:encoded>&lt;p&gt;You want to produce meshes with simple, solid color textures. Because the colors
 are solid, you should be able to get away with using small textures. Tiny
 textures. Single-digit resolution textures. Possible, right?&lt;/p&gt;
 &lt;p&gt;The problem: Roblox applies linear interpolation to its textures. Here is a
 2-by-1 Decal, where the left pixel is white, and the right pixel is black:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig1.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Indeed, the left side is white, and the right side is black, but in between,
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig1.png" width="300" height="200" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Indeed, the left side is white, and the right side is black, but in between,
 there is a smooth, linear interpolation from one pixel to the other.&lt;/p&gt;
 &lt;p&gt;When constructing UVs for a mesh, we&amp;rsquo;ll have to find a way around this. Let&amp;rsquo;s
 head over to Blender, and work on a simple plane mesh:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig2.png"&gt;
-&lt;/figure&gt;&lt;p&gt;The interpolation of the texture should be set to &lt;strong&gt;Linear&lt;/strong&gt;, and the extension
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig2.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;The interpolation of the texture should be set to &lt;strong&gt;Linear&lt;/strong&gt;, and the extension
 should be set to &lt;strong&gt;Repeat&lt;/strong&gt;. This will match how Roblox renders textures on
 MeshParts. When we import it into Roblox, it looks mostly similar:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig3.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Notably, the left side begins to fade towards black, while the right side fades
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig3.png" width="300" height="200" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Notably, the left side begins to fade towards black, while the right side fades
 towards white, which proves that the texture repeats. So we&amp;rsquo;ll be able to use
 Blender to get a rough idea of what Roblox will render.&lt;/p&gt;
 &lt;p&gt;So how do we produce solid colors? We can&amp;rsquo;t just cover the whole pixel with a
 face, because half of the pixel is always interpolating to its neighbor:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig4.png"&gt;
-&lt;/figure&gt;&lt;p&gt;To get a solid color, the coordinates have to be in the exact center of the
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig4.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;To get a solid color, the coordinates have to be in the exact center of the
 pixel:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig5.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Two faces, each using one color:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig6.png"&gt;
-&lt;/figure&gt;&lt;p&gt;But does it work in Roblox?&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig7.png"&gt;
-&lt;/figure&gt;&lt;p&gt;Indeed! To compare the colors, the top squares are regular Parts, while the
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig5.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Two faces, each using one color:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig6.png" width="997" height="618" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;But does it work in Roblox?&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig7.png" width="830" height="508" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Indeed! To compare the colors, the top squares are regular Parts, while the
 bottom squares are the mesh.&lt;/p&gt;
 &lt;p&gt;UV coordinates are reused for SurfaceAppearance textures, so this technique can
 be used to set the roughness and metalness of surfaces as well:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig8.png"&gt;
-&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/posts/tiny-uv/fig8.png" width="830" height="508" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To set the coordinates of many faces at once, select all the faces, use
 the scale tool, and set the scale amounts to 0. This will move all vertices to a
 single location, which you can then move to the center of the desired pixel.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/posts/tiny-uv/fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/p&gt;
-&lt;p&gt;Another interesting idea: Because colors are interpolated, we could set the
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/posts/tiny-uv/fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Another interesting idea: Because colors are interpolated, we could set the
 coordinates to somewhere besides a pixel center, in order to get more colors.
 For example, the simple 2-by-1 white-to-black texture can also be used to get
-any shade of gray.&lt;/p&gt;</content:encoded></item></channel></rss>
+any shade of gray.&lt;/p&gt;</content:encoded></item><item><title>Plugin UX</title><link>https://anaminus.github.io/blog/briefs/202209172306/</link><pubDate>Sat, 17 Sep 2022 23:06:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209172306/</guid><content:encoded>&lt;p&gt;Plugin development should share the same UX as games. Specifically asset
+management.&lt;/p&gt;</content:encoded></item><item><title>Creation</title><link>https://anaminus.github.io/blog/briefs/202209172049/</link><pubDate>Sat, 17 Sep 2022 20:49:15 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209172049/</guid><content:encoded>&lt;p&gt;&amp;gt;&amp;ldquo;creator&amp;rdquo; dashboard&lt;/p&gt;
+&lt;p&gt;&amp;gt;can&amp;rsquo;t create assets&lt;/p&gt;</content:encoded></item><item><title>Icons</title><link>https://anaminus.github.io/blog/briefs/202209161714/</link><pubDate>Fri, 16 Sep 2022 17:14:28 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209161714/</guid><content:encoded>&lt;p&gt;When you don&amp;rsquo;t feel like uploading icons.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202209161714/00.jpg" width="949" height="720" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Plugin windows</title><link>https://anaminus.github.io/blog/briefs/202209151701/</link><pubDate>Thu, 15 Sep 2022 17:01:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209151701/</guid><content:encoded>&lt;p&gt;UI refresh allows plugin windows to be docked to the center area. +10000 points.&lt;/p&gt;</content:encoded></item><item><title>Plugin dock positions</title><link>https://anaminus.github.io/blog/briefs/202209151658/</link><pubDate>Thu, 15 Sep 2022 16:58:44 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209151658/</guid><content:encoded>&lt;p&gt;Last update fixed problems with studio forgetting plugin dock positions. UI
+refresh is 100% better now.&lt;/p&gt;</content:encoded></item><item><title>Probability plugin</title><link>https://anaminus.github.io/blog/briefs/202209142100/</link><pubDate>Wed, 14 Sep 2022 21:00:32 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209142100/</guid><content:encoded>&lt;p&gt;Plugin that displays probability curves of functions.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202209142100/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Improvements.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202209142100/01.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Gamejam</title><link>https://anaminus.github.io/blog/briefs/202208281404/</link><pubDate>Sun, 28 Aug 2022 14:04:45 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202208281404/</guid><content:encoded>&lt;p&gt;Not at RDC, but I thought I&amp;rsquo;d gamejam anyway. Didn&amp;rsquo;t finish, but I still had
+fun. Here&amp;rsquo;s what would have been the thumbnail:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202208281404/00.jpg" width="1024" height="1024" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;If you&amp;rsquo;re going to solojam, try to use existing assets as much as possible. I
+modeled the car, sun, and skybox from scratch, which was fun to do, but sunk way
+too much time.&lt;/p&gt;</content:encoded></item><item><title>Studio cookies</title><link>https://anaminus.github.io/blog/briefs/202208171639/</link><pubDate>Wed, 17 Aug 2022 16:39:35 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202208171639/</guid><content:encoded>&lt;p&gt;If you have tooling that makes use of Studio&amp;rsquo;s cookies, Roblox recently changed
+how they work in Windows. Cookies are no longer stored in the registry, and are
+instead stored as Credentials:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Studio stores the &lt;code&gt;https://www.roblox.com:RobloxStudioAuthCookies&lt;/code&gt; credential.&lt;/li&gt;
+&lt;li&gt;Its value is a &lt;code&gt;;&lt;/code&gt; separated list of cookie names (rather, each name has a &lt;code&gt;;&lt;/code&gt;
+appended, note the trailing &lt;code&gt;;&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;The value of each cookie is stored as a credential named
+&lt;code&gt;https://www.roblox.com:RobloxStudioAuth&lt;/code&gt; + the cookie name.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tooling will still be able to access these cookies just fine. There&amp;rsquo;s a winapi
+for it, so most languages will likely have a library for it. I listed some in
+another tweet.&lt;/p&gt;
+&lt;p&gt;Relevant libraries for some random languages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rust: &lt;a href="https://crates.io/crates/wincredentials"&gt;https://crates.io/crates/wincredentials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Go: &lt;a href="https://github.com/danieljoos/wincred"&gt;https://github.com/danieljoos/wincred&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title>Archivable</title><link>https://anaminus.github.io/blog/briefs/202208171044/</link><pubDate>Wed, 17 Aug 2022 10:44:34 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202208171044/</guid><content:encoded>&lt;p&gt;Boring Facts: The lowercase &amp;ldquo;archivable&amp;rdquo; property can be used within a model or
+place file to load an instance with Archivable set to false.&lt;/p&gt;</content:encoded></item><item><title>Ice cream</title><link>https://anaminus.github.io/blog/briefs/202208112219/</link><pubDate>Thu, 11 Aug 2022 22:19:09 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202208112219/</guid><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;Your cashier gives you three dimes and a nickel as your change. Do you:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Put it in the tip jar&lt;/li&gt;
+&lt;li&gt;Put it in the charity bin&lt;/li&gt;
+&lt;li&gt;Put it in a locked safe because it&amp;rsquo;s so much money you can&amp;rsquo;t imagine
+spending it even on something you use every day&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/BoatbomberRBLX/status/1557918024299991045"&gt;@BoatbomberRBLX, 2:32 AM · Aug 12, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;??? it goes in the paper cup where it is eventually used to extract exact change
+when buying ice cream at the drive thru&lt;/p&gt;
+&lt;p&gt;More accurately:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Buy plugin&lt;/li&gt;
+&lt;li&gt;It turns out to be shit&lt;/li&gt;
+&lt;li&gt;Could have been ice cream&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item></channel></rss>

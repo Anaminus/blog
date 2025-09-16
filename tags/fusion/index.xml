@@ -2,9 +2,38 @@
 made, it is added to the list, then monitored for changes. Each
 Source+UserInputType+KeyCode combination produces its own object. Sources used
 are the Input signals from UserInputService and a Frame GUI.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306272253/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>StudioStyleGuideColor</title><link>https://anaminus.github.io/blog/briefs/202306262146/</link><pubDate>Mon, 26 Jun 2023 21:46:24 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306262146/</guid><content:encoded>&lt;p&gt;Fusion widget to help narrow down what StudioStyleGuideColor a studio element is
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306272253/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>StudioStyleGuideColor</title><link>https://anaminus.github.io/blog/briefs/202306262146/</link><pubDate>Mon, 26 Jun 2023 21:46:24 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306262146/</guid><content:encoded>&lt;p&gt;Fusion widget to help narrow down what StudioStyleGuideColor a studio element is
 using.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306262146/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item><item><title>Lattice</title><link>https://anaminus.github.io/blog/briefs/202306241601/</link><pubDate>Sat, 24 Jun 2023 16:01:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306241601/</guid><content:encoded>&lt;p&gt;A port of my &amp;ldquo;lattice&amp;rdquo; container GUI to Fusion. Takes a grid of columns and rows
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306262146/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Lattice</title><link>https://anaminus.github.io/blog/briefs/202306241601/</link><pubDate>Sat, 24 Jun 2023 16:01:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306241601/</guid><content:encoded>&lt;p&gt;A port of my &amp;ldquo;lattice&amp;rdquo; container GUI to Fusion. Takes a grid of columns and rows
 defined as constant pixels or fractional values, and turns them into static
 UDim2s. Has options for padding, margins, and a visualizer for debugging.&lt;/p&gt;
-&lt;p&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306241601/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306241601/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Fusion predicates</title><link>https://anaminus.github.io/blog/briefs/202210171302/</link><pubDate>Mon, 17 Oct 2022 13:02:08 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210171302/</guid><content:encoded>&lt;p&gt;I was thinking of a Fusion-like way to select children based on a predicate
+function.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210171302/00.png" width="632" height="357" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;More tasteful syntax:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202210171302/01.png" width="621" height="279" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Rx</title><link>https://anaminus.github.io/blog/briefs/202210162211/</link><pubDate>Sun, 16 Oct 2022 22:11:37 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202210162211/</guid><content:encoded>&lt;p&gt;Ripped a standalone version of @Quenty&amp;rsquo;s Rx module out of Nevermore. Looks very
+very promising.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202210162211/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Interfacing with Fusion&amp;rsquo;s Value objects is really easy:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-lua" data-lang="lua"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;function&lt;/span&gt; &lt;span class="nc"&gt;Rxf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;value&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Fusion.Value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;Rx.Observer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Rx.observer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Rx.Subscriber&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="n"&gt;Maid.Task&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Fusion.Observer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="n"&gt;onChange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;			&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Fire&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Fire&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="kr"&gt;return&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;end&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;How&amp;rsquo;s performance? I&amp;rsquo;ve been looking to write a version of what you&amp;rsquo;re writing
+here for a while, but query performance seems scary.&lt;/p&gt;
+&lt;p&gt;Using RxInstanceUtils for now, but this is looking a lot cleaner.&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/Quenty/status/1582087487610302464"&gt;@Quenty, 7:13 PM · Oct 17, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;I haven&amp;rsquo;t deliberately optimized anything, but it&amp;rsquo;s not the worst. I might be
+comfortable with one query that updates every frame, for example. It&amp;rsquo;s a mess,
+but you can &lt;a href="https://gist.github.com/Anaminus/1f31af4e5280b9333f3f58e13840c670"&gt;play with it here&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hey wait a minute, arent you not a fan of observing any kind of behavior on
+instances that enter the data model?&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/Kampfkarren/status/1582087755311349760"&gt;@Kampfkarren, 7:14 PM · Oct 17, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;That&amp;rsquo;s right. Which is why Rx is great, because it simplifies a bunch of
+boilerplate that would otherwise be need to ensure that an observation is
+correct.&lt;/p&gt;</content:encoded></item></channel></rss>
