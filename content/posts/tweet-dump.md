@@ -1,7 +1,7 @@
 +++
 title = "Dumping all my tweets"
 description = "In which I add 15 years of tweets to my blog."
-date = 2025-09-16 18:00:00
+date = 2025-09-16 17:00:00
 tags = ["meta"]
 +++
 
