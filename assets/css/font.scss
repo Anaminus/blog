@@ -4,7 +4,8 @@
 	font-family: var(--san-serif);
 	font-size: 22px;
 	line-height: 1.5;
+	tab-size: 4;
 }
-@media (max-width: 896px) { :root { font-size: 20px } }
-@media (max-width: 768px) { :root { font-size: 18px } }
-@media (max-width: 640px) { :root { font-size: 14px } }
+@media (max-width: 896px) { :root { font-size: 20px; tab-size: 4 } }
+@media (max-width: 768px) { :root { font-size: 18px; tab-size: 2 } }
+@media (max-width: 640px) { :root { font-size: 14px; tab-size: 2 } }
