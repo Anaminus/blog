@@ -113,4 +113,32 @@ any shade of gray.&lt;/p&gt;</content:encoded></item><item><title>Gamejam</title
 fun. Here&amp;rsquo;s what would have been the thumbnail:&lt;/p&gt;
 &lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202208281404/00.jpg" width="1024" height="1024" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;If you&amp;rsquo;re going to solojam, try to use existing assets as much as possible. I
 modeled the car, sun, and skybox from scratch, which was fun to do, but sunk way
-too much time.&lt;/p&gt;</content:encoded></item></channel></rss>
+too much time.&lt;/p&gt;</content:encoded></item><item><title>Grass</title><link>https://anaminus.github.io/blog/briefs/202207111221/</link><pubDate>Mon, 11 Jul 2022 12:21:19 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202207111221/</guid><content:encoded>&lt;p&gt;Physically simulated grass.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202207111221/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Single triangle rigged with two bones. Lower bone is attached to a colliding
+part via BallSocket. Upper bone has a VectorForce to keep the whole thing
+upright, and an AngularVelocity to introduce some instability that simulates
+wind.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202207111221/01.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Some translucency can be simulated by rotating the upper bone by 180 degrees,
+which also rotates the normal of the top vertex.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202207111221/02.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;One MeshPart can be rigged to fit up to 128 grass units, whereas Beams would
+have to be 1:1. But in terms of visuals, Beams have much more to offer than
+Decals.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202207111221/03.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;A texture can be used, but artifacts occur on the upper edge because the texture
+wraps around and repeats.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202207111221/04.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;blockquote&gt;
+&lt;p&gt;you can get around this using the TextureLength property&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/ChrythmDev/status/1547708323180343296"&gt;@ChrythmDev, 10:23 PM · Jul 14, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;I guess that works, but the texture has to be upside down.&lt;/p&gt;
+&lt;p&gt;On whether using beams is practical: disregarding physics, most of the time goes
+into updating beam logic. Actual rendering is sub-optimal, but it isn&amp;rsquo;t the
+bottleneck. Not sure what causes LOD cutoff (it&amp;rsquo;s not affected by graphics
+settings). Might be a memory thing.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202207111221/05.jpg" width="1200" height="675" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Rigging</title><link>https://anaminus.github.io/blog/briefs/202207081638/</link><pubDate>Fri, 08 Jul 2022 16:38:11 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202207081638/</guid><content:encoded>&lt;p&gt;I rigged a mesh that has 85 completely independent triangles. Used it for
+efficiently generating light rays:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.roblox.com/library/9287415204"&gt;https://www.roblox.com/library/9287415204&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also rigged one for 256 independent squares:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.roblox.com/library/9288565775"&gt;https://www.roblox.com/library/9288565775&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Particle grass</title><link>https://anaminus.github.io/blog/briefs/202206291048/</link><pubDate>Wed, 29 Jun 2022 10:48:24 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202206291048/</guid><content:encoded>&lt;p&gt;Infeasible particle grass.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202206291048/00.jpg" width="1097" height="630" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Unreliable physics</title><link>https://anaminus.github.io/blog/briefs/202206261949/</link><pubDate>Sun, 26 Jun 2022 19:49:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202206261949/</guid><content:encoded>&lt;p&gt;Stupid idea: send/receive unreliable data by encoding it in physics.&lt;/p&gt;</content:encoded></item><item><title>From scratch</title><link>https://anaminus.github.io/blog/briefs/202205081446/</link><pubDate>Sun, 08 May 2022 14:46:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202205081446/</guid><content:encoded>&lt;p&gt;Making from scratch isn&amp;rsquo;t as fun. Better to take an existing thing and make it
+do something else. My first experience with Roblox Lua was turning a jetpack
+into a sword.&lt;/p&gt;</content:encoded></item><item><title>Easter eggs</title><link>https://anaminus.github.io/blog/briefs/202204301952/</link><pubDate>Sat, 30 Apr 2022 19:52:08 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202204301952/</guid><content:encoded>&lt;p&gt;Stop making easter eggs just to tell everyone about them. Those aren&amp;rsquo;t easter
+eggs.&lt;/p&gt;</content:encoded></item></channel></rss>

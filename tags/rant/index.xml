@@ -81,7 +81,18 @@ even have basic documentation.&lt;/p&gt;</content:encoded></item><item><title>Bi
 change, on everything you have ever touched, or will ever touch. And don&amp;rsquo;t
 forget about all those pictures that incidentally contain your fingers in
 immaculate detail.&lt;/p&gt;</content:encoded></item><item><title>Plugin UX</title><link>https://anaminus.github.io/blog/briefs/202209172306/</link><pubDate>Sat, 17 Sep 2022 23:06:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202209172306/</guid><content:encoded>&lt;p&gt;Plugin development should share the same UX as games. Specifically asset
-management.&lt;/p&gt;</content:encoded></item><item><title>Stop linking to issues/new</title><link>https://anaminus.github.io/blog/posts/new-issues/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/new-issues/</guid><content:encoded>&lt;p&gt;You have a neat software project. This project has a presence on GitHub. Maybe
+management.&lt;/p&gt;</content:encoded></item><item><title>Premature features</title><link>https://anaminus.github.io/blog/briefs/202205231559/</link><pubDate>Mon, 23 May 2022 15:59:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202205231559/</guid><content:encoded>&lt;p&gt;Starting to get annoyed by Luau making features available before they&amp;rsquo;re
+complete.&lt;/p&gt;
+&lt;p&gt;Incidentally, tagged unions aren&amp;rsquo;t refined by the &lt;code&gt;else&lt;/code&gt; clause.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;really&lt;/em&gt; annoying thing is that the only way to find out a feature is
+incomplete is to get halfway through writing something only to have the type
+checker start slapping you with errors for things are logically correct.&lt;/p&gt;
+&lt;p&gt;If I have a tagged union of &lt;code&gt;A | B&lt;/code&gt;, and &lt;code&gt;if v.type==&amp;quot;A&amp;quot; then&lt;/code&gt; refines to type
+A, then logically, &lt;code&gt;else&lt;/code&gt; should refine to type B. Yet I have to find out the
+hard way that it doesn&amp;rsquo;t.&lt;/p&gt;</content:encoded></item><item><title>Easter eggs</title><link>https://anaminus.github.io/blog/briefs/202204301952/</link><pubDate>Sat, 30 Apr 2022 19:52:08 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202204301952/</guid><content:encoded>&lt;p&gt;Stop making easter eggs just to tell everyone about them. Those aren&amp;rsquo;t easter
+eggs.&lt;/p&gt;</content:encoded></item><item><title>Monkey paw</title><link>https://anaminus.github.io/blog/briefs/202204272223/</link><pubDate>Wed, 27 Apr 2022 22:23:08 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202204272223/</guid><content:encoded>&lt;p&gt;Monkey Paw:&lt;/p&gt;
+&lt;p&gt;Devs: Exploits are a big problem.&lt;/p&gt;
+&lt;p&gt;Roblox: k DRM time lol&lt;/p&gt;</content:encoded></item><item><title>Bureaucracy</title><link>https://anaminus.github.io/blog/briefs/202204251819/</link><pubDate>Mon, 25 Apr 2022 18:19:56 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202204251819/</guid><content:encoded>&lt;p&gt;Nothing like a 10 minute fix blocked by 3 weeks of bureaucracy.&lt;/p&gt;</content:encoded></item><item><title>Stop linking to issues/new</title><link>https://anaminus.github.io/blog/posts/new-issues/</link><pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate><guid>https://anaminus.github.io/blog/posts/new-issues/</guid><content:encoded>&lt;p&gt;You have a neat software project. This project has a presence on GitHub. Maybe
 you host the source code there, maybe you&amp;rsquo;re just leveraging the issue tracker.&lt;/p&gt;
 &lt;p&gt;Your project also has a website. You know that your users will have problems
 with your software, so you want to direct them from your website to your issue

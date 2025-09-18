@@ -883,4 +883,58 @@ when buying ice cream at the drive thru&lt;/p&gt;
 &lt;li&gt;Buy plugin&lt;/li&gt;
 &lt;li&gt;It turns out to be shit&lt;/li&gt;
 &lt;li&gt;Could have been ice cream&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item></channel></rss>
+&lt;/ol&gt;</content:encoded></item><item><title>Grass</title><link>https://anaminus.github.io/blog/briefs/202207111221/</link><pubDate>Mon, 11 Jul 2022 12:21:19 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202207111221/</guid><content:encoded>&lt;p&gt;Physically simulated grass.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202207111221/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Single triangle rigged with two bones. Lower bone is attached to a colliding
+part via BallSocket. Upper bone has a VectorForce to keep the whole thing
+upright, and an AngularVelocity to introduce some instability that simulates
+wind.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202207111221/01.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Some translucency can be simulated by rotating the upper bone by 180 degrees,
+which also rotates the normal of the top vertex.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202207111221/02.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;One MeshPart can be rigged to fit up to 128 grass units, whereas Beams would
+have to be 1:1. But in terms of visuals, Beams have much more to offer than
+Decals.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202207111221/03.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;A texture can be used, but artifacts occur on the upper edge because the texture
+wraps around and repeats.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202207111221/04.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;blockquote&gt;
+&lt;p&gt;you can get around this using the TextureLength property&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/ChrythmDev/status/1547708323180343296"&gt;@ChrythmDev, 10:23 PM · Jul 14, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;I guess that works, but the texture has to be upside down.&lt;/p&gt;
+&lt;p&gt;On whether using beams is practical: disregarding physics, most of the time goes
+into updating beam logic. Actual rendering is sub-optimal, but it isn&amp;rsquo;t the
+bottleneck. Not sure what causes LOD cutoff (it&amp;rsquo;s not affected by graphics
+settings). Might be a memory thing.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202207111221/05.jpg" width="1200" height="675" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Rigging</title><link>https://anaminus.github.io/blog/briefs/202207081638/</link><pubDate>Fri, 08 Jul 2022 16:38:11 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202207081638/</guid><content:encoded>&lt;p&gt;I rigged a mesh that has 85 completely independent triangles. Used it for
+efficiently generating light rays:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.roblox.com/library/9287415204"&gt;https://www.roblox.com/library/9287415204&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I also rigged one for 256 independent squares:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.roblox.com/library/9288565775"&gt;https://www.roblox.com/library/9288565775&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>RemoteEvents</title><link>https://anaminus.github.io/blog/briefs/202207081127/</link><pubDate>Fri, 08 Jul 2022 11:27:36 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202207081127/</guid><content:encoded>&lt;p&gt;RemoteEvents will happily receive a giant dictionary from the client, happily
+deserialize it, and happily reflect it to Lua. This seems like it would be bad,
+but in practice, the client gets disconnected before it has a chance to send
+concerning amounts of data.&lt;/p&gt;</content:encoded></item><item><title>NaN preservation</title><link>https://anaminus.github.io/blog/briefs/202207081124/</link><pubDate>Fri, 08 Jul 2022 11:24:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202207081124/</guid><content:encoded>&lt;p&gt;Boring Facts: Roblox preserves NaN values across network boundaries.&lt;/p&gt;</content:encoded></item><item><title>MeshID</title><link>https://anaminus.github.io/blog/briefs/202207051712/</link><pubDate>Tue, 05 Jul 2022 17:12:18 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202207051712/</guid><content:encoded>&lt;p&gt;Roblox serizes both the &lt;code&gt;MeshID&lt;/code&gt; and &lt;code&gt;MeshId&lt;/code&gt; properties.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;&amp;lt;Content&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;MeshID&amp;#34;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;null&amp;gt;&amp;lt;/null&amp;gt;&amp;lt;/Content&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;&amp;lt;Content&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;MeshId&amp;#34;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;null&amp;gt;&amp;lt;/null&amp;gt;&amp;lt;/Content&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Both have CanLoad and CanSave set. Does studio just let one override the other?
+Answer: Yes. The property that appears after overrides the one that appears
+before.&lt;/p&gt;</content:encoded></item><item><title>Particle grass</title><link>https://anaminus.github.io/blog/briefs/202206291048/</link><pubDate>Wed, 29 Jun 2022 10:48:24 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202206291048/</guid><content:encoded>&lt;p&gt;Infeasible particle grass.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202206291048/00.jpg" width="1097" height="630" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Unreliable physics</title><link>https://anaminus.github.io/blog/briefs/202206261949/</link><pubDate>Sun, 26 Jun 2022 19:49:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202206261949/</guid><content:encoded>&lt;p&gt;Stupid idea: send/receive unreliable data by encoding it in physics.&lt;/p&gt;</content:encoded></item><item><title>Ownership problem</title><link>https://anaminus.github.io/blog/briefs/202206250031/</link><pubDate>Sat, 25 Jun 2022 00:31:20 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202206250031/</guid><content:encoded>&lt;p&gt;The Ownership Problem: A vaguely formed idea involving the fact that instances
+in the game tree can be accessed by anything at any time. If I knew what I was
+talking about, I&amp;rsquo;d write a post about it.&lt;/p&gt;</content:encoded></item><item><title>Source of truth</title><link>https://anaminus.github.io/blog/briefs/202206200809/</link><pubDate>Mon, 20 Jun 2022 08:09:06 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202206200809/</guid><content:encoded>&lt;p&gt;The DataModel as the single source of truth is an awful one, because the engine
+calls all the shots, while scripts are second-class.&lt;/p&gt;
+&lt;p&gt;Because the engine can be made to do nothing by default, I get around this by
+conceptualizing my collective codebase as a server, with the data model as a
+client. This does create two sources of truth, but the data model is usually a
+good little client that behaves as it should.&lt;/p&gt;
+&lt;p&gt;A consequence is that this &amp;ldquo;server&amp;rdquo; must be considered as a whole, so libraries
+must be made compatible with this model. But this is fine, because any 3rd-party
+library is already going to be incompatible in some way no matter what.&lt;/p&gt;
+&lt;p&gt;Assuming Roact doesn&amp;rsquo;t expose its own source of truth to be incorporated into
+the &amp;ldquo;server&amp;rdquo;, it could just be treated as another &amp;ldquo;client&amp;rdquo; instead.&lt;/p&gt;</content:encoded></item><item><title>UpdateAsync</title><link>https://anaminus.github.io/blog/briefs/202205291414/</link><pubDate>Sun, 29 May 2022 14:14:31 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202205291414/</guid><content:encoded>&lt;p&gt;If UpdateAsync calls the update function again, the result of the previous call
+is discarded.&lt;/p&gt;
+&lt;p&gt;Because this is so simple to understand, the docs choose to not mention it
+anywhere. The result for me is years of UpdateAsync never quite clicking. One
+tiny sentence is all it takes.&lt;/p&gt;</content:encoded></item><item><title>From scratch</title><link>https://anaminus.github.io/blog/briefs/202205081446/</link><pubDate>Sun, 08 May 2022 14:46:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202205081446/</guid><content:encoded>&lt;p&gt;Making from scratch isn&amp;rsquo;t as fun. Better to take an existing thing and make it
+do something else. My first experience with Roblox Lua was turning a jetpack
+into a sword.&lt;/p&gt;</content:encoded></item><item><title>Diagram</title><link>https://anaminus.github.io/blog/briefs/202205012351/</link><pubDate>Sun, 01 May 2022 23:51:14 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202205012351/</guid><content:encoded>&lt;p&gt;Yet another out of context diagram.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202205012351/00.png" width="782" height="421" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Monkey paw</title><link>https://anaminus.github.io/blog/briefs/202204272223/</link><pubDate>Wed, 27 Apr 2022 22:23:08 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202204272223/</guid><content:encoded>&lt;p&gt;Monkey Paw:&lt;/p&gt;
+&lt;p&gt;Devs: Exploits are a big problem.&lt;/p&gt;
+&lt;p&gt;Roblox: k DRM time lol&lt;/p&gt;</content:encoded></item></channel></rss>

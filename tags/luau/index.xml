@@ -4,4 +4,14 @@
 &lt;p&gt;&amp;gt; Barges into output&lt;/p&gt;
 &lt;p&gt;&amp;gt; &lt;code&gt;'Type { @metatable Foo, { } }' could not be converted into 'Foo'&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&amp;gt; Refuses to elaborate further&lt;/p&gt;
-&lt;p&gt;&amp;gt; Leaves&lt;/p&gt;</content:encoded></item><item><title>If-expressions</title><link>https://anaminus.github.io/blog/briefs/202306240035/</link><pubDate>Sat, 24 Jun 2023 00:35:52 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306240035/</guid><content:encoded>&lt;p&gt;&lt;em&gt;furiously begins authoring the &amp;ldquo;If-Expressions Considered Harmful&amp;rdquo; paper&lt;/em&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;&amp;gt; Leaves&lt;/p&gt;</content:encoded></item><item><title>If-expressions</title><link>https://anaminus.github.io/blog/briefs/202306240035/</link><pubDate>Sat, 24 Jun 2023 00:35:52 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306240035/</guid><content:encoded>&lt;p&gt;&lt;em&gt;furiously begins authoring the &amp;ldquo;If-Expressions Considered Harmful&amp;rdquo; paper&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title>Premature features</title><link>https://anaminus.github.io/blog/briefs/202205231559/</link><pubDate>Mon, 23 May 2022 15:59:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202205231559/</guid><content:encoded>&lt;p&gt;Starting to get annoyed by Luau making features available before they&amp;rsquo;re
+complete.&lt;/p&gt;
+&lt;p&gt;Incidentally, tagged unions aren&amp;rsquo;t refined by the &lt;code&gt;else&lt;/code&gt; clause.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;really&lt;/em&gt; annoying thing is that the only way to find out a feature is
+incomplete is to get halfway through writing something only to have the type
+checker start slapping you with errors for things are logically correct.&lt;/p&gt;
+&lt;p&gt;If I have a tagged union of &lt;code&gt;A | B&lt;/code&gt;, and &lt;code&gt;if v.type==&amp;quot;A&amp;quot; then&lt;/code&gt; refines to type
+A, then logically, &lt;code&gt;else&lt;/code&gt; should refine to type B. Yet I have to find out the
+hard way that it doesn&amp;rsquo;t.&lt;/p&gt;</content:encoded></item><item><title>table.unpack vs table.move</title><link>https://anaminus.github.io/blog/briefs/202204290035/</link><pubDate>Fri, 29 Apr 2022 00:35:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202204290035/</guid><content:encoded>&lt;p&gt;Which is faster: &lt;code&gt;table.unpack&lt;/code&gt; or &lt;code&gt;table.move?&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;table.unpack&lt;/code&gt; is going to be dumping potentially tons of values onto the stack,
+while &lt;code&gt;table.move&lt;/code&gt; can avoid the stack entirely.&lt;/p&gt;</content:encoded></item></channel></rss>
