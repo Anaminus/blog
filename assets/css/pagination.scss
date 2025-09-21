@@ -1,14 +1,21 @@
 .pagination {
 	display: flex;
 	flex-flow: wrap row;
-	margin-block: 1rem;
+	padding-block: 1rem;
 	justify-content: center;
+	background-color: var(--theme-back);
+	position: sticky;
+	bottom: 0;
 	.page-item {
 		display: inline;
 		margin-inline: 0.5rem;
-		padding-inline: 0.5rem;
-		a.page-link:not([href]) {
-			color: var(--theme-fg);
+		a.page-link {
+			display: inline-block;
+			inline-size: 2rem;
+			text-align: center;
+			&:not([href]) {
+				color: var(--theme-fg);
+			}
 		}
 	}
 	.active {
