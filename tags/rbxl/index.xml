@@ -22,4 +22,39 @@ would enable efficient partial modifications to files.&lt;/p&gt;</content:encode
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;&amp;lt;Content&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;MeshId&amp;#34;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;null&amp;gt;&amp;lt;/null&amp;gt;&amp;lt;/Content&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Both have CanLoad and CanSave set. Does studio just let one override the other?
 Answer: Yes. The property that appears after overrides the one that appears
-before.&lt;/p&gt;</content:encoded></item></channel></rss>
+before.&lt;/p&gt;</content:encoded></item><item><title>Dump builds</title><link>https://anaminus.github.io/blog/briefs/202204202134/</link><pubDate>Wed, 20 Apr 2022 21:34:48 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202204202134/</guid><content:encoded>&lt;p&gt;Added builds for rbxfile-dump/dcomp.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/RobloxAPI/rbxfile/releases/tag/v0.5.1"&gt;https://github.com/RobloxAPI/rbxfile/releases/tag/v0.5.1&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>rbxl tools</title><link>https://anaminus.github.io/blog/briefs/202203242022/</link><pubDate>Thu, 24 Mar 2022 20:22:48 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202203242022/</guid><content:encoded>&lt;p&gt;If you don&amp;rsquo;t mind compiling them yourself, I have two tools for working with
+binary rbxl/rbxm files. The dump tool dumps the contents of a file in a readable
+format. The dcomp tool receives a file and outputs the same file with
+uncompressed chunks.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/RobloxAPI/rbxfile/tree/master/cmd"&gt;https://github.com/RobloxAPI/rbxfile/tree/master/cmd&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Specifications</title><link>https://anaminus.github.io/blog/briefs/202203231453/</link><pubDate>Wed, 23 Mar 2022 14:53:33 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202203231453/</guid><content:encoded>&lt;p&gt;A repository for specifications of Roblox&amp;rsquo;s file formats. Featuring a mostly
+complete draft of the rbxl format.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/RobloxAPI/spec"&gt;https://github.com/RobloxAPI/spec&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>UniqueId</title><link>https://anaminus.github.io/blog/briefs/202203181756/</link><pubDate>Fri, 18 Mar 2022 17:56:42 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202203181756/</guid><content:encoded>&lt;p&gt;The format of the UniqueId type for rbxl and rbxlx files.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Binary format.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="kd"&gt;type&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;UniqueId&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;struct&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;	&lt;/span&gt;&lt;span class="c1"&gt;// All big-endian.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;	&lt;/span&gt;&lt;span class="nx"&gt;Sequence&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;uint32&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;	&lt;/span&gt;&lt;span class="nx"&gt;Timestamp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;uint32&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;	&lt;/span&gt;&lt;span class="nx"&gt;Random&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;int64&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// Zigzag encoded&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="c1"&gt;// Interleaved&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="c1"&gt;// XML hash&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="c1"&gt;//
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// [random ][time ][seq ]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="c1"&gt;// 0123456789abcdef0123456789abcdef&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="c1"&gt;//
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Not zigzag encoded!&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>UniqueId sequence</title><link>https://anaminus.github.io/blog/briefs/202203181207/</link><pubDate>Fri, 18 Mar 2022 12:07:38 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202203181207/</guid><content:encoded>&lt;p&gt;Boring Facts: UniqueId has one more sequential component that increments every
+time an instance is created. If this value manages to overflow, the timestamp
+component is updated. To generate a duplicate ID, you would have to produce over
+4 billion instances within 1 second.&lt;/p&gt;</content:encoded></item><item><title>UniqueId randomness</title><link>https://anaminus.github.io/blog/briefs/202203180801/</link><pubDate>Fri, 18 Mar 2022 08:01:30 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202203180801/</guid><content:encoded>&lt;p&gt;Boring Facts: The UniqueId type also contains an apparently random sequence of
+bytes. However, between serialization in the binary and XML formats, there is a
+shift by one bit. &lt;del&gt;It is possible that this is an implementation error.&lt;/del&gt; There
+turns out to be no errors. When naively comparing the bytes of the two formats,
+they appear to be shifted by one bit. The reason is that, in XML, the random
+portion is converted directly to bytes. But in the binary format, zigzag
+encoding is used.&lt;/p&gt;</content:encoded></item><item><title>UniqueId timestamp</title><link>https://anaminus.github.io/blog/briefs/202203180739/</link><pubDate>Fri, 18 Mar 2022 07:39:53 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202203180739/</guid><content:encoded>&lt;p&gt;Boring Facts: The UniqueId type found in Roblox place files contains a timestamp
+with the epoch set at 2021-01-01. This can be used to determine when an instance
+was created, per studio session.&lt;/p&gt;</content:encoded></item></channel></rss>
