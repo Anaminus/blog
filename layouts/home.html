@@ -11,11 +11,11 @@
 		{{- end }}
 	</ul>
 	{{- if gt (len $pages) $max }}
-		<p><a href="{{.Permalink}}">More →</a></p>
+		<p><a href="{{.RelPermalink}}">More →</a></p>
 	{{- end}}
 {{- end }}
 {{- range $name, $tax := site.Taxonomies }}
-	<h1><a href="{{$tax.Page.Permalink}}">{{$tax.Page.Title}}</a></h1>
+	<h1><a href="{{$tax.Page.RelPermalink}}">{{$tax.Page.Title}}</a></h1>
 	{{- $max := or (int site.Params.termListSize) (int math.MaxInt64) }}
 	{{- $terms := $tax.ByCount }}
 	<ul class="columned">
@@ -24,7 +24,7 @@
 		{{- end }}
 	</ul>
 	{{- if gt (len $terms) $max }}
-		<p><a href="{{$tax.Page.Permalink}}">More →</a></p>
+		<p><a href="{{$tax.Page.RelPermalink}}">More →</a></p>
 	{{- end}}
 {{- end }}
 {{- end }}

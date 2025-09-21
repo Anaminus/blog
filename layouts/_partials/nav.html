@@ -2,7 +2,7 @@
 <nav>
 	{{- $up := (index .Ancestors 0) }}
 	{{- if $up }}
-		<a href="{{$up.Permalink}}">{{if eq $up.Kind "home"}}Front{{else}}{{$up.Title}}{{end}}</a>
+		<a href="{{$up.RelPermalink}}">{{if eq $up.Kind "home"}}Front{{else}}{{$up.Title}}{{end}}</a>
 	{{- end }}
 </nav>
 {{- end }}

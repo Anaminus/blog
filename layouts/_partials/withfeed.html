@@ -4,5 +4,5 @@
 {{- if eq $ctx page }}
 <h1 class="with-feed">{{or $title .Title}}{{partial "feed.html" $rss}}</h1>
 {{- else }}
-<h1 class="with-feed"><a href="{{$ctx.Permalink}}">{{or $title .Title}}</a>{{partial "feed.html" $rss}}</h1>
+<h1 class="with-feed"><a href="{{$ctx.RelPermalink}}">{{or $title .Title}}</a>{{partial "feed.html" $rss}}</h1>
 {{- end }}

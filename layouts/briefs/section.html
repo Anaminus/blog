@@ -16,14 +16,14 @@
 					{{- if .Params.replyto }}
 						<a href="{{.Params.replyto}}" target="_blank">⤷ Reply</a>
 					{{- end }}
-					<h1><a href="{{.Permalink}}">{{.Title}}</a></h1>
+					<h1><a href="{{.RelPermalink}}">{{.Title}}</a></h1>
 					<time class="date" title="{{.Date | time.Format "2006-01-02 15:04"}}">{{.Date | time.Format "2006-01-02"}}</time>
 				</div>
 			</header>
 			{{- .Content -}}
 			<div class="tags">
 				{{- range .GetTerms "tags" }}
-					<a class="tag" href="{{.Permalink}}">{{partial "format-term.txt" (slice "tags" (.Path | path.Base))}}</a>
+					<a class="tag" href="{{.RelPermalink}}">{{partial "format-term.txt" (slice "tags" (.Path | path.Base))}}</a>
 				{{- end }}
 			</div>
 		</article>
