@@ -57,4 +57,7 @@ they appear to be shifted by one bit. The reason is that, in XML, the random
 portion is converted directly to bytes. But in the binary format, zigzag
 encoding is used.&lt;/p&gt;</content:encoded></item><item><title>UniqueId timestamp</title><link>https://anaminus.github.io/blog/briefs/202203180739/</link><pubDate>Fri, 18 Mar 2022 07:39:53 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202203180739/</guid><content:encoded>&lt;p&gt;Boring Facts: The UniqueId type found in Roblox place files contains a timestamp
 with the epoch set at 2021-01-01. This can be used to determine when an instance
-was created, per studio session.&lt;/p&gt;</content:encoded></item></channel></rss>
+was created, per studio session.&lt;/p&gt;</content:encoded></item><item><title>RBXM to RBXMX</title><link>https://anaminus.github.io/blog/briefs/202203071611/</link><pubDate>Mon, 07 Mar 2022 16:11:37 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202203071611/</guid><content:encoded>&lt;p&gt;If you&amp;rsquo;re having trouble getting rbxmk to covert rbxm to rbxmx correctly, it&amp;rsquo;s
+probably to do with Roblox&amp;rsquo;s API dump missing certain serialized properties.
+I&amp;rsquo;ve created a patch file that will add such properties back to the dump.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Anaminus/rbxmk/tree/imperative/doc/examples/dump-patch"&gt;https://github.com/Anaminus/rbxmk/tree/imperative/doc/examples/dump-patch&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
