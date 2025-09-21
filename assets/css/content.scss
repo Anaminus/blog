@@ -141,6 +141,9 @@ strong {
 em {
 	font-style: italic;
 }
+del {
+	text-decoration: line-through;
+}
 hr {
 	border: 0;
 	border-block-start: 1px solid var(--theme-line);
