@@ -21,4 +21,7 @@ when buying ice cream at the drive thru&lt;/p&gt;
 &lt;li&gt;Buy plugin&lt;/li&gt;
 &lt;li&gt;It turns out to be shit&lt;/li&gt;
 &lt;li&gt;Could have been ice cream&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item></channel></rss>
+&lt;/ol&gt;</content:encoded></item><item><title>Query plugin</title><link>https://anaminus.github.io/blog/briefs/202201191349/</link><pubDate>Wed, 19 Jan 2022 13:49:40 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201191349/</guid><content:encoded>&lt;p&gt;Lately I&amp;rsquo;ve been getting a lot of mileage out this selection querying plugin I
+made:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/blob/master/plugins/Utilities/q.lua"&gt;https://github.com/Anaminus/roblox-library/blob/master/plugins/Utilities/q.lua&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s based on Lua expressions (with some extra syntax), so it&amp;rsquo;s very versatile.&lt;/p&gt;</content:encoded></item></channel></rss>

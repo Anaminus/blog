@@ -14,4 +14,6 @@ checker start slapping you with errors for things are logically correct.&lt;/p&g
 A, then logically, &lt;code&gt;else&lt;/code&gt; should refine to type B. Yet I have to find out the
 hard way that it doesn&amp;rsquo;t.&lt;/p&gt;</content:encoded></item><item><title>table.unpack vs table.move</title><link>https://anaminus.github.io/blog/briefs/202204290035/</link><pubDate>Fri, 29 Apr 2022 00:35:51 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202204290035/</guid><content:encoded>&lt;p&gt;Which is faster: &lt;code&gt;table.unpack&lt;/code&gt; or &lt;code&gt;table.move?&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;table.unpack&lt;/code&gt; is going to be dumping potentially tons of values onto the stack,
-while &lt;code&gt;table.move&lt;/code&gt; can avoid the stack entirely.&lt;/p&gt;</content:encoded></item></channel></rss>
+while &lt;code&gt;table.move&lt;/code&gt; can avoid the stack entirely.&lt;/p&gt;</content:encoded></item><item><title>select bug</title><link>https://anaminus.github.io/blog/briefs/202202091515/</link><pubDate>Wed, 09 Feb 2022 15:15:19 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202091515/</guid><content:encoded>&lt;p&gt;If you&amp;rsquo;re getting errors from my studio plugins, it&amp;rsquo;s because the select
+function is being unruly again.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://devforum.roblox.com/t/1652975/7"&gt;https://devforum.roblox.com/t/1652975/7&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>

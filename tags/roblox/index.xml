@@ -58,7 +58,7 @@ handled by monitoring the key&amp;rsquo;s InputObject, while mouse wheel input i
 handled by getting it from a source, because an emission from a source doesn&amp;rsquo;t
 always correspond to a property change.&lt;/p&gt;
 &lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202306282139/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>Input position</title><link>https://anaminus.github.io/blog/briefs/202306272259/</link><pubDate>Tue, 27 Jun 2023 22:59:22 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202306272259/</guid><content:encoded>&lt;p&gt;Boring Facts: The Position of a Keyboard InputObject will update with the
-position of the mouse while the key is held down.&lt;/p&gt;
+position of the mouse while the key is held down. This includes the mouse wheel.&lt;/p&gt;
 &lt;p&gt;Correction: Only some keys do this, including the arrow keys, Return, Backspace,
 and Delete.&lt;/p&gt;
 &lt;p&gt;Further correction: this is caused by key repetition. Generally, a keyboard
@@ -997,4 +997,114 @@ on audio before uploading it.&lt;/p&gt;</content:encoded></item><item><title>Dow
 &lt;p&gt;&lt;a href="https://github.com/Anaminus/rbxmk/blob/imperative/doc/examples/download-audio.rbxmk.lua"&gt;https://github.com/Anaminus/rbxmk/blob/imperative/doc/examples/download-audio.rbxmk.lua&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Megaphone</title><link>https://anaminus.github.io/blog/briefs/202203091824/</link><pubDate>Wed, 09 Mar 2022 18:24:15 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202203091824/</guid><content:encoded>&lt;p&gt;There goes my carefully curated list of Arsenal megaphone spam.&lt;/p&gt;</content:encoded></item><item><title>RBXM to RBXMX</title><link>https://anaminus.github.io/blog/briefs/202203071611/</link><pubDate>Mon, 07 Mar 2022 16:11:37 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202203071611/</guid><content:encoded>&lt;p&gt;If you&amp;rsquo;re having trouble getting rbxmk to covert rbxm to rbxmx correctly, it&amp;rsquo;s
 probably to do with Roblox&amp;rsquo;s API dump missing certain serialized properties.
 I&amp;rsquo;ve created a patch file that will add such properties back to the dump.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/Anaminus/rbxmk/tree/imperative/doc/examples/dump-patch"&gt;https://github.com/Anaminus/rbxmk/tree/imperative/doc/examples/dump-patch&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;&lt;a href="https://github.com/Anaminus/rbxmk/tree/imperative/doc/examples/dump-patch"&gt;https://github.com/Anaminus/rbxmk/tree/imperative/doc/examples/dump-patch&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Sun rays Mk II</title><link>https://anaminus.github.io/blog/briefs/202202211845/</link><pubDate>Mon, 21 Feb 2022 18:45:36 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202211845/</guid><content:encoded>&lt;p&gt;Sun rays with much better performance.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202202211845/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Lot to unpack here. Each ray is a triangle within a MeshPart. Each MeshPart
+groups together 85 triangles. Each vertex has a corresponding Bone, so the
+triangles can be positioned independently and arbitrarily. Rays are produced by
+allocating tris from the 85-tri meshes. A new MeshPart is created once all the
+tris from the previous MeshPart are used.&lt;/p&gt;
+&lt;p&gt;The ForceField material is utilized here. As previously mentioned, the
+orientation of vertex normals affects the appearance of the force field. Each
+vertex corresponds to a bone. For each tri, one of the bones is designated as a
+&amp;ldquo;roller&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;The roller bone is moved out of the MeshPart into a separate Part that is
+attached with a BallSocketConstraint at the original location. This part has
+another attachment with a randomized orientation. This randomized attachment is
+assigned to an AlignOrientation.&lt;/p&gt;
+&lt;p&gt;The other end of the AlignOrientation is assigned to a single attachment. The
+brick in the video contains this attachment. The rotation of this brick is
+directly controlling the &amp;ldquo;movement&amp;rdquo; of the rays.&lt;/p&gt;
+&lt;p&gt;The extra attachment with the randomized orientation is necessary so that the
+appearance of force fields are spread out and unaligned. Assemblies with
+BallSockets are necessary so that the bones are detected correctly while
+allowing free orientation.&lt;/p&gt;
+&lt;p&gt;Now that I think about, the whole thing is driven entirely by physics. The only
+script running continuously is to rotate the brick, but that&amp;rsquo;s only because the
+AngularVelocity constraint was being finicky.&lt;/p&gt;
+&lt;p&gt;Driving the control brick through physics doesn&amp;rsquo;t work well, because the rollers
+seem to fall asleep or otherwise get stuck. Updating it via script seems to keep
+them awake.&lt;/p&gt;</content:encoded></item><item><title>Sun rays</title><link>https://anaminus.github.io/blog/briefs/202202201547/</link><pubDate>Sun, 20 Feb 2022 15:47:20 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202201547/</guid><content:encoded>&lt;p&gt;Sun rays.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202202201547/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Each ray is just a stretched cube mesh with an almost transparent ForceField
+material. The mesh is just for surface smoothing, so a simple Union could be
+used as well, though it&amp;rsquo;s less convenient to resize. Each part is rotated
+continuously.&lt;/p&gt;
+&lt;p&gt;Rays are cast from a defined plane using GetSunDirection, so some occlusion can
+be achieved.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202202201547/02.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;In practice, it seems like using meshes and ForceFields is excessive. Regular
+transparent parts seem to produce more or less the same effect.&lt;/p&gt;
+&lt;p&gt;Retrying with a simple triangle mesh has much better performance. An interesting
+side-effect of using a mesh with bones is that the shape and appearance of the
+ForceField can be controlled by the vertex normals.&lt;/p&gt;
+&lt;p&gt;Rotating the vertex normals instead of the part produces a subtle
+rolling-fog-like effect. Not sure if it will show up in the video, but it&amp;rsquo;s
+really cool. Unfortunately, the performance is awful. Bone modification doesn&amp;rsquo;t
+seem to be as optimized as it could be.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202202201547/01.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;According to the profiler, modifying a Bone&amp;rsquo;s CFrame once involves 27 instances
+of &amp;ldquo;Loader&amp;rdquo;, each involving a call to &amp;ldquo;IsA&amp;rdquo;. Definitely doesn&amp;rsquo;t seem right.&lt;/p&gt;
+&lt;p&gt;Apparently the ForceField material can be affected by vertex color alphas, but
+Blender doesn&amp;rsquo;t support them???&lt;/p&gt;
+&lt;p&gt;A further optimization is to have multiple triangles per MeshPart. A mesh can
+have up to 256 bones, which amounts to 85 triangles. This reduces the above
+scene of ~400 parts down to just 6.&lt;/p&gt;</content:encoded></item><item><title>Plugin marketplace</title><link>https://anaminus.github.io/blog/briefs/202202152348/</link><pubDate>Tue, 15 Feb 2022 23:48:57 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202152348/</guid><content:encoded>&lt;p&gt;It&amp;rsquo;s fine to put pressure on Roblox for the plugin marketplace, but you have no
+business being angry about it. Its financial viability was questioned from the
+moment it was introduced.&lt;/p&gt;
+&lt;p&gt;It has been around two years with no action from Roblox. A very short time to
+coordinate a multitude of features across a variety of systems and teams while
+also juggling other priorities. Especially considering the happenings during
+those two particular years. My impression is that they&amp;rsquo;re working on it. Give
+the feature the time it deserves.&lt;/p&gt;
+&lt;p&gt;Moving to &lt;a href="http://itch.io"&gt;http://itch.io&lt;/a&gt; is an excellent way to apply pressure and get Roblox to
+reevaluate their priorities. I just think that being upset about it comes off as
+entitled.&lt;/p&gt;</content:encoded></item><item><title>coroutine.close</title><link>https://anaminus.github.io/blog/briefs/202202152139/</link><pubDate>Tue, 15 Feb 2022 21:39:57 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202152139/</guid><content:encoded>&lt;p&gt;The new &lt;code&gt;coroutine.close&lt;/code&gt; doesn&amp;rsquo;t cause the thread to be removed from the
+scheduler, so it&amp;rsquo;s still sitting around in memory. Proper delay cancellation
+remains unsolved.&lt;/p&gt;</content:encoded></item><item><title>Plugin marketplace category</title><link>https://anaminus.github.io/blog/briefs/202202111213/</link><pubDate>Fri, 11 Feb 2022 12:13:56 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202111213/</guid><content:encoded>&lt;p&gt;Just now I discovered that the devforum has a private category specifically for
+the plugin marketplace, created only a few months ago. Maybe something&amp;rsquo;s up.&lt;/p&gt;</content:encoded></item><item><title>Plugin running</title><link>https://anaminus.github.io/blog/briefs/202202101444/</link><pubDate>Thu, 10 Feb 2022 14:44:21 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202101444/</guid><content:encoded>&lt;p&gt;Plugins run a lot earlier than you&amp;rsquo;d think. If you need to depend on the game
+running, you can do the following to block:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-lua" data-lang="lua"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;RunService&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;IsRunning&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="kr"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;RunService.Stepped&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Wait&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>select bug</title><link>https://anaminus.github.io/blog/briefs/202202091515/</link><pubDate>Wed, 09 Feb 2022 15:15:19 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202091515/</guid><content:encoded>&lt;p&gt;If you&amp;rsquo;re getting errors from my studio plugins, it&amp;rsquo;s because the select
+function is being unruly again.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://devforum.roblox.com/t/1652975/7"&gt;https://devforum.roblox.com/t/1652975/7&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Money</title><link>https://anaminus.github.io/blog/briefs/202202061847/</link><pubDate>Sun, 06 Feb 2022 18:47:14 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202061847/</guid><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;A player reaches out to you for support on your Roblox game (data loss). While
+gathering information you realize they ran exploits. Do you continue with
+their request?&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/Ozzypig/status/1490454687539150853"&gt;Ozzypig, 10:37 PM · Feb 6, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Assuming my game has already isolated them from non-exploiters, the answer
+depends on whether they&amp;rsquo;re making me money.&lt;/p&gt;</content:encoded></item><item><title>Ripples</title><link>https://anaminus.github.io/blog/briefs/202202022336/</link><pubDate>Wed, 02 Feb 2022 23:36:29 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202022336/</guid><content:encoded>&lt;p&gt;Tried a ripple effect.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202202022336/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;</content:encoded></item><item><title>CFrames</title><link>https://anaminus.github.io/blog/briefs/202202011854/</link><pubDate>Tue, 01 Feb 2022 18:54:55 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202011854/</guid><content:encoded>&lt;p&gt;Attributes are not allowed to be CFrames. Why.&lt;/p&gt;
+&lt;p&gt;Moreover, since Roblox&amp;rsquo;s inception they haven&amp;rsquo;t displayed CFrames in the
+properties panel. Instead we&amp;rsquo;ve been getting things like Position/Orientation
+pseudo-representations for select properties.&lt;/p&gt;
+&lt;p&gt;Roblox could have done this years ago:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202202011854/00.png" width="368" height="206" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>ContentQueue</title><link>https://anaminus.github.io/blog/briefs/202202011201/</link><pubDate>Tue, 01 Feb 2022 12:01:44 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202011201/</guid><content:encoded>&lt;p&gt;ContentQueue: ordered preloading of assets.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/tree/master/modules/ContentQueue"&gt;https://github.com/Anaminus/roblox-library/tree/master/modules/ContentQueue&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Production logos</title><link>https://anaminus.github.io/blog/briefs/202202011022/</link><pubDate>Tue, 01 Feb 2022 10:22:52 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202011022/</guid><content:encoded>&lt;p&gt;Production logo sequencer.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202202011022/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;First logo is actually 3D to avoid loading assets. On the other hand, the next
+logo loads over 500 assets; the previous logo will wait until the next logo is
+finished loading. The second run of the sequence demonstrates skipping via user
+input.&lt;/p&gt;</content:encoded></item><item><title>Maid outfits</title><link>https://anaminus.github.io/blog/briefs/202201300125/</link><pubDate>Sun, 30 Jan 2022 01:25:57 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201300125/</guid><content:encoded>&lt;p&gt;Maid objects are just tables in maid outfits.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202201300125/00.jpg" width="909" height="1200" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Maid pattern</title><link>https://anaminus.github.io/blog/briefs/202201300109/</link><pubDate>Sun, 30 Jan 2022 01:09:27 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201300109/</guid><content:encoded>&lt;p&gt;Maids are a pattern.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-lua" data-lang="lua"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;maid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;finish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;maid&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;task&lt;/span&gt; &lt;span class="kr"&gt;in&lt;/span&gt; &lt;span class="n"&gt;pairs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;maid&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;		&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="kr"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;	&lt;span class="n"&gt;table.clear&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;maid&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;button.Activated&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;listener&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;maid.activated&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Disconnect&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="kr"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;instance.Parent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parent&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;maid.instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Destroy&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="kr"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;otherMaid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;otherMaid.maid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="n"&gt;finish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;maid&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;finish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;otherMaid&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Blender modernity</title><link>https://anaminus.github.io/blog/briefs/202201242346/</link><pubDate>Mon, 24 Jan 2022 23:46:45 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201242346/</guid><content:encoded>&lt;p&gt;After working with Blender for a while, Studio&amp;rsquo;s UI is really starting to feel
+primitive.&lt;/p&gt;</content:encoded></item><item><title>Query plugin</title><link>https://anaminus.github.io/blog/briefs/202201191349/</link><pubDate>Wed, 19 Jan 2022 13:49:40 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201191349/</guid><content:encoded>&lt;p&gt;Lately I&amp;rsquo;ve been getting a lot of mileage out this selection querying plugin I
+made:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/blob/master/plugins/Utilities/q.lua"&gt;https://github.com/Anaminus/roblox-library/blob/master/plugins/Utilities/q.lua&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s based on Lua expressions (with some extra syntax), so it&amp;rsquo;s very versatile.&lt;/p&gt;</content:encoded></item></channel></rss>

@@ -30,4 +30,5 @@ single location, which you can then move to the center of the desired pixel.&lt;
 &lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/posts/tiny-uv/fig9.webm" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Another interesting idea: Because colors are interpolated, we could set the
 coordinates to somewhere besides a pixel center, in order to get more colors.
 For example, the simple 2-by-1 white-to-black texture can also be used to get
-any shade of gray.&lt;/p&gt;</content:encoded></item></channel></rss>
+any shade of gray.&lt;/p&gt;</content:encoded></item><item><title>Blender modernity</title><link>https://anaminus.github.io/blog/briefs/202201242346/</link><pubDate>Mon, 24 Jan 2022 23:46:45 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201242346/</guid><content:encoded>&lt;p&gt;After working with Blender for a while, Studio&amp;rsquo;s UI is really starting to feel
+primitive.&lt;/p&gt;</content:encoded></item></channel></rss>

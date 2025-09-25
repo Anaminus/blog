@@ -13,4 +13,14 @@ characters worse.&lt;/p&gt;</content:encoded></item><item><title>Growth</title><
 written for trivial things doesn&amp;rsquo;t mean you should use any of them.&lt;/p&gt;
 &lt;p&gt;Most of these kinds of libraries are, at most, collections of snippets. They are
 short, complete, and are not worth an entire dependency. Just inline it.&lt;/p&gt;</content:encoded></item><item><title>Smashed statements</title><link>https://anaminus.github.io/blog/briefs/202205232032/</link><pubDate>Mon, 23 May 2022 20:32:43 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202205232032/</guid><content:encoded>&lt;p&gt;This morning I was flipping out over the line &lt;code&gt;*(form++) = '%';&lt;/code&gt; in a C
-codebase. Code shouldn&amp;rsquo;t be written this way anymore.&lt;/p&gt;</content:encoded></item></channel></rss>
+codebase. Code shouldn&amp;rsquo;t be written this way anymore.&lt;/p&gt;</content:encoded></item><item><title>Plugin marketplace</title><link>https://anaminus.github.io/blog/briefs/202202152348/</link><pubDate>Tue, 15 Feb 2022 23:48:57 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202202152348/</guid><content:encoded>&lt;p&gt;It&amp;rsquo;s fine to put pressure on Roblox for the plugin marketplace, but you have no
+business being angry about it. Its financial viability was questioned from the
+moment it was introduced.&lt;/p&gt;
+&lt;p&gt;It has been around two years with no action from Roblox. A very short time to
+coordinate a multitude of features across a variety of systems and teams while
+also juggling other priorities. Especially considering the happenings during
+those two particular years. My impression is that they&amp;rsquo;re working on it. Give
+the feature the time it deserves.&lt;/p&gt;
+&lt;p&gt;Moving to &lt;a href="http://itch.io"&gt;http://itch.io&lt;/a&gt; is an excellent way to apply pressure and get Roblox to
+reevaluate their priorities. I just think that being upset about it comes off as
+entitled.&lt;/p&gt;</content:encoded></item></channel></rss>
