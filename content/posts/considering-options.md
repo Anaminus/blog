@@ -2,7 +2,7 @@
 title = "Considering options"
 description = "How to implement an Optional type in Go."
 date = 2022-11-10 06:00:00
-tags = ["golang"]
+tags = ["go"]
 +++
 
 I'm in the middle of rewriting [rbxfile][rbxfile]. A rewrite gives the

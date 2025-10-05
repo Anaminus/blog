@@ -2,7 +2,7 @@
 title = "Iota tricks"
 description = "Using Go's iota for questionable reasons."
 date = 2025-09-26 12:00:00
-tags = ["golang"]
+tags = ["go"]
 +++
 
 Go has a neat syntax called [iota][iota], which sequentially increments for
