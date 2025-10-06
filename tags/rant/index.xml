@@ -122,4 +122,33 @@ That wasn&amp;rsquo;t so hard.&lt;/em&gt;&lt;/p&gt;</content:encoded></item><ite
 properties panel. Instead we&amp;rsquo;ve been getting things like Position/Orientation
 pseudo-representations for select properties.&lt;/p&gt;
 &lt;p&gt;Roblox could have done this years ago:&lt;/p&gt;
-&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202202011854/00.png" width="368" height="206" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202202011854/00.png" width="368" height="206" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Search engines</title><link>https://anaminus.github.io/blog/briefs/202112272208/</link><pubDate>Mon, 27 Dec 2021 22:08:04 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112272208/</guid><content:encoded>&lt;p&gt;The current state of search engines: I do a search for &amp;ldquo;firefox import profile&amp;rdquo;
+and the top result is a health website titled &amp;ldquo;Import Browser Settings Firefox
+Cancer&amp;rdquo;. Next result is a cooking website titled &amp;ldquo;Import Firefox Settings Best
+Recipes&amp;rdquo;.&lt;/p&gt;</content:encoded></item><item><title>If expressions</title><link>https://anaminus.github.io/blog/briefs/202112231648/</link><pubDate>Thu, 23 Dec 2021 16:48:59 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112231648/</guid><content:encoded>&lt;p&gt;Not having if-expressions would have forced you to write it out as a full
+statement, having the miraculous side-effect of making the code clearer. This is
+why I&amp;rsquo;m so grumpy about the syntax&amp;rsquo;s inclusion.&lt;/p&gt;</content:encoded></item><item><title>Spiral rule</title><link>https://anaminus.github.io/blog/briefs/202112101350/</link><pubDate>Fri, 10 Dec 2021 13:50:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112101350/</guid><content:encoded>&lt;p&gt;There are people who defend this syntax.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202112101350/00.png" width="776" height="664" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Check for updates</title><link>https://anaminus.github.io/blog/briefs/202112030724/</link><pubDate>Fri, 03 Dec 2021 07:24:44 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112030724/</guid><content:encoded>&lt;p&gt;Really annoyed by plugins that roll their own update checker. Especially ones
+that don&amp;rsquo;t let me disable it. Apparently the Plugin Management panel doesn&amp;rsquo;t get
+in my face enough for the author&amp;rsquo;s liking.&lt;/p&gt;</content:encoded></item><item><title>Software marketing</title><link>https://anaminus.github.io/blog/briefs/202110130904/</link><pubDate>Wed, 13 Oct 2021 09:04:38 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202110130904/</guid><content:encoded>&lt;p&gt;Only market a few of your software projects. When you&amp;rsquo;re actively trying to
+bring in users, you&amp;rsquo;re creating an expectation of longevity. If you do this for
+dozens of projects, you wont be able to maintain them all at once, leading to
+stagnation and abandonment.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve seen a few groups that are doing this. They have handfuls of projects, each
+complete with websites, documentation, and other user-friendly concepts meant to
+improve usage. I see them and wonder how they plan on maintaining all of these
+projects for the next 5 to 10 years.&lt;/p&gt;
+&lt;p&gt;The more interest there is, the better chance you’ll have of finding other
+dedicated maintainers that you can eventually hand off to. However, this is more
+difficult for niche products, like those specific to Roblox, where the overall
+pool of potential maintainers is smaller.&lt;/p&gt;
+&lt;p&gt;It’s the marketing that makes a strong promise of long-term maintenance. If you
+release something publicly, but aren’t trying to pull in users, then you aren’t
+making that promise quite so strongly, so you can get away with lesser or no
+maintenance.&lt;/p&gt;
+&lt;p&gt;There are other strategies, too. You can clearly define the scope of your
+project, making it possible to come to a state of completion, and therefore,
+little to no maintenance. You can also make it extensible, which transfers some
+of the burden to extension authors.&lt;/p&gt;</content:encoded></item><item><title>ID verification</title><link>https://anaminus.github.io/blog/briefs/202109211325/</link><pubDate>Tue, 21 Sep 2021 13:25:34 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202109211325/</guid><content:encoded>&lt;p&gt;Giving away your soul has never been easier.&lt;/p&gt;</content:encoded></item><item><title>MemoryStoreService</title><link>https://anaminus.github.io/blog/briefs/202109210922/</link><pubDate>Tue, 21 Sep 2021 09:22:32 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202109210922/</guid><content:encoded>&lt;p&gt;The documentation for the new MemoryStoreService is, of course, lacking. I&amp;rsquo;m
+still able answer most of my own questions, but it&amp;rsquo;s a lot of extra work that
+shouldn&amp;rsquo;t be necessary.&lt;/p&gt;</content:encoded></item></channel></rss>

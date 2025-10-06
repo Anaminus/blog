@@ -982,4 +982,192 @@ primitive.&lt;/p&gt;</content:encoded></item><item><title>Quotes</title><link>ht
 scrambling to finish.&lt;/p&gt;</content:encoded></item><item><title>Query plugin</title><link>https://anaminus.github.io/blog/briefs/202201191349/</link><pubDate>Wed, 19 Jan 2022 13:49:40 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201191349/</guid><content:encoded>&lt;p&gt;Lately I&amp;rsquo;ve been getting a lot of mileage out this selection querying plugin I
 made:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/Anaminus/roblox-library/blob/master/plugins/Utilities/q.lua"&gt;https://github.com/Anaminus/roblox-library/blob/master/plugins/Utilities/q.lua&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s based on Lua expressions (with some extra syntax), so it&amp;rsquo;s very versatile.&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;It&amp;rsquo;s based on Lua expressions (with some extra syntax), so it&amp;rsquo;s very versatile.&lt;/p&gt;</content:encoded></item><item><title>Cloth</title><link>https://anaminus.github.io/blog/briefs/202201131143/</link><pubDate>Thu, 13 Jan 2022 11:43:47 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201131143/</guid><content:encoded>&lt;p&gt;Hot take: Cloth is just a 2D rope.&lt;/p&gt;</content:encoded></item><item><title>Cloth physics</title><link>https://anaminus.github.io/blog/briefs/202201122039/</link><pubDate>Wed, 12 Jan 2022 20:39:04 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201122039/</guid><content:encoded>&lt;p&gt;Here&amp;rsquo;s cloth physics via RodConstraints. Cloth is a MeshPart deformed by bones.
+Bone positions are matched to node positions by a script. An AngularVelocity
+dampens each node, since their rotations like to go crazy for some reason.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202201122039/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Bones have to be parented to a MeshPart to work, so a script is necessary. It
+would be neat if they could refer to a mesh instead, so that they could be
+placed inside different parts.&lt;/p&gt;
+&lt;p&gt;Seems to run surprisingly well. Like capes-for-everyone might be viable, at
+least for a low player count.&lt;/p&gt;
+&lt;p&gt;The MeshPart is anchored, but its appearance is deformed using bones. A script
+updates the positions of the bones every frame to match the positions of the red
+balls, which are simulated with Roblox’s physics.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s cloth with SpringConstraints instead of rods. LinearVelocity dampens
+movement. VectorForce negates gravity to reduce weight. Spring Stiffness makes
+the cloth more or less stretchy.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202201122039/01.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;RodConstraints are much better for less stretchy material, but the
+LinearVelocity force has to be increased to compensate for the increased
+rigidity:&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202201122039/02.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Apparently the orientation of bones affects the vertex normals of meshes, so I
+can&amp;rsquo;t really get away with just ignoring it. No good way using constraints, so
+I&amp;rsquo;ll have to calculate it in Luau.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202201122039/03.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;hr&gt;
+&lt;p&gt;What am I doing with my life.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202201122039/04.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;So, yes, it is possible to control bones with other parts, but it requires
+certain constraint types to work. BallAndSocket is the most versatile, so I&amp;rsquo;ll
+see if I can construct cloth out of that. Until then, it&amp;rsquo;s floppy rigatoni.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;hey tony, rig me a pasta noodle&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll have to rig-a-toni. Hahaha HAHAHAHAA AAAAAAAAAAAAAAAAAAAAAAAAA&lt;/p&gt;
+&lt;p&gt;&amp;mdash; Me (utterly deranged)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;Think I have a general theory of how skinned meshes work. Two bones are merged
+if and only if they:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;have the same Name.&lt;/li&gt;
+&lt;li&gt;are under the same Model.&lt;/li&gt;
+&lt;li&gt;are a part of the same assembly via compatible joints (JointInstance,
+BallSocketConstraint, HingeConstraint).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If more than two bones meet these criteria, only one pair is merged. It&amp;rsquo;s not
+clear which pair is selected, but it&amp;rsquo;s probably undefined.&lt;/p&gt;
+&lt;p&gt;Bones usually exist internally in a mesh. The Bone instance can be thought of as
+creating a virtual internal bone that is then merged as usual.&lt;/p&gt;
+&lt;p&gt;Some examples of valid skinned mesh configurations (I forgot to update the
+compatible joint list; any JointInstance is allowed, not just Motor6Ds and
+Welds):&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202201122039/05.png" width="800" height="880" loading="lazy"&gt;&lt;/figure&gt;&lt;blockquote&gt;
+&lt;p&gt;We variously called them “skinning islands” or “skeletons” instead of
+assemblies (can span multiple assemblies or just a subset of one), but that’s
+pretty much it. Bones don’t have to be child of mesh at all.&lt;/p&gt;
+&lt;p&gt;This is how skinned avatars work. Parts link up, internal bones linked to the
+respective parts. Using Parts instead of Bones but it’s all using the same
+logic.&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href="https://twitter.com/ContextLostRBX/status/1482992805953736704"&gt;@ContextLostRBX, 8:26 AM · Jan 17, 2022&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;Here&amp;rsquo;s cloth driven entirely by physics. No scripts. Vertex normals are still a
+problem because the BallSockets are allowed to twist. But if twist limits are
+enabled, they start vibrating for some reason. Maybe the attachments are
+oriented wrong.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202201122039/06.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Constructed in a zigzag because I had trouble getting the mesh to merge to the
+assembly any other way. Either it only merges into one branch of an assembly, or
+it&amp;rsquo;s something to do with the attachments. Doesn&amp;rsquo;t seem to care about the
+direction of the connections, though.&lt;/p&gt;
+&lt;p&gt;BallSockets have a sort of stiffness property that can be used to dampen the
+motion, but this only works well for stiffer cloths. LinearVelocity will be
+better for lighter cloth because it simulates air resistance.&lt;/p&gt;
+&lt;p&gt;The horizontal red lines are Rods. It would actually be better to make these
+parts with BallSockets on each end, so that all joints can have stiffness
+applied to them. I&amp;rsquo;m not sure how that would affect the &amp;ldquo;branchiness&amp;rdquo; of the
+assembly, though.&lt;/p&gt;
+&lt;p&gt;Tried a new skeleton consisting of rows of chains of bones, which correspond to
+chains of BallSockets. Each joint is then connected by a Rod. The problem now is
+that character movement is way too aggressive. Maybe increasing the cloth weight
+will help?&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202201122039/07.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;What happens when I enable collisions:&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202201122039/08.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;Nuking appears to be caused by cloth joints getting under the Humanoid. So,
+instead of colliding with the Default group, a separate &amp;ldquo;ClothExclusion&amp;rdquo; group
+is used (in red). Lowering the UpperAngle of the BallSockets reduces flailing
+and tangling. Limb clipping still a problem.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202201122039/09.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;The problem with limbs is that the Humanoid forces them to have no collisions.
+Could be resolved by attaching ClothExclusion parts to each limb. Not sure how
+badly that will affect flailing, though, if they even collide correctly.&lt;/p&gt;
+&lt;p&gt;Something to try is to attach an AlignPosition with a weak force to the end of
+each chain, aligning to the expected resting position of the end relative to the
+character. It may also be possible to alter them dynamically to improve air
+resistance simulation.&lt;/p&gt;
+&lt;p&gt;Another problem is that something is interfering with jumping, leading to the
+character being pushed horizontally. Also, landing wrong can cause the cloth to
+detonate.&lt;/p&gt;
+&lt;p&gt;The jumping problem is caused by the cloth joints affecting the inertia of the
+character. Simply moving the cloth outside of the character model solved the
+problem.&lt;/p&gt;
+&lt;p&gt;Tried this, but it works rather poorly. The cloth doesn&amp;rsquo;t respond to limb
+movement very well, so it still clips right through. A combination of reducing
+limb animation and increasing the number of chains might help.&lt;/p&gt;</content:encoded></item><item><title>Light mode</title><link>https://anaminus.github.io/blog/briefs/202201112035/</link><pubDate>Tue, 11 Jan 2022 20:35:21 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201112035/</guid><content:encoded>&lt;p&gt;The reason you dislike light mode is because your room doesn&amp;rsquo;t get enough
+sunlight.&lt;/p&gt;</content:encoded></item><item><title>Export</title><link>https://anaminus.github.io/blog/briefs/202201090825/</link><pubDate>Sun, 09 Jan 2022 08:25:17 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201090825/</guid><content:encoded>&lt;p&gt;One pattern I&amp;rsquo;ve been using lately is naming the table returned by modules
+&amp;ldquo;export&amp;rdquo; instead of the module name. This creates a similarity to exporting
+types, and also frees up the module name to be used for something else (usually
+a metatable).&lt;/p&gt;</content:encoded></item><item><title>Handedness</title><link>https://anaminus.github.io/blog/briefs/202201051046/</link><pubDate>Wed, 05 Jan 2022 10:46:27 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201051046/</guid><content:encoded>&lt;p&gt;Me trying to figure out the handedness of coordinate systems.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202201051046/00.jpg" width="600" height="884" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Reactive graphs</title><link>https://anaminus.github.io/blog/briefs/202112291451/</link><pubDate>Wed, 29 Dec 2021 14:51:06 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112291451/</guid><content:encoded>&lt;p&gt;Thinking about APIs.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202112291451/00.jpg" width="861" height="1059" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;One idea was using add/sub to compose sets of symbol types, such as &lt;code&gt;Prop &amp;quot;Name&amp;quot;-Set&lt;/code&gt; for a read-only property node, or &lt;code&gt;Receiver+Signal &amp;quot;Activated&amp;quot;&lt;/code&gt; for
+a signal with a receiver. The Get/Set symbols would then be usable with Nodes to
+control direction. I&amp;rsquo;m not sure how I feel about it, because it would enable
+weird things like &lt;code&gt;Prop &amp;quot;Foo&amp;quot; + Attr &amp;quot;Bar&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Prototyping. Nothing actually graphy yet. &amp;ldquo;Prop&amp;rdquo; does get repetitive, so it
+definitely needs a &amp;ldquo;Properties&amp;rdquo; tag that receives a dictionary.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202112291451/01.png" width="724" height="687" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Inst isn&amp;rsquo;t built in the to core (&amp;ldquo;Graf&amp;rdquo;). Instead, the core defines interfaces,
+and Inst is just an implementation that operates on instances. Bind does the
+heavy lifting of making data flow.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202112291451/02.png" width="717" height="209" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Bind returns the instance, along with a list of tasks to be finalized somewhere.
+Schedule just sets these tasks to be finalized when the instance is destroyed.
+Context returns a resolver that converts things like &lt;code&gt;Prop&amp;quot;Name&amp;quot;&lt;/code&gt; into actual
+state.&lt;/p&gt;
+&lt;p&gt;Implementing recursion. A context can resolve a sink (stuff on the left) into
+another context, which must receive a map as a source (stuff on the right). In
+this example, Properties becomes a context that converts string sinks into
+property setters in addition to the usual stuff.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202112291451/03.png" width="558" height="342" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Graphs</title><link>https://anaminus.github.io/blog/briefs/202112290938/</link><pubDate>Wed, 29 Dec 2021 09:38:04 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112290938/</guid><content:encoded>&lt;p&gt;thinkin bout graphs again&lt;/p&gt;</content:encoded></item><item><title>NFTs</title><link>https://anaminus.github.io/blog/briefs/202112282023/</link><pubDate>Tue, 28 Dec 2021 20:23:11 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112282023/</guid><content:encoded>&lt;p&gt;An NFT is a string of bytes. Some authority invented out of thin air then makes
+the unenforceable claim that these bytes are associated with something else in a
+vain attempt to give them value. After that it&amp;rsquo;s just the usual trading of fake
+items in a fake market with fake money.&lt;/p&gt;
+&lt;p&gt;Given that the value of these items hinge completely on this authority anyway,
+the blockchain part (and all the dumb shit that goes with it) can be skipped
+entirely. This is how Roblox works.&lt;/p&gt;
+&lt;p&gt;The real point of interest is whether the fake money can be exchanged for real
+money. In Roblox&amp;rsquo;s case, the fake money earned from the sales of fake items
+cannot be exchanged for real money. However, it can be used indirectly towards
+earning &amp;ldquo;clean&amp;rdquo; money that can be exchanged.&lt;/p&gt;</content:encoded></item><item><title>Search engines</title><link>https://anaminus.github.io/blog/briefs/202112272208/</link><pubDate>Mon, 27 Dec 2021 22:08:04 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112272208/</guid><content:encoded>&lt;p&gt;The current state of search engines: I do a search for &amp;ldquo;firefox import profile&amp;rdquo;
+and the top result is a health website titled &amp;ldquo;Import Browser Settings Firefox
+Cancer&amp;rdquo;. Next result is a cooking website titled &amp;ldquo;Import Firefox Settings Best
+Recipes&amp;rdquo;.&lt;/p&gt;</content:encoded></item><item><title>If expressions</title><link>https://anaminus.github.io/blog/briefs/202112231648/</link><pubDate>Thu, 23 Dec 2021 16:48:59 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112231648/</guid><content:encoded>&lt;p&gt;Not having if-expressions would have forced you to write it out as a full
+statement, having the miraculous side-effect of making the code clearer. This is
+why I&amp;rsquo;m so grumpy about the syntax&amp;rsquo;s inclusion.&lt;/p&gt;</content:encoded></item><item><title>Collision detection</title><link>https://anaminus.github.io/blog/briefs/202112130043/</link><pubDate>Mon, 13 Dec 2021 00:43:31 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112130043/</guid><content:encoded>&lt;p&gt;Continuous collision detection. Very happy to finally have this working. No
+raycasts. All Luau and a bunch of maths.&lt;/p&gt;
+&lt;figure&gt;&lt;video src="https://anaminus.github.io/blog/briefs/202112130043/00.mp4" controls loop&gt;&lt;/video&gt;&lt;/figure&gt;&lt;p&gt;The position of the yellow ball is the white ball plus its velocity. The green
+ball is the yellow ball plus the new velocity.&lt;/p&gt;
+&lt;p&gt;It only does spheres vs triangles since that’s all I need, but it’s based off of
+&lt;a href="https://github.com/davideberly/GeometricTools"&gt;GeometricTools&lt;/a&gt;, which has a number of different shapes.&lt;/p&gt;</content:encoded></item><item><title>Spiral rule</title><link>https://anaminus.github.io/blog/briefs/202112101350/</link><pubDate>Fri, 10 Dec 2021 13:50:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112101350/</guid><content:encoded>&lt;p&gt;There are people who defend this syntax.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202112101350/00.png" width="776" height="664" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Check for updates</title><link>https://anaminus.github.io/blog/briefs/202112030724/</link><pubDate>Fri, 03 Dec 2021 07:24:44 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112030724/</guid><content:encoded>&lt;p&gt;Really annoyed by plugins that roll their own update checker. Especially ones
+that don&amp;rsquo;t let me disable it. Apparently the Plugin Management panel doesn&amp;rsquo;t get
+in my face enough for the author&amp;rsquo;s liking.&lt;/p&gt;</content:encoded></item><item><title>Roblox tough guy</title><link>https://anaminus.github.io/blog/briefs/202111300348/</link><pubDate>Tue, 30 Nov 2021 03:48:36 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202111300348/</guid><content:encoded>&lt;p&gt;I&amp;rsquo;ll set your Parent property to nil. I&amp;rsquo;ll call Destroy on your ass. You must
+weigh a singleton, because you&amp;rsquo;re nothing but Debris to me. Your family better
+connect to your Died event, because I&amp;rsquo;ll set your Health to 0. You better
+BindToClose, because I&amp;rsquo;m about to shut you down.&lt;/p&gt;
+&lt;p&gt;No need to set BreakJointsOnDeath, I&amp;rsquo;ll just call BreakJoints directly. We
+better update your Transparency, because you&amp;rsquo;re about to become a ghost. Your
+ancestry is about to change, kiddo. You&amp;rsquo;re no longer gonna be a descendant of
+this DataModel when I&amp;rsquo;m through with you.&lt;/p&gt;
+&lt;p&gt;And don&amp;rsquo;t think you&amp;rsquo;re coming back, because I&amp;rsquo;m setting your RespawnLocation to
+nil. You&amp;rsquo;re gonna be FallingDown, but you wont be GettingUp, because I disabled
+that Humanoid state. Your thread is suspended, and I&amp;rsquo;m calling coroutine.close
+on you. No need to defer THIS task.&lt;/p&gt;
+&lt;p&gt;The Garbage Collector&amp;rsquo;ll need several cycles to clean YOU away. Calling
+GetFriendsOnline on you always returns an empty array. I&amp;rsquo;ll set your HeadLocked
+and max out your NearPlaneZ. By the way these insults are licensed under MIT.&lt;/p&gt;</content:encoded></item><item><title>Verification</title><link>https://anaminus.github.io/blog/briefs/202111242015/</link><pubDate>Wed, 24 Nov 2021 20:15:32 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202111242015/</guid><content:encoded>&lt;p&gt;If you have to verify that the results the AI produces are correct, do you
+really save any effort?&lt;/p&gt;</content:encoded></item><item><title>Loadstring</title><link>https://anaminus.github.io/blog/briefs/202111130955/</link><pubDate>Sat, 13 Nov 2021 09:55:48 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202111130955/</guid><content:encoded>&lt;p&gt;If you&amp;rsquo;re writing a plugin and want to avoid optimization penalties associated
+with loadstring, you can just create a ModuleScript, set the Source, then
+require it.&lt;/p&gt;</content:encoded></item><item><title>Procrastination</title><link>https://anaminus.github.io/blog/briefs/202110311931/</link><pubDate>Sun, 31 Oct 2021 19:31:35 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202110311931/</guid><content:encoded>&lt;p&gt;Finally I can get back to procrastinating.&lt;/p&gt;</content:encoded></item><item><title>Downtime lore</title><link>https://anaminus.github.io/blog/briefs/202110300030/</link><pubDate>Sat, 30 Oct 2021 00:30:03 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202110300030/</guid><content:encoded>&lt;p&gt;You don&amp;rsquo;t need Studio to expand your game&amp;rsquo;s lore.&lt;/p&gt;</content:encoded></item><item><title>Naming</title><link>https://anaminus.github.io/blog/briefs/202110261007/</link><pubDate>Tue, 26 Oct 2021 10:07:22 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202110261007/</guid><content:encoded>&lt;p&gt;Don&amp;rsquo;t rename something until you&amp;rsquo;ve found that it has been consistently causing
+confusion.&lt;/p&gt;</content:encoded></item><item><title>Linux support</title><link>https://anaminus.github.io/blog/briefs/202110241043/</link><pubDate>Sun, 24 Oct 2021 10:43:15 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202110241043/</guid><content:encoded>&lt;p&gt;Game developer supports Linux, receives more higher quality,
+non-platform-specific bug reports.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.reddit.com/r/gamedev/comments/qeqn3b/despite_having_just_58_sales_over_38_of_bug/"&gt;https://www.reddit.com/r/gamedev/comments/qeqn3b/despite_having_just_58_sales_over_38_of_bug/&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Downtime</title><link>https://anaminus.github.io/blog/briefs/202110190855/</link><pubDate>Tue, 19 Oct 2021 08:55:52 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202110190855/</guid><content:encoded>&lt;p&gt;Remember, time spent without access to Studio could be time spent singing
+praises of The Cloud.&lt;/p&gt;</content:encoded></item><item><title>Software marketing</title><link>https://anaminus.github.io/blog/briefs/202110130904/</link><pubDate>Wed, 13 Oct 2021 09:04:38 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202110130904/</guid><content:encoded>&lt;p&gt;Only market a few of your software projects. When you&amp;rsquo;re actively trying to
+bring in users, you&amp;rsquo;re creating an expectation of longevity. If you do this for
+dozens of projects, you wont be able to maintain them all at once, leading to
+stagnation and abandonment.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve seen a few groups that are doing this. They have handfuls of projects, each
+complete with websites, documentation, and other user-friendly concepts meant to
+improve usage. I see them and wonder how they plan on maintaining all of these
+projects for the next 5 to 10 years.&lt;/p&gt;
+&lt;p&gt;The more interest there is, the better chance you’ll have of finding other
+dedicated maintainers that you can eventually hand off to. However, this is more
+difficult for niche products, like those specific to Roblox, where the overall
+pool of potential maintainers is smaller.&lt;/p&gt;
+&lt;p&gt;It’s the marketing that makes a strong promise of long-term maintenance. If you
+release something publicly, but aren’t trying to pull in users, then you aren’t
+making that promise quite so strongly, so you can get away with lesser or no
+maintenance.&lt;/p&gt;
+&lt;p&gt;There are other strategies, too. You can clearly define the scope of your
+project, making it possible to come to a state of completion, and therefore,
+little to no maintenance. You can also make it extensible, which transfers some
+of the burden to extension authors.&lt;/p&gt;</content:encoded></item><item><title>ReflectionMetadata</title><link>https://anaminus.github.io/blog/briefs/202110071042/</link><pubDate>Thu, 07 Oct 2021 10:42:00 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202110071042/</guid><content:encoded>&lt;p&gt;Roblox engineers definitely modify ReflectionMetadata manually.&lt;/p&gt;</content:encoded></item><item><title>ID verification</title><link>https://anaminus.github.io/blog/briefs/202109211325/</link><pubDate>Tue, 21 Sep 2021 13:25:34 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202109211325/</guid><content:encoded>&lt;p&gt;Giving away your soul has never been easier.&lt;/p&gt;</content:encoded></item><item><title>MemoryStoreService</title><link>https://anaminus.github.io/blog/briefs/202109210922/</link><pubDate>Tue, 21 Sep 2021 09:22:32 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202109210922/</guid><content:encoded>&lt;p&gt;The documentation for the new MemoryStoreService is, of course, lacking. I&amp;rsquo;m
+still able answer most of my own questions, but it&amp;rsquo;s a lot of extra work that
+shouldn&amp;rsquo;t be necessary.&lt;/p&gt;</content:encoded></item><item><title>Railroad tracks</title><link>https://anaminus.github.io/blog/briefs/202109142011/</link><pubDate>Tue, 14 Sep 2021 20:11:59 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202109142011/</guid><content:encoded>&lt;p&gt;Bezier curves aren&amp;rsquo;t necessarily bad for railroad tracks, they just need more
+constraints. Real tracks have relatively wide minimum curvature to account for
+things like speed and axle spacing.&lt;/p&gt;
+&lt;p&gt;Then there&amp;rsquo;s things like track transition curves. The radius of a track curve
+should transition gradually from one radius to the next. There should be a
+length of straight track in the transition to a reverse curve.&lt;/p&gt;</content:encoded></item><item><title>Long-hauling</title><link>https://anaminus.github.io/blog/briefs/202109121431/</link><pubDate>Sun, 12 Sep 2021 14:31:53 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202109121431/</guid><content:encoded>&lt;p&gt;Developing on Roblox.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202109121431/00.jpg" width="400" height="300" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>

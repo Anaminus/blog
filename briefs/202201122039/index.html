@@ -1,0 +1,56 @@
+<!doctype html><html lang=en-US dir=ltr><head><meta charset=utf-8><meta name=viewport content="initial-scale=1,width=device-width"><link rel=icon type=image/png sizes=32x32 href=/blog/favicons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/blog/favicons/favicon-16x16.png><link rel="shortcut icon" href=/blog/favicons/favicon.ico><title>Cloth physics | Anaminus.Blog</title><meta name=twitter:card content="summary"><meta name=twitter:title content="Cloth physics | Anaminus.Blog"><meta name=twitter:image content="https://anaminus.github.io/blog/favicons/favicon-512x512.png"><meta property="og:type" content="website"><meta property="og:title" content="Cloth physics | Anaminus.Blog"><meta property="og:image" content="https://anaminus.github.io/blog/favicons/favicon-512x512.png"><link rel=stylesheet href=/blog/main.min.ec8850f9fe3ad746e212254e26de9fd02b07508eb40640aa7bd0e787afd42ba9.css integrity="sha256-7IhQ+f4610biEiVOJt6f0CsHUI60BkCqe9Dnh6/UK6k=" crossorigin=anonymous></head><body><header><a href=/blog/><svg class="header" width="43" height="9" viewBox="0 0 43 9"><title>Logo with title ".Blog"</title><path class="logo" d="m2 1v1H1v3h1v3h1V7h1v1h1V5h1V2H5V1H4v1H3V1zm0 2h1v1H2zm2 0h1v1H4z"/><path class="title" d="m13 1v7h4V7h-3V5h3V4h-3V2h3V1zm4 1v2h1V2zm0 3v2h1V5zm2-2v5h5V7h-4V3zm7 0v1h3V3zm3 1v3h1V4zm0 3h-3v1h3zm-3 0V4h-1v3zm6-4v1h4V3zm0 1h-1v3h1zm0 3v1h3V7zm3 0h1V5h-3v1h2zM9 7v1h1V7z"/><path class="cursor" d="m37 8h5v1h-5z"/></svg></a></header><main><nav><a href=/blog/briefs/>Briefs</a></nav><article><header><div class=title><h1>Cloth physics</h1><span class=date>Published on <time>2022-01-12 20:39</time></span></div><div class=subtitle><span class=tags><a class=tag href=/blog/tags/roblox/>#roblox</a>
+<a class=tag href=/blog/tags/gamedev/>#gamedev</a></span></div></header><p>Here&rsquo;s cloth physics via RodConstraints. Cloth is a MeshPart deformed by bones.
+Bone positions are matched to node positions by a script. An AngularVelocity
+dampens each node, since their rotations like to go crazy for some reason.</p><figure><video src=/blog/briefs/202201122039/00.mp4 controls loop></video></figure><p>Bones have to be parented to a MeshPart to work, so a script is necessary. It
+would be neat if they could refer to a mesh instead, so that they could be
+placed inside different parts.</p><p>Seems to run surprisingly well. Like capes-for-everyone might be viable, at
+least for a low player count.</p><p>The MeshPart is anchored, but its appearance is deformed using bones. A script
+updates the positions of the bones every frame to match the positions of the red
+balls, which are simulated with Roblox’s physics.</p><p>Here&rsquo;s cloth with SpringConstraints instead of rods. LinearVelocity dampens
+movement. VectorForce negates gravity to reduce weight. Spring Stiffness makes
+the cloth more or less stretchy.</p><figure><video src=/blog/briefs/202201122039/01.mp4 controls loop></video></figure><p>RodConstraints are much better for less stretchy material, but the
+LinearVelocity force has to be increased to compensate for the increased
+rigidity:</p><figure><video src=/blog/briefs/202201122039/02.mp4 controls loop></video></figure><p>Apparently the orientation of bones affects the vertex normals of meshes, so I
+can&rsquo;t really get away with just ignoring it. No good way using constraints, so
+I&rsquo;ll have to calculate it in Luau.</p><figure><video src=/blog/briefs/202201122039/03.mp4 controls loop></video></figure><hr><p>What am I doing with my life.</p><figure><video src=/blog/briefs/202201122039/04.mp4 controls loop></video></figure><p>So, yes, it is possible to control bones with other parts, but it requires
+certain constraint types to work. BallAndSocket is the most versatile, so I&rsquo;ll
+see if I can construct cloth out of that. Until then, it&rsquo;s floppy rigatoni.</p><blockquote><p>&ldquo;hey tony, rig me a pasta noodle&rdquo;</p><p>I&rsquo;ll have to rig-a-toni. Hahaha HAHAHAHAA AAAAAAAAAAAAAAAAAAAAAAAAA</p><p>&mdash; Me (utterly deranged)</p></blockquote><hr><p>Think I have a general theory of how skinned meshes work. Two bones are merged
+if and only if they:</p><ul><li>have the same Name.</li><li>are under the same Model.</li><li>are a part of the same assembly via compatible joints (JointInstance,
+BallSocketConstraint, HingeConstraint).</li></ul><p>If more than two bones meet these criteria, only one pair is merged. It&rsquo;s not
+clear which pair is selected, but it&rsquo;s probably undefined.</p><p>Bones usually exist internally in a mesh. The Bone instance can be thought of as
+creating a virtual internal bone that is then merged as usual.</p><p>Some examples of valid skinned mesh configurations (I forgot to update the
+compatible joint list; any JointInstance is allowed, not just Motor6Ds and
+Welds):</p><figure><img src=/blog/briefs/202201122039/05.png width=800 height=880 loading=lazy></figure><blockquote><p>We variously called them “skinning islands” or “skeletons” instead of
+assemblies (can span multiple assemblies or just a subset of one), but that’s
+pretty much it. Bones don’t have to be child of mesh at all.</p><p>This is how skinned avatars work. Parts link up, internal bones linked to the
+respective parts. Using Parts instead of Bones but it’s all using the same
+logic.</p><p>&mdash; <a href=https://twitter.com/ContextLostRBX/status/1482992805953736704>@ContextLostRBX, 8:26 AM · Jan 17, 2022</a></p></blockquote><hr><p>Here&rsquo;s cloth driven entirely by physics. No scripts. Vertex normals are still a
+problem because the BallSockets are allowed to twist. But if twist limits are
+enabled, they start vibrating for some reason. Maybe the attachments are
+oriented wrong.</p><figure><video src=/blog/briefs/202201122039/06.mp4 controls loop></video></figure><p>Constructed in a zigzag because I had trouble getting the mesh to merge to the
+assembly any other way. Either it only merges into one branch of an assembly, or
+it&rsquo;s something to do with the attachments. Doesn&rsquo;t seem to care about the
+direction of the connections, though.</p><p>BallSockets have a sort of stiffness property that can be used to dampen the
+motion, but this only works well for stiffer cloths. LinearVelocity will be
+better for lighter cloth because it simulates air resistance.</p><p>The horizontal red lines are Rods. It would actually be better to make these
+parts with BallSockets on each end, so that all joints can have stiffness
+applied to them. I&rsquo;m not sure how that would affect the &ldquo;branchiness&rdquo; of the
+assembly, though.</p><p>Tried a new skeleton consisting of rows of chains of bones, which correspond to
+chains of BallSockets. Each joint is then connected by a Rod. The problem now is
+that character movement is way too aggressive. Maybe increasing the cloth weight
+will help?</p><figure><video src=/blog/briefs/202201122039/07.mp4 controls loop></video></figure><p>What happens when I enable collisions:</p><figure><video src=/blog/briefs/202201122039/08.mp4 controls loop></video></figure><p>Nuking appears to be caused by cloth joints getting under the Humanoid. So,
+instead of colliding with the Default group, a separate &ldquo;ClothExclusion&rdquo; group
+is used (in red). Lowering the UpperAngle of the BallSockets reduces flailing
+and tangling. Limb clipping still a problem.</p><figure><video src=/blog/briefs/202201122039/09.mp4 controls loop></video></figure><p>The problem with limbs is that the Humanoid forces them to have no collisions.
+Could be resolved by attaching ClothExclusion parts to each limb. Not sure how
+badly that will affect flailing, though, if they even collide correctly.</p><p>Something to try is to attach an AlignPosition with a weak force to the end of
+each chain, aligning to the expected resting position of the end relative to the
+character. It may also be possible to alter them dynamically to improve air
+resistance simulation.</p><p>Another problem is that something is interfering with jumping, leading to the
+character being pushed horizontally. Also, landing wrong can cause the cloth to
+detonate.</p><p>The jumping problem is caused by the cloth joints affecting the inertia of the
+character. Simply moving the cloth outside of the character model solved the
+problem.</p><p>Tried this, but it works rather poorly. The cloth doesn&rsquo;t respond to limb
+movement very well, so it still clips right through. A combination of reducing
+limb animation and increasing the number of chains might help.</p></article></main><footer><span class=license>Content is licensed under <a href=https://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA-4.0</a><a class=feed-icon title="RSS feed" href=/blog/index.xml><svg width="128" height="128" viewBox="0 0 256 256"><path d="m92 189a24 24 0 01-24 24 24 24 0 01-24-24 24 24 0 0124-24 24 24 0 0124 24z"/><path d="m160 213h-34a82 82 0 00-82-82V97a116 116 0 01116 116z"/><path d="M184 213A140 140 0 0044 73V38a175 175 0 01175 175z"/></svg></a></span>
+<span class=publication><svg viewBox="0 0 7 7" width="7" height="7"><path d="m2 0v1H1v3h1v3h1V6h1v1h1V4h1V1H5V0H4v1H3V0zm0 2h1v1H2zm2 0h1v1H4z"/></svg> 2022–2025 <a href=https://anaminus.github.io/>Anaminus</a></span></footer></body></html>

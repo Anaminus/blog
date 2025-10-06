@@ -256,4 +256,49 @@ remains unsolved.&lt;/p&gt;</content:encoded></item><item><title>Yaks</title><li
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;otherMaid.maid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="n"&gt;finish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;maid&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;end&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;finish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;otherMaid&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title>Export</title><link>https://anaminus.github.io/blog/briefs/202201090825/</link><pubDate>Sun, 09 Jan 2022 08:25:17 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202201090825/</guid><content:encoded>&lt;p&gt;One pattern I&amp;rsquo;ve been using lately is naming the table returned by modules
+&amp;ldquo;export&amp;rdquo; instead of the module name. This creates a similarity to exporting
+types, and also frees up the module name to be used for something else (usually
+a metatable).&lt;/p&gt;</content:encoded></item><item><title>Reactive graphs</title><link>https://anaminus.github.io/blog/briefs/202112291451/</link><pubDate>Wed, 29 Dec 2021 14:51:06 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112291451/</guid><content:encoded>&lt;p&gt;Thinking about APIs.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202112291451/00.jpg" width="861" height="1059" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;One idea was using add/sub to compose sets of symbol types, such as &lt;code&gt;Prop &amp;quot;Name&amp;quot;-Set&lt;/code&gt; for a read-only property node, or &lt;code&gt;Receiver+Signal &amp;quot;Activated&amp;quot;&lt;/code&gt; for
+a signal with a receiver. The Get/Set symbols would then be usable with Nodes to
+control direction. I&amp;rsquo;m not sure how I feel about it, because it would enable
+weird things like &lt;code&gt;Prop &amp;quot;Foo&amp;quot; + Attr &amp;quot;Bar&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Prototyping. Nothing actually graphy yet. &amp;ldquo;Prop&amp;rdquo; does get repetitive, so it
+definitely needs a &amp;ldquo;Properties&amp;rdquo; tag that receives a dictionary.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202112291451/01.png" width="724" height="687" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Inst isn&amp;rsquo;t built in the to core (&amp;ldquo;Graf&amp;rdquo;). Instead, the core defines interfaces,
+and Inst is just an implementation that operates on instances. Bind does the
+heavy lifting of making data flow.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202112291451/02.png" width="717" height="209" loading="lazy"&gt;&lt;/figure&gt;&lt;p&gt;Bind returns the instance, along with a list of tasks to be finalized somewhere.
+Schedule just sets these tasks to be finalized when the instance is destroyed.
+Context returns a resolver that converts things like &lt;code&gt;Prop&amp;quot;Name&amp;quot;&lt;/code&gt; into actual
+state.&lt;/p&gt;
+&lt;p&gt;Implementing recursion. A context can resolve a sink (stuff on the left) into
+another context, which must receive a map as a source (stuff on the right). In
+this example, Properties becomes a context that converts string sinks into
+property setters in addition to the usual stuff.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202112291451/03.png" width="558" height="342" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Graphs</title><link>https://anaminus.github.io/blog/briefs/202112290938/</link><pubDate>Wed, 29 Dec 2021 09:38:04 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112290938/</guid><content:encoded>&lt;p&gt;thinkin bout graphs again&lt;/p&gt;</content:encoded></item><item><title>Spiral rule</title><link>https://anaminus.github.io/blog/briefs/202112101350/</link><pubDate>Fri, 10 Dec 2021 13:50:10 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202112101350/</guid><content:encoded>&lt;p&gt;There are people who defend this syntax.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://anaminus.github.io/blog/briefs/202112101350/00.png" width="776" height="664" loading="lazy"&gt;&lt;/figure&gt;</content:encoded></item><item><title>Loadstring</title><link>https://anaminus.github.io/blog/briefs/202111130955/</link><pubDate>Sat, 13 Nov 2021 09:55:48 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202111130955/</guid><content:encoded>&lt;p&gt;If you&amp;rsquo;re writing a plugin and want to avoid optimization penalties associated
+with loadstring, you can just create a ModuleScript, set the Source, then
+require it.&lt;/p&gt;</content:encoded></item><item><title>Naming</title><link>https://anaminus.github.io/blog/briefs/202110261007/</link><pubDate>Tue, 26 Oct 2021 10:07:22 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202110261007/</guid><content:encoded>&lt;p&gt;Don&amp;rsquo;t rename something until you&amp;rsquo;ve found that it has been consistently causing
+confusion.&lt;/p&gt;</content:encoded></item><item><title>Software marketing</title><link>https://anaminus.github.io/blog/briefs/202110130904/</link><pubDate>Wed, 13 Oct 2021 09:04:38 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202110130904/</guid><content:encoded>&lt;p&gt;Only market a few of your software projects. When you&amp;rsquo;re actively trying to
+bring in users, you&amp;rsquo;re creating an expectation of longevity. If you do this for
+dozens of projects, you wont be able to maintain them all at once, leading to
+stagnation and abandonment.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve seen a few groups that are doing this. They have handfuls of projects, each
+complete with websites, documentation, and other user-friendly concepts meant to
+improve usage. I see them and wonder how they plan on maintaining all of these
+projects for the next 5 to 10 years.&lt;/p&gt;
+&lt;p&gt;The more interest there is, the better chance you’ll have of finding other
+dedicated maintainers that you can eventually hand off to. However, this is more
+difficult for niche products, like those specific to Roblox, where the overall
+pool of potential maintainers is smaller.&lt;/p&gt;
+&lt;p&gt;It’s the marketing that makes a strong promise of long-term maintenance. If you
+release something publicly, but aren’t trying to pull in users, then you aren’t
+making that promise quite so strongly, so you can get away with lesser or no
+maintenance.&lt;/p&gt;
+&lt;p&gt;There are other strategies, too. You can clearly define the scope of your
+project, making it possible to come to a state of completion, and therefore,
+little to no maintenance. You can also make it extensible, which transfers some
+of the burden to extension authors.&lt;/p&gt;</content:encoded></item></channel></rss>

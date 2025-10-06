@@ -4,4 +4,6 @@ balance.&lt;/p&gt;</content:encoded></item><item><title>UpdateAsync</title><link
 is discarded.&lt;/p&gt;
 &lt;p&gt;Because this is so simple to understand, the docs choose to not mention it
 anywhere. The result for me is years of UpdateAsync never quite clicking. One
-tiny sentence is all it takes.&lt;/p&gt;</content:encoded></item></channel></rss>
+tiny sentence is all it takes.&lt;/p&gt;</content:encoded></item><item><title>MemoryStoreService</title><link>https://anaminus.github.io/blog/briefs/202109210922/</link><pubDate>Tue, 21 Sep 2021 09:22:32 +0000</pubDate><guid>https://anaminus.github.io/blog/briefs/202109210922/</guid><content:encoded>&lt;p&gt;The documentation for the new MemoryStoreService is, of course, lacking. I&amp;rsquo;m
+still able answer most of my own questions, but it&amp;rsquo;s a lot of extra work that
+shouldn&amp;rsquo;t be necessary.&lt;/p&gt;</content:encoded></item></channel></rss>
